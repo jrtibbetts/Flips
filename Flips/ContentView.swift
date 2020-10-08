@@ -1,14 +1,10 @@
-//
-//  ContentView.swift
-//  Flips
-//
 //  Created by Jason R Tibbetts on 10/7/20.
-//
 
-import SwiftUI
 import CoreData
+import SwiftUI
 
 struct ContentView: View {
+
     @Environment(\.managedObjectContext) private var viewContext
 
     @FetchRequest(
