@@ -1,9 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="1" systemVersion="11A491" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="true" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
+    <entity name="Noun" representedClassName="Noun" parentEntity="Word" syncable="YES" codeGenerationType="class"/>
+    <entity name="PartOfSpeech" representedClassName="PartOfSpeech" syncable="YES" codeGenerationType="class">
+        <relationship name="word" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Word" inverseName="partOfSpeech" inverseEntity="Word"/>
+    </entity>
+    <entity name="Verb" representedClassName="Verb" parentEntity="Word" syncable="YES" codeGenerationType="class"/>
+    <entity name="Word" representedClassName="Word" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <relationship name="partOfSpeech" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PartOfSpeech" inverseName="word" inverseEntity="PartOfSpeech"/>
+    </entity>
     <elements>
         <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
+        <element name="Word" positionX="-63" positionY="-18" width="128" height="58"/>
+        <element name="Verb" positionX="-54" positionY="-9" width="128" height="43"/>
+        <element name="Noun" positionX="-36" positionY="9" width="128" height="43"/>
+        <element name="PartOfSpeech" positionX="-18" positionY="27" width="128" height="58"/>
     </elements>
 </model>
