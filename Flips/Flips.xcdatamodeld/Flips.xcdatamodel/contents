@@ -1,21 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Definable" representedClassName="Definable" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <relationship name="definition" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Definition"/>
+    </entity>
+    <entity name="Definition" representedClassName="Definition" syncable="YES" codeGenerationType="class">
+        <attribute name="text" optional="YES" attributeType="String"/>
+    </entity>
     <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
         <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
     </entity>
     <entity name="Noun" representedClassName="Noun" parentEntity="Word" syncable="YES" codeGenerationType="class"/>
     <entity name="PartOfSpeech" representedClassName="PartOfSpeech" syncable="YES" codeGenerationType="class">
-        <relationship name="word" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Word" inverseName="partOfSpeech" inverseEntity="Word"/>
+        <relationship name="words" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Word" inverseName="partOfSpeech" inverseEntity="Word"/>
+    </entity>
+    <entity name="Phrase" representedClassName="Phrase" parentEntity="Definable" syncable="YES" codeGenerationType="class">
+        <relationship name="words" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Word" inverseName="phrases" inverseEntity="Word"/>
     </entity>
     <entity name="Verb" representedClassName="Verb" parentEntity="Word" syncable="YES" codeGenerationType="class"/>
-    <entity name="Word" representedClassName="Word" isAbstract="YES" syncable="YES" codeGenerationType="class">
-        <relationship name="partOfSpeech" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PartOfSpeech" inverseName="word" inverseEntity="PartOfSpeech"/>
+    <entity name="Word" representedClassName="Word" isAbstract="YES" parentEntity="Definable" syncable="YES" codeGenerationType="class">
+        <attribute name="root" optional="YES" attributeType="String"/>
+        <relationship name="partOfSpeech" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PartOfSpeech" inverseName="words" inverseEntity="PartOfSpeech"/>
+        <relationship name="phrases" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Phrase" inverseName="words" inverseEntity="Phrase"/>
     </entity>
     <elements>
         <element name="Item" positionX="-63" positionY="-18" width="128" height="44"/>
-        <element name="Word" positionX="-63" positionY="-18" width="128" height="58"/>
+        <element name="Word" positionX="-63" positionY="-18" width="128" height="88"/>
         <element name="Verb" positionX="-54" positionY="-9" width="128" height="43"/>
         <element name="Noun" positionX="-36" positionY="9" width="128" height="43"/>
         <element name="PartOfSpeech" positionX="-18" positionY="27" width="128" height="58"/>
+        <element name="Definition" positionX="0" positionY="54" width="128" height="58"/>
+        <element name="Phrase" positionX="18" positionY="72" width="128" height="58"/>
+        <element name="Definable" positionX="36" positionY="81" width="128" height="58"/>
     </elements>
 </model>
