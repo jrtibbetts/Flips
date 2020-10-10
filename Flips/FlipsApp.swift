@@ -1,9 +1,4 @@
-//
-//  FlipsApp.swift
-//  Flips
-//
 //  Created by Jason R Tibbetts on 10/7/20.
-//
 
 import SwiftUI
 
@@ -13,7 +8,7 @@ struct FlipsApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            CardsView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
