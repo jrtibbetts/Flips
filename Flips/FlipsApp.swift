@@ -12,4 +12,5 @@ struct FlipsApp: App {
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
+
 }
