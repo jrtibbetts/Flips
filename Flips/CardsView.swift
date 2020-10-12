@@ -20,7 +20,8 @@ struct CardsView: View {
 //                NavigationLink("Add Verb", destination: AddVerbView(verb: Verb(context: viewContext)))
 
                 ForEach(verbs) { verb in
-                    NavigationLink(verb.root ?? "(no root)", destination: EditVerbView(verb: verb))
+                    NavigationLink(verb.root ?? "(no root)",
+                                   destination: VerbConjugationView(verb: verb))
                 }
 //                .onDelete(perform: deleteItems)
             }

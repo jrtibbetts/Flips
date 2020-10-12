@@ -2,6 +2,61 @@
 
 import SwiftUI
 
+struct InflectionCell: View {
+
+    var ending: String = ""
+
+    var pronoun: String = ""
+
+    var root: String = ""
+
+    var body: some View {
+        GeometryReader { (proxy) in
+            let proxyWidth = proxy.size.width
+
+            HStack {
+                HStack {
+                    Text(root)
+                        .font(.body)
+                        .multilineTextAlignment(.trailing)
+                    Text(ending)
+                        .font(.body)
+                        .fontWeight(.bold)
+                        .multilineTextAlignment(.leading)
+                }
+//                .frame(width: proxyWidth * 0.8)
+
+                Text(pronoun)
+//                    .frame(width: proxyWidth * 0.2)
+            }
+
+        }
+    }
+}
+
+struct InflectionTableRow: View {
+
+    var root: String = ""
+
+    var singular: (ending: String, pronoun: String)
+
+    var plural: (ending: String, pronoun: String)
+
+    var body: some View {
+        GeometryReader { (proxy) in
+            let proxyWidth = proxy.size.width
+
+            HStack {
+                InflectionCell(ending: singular.ending, pronoun: singular.pronoun, root: root)
+//                    .frame(width: proxyWidth * 0.5)
+                InflectionCell(ending: plural.ending, pronoun: plural.pronoun, root: root)
+//                    .frame(width: proxyWidth * 0.5)
+           }
+        }
+    }
+
+}
+
 struct VerbConjugationView: View {
 
     var verb: Verb
@@ -13,45 +68,21 @@ struct VerbConjugationView: View {
                     .font(.title)
             }
 
-            GeometryReader { (proxy) in
-                let proxyWidth = proxy.size.width
+            VStack {
+                Text("Present")
+                    .font(.title2)
 
-                VStack {
-                    Text("Present")
-                        .font(.title2)
-
-                    HStack {
-                        Text(verb.root! + "im")
-                            .frame(width: proxyWidth * 0.3)
-                        Text("")
-                            .frame(width: proxyWidth * 0.15)
-                        Text(verb.root! + "imid")
-                            .frame(width: proxyWidth * 0.3)
-                        Text("")
-                            .frame(width: proxyWidth * 0.15)
-                    }
-                    HStack {
-                        Text(verb.root! + "eann")
-                            .frame(width: proxyWidth * 0.3)
-                        Text("tú")
-                            .frame(width: proxyWidth * 0.15)
-                        Text(verb.root! + "eann")
-                            .frame(width: proxyWidth * 0.3)
-                        Text("sibh")
-                            .frame(width: proxyWidth * 0.15)
-                    }
-                    HStack {
-                        Text(verb.root! + "eann")
-                            .frame(width: proxyWidth * 0.3)
-                        Text("sé/sí")
-                            .frame(width: proxyWidth * 0.15)
-                        Text(verb.root! + "eann")
-                            .frame(width: proxyWidth * 0.3)
-                        Text("siad")
-                            .frame(width: proxyWidth * 0.15)
-                    }
-                }
+                InflectionTableRow(root: verb.root!,
+                                   singular: ("im", ""),
+                                   plural: ("imid", ""))
+                InflectionTableRow(root: verb.root!,
+                                   singular: ("eann", "tú"),
+                                   plural: ("eann", "sibh"))
+                InflectionTableRow(root: verb.root!,
+                                   singular: ("eann", "sé/sí"),
+                                   plural: ("eann", "siad"))
             }
+
             Spacer()
         }
     }
