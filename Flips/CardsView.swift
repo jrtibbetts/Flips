@@ -7,27 +7,30 @@ struct AddVerbView: View {
 
     @Environment(\.managedObjectContext) private var viewContext
 
-    @Binding var verbRoot: String
+    var verb: Verb
+
+    @State var verbRoot: String = ""
 
     var body: some View {
         VStack {
             Text("This is the AddVerbView")
-            TextField("Verb Root",
-                      text: $verbRoot,
-                      onEditingChanged: { (successful) in
-                      }) {
-                let newVerb = Verb(context: viewContext)
-                newVerb.root = "How do I get the text from the field?"
-
-                do {
-                    try viewContext.save()
-                } catch {
-                    // Replace this implementation with code to handle the error appropriately.
-                    // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                    let nsError = error as NSError
-                    fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            TextField("Verb Root", text: $verbRoot)
+                .onAppear {
+                    self.verbRoot = self.verb.root ?? ""
                 }
-            }
+//            TextField("Verb Root",
+//                      text: $verb.root ?? "(no root)",
+//                      onEditingChanged: { (successful) in
+//                      }) {
+//                do {
+//                    try viewContext.save()
+//                } catch {
+//                    // Replace this implementation with code to handle the error appropriately.
+//                    // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+//                    let nsError = error as NSError
+//                    fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+//                }
+//            }
         }
     }
 
@@ -36,8 +39,6 @@ struct AddVerbView: View {
 struct CardsView: View {
 
     @Environment(\.managedObjectContext) private var viewContext
-
-    @State var selectedRoot: String = "rith"
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(keyPath: \Verb.root, ascending: true)],
@@ -48,9 +49,12 @@ struct CardsView: View {
         NavigationView {
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))],
                       alignment: .center, spacing: 20) {
-                NavigationLink(destination: AddVerbView(verbRoot: $selectedRoot)) {
-                    Text("Placeholder")
-                }
+                NavigationLink("Add Verb", destination: AddVerbView(verb: Verb(context: viewContext)))
+
+//                ForEach(verbs) { verb in
+//                    NavigationLink(verb.root ?? "(no root)", destination: AddVerbView(verb: verb))
+//                }
+//                .onDelete(perform: deleteItems)
             }
 //            .toolbar {
 //                HStack {
