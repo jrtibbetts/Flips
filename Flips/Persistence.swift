@@ -1,9 +1,4 @@
-//
-//  Persistence.swift
-//  Flips
-//
 //  Created by Jason R Tibbetts on 10/7/20.
-//
 
 import CoreData
 

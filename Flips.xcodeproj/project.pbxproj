@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		961B25DB2533F21F009F43F0 /* EditVerbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961B25DA2533F21F009F43F0 /* EditVerbView.swift */; };
 		9675F1E3252EA6F800CAF7EC /* FlipsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9675F1E2252EA6F800CAF7EC /* FlipsApp.swift */; };
 		9675F1E5252EA6F800CAF7EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9675F1E4252EA6F800CAF7EC /* ContentView.swift */; };
 		9675F1E7252EA6FA00CAF7EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9675F1E6252EA6FA00CAF7EC /* Assets.xcassets */; };
@@ -36,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		961B25DA2533F21F009F43F0 /* EditVerbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVerbView.swift; sourceTree = "<group>"; };
 		9675F1DF252EA6F800CAF7EC /* Flips.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flips.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9675F1E2252EA6F800CAF7EC /* FlipsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipsApp.swift; sourceTree = "<group>"; };
 		9675F1E4252EA6F800CAF7EC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				9675F1F0252EA6FA00CAF7EC /* Info.plist */,
 				9675F218252EA8BD00CAF7EC /* CardsView.swift */,
 				9675F1E4252EA6F800CAF7EC /* ContentView.swift */,
+				961B25DA2533F21F009F43F0 /* EditVerbView.swift */,
 				9675F1E2252EA6F800CAF7EC /* FlipsApp.swift */,
 				9675F1EB252EA6FA00CAF7EC /* Persistence.swift */,
 				9675F1E6252EA6FA00CAF7EC /* Assets.xcassets */,
@@ -271,6 +274,7 @@
 				9675F1EF252EA6FA00CAF7EC /* Flips.xcdatamodeld in Sources */,
 				9675F219252EA8BD00CAF7EC /* CardsView.swift in Sources */,
 				9675F1EC252EA6FA00CAF7EC /* Persistence.swift in Sources */,
+				961B25DB2533F21F009F43F0 /* EditVerbView.swift in Sources */,
 				9675F1E5252EA6F800CAF7EC /* ContentView.swift in Sources */,
 				9675F1E3252EA6F800CAF7EC /* FlipsApp.swift in Sources */,
 			);
