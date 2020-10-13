@@ -9,16 +9,6 @@ public extension Verb {
         case second
     }
 
-    enum Vowel: String {
-        case broad
-        case slender
-    }
-
-    enum Syllables: String {
-        case single
-        case doubleOrMore
-    }
-
     enum Mood: String {
         case conditional
         case imperative
@@ -39,11 +29,27 @@ public extension Verb {
         case autonomous
     }
 
+    enum RootVowel: String {
+        case broad
+        case slender
+    }
+
+    enum Syllables: String {
+        case single
+        case doubleOrMore
+    }
+
     enum Tense: String {
         case present
         case past
         case pastHabitual = "past habitual"
         case future
+    }
+
+    enum Voice: String {
+        case active
+        case middle
+        case passive
     }
 
     struct Ending: Hashable {
@@ -55,24 +61,18 @@ public extension Verb {
         var voice: Voice?
         var declension: Declension
         var syllables: Syllables
-        var vowel: Vowel
+        var rootVowel: RootVowel
 
-    }
-
-    enum Voice: String {
-        case active
-        case middle
-        case passive
     }
 
     static var endings: [Ending: String] = {
         return [
-            Ending(person: .first,  number: .singular, tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, vowel: .slender): "im",
-            Ending(person: .second, number: .singular, tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, vowel: .slender): "eann",
-            Ending(person: .third,  number: .singular, tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, vowel: .slender): "eann",
-            Ending(person: .first,  number: .plural,   tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, vowel: .slender): "imid",
-            Ending(person: .second, number: .plural,   tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, vowel: .slender): "eann",
-            Ending(person: .third,  number: .plural,   tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, vowel: .slender): "eann"
+            Ending(person: .first,  number: .singular, tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, rootVowel: .slender): "im",
+            Ending(person: .second, number: .singular, tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, rootVowel: .slender): "eann",
+            Ending(person: .third,  number: .singular, tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, rootVowel: .slender): "eann",
+            Ending(person: .first,  number: .plural,   tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, rootVowel: .slender): "imid",
+            Ending(person: .second, number: .plural,   tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, rootVowel: .slender): "eann",
+            Ending(person: .third,  number: .plural,   tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, rootVowel: .slender): "eann"
         ]
     }()
 }

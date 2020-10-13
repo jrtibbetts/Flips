@@ -46,7 +46,7 @@ struct InflectionTableRow: View {
 
     var syllables: Verb.Syllables
 
-    var rootVowel: Verb.Vowel
+    var rootVowel: Verb.RootVowel
 
     var singularPronoun: String
 
@@ -61,7 +61,7 @@ struct InflectionTableRow: View {
                                                     voice: voice,
                                                     declension: declension,
                                                     syllables: syllables,
-                                                    vowel: rootVowel)]
+                                                    rootVowel: rootVowel)]
             InflectionCell(ending: singularEnding, pronoun: singularPronoun, root: root)
 
             let pluralEnding   = Verb.endings[.init(person: person,
@@ -71,7 +71,7 @@ struct InflectionTableRow: View {
                                                     voice: voice,
                                                     declension: declension,
                                                     syllables: syllables,
-                                                    vowel: rootVowel)]
+                                                    rootVowel: rootVowel)]
             InflectionCell(ending: pluralEnding, pronoun: singularPronoun, root: root)
        }
     }
