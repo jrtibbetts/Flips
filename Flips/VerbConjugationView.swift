@@ -76,7 +76,7 @@ struct InflectionTableRow: View {
                                                     declension: declension,
                                                     syllables: syllables,
                                                     rootVowel: rootVowel)]
-            InflectionCell(ending: pluralEnding, pronoun: singularPronoun, verb: verb)
+            InflectionCell(ending: pluralEnding, pronoun: pluralPronoun, verb: verb)
        }
     }
 
@@ -111,16 +111,16 @@ struct VerbConjugationView: View {
                                    mood: .indicative,
                                    voice: .active,
                                    declension: .first,
-                                   singularPronoun: "",
-                                   pluralPronoun: "")
+                                   singularPronoun: "tú",
+                                   pluralPronoun: "sibh")
                 InflectionTableRow(verb: verb,
                                    person: .third,
                                    tense: .present,
                                    mood: .indicative,
                                    voice: .active,
                                    declension: .first,
-                                   singularPronoun: "",
-                                   pluralPronoun: "")
+                                   singularPronoun: "sé/sí",
+                                   pluralPronoun: "siad")
            }
 
             Spacer()
