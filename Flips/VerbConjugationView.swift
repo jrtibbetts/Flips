@@ -86,7 +86,10 @@ struct VerbConjugationView_Previews: PreviewProvider {
 
     static var verb: Verb = {
         var verb = Verb(context: PersistenceController.preview.container.viewContext)
-        verb.root = "siul"
+        verb.root = "rith"
+        verb.rootVowel = "i"
+        verb.pastParticiple = "rite"
+        verb.verbalNoun = "rith"
 
         return verb
     }()

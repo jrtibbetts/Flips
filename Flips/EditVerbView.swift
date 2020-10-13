@@ -42,7 +42,15 @@ struct EditVerbView: View {
 
 struct EditVerbView_Previews: PreviewProvider {
 
-    static var verb = Verb(context: PersistenceController.preview.container.viewContext)
+    static var verb: Verb = {
+        var verb = Verb(context: PersistenceController.preview.container.viewContext)
+        verb.root = "rith"
+        verb.rootVowel = "i"
+        verb.pastParticiple = "rite"
+        verb.verbalNoun = "rith"
+
+        return verb
+    }()
 
     static var previews: some View {
         EditVerbView(verb: verb)

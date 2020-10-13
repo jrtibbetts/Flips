@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		961B25DB2533F21F009F43F0 /* EditVerbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961B25DA2533F21F009F43F0 /* EditVerbView.swift */; };
 		961B25E02533F2EB009F43F0 /* VerbConjugationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961B25DF2533F2EB009F43F0 /* VerbConjugationView.swift */; };
+		961B25E92534114D009F43F0 /* VerbEndings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961B25E82534114D009F43F0 /* VerbEndings.swift */; };
 		9675F1E3252EA6F800CAF7EC /* FlipsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9675F1E2252EA6F800CAF7EC /* FlipsApp.swift */; };
 		9675F1E5252EA6F800CAF7EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9675F1E4252EA6F800CAF7EC /* ContentView.swift */; };
 		9675F1E7252EA6FA00CAF7EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9675F1E6252EA6FA00CAF7EC /* Assets.xcassets */; };
@@ -40,6 +41,7 @@
 /* Begin PBXFileReference section */
 		961B25DA2533F21F009F43F0 /* EditVerbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVerbView.swift; sourceTree = "<group>"; };
 		961B25DF2533F2EB009F43F0 /* VerbConjugationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbConjugationView.swift; sourceTree = "<group>"; };
+		961B25E82534114D009F43F0 /* VerbEndings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbEndings.swift; sourceTree = "<group>"; };
 		9675F1DF252EA6F800CAF7EC /* Flips.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flips.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9675F1E2252EA6F800CAF7EC /* FlipsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipsApp.swift; sourceTree = "<group>"; };
 		9675F1E4252EA6F800CAF7EC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -82,6 +84,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		961B25E7253410C1009F43F0 /* Grammar */ = {
+			isa = PBXGroup;
+			children = (
+				961B25E82534114D009F43F0 /* VerbEndings.swift */,
+			);
+			path = Grammar;
+			sourceTree = "<group>";
+		};
 		9675F1D6252EA6F800CAF7EC = {
 			isa = PBXGroup;
 			children = (
@@ -105,6 +115,7 @@
 		9675F1E1252EA6F800CAF7EC /* Flips */ = {
 			isa = PBXGroup;
 			children = (
+				961B25E7253410C1009F43F0 /* Grammar */,
 				9675F1F0252EA6FA00CAF7EC /* Info.plist */,
 				9675F218252EA8BD00CAF7EC /* CardsView.swift */,
 				9675F1E4252EA6F800CAF7EC /* ContentView.swift */,
@@ -277,6 +288,7 @@
 				9675F1EF252EA6FA00CAF7EC /* Flips.xcdatamodeld in Sources */,
 				9675F219252EA8BD00CAF7EC /* CardsView.swift in Sources */,
 				9675F1EC252EA6FA00CAF7EC /* Persistence.swift in Sources */,
+				961B25E92534114D009F43F0 /* VerbEndings.swift in Sources */,
 				961B25DB2533F21F009F43F0 /* EditVerbView.swift in Sources */,
 				9675F1E5252EA6F800CAF7EC /* ContentView.swift in Sources */,
 				961B25E02533F2EB009F43F0 /* VerbConjugationView.swift in Sources */,
