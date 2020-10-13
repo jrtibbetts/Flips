@@ -12,8 +12,6 @@ struct InflectionCell: View {
 
     var body: some View {
         GeometryReader { (proxy) in
-            let proxyWidth = proxy.size.width
-
             HStack {
                 HStack {
                     Text(root ?? "")
@@ -24,10 +22,8 @@ struct InflectionCell: View {
                         .fontWeight(.bold)
                         .multilineTextAlignment(.leading)
                 }
-//                .frame(width: proxyWidth * 0.8)
 
                 Text(pronoun ?? "")
-//                    .frame(width: proxyWidth * 0.2)
             }
 
         }
@@ -38,15 +34,46 @@ struct InflectionTableRow: View {
 
     var root: String = ""
 
-    var singular: (ending: String?, pronoun: String)
+    var person: Verb.Person
 
-    var plural: (ending: String?, pronoun: String)
+    var tense: Verb.Tense
+
+    var mood: Verb.Mood
+
+    var voice: Verb.Voice
+
+    var declension: Verb.Declension
+
+    var syllables: Verb.Syllables
+
+    var rootVowel: Verb.Vowel
+
+    var singularPronoun: String
+
+    var pluralPronoun: String
 
     var body: some View {
         HStack {
-            InflectionCell(ending: singular.ending, pronoun: singular.pronoun, root: root)
-            InflectionCell(ending: plural.ending, pronoun: plural.pronoun, root: root)
-        }
+            let singularEnding = Verb.endings[.init(person: person,
+                                                    number: Verb.Number.singular,
+                                                    tense: tense,
+                                                    mood: mood,
+                                                    voice: voice,
+                                                    declension: declension,
+                                                    syllables: syllables,
+                                                    vowel: rootVowel)]
+            InflectionCell(ending: singularEnding, pronoun: singularPronoun, root: root)
+
+            let pluralEnding   = Verb.endings[.init(person: person,
+                                                    number: Verb.Number.plural,
+                                                    tense: tense,
+                                                    mood: mood,
+                                                    voice: voice,
+                                                    declension: declension,
+                                                    syllables: syllables,
+                                                    vowel: rootVowel)]
+            InflectionCell(ending: pluralEnding, pronoun: singularPronoun, root: root)
+       }
     }
 
 }
@@ -67,14 +94,35 @@ struct VerbConjugationView: View {
                     .font(.title2)
 
                 InflectionTableRow(root: verb.root!,
-                                   singular: (Verb.endings[Verb.Ending(person: .first,  number: .singular, tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, vowel: .slender)], ""),
-                                   plural:   (Verb.endings[Verb.Ending(person: .first,  number: .plural,   tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, vowel: .slender)], ""))
+                                   person: .first,
+                                   tense: .present,
+                                   mood: .indicative,
+                                   voice: .active,
+                                   declension: .first,
+                                   syllables: .single,
+                                   rootVowel: .slender,
+                                   singularPronoun: "",
+                                   pluralPronoun: "")
                 InflectionTableRow(root: verb.root!,
-                                   singular: (Verb.endings[Verb.Ending(person: .second, number: .singular, tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, vowel: .slender)], ""),
-                                   plural:   (Verb.endings[Verb.Ending(person: .second, number: .plural,   tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, vowel: .slender)], ""))
+                                   person: .second,
+                                   tense: .present,
+                                   mood: .indicative,
+                                   voice: .active,
+                                   declension: .first,
+                                   syllables: .single,
+                                   rootVowel: .slender,
+                                   singularPronoun: "",
+                                   pluralPronoun: "")
                 InflectionTableRow(root: verb.root!,
-                                   singular: (Verb.endings[Verb.Ending(person: .third,  number: .singular, tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, vowel: .slender)], ""),
-                                   plural:   (Verb.endings[Verb.Ending(person: .third,  number: .plural,   tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, vowel: .slender)], ""))
+                                   person: .third,
+                                   tense: .present,
+                                   mood: .indicative,
+                                   voice: .active,
+                                   declension: .first,
+                                   syllables: .single,
+                                   rootVowel: .slender,
+                                   singularPronoun: "",
+                                   pluralPronoun: "")
            }
 
             Spacer()
