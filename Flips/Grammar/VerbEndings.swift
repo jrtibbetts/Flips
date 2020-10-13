@@ -48,6 +48,10 @@ public extension Verb {
     enum Syllables: String {
         case single
         case doubleOrMore
+
+        static func value(for syllableCount: Int16? = 0) -> Syllables {
+            return (syllableCount == 1 ? .single : .doubleOrMore)
+        }
     }
 
     enum Tense: String {

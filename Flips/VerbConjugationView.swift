@@ -8,13 +8,13 @@ struct InflectionCell: View {
 
     var pronoun: String? = ""
 
-    var root: String? = ""
+    var verb: Verb?
 
     var body: some View {
         GeometryReader { (proxy) in
             HStack {
                 HStack {
-                    Text(root ?? "")
+                    Text(verb?.root ?? "")
                         .font(.body)
                         .multilineTextAlignment(.trailing)
                     Text(ending ?? "" )
@@ -32,7 +32,7 @@ struct InflectionCell: View {
 
 struct InflectionTableRow: View {
 
-    var root: String = ""
+    var verb: Verb
 
     var person: Verb.Person
 
@@ -44,9 +44,13 @@ struct InflectionTableRow: View {
 
     var declension: Verb.Declension
 
-    var syllables: Verb.Syllables
+    var syllables: Verb.Syllables {
+        return Verb.Syllables.value(for: verb.syllableCount)
+    }
 
-    var rootVowel: Verb.RootVowel
+    var rootVowel: Verb.RootVowel {
+        return Verb.RootVowel.value(for: verb.rootVowel)
+    }
 
     var singularPronoun: String
 
@@ -62,7 +66,7 @@ struct InflectionTableRow: View {
                                                     declension: declension,
                                                     syllables: syllables,
                                                     rootVowel: rootVowel)]
-            InflectionCell(ending: singularEnding, pronoun: singularPronoun, root: root)
+            InflectionCell(ending: singularEnding, pronoun: singularPronoun, verb: verb)
 
             let pluralEnding   = Verb.endings[.init(person: person,
                                                     number: Verb.Number.plural,
@@ -72,7 +76,7 @@ struct InflectionTableRow: View {
                                                     declension: declension,
                                                     syllables: syllables,
                                                     rootVowel: rootVowel)]
-            InflectionCell(ending: pluralEnding, pronoun: singularPronoun, root: root)
+            InflectionCell(ending: pluralEnding, pronoun: singularPronoun, verb: verb)
        }
     }
 
@@ -93,34 +97,28 @@ struct VerbConjugationView: View {
                 Text("Present")
                     .font(.title2)
 
-                InflectionTableRow(root: verb.root!,
+                InflectionTableRow(verb: verb,
                                    person: .first,
                                    tense: .present,
                                    mood: .indicative,
                                    voice: .active,
                                    declension: .first,
-                                   syllables: .single,
-                                   rootVowel: .slender,
                                    singularPronoun: "",
                                    pluralPronoun: "")
-                InflectionTableRow(root: verb.root!,
+                InflectionTableRow(verb: verb,
                                    person: .second,
                                    tense: .present,
                                    mood: .indicative,
                                    voice: .active,
                                    declension: .first,
-                                   syllables: .single,
-                                   rootVowel: .slender,
                                    singularPronoun: "",
                                    pluralPronoun: "")
-                InflectionTableRow(root: verb.root!,
+                InflectionTableRow(verb: verb,
                                    person: .third,
                                    tense: .present,
                                    mood: .indicative,
                                    voice: .active,
                                    declension: .first,
-                                   syllables: .single,
-                                   rootVowel: .slender,
                                    singularPronoun: "",
                                    pluralPronoun: "")
            }
