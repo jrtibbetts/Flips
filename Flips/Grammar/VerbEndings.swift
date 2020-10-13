@@ -32,6 +32,17 @@ public extension Verb {
     enum RootVowel: String {
         case broad
         case slender
+
+        static func value(for vowel: String?) -> RootVowel {
+            switch vowel?.lowercased() {
+            case "a", "o", "u":
+                return .broad
+            case "e", "i":
+                return .slender
+            default:
+                return .broad
+            }
+        }
     }
 
     enum Syllables: String {
@@ -67,7 +78,15 @@ public extension Verb {
 
     static var endings: [Ending: String] = {
         return [
-            Ending(person: .first,  number: .singular, tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, rootVowel: .slender): "im",
+            Ending(person: .first,
+                   number: .singular,
+                   tense: .present,
+                   mood: .indicative,
+                   voice: .active,
+                   declension: .first,
+                   syllables: .single,
+                   rootVowel:
+                    .slender): "im",
             Ending(person: .second, number: .singular, tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, rootVowel: .slender): "eann",
             Ending(person: .third,  number: .singular, tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, rootVowel: .slender): "eann",
             Ending(person: .first,  number: .plural,   tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, rootVowel: .slender): "imid",
