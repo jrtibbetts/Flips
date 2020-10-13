@@ -1,0 +1,83 @@
+[
+    {
+        "parts": {
+            "person": "first",
+            "number": "singular",
+            "tense": "present",
+            "mood": "indicative",
+            "voice": "active",
+            "declension": "first",
+            "syllables": "single",
+            "rootVowel": "slender"
+        },
+        "ending": "im"
+    },
+    {
+        "parts": {
+            "person": "second",
+            "number": "singular",
+            "tense": "present",
+            "mood": "indicative",
+            "voice": "active",
+            "declension": "first",
+            "syllables": "single",
+            "rootVowel": "slender"
+        },
+        "ending": "eann"
+    },
+    {
+        "parts": {
+            "person": "third",
+            "number": "singular",
+            "tense": "present",
+            "mood": "indicative",
+            "voice": "active",
+            "declension": "first",
+            "syllables": "single",
+            "rootVowel": "slender"
+        },
+        "ending": "eann"
+    },
+
+    {
+        "parts": {
+            "person": "first",
+            "number": "plural",
+            "tense": "present",
+            "mood": "indicative",
+            "voice": "active",
+            "declension": "first",
+            "syllables": "single",
+            "rootVowel": "slender"
+        },
+        "ending": "imid"
+    },
+    {
+        "parts": {
+            "person": "second",
+            "number": "plural",
+            "tense": "present",
+            "mood": "indicative",
+            "voice": "active",
+            "declension": "first",
+            "syllables": "single",
+            "rootVowel": "slender"
+        },
+        "ending": "eann"
+    },
+    {
+        "parts": {
+            "person": "third",
+            "number": "plural",
+            "tense": "present",
+            "mood": "indicative",
+            "voice": "active",
+            "declension": "first",
+            "syllables": "single",
+            "rootVowel": "slender"
+        },
+        "ending": "eann"
+    }
+
+]
+
