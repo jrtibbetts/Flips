@@ -94,40 +94,59 @@ struct VerbConjugationView: View {
             }
 
             VStack {
-                Text("Present")
-                    .font(.title2)
-
-                InflectionTableRow(verb: verb,
-                                   person: .first,
-                                   tense: .present,
-                                   mood: .indicative,
-                                   voice: .active,
-                                   conjugation: .first,
-                                   singularPronoun: "",
-                                   pluralPronoun: "")
-                InflectionTableRow(verb: verb,
-                                   person: .second,
-                                   tense: .present,
-                                   mood: .indicative,
-                                   voice: .active,
-                                   conjugation: .first,
-                                   singularPronoun: "tú",
-                                   pluralPronoun: "sibh")
-                InflectionTableRow(verb: verb,
-                                   person: .third,
-                                   tense: .present,
-                                   mood: .indicative,
-                                   voice: .active,
-                                   conjugation: .first,
-                                   singularPronoun: "sé/sí",
-                                   pluralPronoun: "siad")
-           }
+                InflectionGroup(verb: verb, tense: .present, mood: .indicative, voice: .active, conjugation: .first)
+                InflectionGroup(verb: verb, tense: .past, mood: .indicative, voice: .active, conjugation: .first)
+            }
 
             Spacer()
         }
     }
 }
 
+struct InflectionGroup: View {
+
+    var verb: Verb
+    var tense: Verb.Tense
+    var mood: Verb.Mood
+    var voice: Verb.Voice
+    var conjugation: Verb.Conjugation
+
+    var body: some View {
+        VStack {
+            HStack {
+                Text(tense.rawValue.capitalized)
+                    .font(.title2)
+                Spacer()
+            }
+
+            InflectionTableRow(verb: verb,
+                               person: .first,
+                               tense: tense,
+                               mood: mood,
+                               voice: voice,
+                               conjugation: conjugation,
+                               singularPronoun: "",
+                               pluralPronoun: "")
+            InflectionTableRow(verb: verb,
+                               person: .second,
+                               tense: tense,
+                               mood: mood,
+                               voice: voice,
+                               conjugation: conjugation,
+                               singularPronoun: "tú",
+                               pluralPronoun: "sibh")
+            InflectionTableRow(verb: verb,
+                               person: .third,
+                               tense: tense,
+                               mood: mood,
+                               voice: voice,
+                               conjugation: conjugation,
+                               singularPronoun: "sé/sí",
+                               pluralPronoun: "siad")
+        }
+    }
+
+}
 struct VerbConjugationView_Previews: PreviewProvider {
 
     static var verb: Verb = {
