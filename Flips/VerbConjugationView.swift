@@ -96,7 +96,9 @@ struct VerbConjugationView: View {
             VStack {
                 InflectionGroup(verb: verb, tense: .present, mood: .indicative, voice: .active, conjugation: .first)
                 InflectionGroup(verb: verb, tense: .past, mood: .indicative, voice: .active, conjugation: .first)
-            }
+                InflectionGroup(verb: verb, tense: .pastHabitual, mood: .indicative, voice: .active, conjugation: .first)
+                InflectionGroup(verb: verb, tense: .future, mood: .indicative, voice: .active, conjugation: .first)
+           }
 
             Spacer()
         }

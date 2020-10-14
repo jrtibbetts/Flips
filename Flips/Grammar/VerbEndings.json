@@ -157,6 +157,166 @@
             "rootVowel": "slender"
         },
         "ending": ""
+    },
+
+    {
+        "parts": {
+            "person": "first",
+            "number": "singular",
+            "tense": "past habitual",
+            "mood": "indicative",
+            "voice": "active",
+            "conjugation": "first",
+            "syllables": "single",
+            "rootVowel": "slender"
+        },
+        "ending": "inn"
+    },
+    {
+        "parts": {
+            "person": "second",
+            "number": "singular",
+            "tense": "past habitual",
+            "mood": "indicative",
+            "voice": "active",
+            "conjugation": "first",
+            "syllables": "single",
+            "rootVowel": "slender"
+        },
+        "ending": "eá"
+    },
+    {
+        "parts": {
+            "person": "third",
+            "number": "singular",
+            "tense": "past habitual",
+            "mood": "indicative",
+            "voice": "active",
+            "conjugation": "first",
+            "syllables": "single",
+            "rootVowel": "slender"
+        },
+        "ending": "eadh"
+    },
+
+    {
+        "parts": {
+            "person": "first",
+            "number": "plural",
+            "tense": "past habitual",
+            "mood": "indicative",
+            "voice": "active",
+            "conjugation": "first",
+            "syllables": "single",
+            "rootVowel": "slender"
+        },
+        "ending": "imis"
+    },
+    {
+        "parts": {
+            "person": "second",
+            "number": "plural",
+            "tense": "past habitual",
+            "mood": "indicative",
+            "voice": "active",
+            "conjugation": "first",
+            "syllables": "single",
+            "rootVowel": "slender"
+        },
+        "ending": "eadh"
+    },
+    {
+        "parts": {
+            "person": "third",
+            "number": "plural",
+            "tense": "past habitual",
+            "mood": "indicative",
+            "voice": "active",
+            "conjugation": "first",
+            "syllables": "single",
+            "rootVowel": "slender"
+        },
+        "ending": "idís"
+    },
+
+    {
+        "parts": {
+            "person": "first",
+            "number": "singular",
+            "tense": "future",
+            "mood": "indicative",
+            "voice": "active",
+            "conjugation": "first",
+            "syllables": "single",
+            "rootVowel": "slender"
+        },
+        "ending": "fidh"
+    },
+    {
+        "parts": {
+            "person": "second",
+            "number": "singular",
+            "tense": "future",
+            "mood": "indicative",
+            "voice": "active",
+            "conjugation": "first",
+            "syllables": "single",
+            "rootVowel": "slender"
+        },
+        "ending": "fidh"
+    },
+    {
+        "parts": {
+            "person": "third",
+            "number": "singular",
+            "tense": "future",
+            "mood": "indicative",
+            "voice": "active",
+            "conjugation": "first",
+            "syllables": "single",
+            "rootVowel": "slender"
+        },
+        "ending": "fidh"
+    },
+
+    {
+        "parts": {
+            "person": "first",
+            "number": "plural",
+            "tense": "future",
+            "mood": "indicative",
+            "voice": "active",
+            "conjugation": "first",
+            "syllables": "single",
+            "rootVowel": "slender"
+        },
+        "ending": "fimid"
+    },
+    {
+        "parts": {
+            "person": "second",
+            "number": "plural",
+            "tense": "future",
+            "mood": "indicative",
+            "voice": "active",
+            "conjugation": "first",
+            "syllables": "single",
+            "rootVowel": "slender"
+        },
+        "ending": "fidh"
+    },
+    {
+        "parts": {
+            "person": "third",
+            "number": "plural",
+            "tense": "future",
+            "mood": "indicative",
+            "voice": "active",
+            "conjugation": "first",
+            "syllables": "single",
+            "rootVowel": "slender"
+        },
+        "ending": "fidh"
     }
 
 
