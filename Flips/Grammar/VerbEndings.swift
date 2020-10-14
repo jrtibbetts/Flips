@@ -4,24 +4,24 @@ import Foundation
 
 public extension Verb {
 
-    enum Declension: String {
+    enum Declension: String, Codable {
         case first
         case second
     }
 
-    enum Mood: String {
+    enum Mood: String, Codable {
         case conditional
         case imperative
         case indicative
         case subjunctive
     }
 
-    enum Number: String {
+    enum Number: String, Codable {
         case singular
         case plural
     }
 
-    enum Person: String {
+    enum Person: String, Codable {
         case first
         case second
         case third
@@ -29,7 +29,7 @@ public extension Verb {
         case autonomous
     }
 
-    enum RootVowel: String {
+    enum RootVowel: String, Codable {
         case broad
         case slender
 
@@ -45,7 +45,7 @@ public extension Verb {
         }
     }
 
-    enum Syllables: String {
+    enum Syllables: String, Codable {
         case single
         case doubleOrMore
 
@@ -54,20 +54,20 @@ public extension Verb {
         }
     }
 
-    enum Tense: String {
+    enum Tense: String, Codable {
         case present
         case past
         case pastHabitual = "past habitual"
         case future
     }
 
-    enum Voice: String {
+    enum Voice: String, Codable {
         case active
         case middle
         case passive
     }
 
-    struct Ending: Hashable {
+    struct Parts: Codable, Hashable {
 
         var person: Person
         var number: Number?
@@ -80,22 +80,44 @@ public extension Verb {
 
     }
 
-    static var endings: [Ending: String] = {
-        return [
-            Ending(person: .first,
-                   number: .singular,
-                   tense: .present,
-                   mood: .indicative,
-                   voice: .active,
-                   declension: .first,
-                   syllables: .single,
-                   rootVowel:
-                    .slender): "im",
-            Ending(person: .second, number: .singular, tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, rootVowel: .slender): "eann",
-            Ending(person: .third,  number: .singular, tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, rootVowel: .slender): "eann",
-            Ending(person: .first,  number: .plural,   tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, rootVowel: .slender): "imid",
-            Ending(person: .second, number: .plural,   tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, rootVowel: .slender): "eann",
-            Ending(person: .third,  number: .plural,   tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, rootVowel: .slender): "eann"
-        ]
+    struct VerbEnding: Codable {
+
+        var parts: Parts
+        var ending: String
+    }
+
+    static var endings: [Parts: String] = {
+        let jsonUrl = Bundle.main.url(forResource: "VerbEndings", withExtension: "json")!
+
+        do {
+            let jsonData = try Data(contentsOf: jsonUrl)
+            let decoder = JSONDecoder()
+            var verbEndings = try decoder.decode([VerbEnding].self, from: jsonData)
+            var endings = [Parts: String]()
+
+            for ending in verbEndings {
+                endings[ending.parts] = ending.ending
+            }
+
+            return endings
+//            return [
+//                Parts(person: .first,
+//                      number: .singular,
+//                      tense: .present,
+//                      mood: .indicative,
+//                      voice: .active,
+//                      declension: .first,
+//                      syllables: .single,
+//                      rootVowel:
+//                        .slender): "im",
+//                Parts(person: .second, number: .singular, tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, rootVowel: .slender): "eann",
+//                Parts(person: .third,  number: .singular, tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, rootVowel: .slender): "eann",
+//                Parts(person: .first,  number: .plural,   tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, rootVowel: .slender): "imid",
+//                Parts(person: .second, number: .plural,   tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, rootVowel: .slender): "eann",
+//                Parts(person: .third,  number: .plural,   tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, rootVowel: .slender): "eann"
+//            ]
+        } catch {
+            return [:]
+        }
     }()
 }
