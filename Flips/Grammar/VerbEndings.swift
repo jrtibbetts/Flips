@@ -100,22 +100,6 @@ public extension Verb {
             }
 
             return endings
-//            return [
-//                Parts(person: .first,
-//                      number: .singular,
-//                      tense: .present,
-//                      mood: .indicative,
-//                      voice: .active,
-//                      declension: .first,
-//                      syllables: .single,
-//                      rootVowel:
-//                        .slender): "im",
-//                Parts(person: .second, number: .singular, tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, rootVowel: .slender): "eann",
-//                Parts(person: .third,  number: .singular, tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, rootVowel: .slender): "eann",
-//                Parts(person: .first,  number: .plural,   tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, rootVowel: .slender): "imid",
-//                Parts(person: .second, number: .plural,   tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, rootVowel: .slender): "eann",
-//                Parts(person: .third,  number: .plural,   tense: .present, mood: .indicative, voice: .active, declension: .first, syllables: .single, rootVowel: .slender): "eann"
-//            ]
         } catch {
             return [:]
         }
