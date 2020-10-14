@@ -4,7 +4,7 @@ import Foundation
 
 public extension Verb {
 
-    enum Declension: String, Codable {
+    enum Conjugation: String, Codable {
         case first
         case second
     }
@@ -74,7 +74,7 @@ public extension Verb {
         var tense: Tense?
         var mood: Mood
         var voice: Voice?
-        var declension: Declension
+        var conjugation: Conjugation
         var syllables: Syllables
         var rootVowel: RootVowel
 

@@ -42,7 +42,7 @@ struct InflectionTableRow: View {
 
     var voice: Verb.Voice
 
-    var declension: Verb.Declension
+    var conjugation: Verb.Conjugation
 
     var syllables: Verb.Syllables {
         return Verb.Syllables.value(for: verb.syllableCount)
@@ -63,7 +63,7 @@ struct InflectionTableRow: View {
                                                     tense: tense,
                                                     mood: mood,
                                                     voice: voice,
-                                                    declension: declension,
+                                                    conjugation: conjugation,
                                                     syllables: syllables,
                                                     rootVowel: rootVowel)]
             InflectionCell(ending: singularEnding, pronoun: singularPronoun, verb: verb)
@@ -73,7 +73,7 @@ struct InflectionTableRow: View {
                                                     tense: tense,
                                                     mood: mood,
                                                     voice: voice,
-                                                    declension: declension,
+                                                    conjugation: conjugation,
                                                     syllables: syllables,
                                                     rootVowel: rootVowel)]
             InflectionCell(ending: pluralEnding, pronoun: pluralPronoun, verb: verb)
@@ -102,7 +102,7 @@ struct VerbConjugationView: View {
                                    tense: .present,
                                    mood: .indicative,
                                    voice: .active,
-                                   declension: .first,
+                                   conjugation: .first,
                                    singularPronoun: "",
                                    pluralPronoun: "")
                 InflectionTableRow(verb: verb,
@@ -110,7 +110,7 @@ struct VerbConjugationView: View {
                                    tense: .present,
                                    mood: .indicative,
                                    voice: .active,
-                                   declension: .first,
+                                   conjugation: .first,
                                    singularPronoun: "tú",
                                    pluralPronoun: "sibh")
                 InflectionTableRow(verb: verb,
@@ -118,7 +118,7 @@ struct VerbConjugationView: View {
                                    tense: .present,
                                    mood: .indicative,
                                    voice: .active,
-                                   declension: .first,
+                                   conjugation: .first,
                                    singularPronoun: "sé/sí",
                                    pluralPronoun: "siad")
            }
