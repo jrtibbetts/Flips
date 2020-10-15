@@ -72,13 +72,13 @@ struct VerbConjugationView: View {
 
             ScrollView {
                 VStack {
-                    InflectionGroup(inflector: FirstConjugationSlenderPresentIndicative(verb: verb))
-                    InflectionGroup(inflector: FirstConjugationSlenderPastIndicative(verb: verb))
-                    InflectionGroup(inflector: FirstConjugationSlenderPastHabitualIndicative(verb: verb))
-                    InflectionGroup(inflector: FirstConjugationSlenderFutureIndicative(verb: verb))
-                    InflectionGroup(inflector: FirstConjugationSlenderConditional(verb: verb))
-                    InflectionGroup(inflector: FirstConjugationSlenderPresentSubjunctive(verb: verb))
-                    InflectionGroup(inflector: FirstConjugationSlenderPastSubjunctive(verb: verb))
+                    InflectionGroup(inflector: FirstConjugationPresentIndicative(verb: verb))
+                    InflectionGroup(inflector: FirstConjugationPastIndicative(verb: verb))
+                    InflectionGroup(inflector: FirstConjugationPastHabitualIndicative(verb: verb))
+                    InflectionGroup(inflector: FirstConjugationFutureIndicative(verb: verb))
+                    InflectionGroup(inflector: FirstConjugationConditional(verb: verb))
+                    InflectionGroup(inflector: FirstConjugationPresentSubjunctive(verb: verb))
+                    InflectionGroup(inflector: FirstConjugationPastSubjunctive(verb: verb))
                 }
             }
         }
