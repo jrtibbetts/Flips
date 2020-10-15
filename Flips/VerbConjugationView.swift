@@ -17,13 +17,20 @@ struct InflectionCell: View {
                     Text(verb?.root ?? "")
                         .font(.body)
                         .multilineTextAlignment(.trailing)
-                    Text(ending ?? "" )
-                        .font(.body)
-                        .fontWeight(.bold)
-                        .multilineTextAlignment(.leading)
+                        .padding(.trailing, 0)
+
+                    if let ending = ending {
+                        Text(ending)
+                            .font(.body)
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.leading)
+                            .padding(.leading, -6)
+                    }
                 }
 
-                Text(pronoun ?? "")
+                if let pronoun = pronoun {
+                    Text(pronoun)
+                }
             }
         }
     }
