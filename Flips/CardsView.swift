@@ -17,42 +17,13 @@ struct CardsView: View {
         NavigationView {
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))],
                       alignment: .center, spacing: 20) {
-//                NavigationLink("Add Verb", destination: AddVerbView(verb: Verb(context: viewContext)))
-
                 ForEach(verbs) { verb in
                     NavigationLink(verb.root ?? "(no root)",
                                    destination: VerbConjugationView(verb: verb))
                 }
-//                .onDelete(perform: deleteItems)
             }
-//            .toolbar {
-//                HStack {
-//                    //                #if os(iOS)
-//                    //                EditButton()
-//                    //                #endif
-//
-//                    Button(action: addVerb) {
-//                        Label("Add Verb", systemImage: "plus")
-//                    }
-//                }
-//            }
         }
     }
-
-//    private func addVerb() {
-//        withAnimation {
-//            let newVerb = Verb(context: viewContext)
-//
-//            do {
-//                try viewContext.save()
-//            } catch {
-//                // Replace this implementation with code to handle the error appropriately.
-//                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-//                let nsError = error as NSError
-//                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-//            }
-//        }
-//    }
 
 }
 
