@@ -10,7 +10,10 @@
             "syllables": "single",
             "rootVowel": "slender"
         },
-        "ending": "im"
+        "inflection": {
+            "ending": "im",
+            "usePronoun": false
+        }
     },
     {
         "parts": {
@@ -23,7 +26,10 @@
             "syllables": "single",
             "rootVowel": "slender"
         },
-        "ending": "eann"
+        "inflection": {
+            "ending": "eann",
+            "usePronoun": true
+        }
     },
     {
         "parts": {
@@ -36,7 +42,10 @@
             "syllables": "single",
             "rootVowel": "slender"
         },
-        "ending": "eann"
+        "inflection": {
+            "ending": "eann",
+            "usePronoun": true
+        }
     },
 
     {
@@ -50,7 +59,10 @@
             "syllables": "single",
             "rootVowel": "slender"
         },
-        "ending": "imid"
+        "inflection": {
+            "ending": "imid",
+            "usePronoun": false
+        }
     },
     {
         "parts": {
@@ -63,7 +75,10 @@
             "syllables": "single",
             "rootVowel": "slender"
         },
-        "ending": "eann"
+        "inflection": {
+            "ending": "eann",
+            "usePronoun": true
+        }
     },
     {
         "parts": {
@@ -76,7 +91,10 @@
             "syllables": "single",
             "rootVowel": "slender"
         },
-        "ending": "eann"
+        "inflection": {
+            "ending": "eann",
+            "usePronoun": true
+        }
     },
 
     {
@@ -90,7 +108,10 @@
             "syllables": "single",
             "rootVowel": "slender"
         },
-        "ending": ""
+        "inflection": {
+            "ending": "",
+            "usePronoun": true
+        }
     },
     {
         "parts": {
@@ -103,7 +124,10 @@
             "syllables": "single",
             "rootVowel": "slender"
         },
-        "ending": ""
+        "inflection": {
+            "ending": "",
+            "usePronoun": true
+        }
     },
     {
         "parts": {
@@ -116,7 +140,10 @@
             "syllables": "single",
             "rootVowel": "slender"
         },
-        "ending": ""
+        "inflection": {
+            "ending": "",
+            "usePronoun": true
+        }
     },
 
     {
@@ -130,7 +157,10 @@
             "syllables": "single",
             "rootVowel": "slender"
         },
-        "ending": "eamar"
+        "inflection": {
+            "ending": "eamar",
+            "usePronoun": false
+        }
     },
     {
         "parts": {
@@ -143,7 +173,10 @@
             "syllables": "single",
             "rootVowel": "slender"
         },
-        "ending": ""
+        "inflection": {
+            "ending": "",
+            "usePronoun": true
+        }
     },
     {
         "parts": {
@@ -156,7 +189,10 @@
             "syllables": "single",
             "rootVowel": "slender"
         },
-        "ending": ""
+        "inflection": {
+            "ending": "",
+            "usePronoun": true
+        }
     },
 
     {
@@ -170,7 +206,10 @@
             "syllables": "single",
             "rootVowel": "slender"
         },
-        "ending": "inn"
+        "inflection": {
+            "ending": "inn",
+            "usePronoun": false
+        }
     },
     {
         "parts": {
@@ -183,7 +222,10 @@
             "syllables": "single",
             "rootVowel": "slender"
         },
-        "ending": "eá"
+        "inflection": {
+            "ending": "eá",
+            "usePronoun": false
+        }
     },
     {
         "parts": {
@@ -196,7 +238,10 @@
             "syllables": "single",
             "rootVowel": "slender"
         },
-        "ending": "eadh"
+        "inflection": {
+            "ending": "eadh",
+            "usePronoun": true
+        }
     },
 
     {
@@ -210,7 +255,10 @@
             "syllables": "single",
             "rootVowel": "slender"
         },
-        "ending": "imis"
+        "inflection": {
+            "ending": "imis",
+            "usePronoun": false
+        }
     },
     {
         "parts": {
@@ -223,7 +271,10 @@
             "syllables": "single",
             "rootVowel": "slender"
         },
-        "ending": "eadh"
+        "inflection": {
+            "ending": "eadh",
+            "usePronoun": true
+        }
     },
     {
         "parts": {
@@ -236,7 +287,10 @@
             "syllables": "single",
             "rootVowel": "slender"
         },
-        "ending": "idís"
+        "inflection": {
+            "ending": "idís",
+            "usePronoun": false
+        }
     },
 
     {
@@ -250,7 +304,10 @@
             "syllables": "single",
             "rootVowel": "slender"
         },
-        "ending": "fidh"
+        "inflection": {
+            "ending": "fidh",
+            "usePronoun": true
+        }
     },
     {
         "parts": {
@@ -263,7 +320,10 @@
             "syllables": "single",
             "rootVowel": "slender"
         },
-        "ending": "fidh"
+        "inflection": {
+            "ending": "fidh",
+            "usePronoun": true
+        }
     },
     {
         "parts": {
@@ -276,7 +336,10 @@
             "syllables": "single",
             "rootVowel": "slender"
         },
-        "ending": "fidh"
+        "inflection": {
+            "ending": "fidh",
+            "usePronoun": true
+        }
     },
 
     {
@@ -290,7 +353,10 @@
             "syllables": "single",
             "rootVowel": "slender"
         },
-        "ending": "fimid"
+        "inflection": {
+            "ending": "fimis",
+            "usePronoun": false
+        }
     },
     {
         "parts": {
@@ -303,7 +369,10 @@
             "syllables": "single",
             "rootVowel": "slender"
         },
-        "ending": "fidh"
+        "inflection": {
+            "ending": "fidh",
+            "usePronoun": true
+        }
     },
     {
         "parts": {
@@ -316,9 +385,10 @@
             "syllables": "single",
             "rootVowel": "slender"
         },
-        "ending": "fidh"
+        "inflection": {
+            "ending": "fidh",
+            "usePronoun": true
+        }
     }
-
-
 ]
 

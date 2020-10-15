@@ -25,9 +25,9 @@ struct InflectionCell: View {
 
                 Text(pronoun ?? "")
             }
-
         }
     }
+
 }
 
 struct InflectionTableRow: View {
@@ -58,25 +58,31 @@ struct InflectionTableRow: View {
 
     var body: some View {
         HStack {
-            let singularEnding = Verb.endings[.init(person: person,
-                                                    number: Verb.Number.singular,
-                                                    tense: tense,
-                                                    mood: mood,
-                                                    voice: voice,
-                                                    conjugation: conjugation,
-                                                    syllables: syllables,
-                                                    rootVowel: rootVowel)]
-            InflectionCell(ending: singularEnding, pronoun: singularPronoun, verb: verb)
+            if let singularInflections = Verb.endings[.init(person: person,
+                                                            number: Verb.Number.singular,
+                                                            tense: tense,
+                                                            mood: mood,
+                                                            voice: voice,
+                                                            conjugation: conjugation,
+                                                            syllables: syllables,
+                                                            rootVowel: rootVowel)] {
+                InflectionCell(ending: singularInflections.ending,
+                               pronoun: singularInflections.usePronoun ? singularPronoun : nil,
+                               verb: verb)
+            }
 
-            let pluralEnding   = Verb.endings[.init(person: person,
-                                                    number: Verb.Number.plural,
-                                                    tense: tense,
-                                                    mood: mood,
-                                                    voice: voice,
-                                                    conjugation: conjugation,
-                                                    syllables: syllables,
-                                                    rootVowel: rootVowel)]
-            InflectionCell(ending: pluralEnding, pronoun: pluralPronoun, verb: verb)
+            if let pluralInflections = Verb.endings[.init(person: person,
+                                                          number: Verb.Number.plural,
+                                                          tense: tense,
+                                                          mood: mood,
+                                                          voice: voice,
+                                                          conjugation: conjugation,
+                                                          syllables: syllables,
+                                                          rootVowel: rootVowel)] {
+                InflectionCell(ending: pluralInflections.ending,
+                               pronoun: pluralInflections.usePronoun ? pluralPronoun : nil,
+                               verb: verb)
+            }
        }
     }
 
@@ -127,8 +133,8 @@ struct InflectionGroup: View {
                                mood: mood,
                                voice: voice,
                                conjugation: conjugation,
-                               singularPronoun: "",
-                               pluralPronoun: "")
+                               singularPronoun: "mé",
+                               pluralPronoun: "muid")
             InflectionTableRow(verb: verb,
                                person: .second,
                                tense: tense,

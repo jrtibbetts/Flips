@@ -80,26 +80,32 @@ public extension Verb {
 
     }
 
-    struct VerbEnding: Codable {
+    struct VerbInflection: Codable {
 
         var parts: Parts
-        var ending: String
+        var inflection: Inflection
     }
 
-    static var endings: [Parts: String] = {
+    struct Inflection: Codable {
+        var ending: String
+        var prefix: String?
+        var usePronoun: Bool
+    }
+
+    static var endings: [Parts: Inflection] = {
         let jsonUrl = Bundle.main.url(forResource: "VerbEndings", withExtension: "json")!
 
         do {
             let jsonData = try Data(contentsOf: jsonUrl)
             let decoder = JSONDecoder()
-            var verbEndings = try decoder.decode([VerbEnding].self, from: jsonData)
-            var endings = [Parts: String]()
+            var verbEndings = try decoder.decode([VerbInflection].self, from: jsonData)
+            var inflections = [Parts: Inflection]()
 
             for ending in verbEndings {
-                endings[ending.parts] = ending.ending
+                inflections[ending.parts] = ending.inflection
             }
 
-            return endings
+            return inflections
         } catch {
             return [:]
         }
