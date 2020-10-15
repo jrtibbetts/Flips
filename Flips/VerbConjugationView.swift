@@ -41,22 +41,20 @@ struct InflectionTableRow: View {
 
     var inflector: VerbInflector
 
-    var verb: Verb
-
     var person: Verb.Person
 
     var body: some View {
         HStack {
-            if let singularInflections = inflector.inflect(verb: verb, person: person, number: .singular) {
+            if let singularInflections = inflector.inflect(person: person, number: .singular) {
                 InflectionCell(ending: singularInflections.ending,
                                pronoun: singularInflections.pronoun,
-                               verb: verb)
+                               verb: inflector.verb)
             }
 
-            if let pluralInflections = inflector.inflect(verb: verb, person: person, number: .plural) {
+            if let pluralInflections = inflector.inflect(person: person, number: .plural) {
                 InflectionCell(ending: pluralInflections.ending,
                                pronoun: pluralInflections.pronoun,
-                               verb: verb)
+                               verb: inflector.verb)
             }
        }
     }
@@ -75,10 +73,10 @@ struct VerbConjugationView: View {
             }
 
             VStack {
-                InflectionGroup(inflector: FirstConjugationSlenderPresentIndicative(), verb: verb)
-                InflectionGroup(inflector: FirstConjugationSlenderPastIndicative(), verb: verb)
-                InflectionGroup(inflector: FirstConjugationSlenderPastHabitualIndicative(), verb: verb)
-                InflectionGroup(inflector: FirstConjugationSlenderFutureIndicative(), verb: verb)
+                InflectionGroup(inflector: FirstConjugationSlenderPresentIndicative(verb: verb))
+                InflectionGroup(inflector: FirstConjugationSlenderPastIndicative(verb: verb))
+                InflectionGroup(inflector: FirstConjugationSlenderPastHabitualIndicative(verb: verb))
+                InflectionGroup(inflector: FirstConjugationSlenderFutureIndicative(verb: verb))
            }
 
             Spacer()
@@ -89,7 +87,6 @@ struct VerbConjugationView: View {
 struct InflectionGroup: View {
 
     var inflector: VerbInflector
-    var verb: Verb
 
     var body: some View {
         VStack {
@@ -102,15 +99,9 @@ struct InflectionGroup: View {
             }
 
             ScrollView {
-                InflectionTableRow(inflector: inflector,
-                                   verb: verb,
-                                   person: .first)
-                InflectionTableRow(inflector: inflector,
-                                   verb: verb,
-                                   person: .second)
-                InflectionTableRow(inflector: inflector,
-                                   verb: verb,
-                                   person: .third)
+                InflectionTableRow(inflector: inflector, person: .first)
+                InflectionTableRow(inflector: inflector, person: .second)
+                InflectionTableRow(inflector: inflector, person: .third)
             }
         }
         .padding(10.0)

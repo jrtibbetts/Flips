@@ -14,11 +14,11 @@ public struct VerbInflection {
 
 public protocol VerbInflector {
 
+    var verb: Verb { get }
     var tense: Verb.Tense? { get }
     var mood: Verb.Mood { get }
 
-    func inflect(verb: Verb,
-                 person: Verb.Person,
+    func inflect(person: Verb.Person,
                  number: Verb.Number) -> VerbInflection
 
 }
@@ -46,11 +46,13 @@ public extension VerbInflector {
 
 public struct FirstConjugationSlenderPresentIndicative: VerbInflector {
 
+    public var verb: Verb
+
     public var tense: Verb.Tense? = .present
 
     public var mood = Verb.Mood.indicative
 
-    public func inflect(verb: Verb, person: Verb.Person, number: Verb.Number) -> VerbInflection {
+    public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
         var inflection = VerbInflection(root: verb.root ?? "")
         inflection.pronoun = pronoun(person, number)
 
@@ -70,11 +72,13 @@ public struct FirstConjugationSlenderPresentIndicative: VerbInflector {
 
 public struct FirstConjugationSlenderPastIndicative: VerbInflector {
 
+    public var verb: Verb
+
     public var tense: Verb.Tense? = .past
 
     public var mood = Verb.Mood.indicative
 
-    public func inflect(verb: Verb, person: Verb.Person, number: Verb.Number) -> VerbInflection {
+    public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
         return VerbInflection(root: verb.root ?? "",
                               pronoun: pronoun(person, number))
     }
@@ -83,11 +87,13 @@ public struct FirstConjugationSlenderPastIndicative: VerbInflector {
 
 public struct FirstConjugationSlenderPastHabitualIndicative: VerbInflector {
 
+    public var verb: Verb
+
     public var tense: Verb.Tense? = .pastHabitual
 
     public var mood = Verb.Mood.indicative
 
-    public func inflect(verb: Verb, person: Verb.Person, number: Verb.Number) -> VerbInflection {
+    public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
         var inflection = VerbInflection(root: verb.root ?? "")
 
         switch (person, number) {
@@ -112,14 +118,16 @@ public struct FirstConjugationSlenderPastHabitualIndicative: VerbInflector {
 }
 
 public struct FirstConjugationSlenderFutureIndicative: VerbInflector {
-    
+
+    public var verb: Verb
+
     public var tense: Verb.Tense? = .future
-    
+
     public var mood = Verb.Mood.indicative
-    
-    public func inflect(verb: Verb, person: Verb.Person, number: Verb.Number) -> VerbInflection {
+
+    public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
         var inflection = VerbInflection(root: verb.root ?? "")
-        
+
         switch (person, number) {
         case (.first, .plural):
             inflection.ending = "fimid"
@@ -128,20 +136,22 @@ public struct FirstConjugationSlenderFutureIndicative: VerbInflector {
             inflection.ending = "fidh"
             inflection.pronoun = pronoun(person, number)
         }
-        
+
         return inflection
     }
 }
 
 public struct FirstConjugationSlenderConditional: VerbInflector {
-    
+
+    public var verb: Verb
+
     public var tense: Verb.Tense? = Verb.Tense.none
-    
+
     public var mood = Verb.Mood.conditional
-    
-    public func inflect(verb: Verb, person: Verb.Person, number: Verb.Number) -> VerbInflection {
+
+    public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
         var inflection = VerbInflection(root: verb.root ?? "")
-        
+
         switch (person, number) {
         case (.first, .singular):
             inflection.ending = "finn"
@@ -156,7 +166,7 @@ public struct FirstConjugationSlenderConditional: VerbInflector {
         case (.third, .plural):
             inflection.ending = "fidís"
         }
-        
+
         return inflection
     }
 }
