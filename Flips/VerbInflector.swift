@@ -25,6 +25,14 @@ public protocol VerbInflector {
 
 public extension VerbInflector {
 
+    var displayName: String {
+        if let capitalizedTense = tense?.rawValue.capitalized {
+            return "\(mood.rawValue.capitalized) \(capitalizedTense)"
+        } else {
+            return mood.rawValue.capitalized
+        }
+    }
+
     func pronoun(_ person: Verb.Person, _ number: Verb.Number) -> String {
         switch (person, number) {
         case (.first, .singular):

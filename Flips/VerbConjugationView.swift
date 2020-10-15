@@ -69,6 +69,7 @@ struct VerbConjugationView: View {
                 InflectionGroup(inflector: FirstConjugationSlenderPastIndicative(verb: verb))
                 InflectionGroup(inflector: FirstConjugationSlenderPastHabitualIndicative(verb: verb))
                 InflectionGroup(inflector: FirstConjugationSlenderFutureIndicative(verb: verb))
+                InflectionGroup(inflector: FirstConjugationSlenderConditional(verb: verb))
            }
 
             Spacer()
@@ -82,12 +83,10 @@ struct InflectionGroup: View {
 
     var body: some View {
         VStack {
-            if let tense = inflector.tense {
-                HStack {
-                    Text(tense.rawValue.capitalized)
-                        .font(.title2)
-                    Spacer()
-                }
+            HStack {
+                Text(inflector.displayName)
+                    .font(.title2)
+                Spacer()
             }
 
             ScrollView {
