@@ -52,7 +52,7 @@ struct InflectionTableRow: View {
     var conjugation: Verb.Conjugation
 
     var syllables: Verb.Syllables {
-        return Verb.Syllables.value(for: verb.syllableCount)
+        return verb.polysyllabic ? .doubleOrMore : .single
     }
 
     var rootVowel: Verb.RootVowel {
