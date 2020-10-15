@@ -79,8 +79,16 @@ public struct FirstConjugationSlenderPastIndicative: VerbInflector {
     public var mood = Verb.Mood.indicative
 
     public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
-        return VerbInflection(root: verb.root ?? "",
-                              pronoun: pronoun(person, number))
+        var inflection = VerbInflection(root: verb.root ?? "")
+
+        switch (person, number) {
+        case (.first, .plural):
+            inflection.ending = "eamar"
+        default:
+            inflection.pronoun = pronoun(person, number)
+        }
+
+        return inflection
     }
 
 }
@@ -100,7 +108,10 @@ public struct FirstConjugationSlenderPastHabitualIndicative: VerbInflector {
         case (.first, .singular):
             inflection.ending = "inn"
         case (.second, .singular):
-            inflection.ending = (verb.pastParticiple ?? "") + "á" // is this correct?
+            if let pastParticiple = verb.pastParticiple {
+                inflection.root = String(pastParticiple.dropLast())
+                inflection.ending = "eá" // is this correct?
+            }
         case (.third, .singular),
              (.second, .plural):
             inflection.ending = "eadh"

@@ -4,22 +4,18 @@ import SwiftUI
 
 struct InflectionCell: View {
 
-    var ending: String? = ""
-
-    var pronoun: String? = ""
-
-    var verb: Verb?
+    var inflections: VerbInflection
 
     var body: some View {
         GeometryReader { (proxy) in
             HStack {
                 HStack {
-                    Text(verb?.root ?? "")
+                    Text(inflections.root)
                         .font(.body)
                         .multilineTextAlignment(.trailing)
                         .padding(.trailing, 0)
 
-                    if let ending = ending {
+                    if let ending = inflections.ending {
                         Text(ending)
                             .font(.body)
                             .fontWeight(.bold)
@@ -28,7 +24,7 @@ struct InflectionCell: View {
                     }
                 }
 
-                if let pronoun = pronoun {
+                if let pronoun = inflections.pronoun {
                     Text(pronoun)
                 }
             }
@@ -46,15 +42,11 @@ struct InflectionTableRow: View {
     var body: some View {
         HStack {
             if let singularInflections = inflector.inflect(person: person, number: .singular) {
-                InflectionCell(ending: singularInflections.ending,
-                               pronoun: singularInflections.pronoun,
-                               verb: inflector.verb)
+                InflectionCell(inflections: singularInflections)
             }
 
             if let pluralInflections = inflector.inflect(person: person, number: .plural) {
-                InflectionCell(ending: pluralInflections.ending,
-                               pronoun: pluralInflections.pronoun,
-                               verb: inflector.verb)
+                InflectionCell(inflections: pluralInflections)
             }
        }
     }
@@ -116,6 +108,7 @@ struct VerbConjugationView_Previews: PreviewProvider {
         verb.rootVowel = "i"
         verb.pastParticiple = "rite"
         verb.verbalNoun = "rith"
+        verb.polysyllabic = false
 
         return verb
     }()
