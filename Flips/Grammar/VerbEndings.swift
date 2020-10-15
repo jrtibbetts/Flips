@@ -25,8 +25,8 @@ public extension Verb {
         case first
         case second
         case third
-        case relative
-        case autonomous
+//        case relative
+//        case autonomous
     }
 
     enum RootVowel: String, Codable {
@@ -59,6 +59,7 @@ public extension Verb {
         case past
         case pastHabitual = "past habitual"
         case future
+        case none
     }
 
     enum Voice: String, Codable {
