@@ -158,13 +158,14 @@ public struct FirstConjugationSlenderFutureIndicative: VerbInflector {
 
         return inflection
     }
+
 }
 
 public struct FirstConjugationSlenderConditional: VerbInflector {
 
     public var verb: Verb
 
-    public var tense: Verb.Tense? = Verb.Tense.none
+    public var tense: Verb.Tense?
 
     public var mood = Verb.Mood.conditional
 
@@ -188,4 +189,50 @@ public struct FirstConjugationSlenderConditional: VerbInflector {
 
         return inflection
     }
+
+}
+
+public struct FirstConjugationSlenderPresentSubjunctive: VerbInflector {
+
+    public var verb: Verb
+
+    public var tense: Verb.Tense? = .present
+
+    public var mood = Verb.Mood.subjunctive
+
+    public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
+        var inflection = VerbInflection(root: verb.root ?? "")
+        inflection.particle = "go"
+
+        switch (person, number) {
+        case (.first, .plural):
+            inflection.ending = "imid"
+        default:
+            inflection.ending = "e"
+            inflection.pronoun = pronoun(person, number)
+        }
+
+        return inflection
+    }
+
+}
+
+public struct FirstConjugationSlenderPastSubjunctive: VerbInflector {
+
+    public var verb: Verb
+
+    public var tense: Verb.Tense? = .past
+
+    public var mood = Verb.Mood.subjunctive
+
+    public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
+        let pastHabitualInflector = FirstConjugationSlenderPastHabitualIndicative(verb: verb,
+                                                                                  tense: .pastHabitual,
+                                                                                  mood: .indicative)
+        var inflection = pastHabitualInflector.inflect(person: person, number: number)
+        inflection.particle = "dá"
+
+        return inflection
+    }
+
 }

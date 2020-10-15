@@ -59,7 +59,6 @@ public extension Verb {
         case past
         case pastHabitual = "past habitual"
         case future
-        case none
     }
 
     enum Voice: String, Codable {

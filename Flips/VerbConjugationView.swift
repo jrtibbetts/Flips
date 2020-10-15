@@ -10,6 +10,12 @@ struct InflectionCell: View {
         GeometryReader { (proxy) in
             HStack {
                 HStack {
+                    if let particle = inflections.particle {
+                        Text(particle)
+                            .font(.body)
+                            .fontWeight(.bold)
+                    }
+
                     Text(inflections.root)
                         .font(.body)
                         .multilineTextAlignment(.trailing)
@@ -20,7 +26,7 @@ struct InflectionCell: View {
                             .font(.body)
                             .fontWeight(.bold)
                             .multilineTextAlignment(.leading)
-                            .padding(.leading, -6)
+                            .padding(.leading, -8)
                     }
                 }
 
@@ -64,15 +70,17 @@ struct VerbConjugationView: View {
                     .font(.title)
             }
 
-            VStack {
-                InflectionGroup(inflector: FirstConjugationSlenderPresentIndicative(verb: verb))
-                InflectionGroup(inflector: FirstConjugationSlenderPastIndicative(verb: verb))
-                InflectionGroup(inflector: FirstConjugationSlenderPastHabitualIndicative(verb: verb))
-                InflectionGroup(inflector: FirstConjugationSlenderFutureIndicative(verb: verb))
-                InflectionGroup(inflector: FirstConjugationSlenderConditional(verb: verb))
-           }
-
-            Spacer()
+            ScrollView {
+                VStack {
+                    InflectionGroup(inflector: FirstConjugationSlenderPresentIndicative(verb: verb))
+                    InflectionGroup(inflector: FirstConjugationSlenderPastIndicative(verb: verb))
+                    InflectionGroup(inflector: FirstConjugationSlenderPastHabitualIndicative(verb: verb))
+                    InflectionGroup(inflector: FirstConjugationSlenderFutureIndicative(verb: verb))
+                    InflectionGroup(inflector: FirstConjugationSlenderConditional(verb: verb))
+                    InflectionGroup(inflector: FirstConjugationSlenderPresentSubjunctive(verb: verb))
+                    InflectionGroup(inflector: FirstConjugationSlenderPastSubjunctive(verb: verb))
+                }
+            }
         }
     }
 }
@@ -89,11 +97,9 @@ struct InflectionGroup: View {
                 Spacer()
             }
 
-            ScrollView {
-                InflectionTableRow(inflector: inflector, person: .first)
-                InflectionTableRow(inflector: inflector, person: .second)
-                InflectionTableRow(inflector: inflector, person: .third)
-            }
+            InflectionTableRow(inflector: inflector, person: .first)
+            InflectionTableRow(inflector: inflector, person: .second)
+            InflectionTableRow(inflector: inflector, person: .third)
         }
         .padding(10.0)
     }
