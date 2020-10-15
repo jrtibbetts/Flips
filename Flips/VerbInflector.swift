@@ -44,7 +44,7 @@ public extension VerbInflector {
 
 }
 
-public struct FirstConjugationSlenderPresentIndicativeActive: VerbInflector {
+public struct FirstConjugationSlenderPresentIndicative: VerbInflector {
 
     public var tense: Verb.Tense? = .present
 
@@ -68,9 +68,9 @@ public struct FirstConjugationSlenderPresentIndicativeActive: VerbInflector {
 
 }
 
-public struct FirstConjugationSlenderPresentIndicativePast: VerbInflector {
+public struct FirstConjugationSlenderPastIndicative: VerbInflector {
 
-    public var tense: Verb.Tense? = .present
+    public var tense: Verb.Tense? = .past
 
     public var mood = Verb.Mood.indicative
 
@@ -79,4 +79,84 @@ public struct FirstConjugationSlenderPresentIndicativePast: VerbInflector {
                               pronoun: pronoun(person, number))
     }
 
+}
+
+public struct FirstConjugationSlenderPastHabitualIndicative: VerbInflector {
+
+    public var tense: Verb.Tense? = .pastHabitual
+
+    public var mood = Verb.Mood.indicative
+
+    public func inflect(verb: Verb, person: Verb.Person, number: Verb.Number) -> VerbInflection {
+        var inflection = VerbInflection(root: verb.root ?? "")
+
+        switch (person, number) {
+        case (.first, .singular):
+            inflection.ending = "inn"
+        case (.second, .singular):
+            inflection.ending = (verb.pastParticiple ?? "") + "á" // is this correct?
+        case (.third, .singular),
+             (.second, .plural):
+            inflection.ending = "eadh"
+            inflection.pronoun = pronoun(person, number)
+        case (.first, .plural):
+            inflection.ending = "imid"
+        case (.third, .plural):
+            inflection.ending = "idís"
+            inflection.pronoun = pronoun(person, number)
+        }
+
+        return inflection
+    }
+
+}
+
+public struct FirstConjugationSlenderFutureIndicative: VerbInflector {
+    
+    public var tense: Verb.Tense? = .future
+    
+    public var mood = Verb.Mood.indicative
+    
+    public func inflect(verb: Verb, person: Verb.Person, number: Verb.Number) -> VerbInflection {
+        var inflection = VerbInflection(root: verb.root ?? "")
+        
+        switch (person, number) {
+        case (.first, .plural):
+            inflection.ending = "fimid"
+        // no pronoun
+        default:
+            inflection.ending = "fidh"
+            inflection.pronoun = pronoun(person, number)
+        }
+        
+        return inflection
+    }
+}
+
+public struct FirstConjugationSlenderConditional: VerbInflector {
+    
+    public var tense: Verb.Tense? = Verb.Tense.none
+    
+    public var mood = Verb.Mood.conditional
+    
+    public func inflect(verb: Verb, person: Verb.Person, number: Verb.Number) -> VerbInflection {
+        var inflection = VerbInflection(root: verb.root ?? "")
+        
+        switch (person, number) {
+        case (.first, .singular):
+            inflection.ending = "finn"
+        case (.second, .singular):
+            inflection.ending = "feá"
+        case (.third, .singular),
+             (.second, .plural):
+            inflection.ending = "feadh"
+            inflection.pronoun = pronoun(person, number)
+        case (.first, .plural):
+            inflection.ending = "fimid"
+        case (.third, .plural):
+            inflection.ending = "fidís"
+        }
+        
+        return inflection
+    }
 }

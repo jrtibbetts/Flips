@@ -39,55 +39,23 @@ struct InflectionCell: View {
 
 struct InflectionTableRow: View {
 
+    var inflector: VerbInflector
+
     var verb: Verb
 
     var person: Verb.Person
 
-    var tense: Verb.Tense
-
-    var mood: Verb.Mood
-
-    var voice: Verb.Voice
-
-    var conjugation: Verb.Conjugation
-
-    var syllables: Verb.Syllables {
-        return verb.polysyllabic ? .doubleOrMore : .single
-    }
-
-    var rootVowel: Verb.RootVowel {
-        return Verb.RootVowel.value(for: verb.rootVowel)
-    }
-
-    var singularPronoun: String
-
-    var pluralPronoun: String
-
     var body: some View {
         HStack {
-            if let singularInflections = Verb.endings[.init(person: person,
-                                                            number: Verb.Number.singular,
-                                                            tense: tense,
-                                                            mood: mood,
-                                                            voice: voice,
-                                                            conjugation: conjugation,
-                                                            syllables: syllables,
-                                                            rootVowel: rootVowel)] {
+            if let singularInflections = inflector.inflect(verb: verb, person: person, number: .singular) {
                 InflectionCell(ending: singularInflections.ending,
-                               pronoun: singularInflections.usePronoun ? singularPronoun : nil,
+                               pronoun: singularInflections.pronoun,
                                verb: verb)
             }
 
-            if let pluralInflections = Verb.endings[.init(person: person,
-                                                          number: Verb.Number.plural,
-                                                          tense: tense,
-                                                          mood: mood,
-                                                          voice: voice,
-                                                          conjugation: conjugation,
-                                                          syllables: syllables,
-                                                          rootVowel: rootVowel)] {
+            if let pluralInflections = inflector.inflect(verb: verb, person: person, number: .plural) {
                 InflectionCell(ending: pluralInflections.ending,
-                               pronoun: pluralInflections.usePronoun ? pluralPronoun : nil,
+                               pronoun: pluralInflections.pronoun,
                                verb: verb)
             }
        }
@@ -107,10 +75,10 @@ struct VerbConjugationView: View {
             }
 
             VStack {
-                InflectionGroup(verb: verb, tense: .present, mood: .indicative, voice: .active, conjugation: .first)
-                InflectionGroup(verb: verb, tense: .past, mood: .indicative, voice: .active, conjugation: .first)
-                InflectionGroup(verb: verb, tense: .pastHabitual, mood: .indicative, voice: .active, conjugation: .first)
-                InflectionGroup(verb: verb, tense: .future, mood: .indicative, voice: .active, conjugation: .first)
+                InflectionGroup(inflector: FirstConjugationSlenderPresentIndicative(), verb: verb)
+                InflectionGroup(inflector: FirstConjugationSlenderPastIndicative(), verb: verb)
+                InflectionGroup(inflector: FirstConjugationSlenderPastHabitualIndicative(), verb: verb)
+                InflectionGroup(inflector: FirstConjugationSlenderFutureIndicative(), verb: verb)
            }
 
             Spacer()
@@ -120,45 +88,29 @@ struct VerbConjugationView: View {
 
 struct InflectionGroup: View {
 
+    var inflector: VerbInflector
     var verb: Verb
-    var tense: Verb.Tense
-    var mood: Verb.Mood
-    var voice: Verb.Voice
-    var conjugation: Verb.Conjugation
 
     var body: some View {
         VStack {
-            HStack {
-                Text(tense.rawValue.capitalized)
-                    .font(.title2)
-                Spacer()
+            if let tense = inflector.tense {
+                HStack {
+                    Text(tense.rawValue.capitalized)
+                        .font(.title2)
+                    Spacer()
+                }
             }
 
             ScrollView {
-                InflectionTableRow(verb: verb,
-                                   person: .first,
-                                   tense: tense,
-                                   mood: mood,
-                                   voice: voice,
-                                   conjugation: conjugation,
-                                   singularPronoun: "mé",
-                                   pluralPronoun: "muid")
-                InflectionTableRow(verb: verb,
-                                   person: .second,
-                                   tense: tense,
-                                   mood: mood,
-                                   voice: voice,
-                                   conjugation: conjugation,
-                                   singularPronoun: "tú",
-                                   pluralPronoun: "sibh")
-                InflectionTableRow(verb: verb,
-                                   person: .third,
-                                   tense: tense,
-                                   mood: mood,
-                                   voice: voice,
-                                   conjugation: conjugation,
-                                   singularPronoun: "sé/sí",
-                                   pluralPronoun: "siad")
+                InflectionTableRow(inflector: inflector,
+                                   verb: verb,
+                                   person: .first)
+                InflectionTableRow(inflector: inflector,
+                                   verb: verb,
+                                   person: .second)
+                InflectionTableRow(inflector: inflector,
+                                   verb: verb,
+                                   person: .third)
             }
         }
         .padding(10.0)
