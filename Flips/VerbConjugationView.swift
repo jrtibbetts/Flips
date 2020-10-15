@@ -16,6 +16,13 @@ struct InflectionCell: View {
                             .fontWeight(.bold)
                     }
 
+                    if let prefix = inflections.prefix {
+                        Text(prefix)
+                            .font(.body)
+                            .fontWeight(.bold)
+                            .padding(.trailing, -8)
+                    }
+
                     Text(inflections.root)
                         .font(.body)
                         .multilineTextAlignment(.trailing)
@@ -109,10 +116,15 @@ struct VerbConjugationView_Previews: PreviewProvider {
 
     static var verb: Verb = {
         var verb = Verb(context: PersistenceController.preview.container.viewContext)
-        verb.root = "rith"
-        verb.rootVowel = "i"
-        verb.pastParticiple = "rite"
-        verb.verbalNoun = "rith"
+//        verb.root = "rith"
+//        verb.rootVowel = "i"
+//        verb.pastParticiple = "rite"
+//        verb.verbalNoun = "rith"
+//        verb.polysyllabic = false
+        verb.root = "ól"
+        verb.rootVowel = "ó"
+        verb.pastParticiple = "ólta"
+        verb.verbalNoun = "ól"
         verb.polysyllabic = false
 
         return verb
