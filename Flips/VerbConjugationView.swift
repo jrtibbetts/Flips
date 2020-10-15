@@ -127,31 +127,34 @@ struct InflectionGroup: View {
                 Spacer()
             }
 
-            InflectionTableRow(verb: verb,
-                               person: .first,
-                               tense: tense,
-                               mood: mood,
-                               voice: voice,
-                               conjugation: conjugation,
-                               singularPronoun: "mé",
-                               pluralPronoun: "muid")
-            InflectionTableRow(verb: verb,
-                               person: .second,
-                               tense: tense,
-                               mood: mood,
-                               voice: voice,
-                               conjugation: conjugation,
-                               singularPronoun: "tú",
-                               pluralPronoun: "sibh")
-            InflectionTableRow(verb: verb,
-                               person: .third,
-                               tense: tense,
-                               mood: mood,
-                               voice: voice,
-                               conjugation: conjugation,
-                               singularPronoun: "sé/sí",
-                               pluralPronoun: "siad")
+            ScrollView {
+                InflectionTableRow(verb: verb,
+                                   person: .first,
+                                   tense: tense,
+                                   mood: mood,
+                                   voice: voice,
+                                   conjugation: conjugation,
+                                   singularPronoun: "mé",
+                                   pluralPronoun: "muid")
+                InflectionTableRow(verb: verb,
+                                   person: .second,
+                                   tense: tense,
+                                   mood: mood,
+                                   voice: voice,
+                                   conjugation: conjugation,
+                                   singularPronoun: "tú",
+                                   pluralPronoun: "sibh")
+                InflectionTableRow(verb: verb,
+                                   person: .third,
+                                   tense: tense,
+                                   mood: mood,
+                                   voice: voice,
+                                   conjugation: conjugation,
+                                   singularPronoun: "sé/sí",
+                                   pluralPronoun: "siad")
+            }
         }
+        .padding(10.0)
     }
 
 }
