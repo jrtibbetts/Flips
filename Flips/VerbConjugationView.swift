@@ -72,11 +72,6 @@ struct VerbConjugationView: View {
 
     var body: some View {
         VStack {
-            HStack {
-                Text(verb.root ?? "(no root)")
-                    .font(.title)
-            }
-
             ScrollView {
                 VStack {
                     InflectionGroup(inflector: FirstConjugationPresentIndicative(verb: verb))
@@ -89,6 +84,8 @@ struct VerbConjugationView: View {
                 }
             }
         }
+        .padding([.leading, .trailing], 5)
+        .navigationBarTitle(Text(verb.root ?? "(no root)"), displayMode: .large)
     }
 }
 
@@ -131,7 +128,9 @@ struct VerbConjugationView_Previews: PreviewProvider {
     }()
 
     static var previews: some View {
-        VerbConjugationView(verb: verb)
+        NavigationView {
+            VerbConjugationView(verb: verb)
+        }
     }
 
 }
