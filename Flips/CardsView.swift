@@ -7,8 +7,12 @@ struct CardsView: View {
 
     @Environment(\.managedObjectContext) private var viewContext
 
+    @State private var sortAscending = true
+
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(keyPath: \Verb.root, ascending: true)],
+        sortDescriptors: [NSSortDescriptor(key: "root",
+                                           ascending: true,
+                                           selector: #selector(NSString.localizedStandardCompare(_:)))],
         animation: .default)
 
     private var verbs: FetchedResults<Verb>
@@ -18,10 +22,14 @@ struct CardsView: View {
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))],
                       alignment: .center, spacing: 20) {
                 ForEach(verbs) { verb in
-                    NavigationLink(verb.root ?? "(no root)",
-                                   destination: VerbConjugationView(verb: verb))
+                    if let root = verb.root {
+                        NavigationLink(root,
+                                       destination: VerbConjugationView(verb: verb))
+                    }
                 }
             }
+
+            Spacer()
         }
     }
 
