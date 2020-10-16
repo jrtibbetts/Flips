@@ -36,3 +36,23 @@ public extension Verb {
     }
 
 }
+
+public extension String {
+
+    var lenited: String {
+        guard let firstLetter = self.first else {
+            return ""
+        }
+
+        let theRest = self.dropFirst()
+
+        switch firstLetter {
+        case "b", "c", "d", "f", "g", "m", "p", "s", "t":
+            return "\(firstLetter)h\(theRest)"
+
+        default:
+            return self
+        }
+    }
+
+}

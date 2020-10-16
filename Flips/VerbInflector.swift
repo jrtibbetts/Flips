@@ -87,7 +87,10 @@ public struct FirstConjugationPastIndicative: VerbInflector {
     public var mood = Verb.Mood.indicative
 
     public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
-        var inflection = VerbInflection(root: verb.root ?? "")
+        var root = verb.simplePastRoot ?? verb.root ?? ""
+        root = root.lenited
+
+        var inflection = VerbInflection(root: root)
 
         if verb.startsWithVowel {
             inflection.prefix = "d'"
@@ -114,7 +117,7 @@ public struct FirstConjugationPastHabitualIndicative: VerbInflector {
     public var mood = Verb.Mood.indicative
 
     public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
-        var inflection = VerbInflection(root: verb.root ?? "")
+        var inflection = VerbInflection(root: verb.root?.lenited ?? "")
 
         if verb.startsWithVowel {
             inflection.prefix = "d'"
