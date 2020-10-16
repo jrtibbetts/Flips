@@ -85,7 +85,20 @@ struct VerbConjugationView: View {
             }
         }
         .padding([.leading, .trailing], 5)
-        .navigationBarTitle(Text(verb.root ?? "(no root)"), displayMode: .large)
+        .toolbar {
+            ToolbarItem(placement: .principal) {
+                VStack {
+                    Text(verb.root ?? "(no root)")
+                        .font(.headline)
+
+                    if let translation = verb.englishPresent {
+                        Text(translation)
+                            .font(.subheadline)
+                    }
+                }
+            }
+        }
+//        .navigationBarTitle(Text(verb.root ?? "(no root)"), displayMode: .large)
     }
 }
 
@@ -98,7 +111,13 @@ struct InflectionGroup: View {
             HStack {
                 Text(inflector.displayName)
                     .font(.title2)
+
                 Spacer()
+
+                if let translation = inflector.translation {
+                    Text(translation)
+                        .font(.body)
+                }
             }
 
             InflectionTableRow(inflector: inflector, person: .first)
@@ -123,6 +142,9 @@ struct VerbConjugationView_Previews: PreviewProvider {
         verb.pastParticiple = "ólta"
         verb.verbalNoun = "ól"
         verb.polysyllabic = false
+        verb.englishPresent = "drink"
+        verb.englishPast = "drank"
+        verb.englishPastParticiple = "drunk"
 
         return verb
     }()

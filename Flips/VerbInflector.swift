@@ -17,6 +17,7 @@ public protocol VerbInflector {
     var verb: Verb { get }
     var tense: Verb.Tense? { get }
     var mood: Verb.Mood { get }
+    var translation: String? { get }
 
     func inflect(person: Verb.Person,
                  number: Verb.Number) -> VerbInflection
@@ -60,6 +61,10 @@ public struct FirstConjugationPresentIndicative: VerbInflector {
 
     public var mood = Verb.Mood.indicative
 
+    public var translation: String? {
+        return verb.englishPresent
+    }
+
     public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
         var inflection = VerbInflection(root: verb.root ?? "")
         inflection.pronoun = pronoun(person, number)
@@ -85,6 +90,10 @@ public struct FirstConjugationPastIndicative: VerbInflector {
     public var tense: Verb.Tense? = .past
 
     public var mood = Verb.Mood.indicative
+
+    public var translation: String? {
+        return verb.englishPast
+    }
 
     public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
         var root = verb.simplePastRoot ?? verb.root ?? ""
@@ -115,6 +124,14 @@ public struct FirstConjugationPastHabitualIndicative: VerbInflector {
     public var tense: Verb.Tense? = .pastHabitual
 
     public var mood = Verb.Mood.indicative
+
+    public var translation: String? {
+        if let translation = verb.englishPresent {
+            return "used to \(translation)"
+        } else {
+            return nil
+        }
+    }
 
     public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
         var inflection = VerbInflection(root: verb.root?.lenited ?? "")
@@ -158,6 +175,14 @@ public struct FirstConjugationFutureIndicative: VerbInflector {
 
     public var mood = Verb.Mood.indicative
 
+    public var translation: String? {
+        if let translation = verb.englishPresent {
+            return "will \(translation)"
+        } else {
+            return nil
+        }
+    }
+
     public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
         var inflection = VerbInflection(root: verb.root ?? "")
 
@@ -182,6 +207,14 @@ public struct FirstConjugationConditional: VerbInflector {
     public var tense: Verb.Tense?
 
     public var mood = Verb.Mood.conditional
+
+    public var translation: String? {
+        if let translation = verb.englishPresent {
+            return "would \(translation)"
+        } else {
+            return nil
+        }
+    }
 
     public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
         var inflection = VerbInflection(root: verb.root ?? "")
@@ -218,6 +251,14 @@ public struct FirstConjugationPresentSubjunctive: VerbInflector {
 
     public var mood = Verb.Mood.subjunctive
 
+    public var translation: String? {
+        if let translation = verb.englishPresent {
+            return "could \(translation)"
+        } else {
+            return nil
+        }
+    }
+
     public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
         var inflection = VerbInflection(root: verb.root ?? "")
         inflection.particle = "go"
@@ -246,6 +287,14 @@ public struct FirstConjugationPastSubjunctive: VerbInflector {
     public var tense: Verb.Tense? = .past
 
     public var mood = Verb.Mood.subjunctive
+
+    public var translation: String? {
+        if let translation = verb.englishPastParticiple {
+            return "could have \(translation)"
+        } else {
+            return nil
+        }
+    }
 
     public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
         let pastHabitualInflector = FirstConjugationPastHabitualIndicative(verb: verb,
