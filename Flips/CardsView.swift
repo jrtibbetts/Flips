@@ -24,15 +24,16 @@ struct CardsView: View {
                           alignment: .center, spacing: 20) {
                     ForEach(verbs) { verb in
                         if let root = verb.root {
-                            VStack {
-                                NavigationLink(root,
-                                               destination: VerbConjugationView(verb: verb))
-                                    .font(.largeTitle)
+                            NavigationLink(destination: VerbConjugationView(verb: verb)) {
+                                VStack {
+                                    Text(root)
+                                        .font(.largeTitle)
 
-                                if let translation = verb.englishPresent {
-                                    Text(translation)
-                                        .font(.headline)
-                                        .italic()
+                                    if let translation = verb.englishPresent {
+                                        Text(translation)
+                                            .font(.headline)
+                                            .italic()
+                                    }
                                 }
                             }
                         }
