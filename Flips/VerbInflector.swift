@@ -194,6 +194,26 @@ public struct FirstConjugationPastIndicative: VerbInflector {
         return verb.englishPast
     }
 
+    public func translationWithPronoun(_ person: Verb.Person, _ number: Verb.Number) -> String? {
+        guard let translation = translation,
+              let englishPresent = verb.englishPresent else {
+            return nil
+        }
+
+        let pronoun = self.englishPronoun(person, number)
+
+        switch mode {
+        case .positive:
+            return "\(pronoun) \(translation)"
+        case .interrogative:
+            return "did \(pronoun) \(englishPresent)?"
+        case .negative:
+            return "\(pronoun) didn't \(englishPresent)"
+        case .negativeInterrogative:
+            return "didn't \(pronoun) \(englishPresent)?"
+        }
+    }
+
     public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
         var root = verb.simplePastRoot ?? verb.root ?? ""
         root = root.lenited
@@ -232,6 +252,26 @@ public struct FirstConjugationPastHabitualIndicative: VerbInflector {
             return "used to \(translation)"
         } else {
             return nil
+        }
+    }
+
+    public func translationWithPronoun(_ person: Verb.Person, _ number: Verb.Number) -> String? {
+        guard let translation = translation,
+              let englishPresent = verb.englishPresent else {
+            return nil
+        }
+
+        let pronoun = self.englishPronoun(person, number)
+
+        switch mode {
+        case .positive:
+            return "\(pronoun) \(translation)"
+        case .interrogative:
+            return "did \(pronoun) use to \(englishPresent)?"
+        case .negative:
+            return "\(pronoun) didn't use to \(englishPresent)"
+        case .negativeInterrogative:
+            return "didn't \(pronoun) use to \(englishPresent)?"
         }
     }
 
@@ -288,6 +328,26 @@ public struct FirstConjugationFutureIndicative: VerbInflector {
         }
     }
 
+    public func translationWithPronoun(_ person: Verb.Person, _ number: Verb.Number) -> String? {
+        guard let translation = translation,
+              let englishPresent = verb.englishPresent else {
+            return nil
+        }
+
+        let pronoun = self.englishPronoun(person, number)
+
+        switch mode {
+        case .positive:
+            return "\(pronoun) \(translation)"
+        case .interrogative:
+            return "will \(pronoun) \(englishPresent)?"
+        case .negative:
+            return "\(pronoun) won't \(englishPresent)"
+        case .negativeInterrogative:
+            return "won't \(pronoun) \(englishPresent)?"
+        }
+    }
+
     public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
         var inflection = VerbInflection(root: verb.root ?? "")
         inflection.translation = translationWithPronoun(person, number)
@@ -321,6 +381,26 @@ public struct FirstConjugationConditional: VerbInflector {
             return "would \(translation)"
         } else {
             return nil
+        }
+    }
+
+    public func translationWithPronoun(_ person: Verb.Person, _ number: Verb.Number) -> String? {
+        guard let translation = translation,
+              let englishPresent = verb.englishPresent else {
+            return nil
+        }
+
+        let pronoun = self.englishPronoun(person, number)
+
+        switch mode {
+        case .positive:
+            return "\(pronoun) \(translation)"
+        case .interrogative:
+            return "would \(pronoun) \(englishPresent)?"
+        case .negative:
+            return "\(pronoun) wouldn't \(englishPresent)"
+        case .negativeInterrogative:
+            return "wouldn't \(pronoun) \(englishPresent)?"
         }
     }
 
@@ -370,6 +450,26 @@ public struct FirstConjugationPresentSubjunctive: VerbInflector {
         }
     }
 
+    public func translationWithPronoun(_ person: Verb.Person, _ number: Verb.Number) -> String? {
+        guard let translation = translation,
+              let englishPresent = verb.englishPresent else {
+            return nil
+        }
+
+        let pronoun = self.englishPronoun(person, number)
+
+        switch mode {
+        case .positive:
+            return "\(pronoun) \(translation)"
+        case .interrogative:
+            return "could \(pronoun) \(englishPresent)?"
+        case .negative:
+            return "\(pronoun) couldn't \(englishPresent)"
+        case .negativeInterrogative:
+            return "couldn't \(pronoun) \(englishPresent)?"
+        }
+    }
+
     public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
         var inflection = VerbInflection(root: verb.root ?? "")
         inflection.translation = translationWithPronoun(person, number)
@@ -407,6 +507,26 @@ public struct FirstConjugationPastSubjunctive: VerbInflector {
             return "could have \(translation)"
         } else {
             return nil
+        }
+    }
+
+    public func translationWithPronoun(_ person: Verb.Person, _ number: Verb.Number) -> String? {
+        guard let translation = translation,
+              let englishPastParticiple = verb.englishPastParticiple else {
+            return nil
+        }
+
+        let pronoun = self.englishPronoun(person, number)
+
+        switch mode {
+        case .positive:
+            return "\(pronoun) \(translation)"
+        case .interrogative:
+            return "could \(pronoun) have \(englishPastParticiple)?"
+        case .negative:
+            return "\(pronoun) could not have \(englishPastParticiple)"
+        case .negativeInterrogative:
+            return "could \(pronoun) not have \(englishPastParticiple)?"
         }
     }
 
