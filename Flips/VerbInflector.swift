@@ -9,6 +9,7 @@ public struct VerbInflection {
     var root: String = ""
     var ending: String = ""
     var pronoun: String?
+    var translation: String?
 
 }
 
@@ -51,6 +52,31 @@ public extension VerbInflector {
         }
     }
 
+    func englishPronoun(_ person: Verb.Person, _ number: Verb.Number) -> String {
+        switch (person, number) {
+        case (.first, .singular):
+            return "I"
+        case (.second, .singular):
+            return "you"
+        case (.third, .singular):
+            return "he/she/it"
+            case (.first, .plural):
+            return "we"
+        case (.second, .plural):
+            return "you (all)"
+        case (.third, .plural):
+            return "they"
+        }
+    }
+
+    func translationWithPronoun(_ person: Verb.Person, _ number: Verb.Number) -> String? {
+        if let translation = translation {
+            return "\(englishPronoun(person, number)) \(translation)"
+        } else {
+            return nil
+        }
+    }
+
 }
 
 public struct FirstConjugationPresentIndicative: VerbInflector {
@@ -68,6 +94,7 @@ public struct FirstConjugationPresentIndicative: VerbInflector {
     public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
         var inflection = VerbInflection(root: verb.root ?? "")
         inflection.pronoun = pronoun(person, number)
+        inflection.translation = translationWithPronoun(person, number)
 
         switch (person, number) {
         case (.first, .singular):
