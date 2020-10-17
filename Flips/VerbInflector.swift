@@ -160,7 +160,7 @@ public struct FirstConjugationPresentIndicative: VerbInflector {
             inflection.particle = mode.rawValue
         default:
             inflection.root = root
-            inflection.particle = ""
+            inflection.particle = nil
         }
 
         inflection.translation = translationWithPronoun(person, number)

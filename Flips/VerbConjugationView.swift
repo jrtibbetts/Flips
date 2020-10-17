@@ -10,7 +10,7 @@ struct VerbConjugationView: View {
     var verb: Verb
 
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Picker("", selection: $mode) {
                 ForEach(VerbMode.allValues, id: \.self) { (mode) in
                     Text(mode.rawValue).tag(mode)
@@ -90,11 +90,14 @@ struct MoodView<Content>: View where Content: View {
     }
 
     var body: some View {
-        VStack {
-            Text(mood.rawValue)
-                .font(.headline)
+        VStack(alignment: .leading) {
+            Text(mood.rawValue.capitalized)
+                .font(.title)
+                .frame(alignment: .leading)
             content
+                .frame(alignment: .leading)
         }
+        .padding()
         .scaledToFill()
     }
 
@@ -107,8 +110,8 @@ struct InflectionGroup: View {
     @Binding var showTranslations: Bool
 
     var body: some View {
-        VStack {
-            HStack {
+        VStack(alignment: .leading) {
+            HStack(alignment: .top) {
                 if let tense = inflector.tense?.rawValue {
                     Text(tense)
                         .font(.title2)
@@ -119,6 +122,7 @@ struct InflectionGroup: View {
                 if let translation = inflector.translation {
                     Text(translation)
                         .font(.body)
+                        .italic()
                 }
             }
 
@@ -129,7 +133,7 @@ struct InflectionGroup: View {
             InflectionTableRow(inflector: inflector, person: .third,
                                showTranslations: $showTranslations)
         }
-        .padding(10.0)
+        .padding([.top, .bottom], 10)
     }
 
 }
@@ -166,7 +170,7 @@ struct InflectionCell: View {
 
     var body: some View {
         GeometryReader { (proxy) in
-            VStack{
+            VStack(alignment: .leading) {
                 HStack {
                     if let particle = inflections.particle {
                         Text(particle)
@@ -198,6 +202,7 @@ struct InflectionCell: View {
                         Text(pronoun)
                     }
                 }
+                .frame(alignment: .leading)
 
                 if showTranslations,
                    let translation = inflections.translation {
@@ -208,6 +213,7 @@ struct InflectionCell: View {
             }
             .frame(alignment: .leading)
         }
+        .frame(alignment: .top)
     }
 
 }
