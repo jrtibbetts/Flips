@@ -115,9 +115,9 @@ struct InflectionGroup: View {
                 if let tense = inflector.tense?.rawValue {
                     Text(tense)
                         .font(.title2)
-
-                    Spacer()
                 }
+
+                Spacer()
 
                 if let translation = inflector.translation {
                     Text(translation)

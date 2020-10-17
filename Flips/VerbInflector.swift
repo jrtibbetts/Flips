@@ -524,9 +524,9 @@ public struct FirstConjugationPastSubjunctive: VerbInflector {
         case .interrogative:
             return "could \(pronoun) have \(englishPastParticiple)?"
         case .negative:
-            return "\(pronoun) could not have \(englishPastParticiple)"
+            return "\(pronoun) couldn't have \(englishPastParticiple)"
         case .negativeInterrogative:
-            return "could \(pronoun) not have \(englishPastParticiple)?"
+            return "couldn't \(pronoun) have \(englishPastParticiple)?"
         }
     }
 
