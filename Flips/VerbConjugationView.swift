@@ -5,11 +5,21 @@ import SwiftUI
 struct VerbConjugationView: View {
 
     @State private var showTranslation: Bool = false
+    @State private var mode = "positive"
 
     var verb: Verb
 
     var body: some View {
         VStack {
+            Picker("", selection: $mode) {
+                Text("Positive").tag("positive")
+                Text("Ní").tag("negative")
+                Text("An").tag("interrogative")
+                Text("Nach").tag("negative interrogative")
+            }
+            .pickerStyle(SegmentedPickerStyle())
+            .padding()
+
             ScrollView {
                 VStack {
                     MoodView(.indicative) {
@@ -58,6 +68,7 @@ struct VerbConjugationView: View {
             }
         }
     }
+
 }
 
 struct MoodView<Content>: View where Content: View {

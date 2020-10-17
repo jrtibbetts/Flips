@@ -2,6 +2,8 @@
 
 import Foundation
 
+/// Holds the components that constitute a verb's inflection in a specific
+/// person, number, tense, and mood.
 public struct VerbInflection {
 
     var particle: String?
@@ -13,6 +15,7 @@ public struct VerbInflection {
 
 }
 
+/// Produces inflected forms of a verb in a particular tense and mood.
 public protocol VerbInflector {
 
     var verb: Verb { get }
