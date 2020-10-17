@@ -6,11 +6,12 @@ import Foundation
 /// person, number, tense, and mood.
 public struct VerbInflection {
 
+    var ending: String = ""
+    var mode: VerbMode = .positive
     var particle: String?
     var prefix: String?
-    var root: String = ""
-    var ending: String = ""
     var pronoun: String?
+    var root: String = ""
     var translation: String?
 
 }
@@ -29,10 +30,11 @@ public enum VerbMode: String {
 /// Produces inflected forms of a verb in a particular tense and mood.
 public protocol VerbInflector {
 
-    var verb: Verb { get }
-    var tense: Verb.Tense? { get }
+    var mode: VerbMode { get }
     var mood: Verb.Mood { get }
+    var tense: Verb.Tense? { get }
     var translation: String? { get }
+    var verb: Verb { get }
 
     func inflect(person: Verb.Person,
                  number: Verb.Number) -> VerbInflection
@@ -97,6 +99,8 @@ public struct FirstConjugationPresentIndicative: VerbInflector {
 
     public var verb: Verb
 
+    public var mode: VerbMode
+
     public var tense: Verb.Tense? = .present
 
     public var mood = Verb.Mood.indicative
@@ -106,8 +110,25 @@ public struct FirstConjugationPresentIndicative: VerbInflector {
     }
 
     public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
-        var inflection = VerbInflection(root: verb.root ?? "")
-        inflection.pronoun = pronoun(person, number)
+        guard let root = verb.root else {
+            return VerbInflection()
+        }
+
+        var inflection = VerbInflection()
+
+        switch mode {
+        case .negative,
+             .negativeInterrogative:
+            inflection.root = root.lenited
+            inflection.particle = mode.rawValue
+        case .interrogative:
+            inflection.root = root.eclipsed
+            inflection.particle = mode.rawValue
+        default:
+            inflection.root = root
+            inflection.particle = ""
+        }
+
         inflection.translation = translationWithPronoun(person, number)
 
         switch (person, number) {
@@ -117,6 +138,7 @@ public struct FirstConjugationPresentIndicative: VerbInflector {
             inflection.ending = verb.isSlender ? "imid" : "aimid"
         default:
             inflection.ending = verb.isSlender ? "eann" : "ann"
+            inflection.pronoun = pronoun(person, number)
         }
 
         return inflection
@@ -127,6 +149,8 @@ public struct FirstConjugationPresentIndicative: VerbInflector {
 public struct FirstConjugationPastIndicative: VerbInflector {
 
     public var verb: Verb
+
+    public var mode: VerbMode
 
     public var tense: Verb.Tense? = .past
 
@@ -162,6 +186,8 @@ public struct FirstConjugationPastIndicative: VerbInflector {
 public struct FirstConjugationPastHabitualIndicative: VerbInflector {
 
     public var verb: Verb
+
+    public var mode: VerbMode
 
     public var tense: Verb.Tense? = .pastHabitual
 
@@ -214,6 +240,8 @@ public struct FirstConjugationFutureIndicative: VerbInflector {
 
     public var verb: Verb
 
+    public var mode: VerbMode
+
     public var tense: Verb.Tense? = .future
 
     public var mood = Verb.Mood.indicative
@@ -247,6 +275,8 @@ public struct FirstConjugationFutureIndicative: VerbInflector {
 public struct FirstConjugationConditional: VerbInflector {
 
     public var verb: Verb
+
+    public var mode: VerbMode
 
     public var tense: Verb.Tense?
 
@@ -292,6 +322,8 @@ public struct FirstConjugationPresentSubjunctive: VerbInflector {
 
     public var verb: Verb
 
+    public var mode: VerbMode
+
     public var tense: Verb.Tense? = .present
 
     public var mood = Verb.Mood.subjunctive
@@ -330,6 +362,8 @@ public struct FirstConjugationPastSubjunctive: VerbInflector {
 
     public var verb: Verb
 
+    public var mode: VerbMode
+
     public var tense: Verb.Tense? = .past
 
     public var mood = Verb.Mood.subjunctive
@@ -344,8 +378,9 @@ public struct FirstConjugationPastSubjunctive: VerbInflector {
 
     public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
         let pastHabitualInflector = FirstConjugationPastHabitualIndicative(verb: verb,
-                                                                                  tense: .pastHabitual,
-                                                                                  mood: .indicative)
+                                                                           mode: mode,
+                                                                           tense: .pastHabitual,
+                                                                           mood: .indicative)
         var inflection = pastHabitualInflector.inflect(person: person, number: number)
         inflection.translation = translationWithPronoun(person, number)
         inflection.particle = "dá"

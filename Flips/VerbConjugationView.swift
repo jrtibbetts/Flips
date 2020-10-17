@@ -22,25 +22,32 @@ struct VerbConjugationView: View {
             ScrollView {
                 VStack {
                     MoodView(.indicative) {
-                        InflectionGroup(inflector: FirstConjugationPresentIndicative(verb: verb),
+                        InflectionGroup(inflector: FirstConjugationPresentIndicative(verb: verb,
+                                                                                     mode: mode),
                                         showTranslations: $showTranslation)
-                        InflectionGroup(inflector: FirstConjugationPastIndicative(verb: verb),
+                        InflectionGroup(inflector: FirstConjugationPastIndicative(verb: verb,
+                                                                                  mode: mode),
                                         showTranslations: $showTranslation)
-                        InflectionGroup(inflector: FirstConjugationPastHabitualIndicative(verb: verb),
+                        InflectionGroup(inflector: FirstConjugationPastHabitualIndicative(verb: verb,
+                                                                                          mode: mode),
                                         showTranslations: $showTranslation)
-                        InflectionGroup(inflector: FirstConjugationFutureIndicative(verb: verb),
+                        InflectionGroup(inflector: FirstConjugationFutureIndicative(verb: verb,
+                                                                                    mode: mode),
                                         showTranslations: $showTranslation)
                     }
 
                     MoodView(.conditional) {
-                        InflectionGroup(inflector: FirstConjugationConditional(verb: verb),
+                        InflectionGroup(inflector: FirstConjugationConditional(verb: verb,
+                                                                               mode: mode),
                                         showTranslations: $showTranslation)
                     }
 
                     MoodView(.subjunctive) {
-                        InflectionGroup(inflector: FirstConjugationPresentSubjunctive(verb: verb),
+                        InflectionGroup(inflector: FirstConjugationPresentSubjunctive(verb: verb,
+                                                                                      mode: mode),
                                         showTranslations: $showTranslation)
-                        InflectionGroup(inflector: FirstConjugationPastSubjunctive(verb: verb),
+                        InflectionGroup(inflector: FirstConjugationPastSubjunctive(verb: verb,
+                                                                                   mode: mode),
                                         showTranslations: $showTranslation)
                     }
                 }
