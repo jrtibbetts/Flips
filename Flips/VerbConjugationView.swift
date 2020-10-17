@@ -66,7 +66,32 @@ struct InflectionTableRow: View {
 
 }
 
+struct MoodView<Content>: View where Content: View {
+
+    let content: Content
+
+    var mood: Verb.Mood
+
+    init(_ mood: Verb.Mood,
+         @ViewBuilder content: () -> Content) {
+        self.mood = mood
+        self.content = content()
+    }
+
+    var body: some View {
+        VStack {
+            Text(mood.rawValue)
+                .font(.headline)
+            content
+        }
+        .scaledToFill()
+    }
+
+}
+
 struct VerbConjugationView: View {
+
+    @State private var showTranslation: Bool = false
 
     var verb: Verb
 
@@ -74,13 +99,21 @@ struct VerbConjugationView: View {
         VStack {
             ScrollView {
                 VStack {
-                    InflectionGroup(inflector: FirstConjugationPresentIndicative(verb: verb))
-                    InflectionGroup(inflector: FirstConjugationPastIndicative(verb: verb))
-                    InflectionGroup(inflector: FirstConjugationPastHabitualIndicative(verb: verb))
-                    InflectionGroup(inflector: FirstConjugationFutureIndicative(verb: verb))
-                    InflectionGroup(inflector: FirstConjugationConditional(verb: verb))
-                    InflectionGroup(inflector: FirstConjugationPresentSubjunctive(verb: verb))
-                    InflectionGroup(inflector: FirstConjugationPastSubjunctive(verb: verb))
+                    MoodView(.indicative) {
+                        InflectionGroup(inflector: FirstConjugationPresentIndicative(verb: verb))
+                        InflectionGroup(inflector: FirstConjugationPastIndicative(verb: verb))
+                        InflectionGroup(inflector: FirstConjugationPastHabitualIndicative(verb: verb))
+                        InflectionGroup(inflector: FirstConjugationFutureIndicative(verb: verb))
+                    }
+
+                    MoodView(.conditional) {
+                        InflectionGroup(inflector: FirstConjugationConditional(verb: verb))
+                    }
+
+                    MoodView(.subjunctive) {
+                        InflectionGroup(inflector: FirstConjugationPresentSubjunctive(verb: verb))
+                        InflectionGroup(inflector: FirstConjugationPastSubjunctive(verb: verb))
+                    }
                 }
             }
         }
@@ -97,8 +130,13 @@ struct VerbConjugationView: View {
                     }
                 }
             }
+
+            ToolbarItem(placement: .primaryAction) {
+                Button("Show Translations") {
+                    showTranslation.toggle()
+                }
+            }
         }
-//        .navigationBarTitle(Text(verb.root ?? "(no root)"), displayMode: .large)
     }
 }
 
@@ -109,10 +147,12 @@ struct InflectionGroup: View {
     var body: some View {
         VStack {
             HStack {
-                Text(inflector.displayName)
-                    .font(.title2)
+                if let tense = inflector.tense?.rawValue {
+                    Text(tense)
+                        .font(.title2)
 
-                Spacer()
+                    Spacer()
+                }
 
                 if let translation = inflector.translation {
                     Text(translation)
