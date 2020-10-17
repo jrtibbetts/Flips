@@ -5,17 +5,16 @@ import SwiftUI
 struct VerbConjugationView: View {
 
     @State private var showTranslation: Bool = false
-    @State private var mode = "positive"
+    @State private var mode = VerbMode.positive
 
     var verb: Verb
 
     var body: some View {
         VStack {
             Picker("", selection: $mode) {
-                Text("Positive").tag("positive")
-                Text("Ní").tag("negative")
-                Text("An").tag("interrogative")
-                Text("Nach").tag("negative interrogative")
+                ForEach(VerbMode.allValues, id: \.self) { (mode) in
+                    Text(mode.rawValue).tag(mode)
+                }
             }
             .pickerStyle(SegmentedPickerStyle())
             .padding()

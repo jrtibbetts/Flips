@@ -15,6 +15,17 @@ public struct VerbInflection {
 
 }
 
+public enum VerbMode: String {
+
+    case positive = "Positive"
+    case negative = "Ní"
+    case interrogative = "An"
+    case negativeInterrogative = "Nach"
+
+    static var allValues: [VerbMode] = [.positive, .negative, .interrogative, .negativeInterrogative]
+
+}
+
 /// Produces inflected forms of a verb in a particular tense and mood.
 public protocol VerbInflector {
 
