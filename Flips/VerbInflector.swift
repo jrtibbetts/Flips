@@ -127,6 +127,7 @@ public struct FirstConjugationPastIndicative: VerbInflector {
         root = root.lenited
 
         var inflection = VerbInflection(root: root)
+        inflection.translation = translationWithPronoun(person, number)
 
         if verb.startsWithVowel {
             inflection.prefix = "d'"
@@ -162,6 +163,7 @@ public struct FirstConjugationPastHabitualIndicative: VerbInflector {
 
     public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
         var inflection = VerbInflection(root: verb.root?.lenited ?? "")
+        inflection.translation = translationWithPronoun(person, number)
 
         if verb.startsWithVowel {
             inflection.prefix = "d'"
@@ -212,6 +214,7 @@ public struct FirstConjugationFutureIndicative: VerbInflector {
 
     public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
         var inflection = VerbInflection(root: verb.root ?? "")
+        inflection.translation = translationWithPronoun(person, number)
 
         switch (person, number) {
         case (.first, .plural):
@@ -245,6 +248,7 @@ public struct FirstConjugationConditional: VerbInflector {
 
     public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
         var inflection = VerbInflection(root: verb.root ?? "")
+        inflection.translation = translationWithPronoun(person, number)
 
         if verb.startsWithVowel {
             inflection.prefix = "d'"
@@ -288,6 +292,7 @@ public struct FirstConjugationPresentSubjunctive: VerbInflector {
 
     public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
         var inflection = VerbInflection(root: verb.root ?? "")
+        inflection.translation = translationWithPronoun(person, number)
         inflection.particle = "go"
 
         if verb.startsWithVowel {
@@ -328,6 +333,7 @@ public struct FirstConjugationPastSubjunctive: VerbInflector {
                                                                                   tense: .pastHabitual,
                                                                                   mood: .indicative)
         var inflection = pastHabitualInflector.inflect(person: person, number: number)
+        inflection.translation = translationWithPronoun(person, number)
         inflection.particle = "dá"
 
         if verb.startsWithVowel {
