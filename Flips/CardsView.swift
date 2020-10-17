@@ -19,17 +19,32 @@ struct CardsView: View {
 
     var body: some View {
         NavigationView {
-            LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))],
-                      alignment: .center, spacing: 20) {
-                ForEach(verbs) { verb in
-                    if let root = verb.root {
-                        NavigationLink(root,
-                                       destination: VerbConjugationView(verb: verb))
-                    }
-                }
-            }
+            VStack {
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))],
+                          alignment: .center, spacing: 20) {
+                    ForEach(verbs) { verb in
+                        if let root = verb.root {
+                            VStack {
+                                NavigationLink(root,
+                                               destination: VerbConjugationView(verb: verb))
+                                    .font(.largeTitle)
 
-            Spacer()
+                                if let translation = verb.englishPresent {
+                                    Text(translation)
+                                        .font(.headline)
+                                        .italic()
+                                }
+                            }
+                        }
+                    }
+                    .frame(width: 100, height: 100, alignment: .center)
+                    .cornerRadius(10.0)
+                    .border(Color.blue, width: 2)
+                }
+
+                Spacer()
+            }
+            .navigationTitle("Irish Verbs")
         }
     }
 
