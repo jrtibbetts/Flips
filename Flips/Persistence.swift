@@ -2,10 +2,10 @@
 
 import CoreData
 
-struct PersistenceController {
-    static let shared = PersistenceController()
+public struct PersistenceController {
+    public static let shared = PersistenceController()
 
-    static var preview: PersistenceController = {
+    public static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         for _ in 0..<10 {
@@ -23,9 +23,9 @@ struct PersistenceController {
         return result
     }()
 
-    let container: NSPersistentCloudKitContainer
+    public let container: NSPersistentCloudKitContainer
 
-    init(inMemory: Bool = false) {
+    public init(inMemory: Bool = false) {
         container = NSPersistentCloudKitContainer(name: "Flips")
         if inMemory {
             container.persistentStoreDescriptions.first!.url = URL(fileURLWithPath: "/dev/null")

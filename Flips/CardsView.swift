@@ -53,6 +53,7 @@ struct CardsView: View {
 
 struct CardsView_Previews: PreviewProvider {
     static var previews: some View {
-        CardsView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
+        CardsView().environment(\.managedObjectContext,
+                                PersistenceController.preview.container.viewContext)
     }
 }

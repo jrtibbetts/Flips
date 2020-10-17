@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		96185CB3253AADCD00C71FBB /* VerbModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96185CB2253AADCD00C71FBB /* VerbModel.swift */; };
 		961B25DB2533F21F009F43F0 /* EditVerbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961B25DA2533F21F009F43F0 /* EditVerbView.swift */; };
 		961B25E02533F2EB009F43F0 /* VerbConjugationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961B25DF2533F2EB009F43F0 /* VerbConjugationView.swift */; };
 		961B25E92534114D009F43F0 /* VerbEndings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961B25E82534114D009F43F0 /* VerbEndings.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		96185CB2253AADCD00C71FBB /* VerbModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbModel.swift; sourceTree = "<group>"; };
 		961B25DA2533F21F009F43F0 /* EditVerbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVerbView.swift; sourceTree = "<group>"; };
 		961B25DF2533F2EB009F43F0 /* VerbConjugationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbConjugationView.swift; sourceTree = "<group>"; };
 		961B25E82534114D009F43F0 /* VerbEndings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbEndings.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			children = (
 				961B25F025364461009F43F0 /* VerbEndings.json */,
 				961B25E82534114D009F43F0 /* VerbEndings.swift */,
+				96185CB2253AADCD00C71FBB /* VerbModel.swift */,
 			);
 			path = Grammar;
 			sourceTree = "<group>";
@@ -307,6 +310,7 @@
 				961B25DB2533F21F009F43F0 /* EditVerbView.swift in Sources */,
 				9675F1E5252EA6F800CAF7EC /* ContentView.swift in Sources */,
 				961B25E02533F2EB009F43F0 /* VerbConjugationView.swift in Sources */,
+				96185CB3253AADCD00C71FBB /* VerbModel.swift in Sources */,
 				96378705253806D500DF52EC /* VerbExtensions.swift in Sources */,
 				9675F1E3252EA6F800CAF7EC /* FlipsApp.swift in Sources */,
 			);
