@@ -45,15 +45,6 @@ public extension Verb {
         }
     }
 
-    enum Syllables: String, Codable {
-        case single
-        case doubleOrMore
-
-        static func value(for syllableCount: Int16? = 0) -> Syllables {
-            return (syllableCount == 1 ? .single : .doubleOrMore)
-        }
-    }
-
     enum Tense: String, Codable {
         case present
         case past
@@ -67,47 +58,4 @@ public extension Verb {
         case passive
     }
 
-    struct Parts: Codable, Hashable {
-
-        var person: Person
-        var number: Number?
-        var tense: Tense?
-        var mood: Mood
-        var voice: Voice?
-        var conjugation: Conjugation
-        var syllables: Syllables
-        var rootVowel: RootVowel
-
-    }
-
-    struct VerbInflection: Codable {
-
-        var parts: Parts
-        var inflection: Inflection
-    }
-
-    struct Inflection: Codable {
-        var ending: String
-        var prefix: String?
-        var usePronoun: Bool
-    }
-
-    static var endings: [Parts: Inflection] = {
-        let jsonUrl = Bundle.main.url(forResource: "VerbEndings", withExtension: "json")!
-
-        do {
-            let jsonData = try Data(contentsOf: jsonUrl)
-            let decoder = JSONDecoder()
-            var verbEndings = try decoder.decode([VerbInflection].self, from: jsonData)
-            var inflections = [Parts: Inflection]()
-
-            for ending in verbEndings {
-                inflections[ending.parts] = ending.inflection
-            }
-
-            return inflections
-        } catch {
-            return [:]
-        }
-    }()
 }
