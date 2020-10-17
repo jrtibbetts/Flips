@@ -109,6 +109,40 @@ public struct FirstConjugationPresentIndicative: VerbInflector {
         return verb.englishPresent
     }
 
+    public func translationWithPronoun(_ person: Verb.Person, _ number: Verb.Number) -> String? {
+        guard let translation = translation else {
+            return nil
+        }
+
+        let pronoun = self.englishPronoun(person, number)
+
+        switch mode {
+        case .positive:
+            return "\(pronoun) \(translation)"
+        case .interrogative:
+            switch (person, number) {
+            case (.third, .singular):
+                return "does \(pronoun) \(translation)?"
+            default:
+                return "do \(pronoun) \(translation)?"
+            }
+        case .negative:
+            switch (person, number) {
+            case (.third, .singular):
+                return "\(pronoun) doesn't \(translation)"
+            default:
+                return "\(pronoun) don't \(translation)"
+            }
+        case .negativeInterrogative:
+            switch (person, number) {
+            case (.third, .singular):
+                return "doesn't \(pronoun) \(translation)?"
+            default:
+                return "don't \(pronoun) \(translation)?"
+            }
+        }
+    }
+
     public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
         guard let root = verb.root else {
             return VerbInflection()
