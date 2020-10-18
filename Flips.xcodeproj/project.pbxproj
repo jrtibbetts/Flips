@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		96185CB3253AADCD00C71FBB /* VerbModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96185CB2253AADCD00C71FBB /* VerbModel.swift */; };
+		96185CBE253BDFB900C71FBB /* String+InitialMutations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96185CBD253BDFB900C71FBB /* String+InitialMutations.swift */; };
 		961B25DB2533F21F009F43F0 /* EditVerbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961B25DA2533F21F009F43F0 /* EditVerbView.swift */; };
 		961B25E02533F2EB009F43F0 /* VerbConjugationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961B25DF2533F2EB009F43F0 /* VerbConjugationView.swift */; };
 		961B25E92534114D009F43F0 /* VerbEndings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961B25E82534114D009F43F0 /* VerbEndings.swift */; };
@@ -44,6 +45,7 @@
 
 /* Begin PBXFileReference section */
 		96185CB2253AADCD00C71FBB /* VerbModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbModel.swift; sourceTree = "<group>"; };
+		96185CBD253BDFB900C71FBB /* String+InitialMutations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+InitialMutations.swift"; sourceTree = "<group>"; };
 		961B25DA2533F21F009F43F0 /* EditVerbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVerbView.swift; sourceTree = "<group>"; };
 		961B25DF2533F2EB009F43F0 /* VerbConjugationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbConjugationView.swift; sourceTree = "<group>"; };
 		961B25E82534114D009F43F0 /* VerbEndings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbEndings.swift; sourceTree = "<group>"; };
@@ -95,7 +97,10 @@
 		961B25E7253410C1009F43F0 /* Grammar */ = {
 			isa = PBXGroup;
 			children = (
+				96185CBD253BDFB900C71FBB /* String+InitialMutations.swift */,
 				961B25E82534114D009F43F0 /* VerbEndings.swift */,
+				96378704253806D500DF52EC /* VerbExtensions.swift */,
+				963786F92537D42E00DF52EC /* VerbInflector.swift */,
 				96185CB2253AADCD00C71FBB /* VerbModel.swift */,
 			);
 			path = Grammar;
@@ -132,8 +137,6 @@
 				9675F1E2252EA6F800CAF7EC /* FlipsApp.swift */,
 				9675F1EB252EA6FA00CAF7EC /* Persistence.swift */,
 				961B25DF2533F2EB009F43F0 /* VerbConjugationView.swift */,
-				96378704253806D500DF52EC /* VerbExtensions.swift */,
-				963786F92537D42E00DF52EC /* VerbInflector.swift */,
 				9675F1E6252EA6FA00CAF7EC /* Assets.xcassets */,
 				9675F1ED252EA6FA00CAF7EC /* Flips.xcdatamodeld */,
 				961B25E7253410C1009F43F0 /* Grammar */,
@@ -302,6 +305,7 @@
 				9675F219252EA8BD00CAF7EC /* CardsView.swift in Sources */,
 				9675F1EC252EA6FA00CAF7EC /* Persistence.swift in Sources */,
 				961B25E92534114D009F43F0 /* VerbEndings.swift in Sources */,
+				96185CBE253BDFB900C71FBB /* String+InitialMutations.swift in Sources */,
 				963786FA2537D42E00DF52EC /* VerbInflector.swift in Sources */,
 				961B25DB2533F21F009F43F0 /* EditVerbView.swift in Sources */,
 				9675F1E5252EA6F800CAF7EC /* ContentView.swift in Sources */,

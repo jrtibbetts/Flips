@@ -29,22 +29,6 @@ public extension Verb {
 //        case autonomous
     }
 
-    enum RootVowel: String, Codable {
-        case broad
-        case slender
-
-        static func value(for vowel: String?) -> RootVowel {
-            switch vowel?.lowercased() {
-            case "a", "o", "u":
-                return .broad
-            case "e", "i":
-                return .slender
-            default:
-                return .broad
-            }
-        }
-    }
-
     enum Tense: String, Codable {
         case present
         case past
