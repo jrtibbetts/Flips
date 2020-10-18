@@ -16,7 +16,7 @@ public struct VerbInflection {
 
 }
 
-public enum VerbMode: String {
+public enum VerbMode: String, CaseIterable {
 
     case positive = "Positive"
     case negative = "Ní"
@@ -221,7 +221,7 @@ public struct FirstConjugationPastIndicative: VerbInflector {
         var inflection = VerbInflection(root: root)
         inflection.translation = translationWithPronoun(person, number)
 
-        if verb.startsWithVowel {
+        if verb.startsWithVowel && (mode == .positive || mode == .interrogative) {
             inflection.prefix = "d'"
         }
 
@@ -230,6 +230,17 @@ public struct FirstConjugationPastIndicative: VerbInflector {
             inflection.ending = verb.isSlender ? "eamar" : "amar"
         default:
             inflection.pronoun = pronoun(person, number)
+        }
+
+        switch mode {
+        case .positive:
+            inflection.particle = nil
+        case .negative:
+            inflection.particle = "níor"
+        case .interrogative:
+            inflection.particle = "ar"
+        case .negativeInterrogative:
+            inflection.particle = "nár"
         }
 
         return inflection

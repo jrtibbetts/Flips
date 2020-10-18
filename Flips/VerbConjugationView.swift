@@ -12,7 +12,7 @@ struct VerbConjugationView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Picker("", selection: $mode) {
-                ForEach(VerbMode.allValues, id: \.self) { (mode) in
+                ForEach(VerbMode.allCases, id: \.self) { (mode) in
                     Text(mode.rawValue).tag(mode)
                 }
             }
