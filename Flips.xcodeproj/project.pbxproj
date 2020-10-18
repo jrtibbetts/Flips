@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		96185CB3253AADCD00C71FBB /* VerbModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96185CB2253AADCD00C71FBB /* VerbModel.swift */; };
 		96185CBE253BDFB900C71FBB /* String+InitialMutations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96185CBD253BDFB900C71FBB /* String+InitialMutations.swift */; };
-		961B25DB2533F21F009F43F0 /* EditVerbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961B25DA2533F21F009F43F0 /* EditVerbView.swift */; };
-		961B25E02533F2EB009F43F0 /* VerbConjugationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961B25DF2533F2EB009F43F0 /* VerbConjugationView.swift */; };
 		961B25E92534114D009F43F0 /* VerbEndings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961B25E82534114D009F43F0 /* VerbEndings.swift */; };
 		963786FA2537D42E00DF52EC /* VerbInflector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963786F92537D42E00DF52EC /* VerbInflector.swift */; };
 		96378705253806D500DF52EC /* VerbExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96378704253806D500DF52EC /* VerbExtensions.swift */; };
 		9637871225391C6500DF52EC /* verbs.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9637871125391C6500DF52EC /* verbs.csv */; };
-		9675F1E3252EA6F800CAF7EC /* FlipsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9675F1E2252EA6F800CAF7EC /* FlipsApp.swift */; };
-		9675F1E5252EA6F800CAF7EC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9675F1E4252EA6F800CAF7EC /* ContentView.swift */; };
 		9675F1E7252EA6FA00CAF7EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9675F1E6252EA6FA00CAF7EC /* Assets.xcassets */; };
 		9675F1EA252EA6FA00CAF7EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9675F1E9252EA6FA00CAF7EC /* Preview Assets.xcassets */; };
 		9675F1EC252EA6FA00CAF7EC /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9675F1EB252EA6FA00CAF7EC /* Persistence.swift */; };
 		9675F1EF252EA6FA00CAF7EC /* Flips.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9675F1ED252EA6FA00CAF7EC /* Flips.xcdatamodeld */; };
 		9675F1FA252EA6FB00CAF7EC /* FlipsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9675F1F9252EA6FB00CAF7EC /* FlipsTests.swift */; };
 		9675F205252EA6FB00CAF7EC /* FlipsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9675F204252EA6FB00CAF7EC /* FlipsUITests.swift */; };
-		9675F219252EA8BD00CAF7EC /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9675F218252EA8BD00CAF7EC /* CardsView.swift */; };
+		96A8227C253BE0DE0012D839 /* FlipsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A82277253BE0DE0012D839 /* FlipsApp.swift */; };
+		96A8227D253BE0DE0012D839 /* EditVerbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A82278253BE0DE0012D839 /* EditVerbView.swift */; };
+		96A8227E253BE0DE0012D839 /* VerbConjugationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A82279253BE0DE0012D839 /* VerbConjugationView.swift */; };
+		96A8227F253BE0DE0012D839 /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A8227A253BE0DE0012D839 /* CardsView.swift */; };
+		96A82280253BE0DE0012D839 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A8227B253BE0DE0012D839 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,15 +46,11 @@
 /* Begin PBXFileReference section */
 		96185CB2253AADCD00C71FBB /* VerbModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbModel.swift; sourceTree = "<group>"; };
 		96185CBD253BDFB900C71FBB /* String+InitialMutations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+InitialMutations.swift"; sourceTree = "<group>"; };
-		961B25DA2533F21F009F43F0 /* EditVerbView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditVerbView.swift; sourceTree = "<group>"; };
-		961B25DF2533F2EB009F43F0 /* VerbConjugationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbConjugationView.swift; sourceTree = "<group>"; };
 		961B25E82534114D009F43F0 /* VerbEndings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbEndings.swift; sourceTree = "<group>"; };
 		963786F92537D42E00DF52EC /* VerbInflector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbInflector.swift; sourceTree = "<group>"; };
 		96378704253806D500DF52EC /* VerbExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbExtensions.swift; sourceTree = "<group>"; };
 		9637871125391C6500DF52EC /* verbs.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = verbs.csv; sourceTree = "<group>"; };
 		9675F1DF252EA6F800CAF7EC /* Flips.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flips.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		9675F1E2252EA6F800CAF7EC /* FlipsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipsApp.swift; sourceTree = "<group>"; };
-		9675F1E4252EA6F800CAF7EC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		9675F1E6252EA6FA00CAF7EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9675F1E9252EA6FA00CAF7EC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		9675F1EB252EA6FA00CAF7EC /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -66,7 +62,11 @@
 		9675F200252EA6FB00CAF7EC /* FlipsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlipsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9675F204252EA6FB00CAF7EC /* FlipsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipsUITests.swift; sourceTree = "<group>"; };
 		9675F206252EA6FB00CAF7EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9675F218252EA8BD00CAF7EC /* CardsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
+		96A82277253BE0DE0012D839 /* FlipsApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlipsApp.swift; sourceTree = "<group>"; };
+		96A82278253BE0DE0012D839 /* EditVerbView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditVerbView.swift; sourceTree = "<group>"; };
+		96A82279253BE0DE0012D839 /* VerbConjugationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerbConjugationView.swift; sourceTree = "<group>"; };
+		96A8227A253BE0DE0012D839 /* CardsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
+		96A8227B253BE0DE0012D839 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,6 +94,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		96185CC5253BE05900C71FBB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				9637871125391C6500DF52EC /* verbs.csv */,
+				9675F1EB252EA6FA00CAF7EC /* Persistence.swift */,
+				9675F1ED252EA6FA00CAF7EC /* Flips.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		961B25E7253410C1009F43F0 /* Grammar */ = {
 			isa = PBXGroup;
 			children = (
@@ -129,18 +139,12 @@
 		9675F1E1252EA6F800CAF7EC /* Flips */ = {
 			isa = PBXGroup;
 			children = (
-				9637871125391C6500DF52EC /* verbs.csv */,
 				9675F1F0252EA6FA00CAF7EC /* Info.plist */,
-				9675F218252EA8BD00CAF7EC /* CardsView.swift */,
-				9675F1E4252EA6F800CAF7EC /* ContentView.swift */,
-				961B25DA2533F21F009F43F0 /* EditVerbView.swift */,
-				9675F1E2252EA6F800CAF7EC /* FlipsApp.swift */,
-				9675F1EB252EA6FA00CAF7EC /* Persistence.swift */,
-				961B25DF2533F2EB009F43F0 /* VerbConjugationView.swift */,
-				9675F1E6252EA6FA00CAF7EC /* Assets.xcassets */,
-				9675F1ED252EA6FA00CAF7EC /* Flips.xcdatamodeld */,
 				961B25E7253410C1009F43F0 /* Grammar */,
+				96185CC5253BE05900C71FBB /* Models */,
 				9675F1E8252EA6FA00CAF7EC /* Preview Content */,
+				96A82284253BE10A0012D839 /* Resources */,
+				96A82276253BE0DE0012D839 /* Views */,
 			);
 			path = Flips;
 			sourceTree = "<group>";
@@ -169,6 +173,26 @@
 				9675F206252EA6FB00CAF7EC /* Info.plist */,
 			);
 			path = FlipsUITests;
+			sourceTree = "<group>";
+		};
+		96A82276253BE0DE0012D839 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				96A82277253BE0DE0012D839 /* FlipsApp.swift */,
+				96A82278253BE0DE0012D839 /* EditVerbView.swift */,
+				96A82279253BE0DE0012D839 /* VerbConjugationView.swift */,
+				96A8227A253BE0DE0012D839 /* CardsView.swift */,
+				96A8227B253BE0DE0012D839 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		96A82284253BE10A0012D839 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9675F1E6252EA6FA00CAF7EC /* Assets.xcassets */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,18 +325,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96A8227F253BE0DE0012D839 /* CardsView.swift in Sources */,
+				96A8227D253BE0DE0012D839 /* EditVerbView.swift in Sources */,
+				96A82280253BE0DE0012D839 /* ContentView.swift in Sources */,
+				96A8227C253BE0DE0012D839 /* FlipsApp.swift in Sources */,
 				9675F1EF252EA6FA00CAF7EC /* Flips.xcdatamodeld in Sources */,
-				9675F219252EA8BD00CAF7EC /* CardsView.swift in Sources */,
 				9675F1EC252EA6FA00CAF7EC /* Persistence.swift in Sources */,
 				961B25E92534114D009F43F0 /* VerbEndings.swift in Sources */,
+				96A8227E253BE0DE0012D839 /* VerbConjugationView.swift in Sources */,
 				96185CBE253BDFB900C71FBB /* String+InitialMutations.swift in Sources */,
 				963786FA2537D42E00DF52EC /* VerbInflector.swift in Sources */,
-				961B25DB2533F21F009F43F0 /* EditVerbView.swift in Sources */,
-				9675F1E5252EA6F800CAF7EC /* ContentView.swift in Sources */,
-				961B25E02533F2EB009F43F0 /* VerbConjugationView.swift in Sources */,
 				96185CB3253AADCD00C71FBB /* VerbModel.swift in Sources */,
 				96378705253806D500DF52EC /* VerbExtensions.swift in Sources */,
-				9675F1E3252EA6F800CAF7EC /* FlipsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
