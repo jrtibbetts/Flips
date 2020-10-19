@@ -178,11 +178,11 @@ public struct FirstConjugationPresentIndicative: VerbInflector {
         } else {
             switch (person, number) {
             case (.first, .singular):
-                inflection.ending = "aím"
+                inflection.ending = verb.isSlender ? "ím" : "aím"
             case (.first, .plural):
-                inflection.ending = "aímid"
+                inflection.ending = verb.isSlender ? "ímid" : "aímid"
             default:
-                inflection.ending = "aíonn"
+                inflection.ending = verb.isSlender ? "íonn" : "aíonn"
             }
         }
 
@@ -230,7 +230,11 @@ public struct FirstConjugationPastIndicative: VerbInflector {
     }
 
     public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
-        var root = verb.simplePastRoot ?? verb.root ?? ""
+        guard var root = verb.simplePastRoot ?? verb.root,
+              let conjugation = Verb.Conjugation(rawValue: verb.conjugation) else {
+            return VerbInflection()
+        }
+
         root = root.lenited
 
         var inflection = VerbInflection(root: root)
@@ -240,11 +244,20 @@ public struct FirstConjugationPastIndicative: VerbInflector {
             inflection.prefix = "d'"
         }
 
-        switch (person, number) {
-        case (.first, .plural):
-            inflection.ending = verb.isSlender ? "eamar" : "amar"
-        default:
-            inflection.pronoun = pronoun(person, number)
+        if conjugation == .first {
+            switch (person, number) {
+            case (.first, .plural):
+                inflection.ending = verb.isSlender ? "eamar" : "amar"
+            default:
+                inflection.pronoun = pronoun(person, number)
+            }
+        } else {
+            switch (person, number) {
+            case (.first, .plural):
+                inflection.ending = verb.isSlender ? "íomar" : "aíomar"
+            default:
+                inflection.pronoun = pronoun(person, number)
+            }
         }
 
         switch mode {
