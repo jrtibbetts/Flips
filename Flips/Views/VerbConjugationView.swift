@@ -220,9 +220,10 @@ struct InflectionCell: View {
 
 struct VerbConjugationView_Previews: PreviewProvider {
 
-    static var verb: Verb = {
+    static var olVerb: Verb = {
         var verb = Verb(context: PersistenceController.preview.container.viewContext)
         verb.root = "ól"
+        verb.conjugation = 1
         verb.rootVowel = "ó"
         verb.pastParticiple = "ólta"
         verb.verbalNoun = "ól"
@@ -234,9 +235,30 @@ struct VerbConjugationView_Previews: PreviewProvider {
         return verb
     }()
 
+    static var ceannaighVerb: Verb = {
+        var verb = Verb(context: PersistenceController.preview.container.viewContext)
+        verb.root = "ceann"
+        verb.conjugation = 2
+        verb.rootVowel = "a"
+        verb.pastParticiple = "ceannaithe"
+        verb.verbalNoun = "ceannach"
+        verb.polysyllabic = true
+        verb.englishPresent = "buy"
+        verb.englishPast = "bought"
+        verb.englishPastParticiple = "bought"
+
+        return verb
+    }()
+
     static var previews: some View {
-        NavigationView {
-            VerbConjugationView(verb: verb)
+        Group {
+            NavigationView {
+                VerbConjugationView(verb: olVerb)
+            }
+
+            NavigationView {
+                VerbConjugationView(verb: ceannaighVerb)
+            }
         }
     }
 

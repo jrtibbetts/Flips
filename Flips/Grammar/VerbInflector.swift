@@ -144,7 +144,8 @@ public struct FirstConjugationPresentIndicative: VerbInflector {
     }
 
     public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
-        guard let root = verb.root else {
+        guard let root = verb.root,
+              let conjugation = Verb.Conjugation(rawValue: verb.conjugation) else {
             return VerbInflection()
         }
 
@@ -165,13 +166,27 @@ public struct FirstConjugationPresentIndicative: VerbInflector {
 
         inflection.translation = translationWithPronoun(person, number)
 
-        switch (person, number) {
-        case (.first, .singular):
-            inflection.ending = verb.isSlender ? "im" : "aim"
-        case (.first, .plural):
-            inflection.ending = verb.isSlender ? "imid" : "aimid"
-        default:
-            inflection.ending = verb.isSlender ? "eann" : "ann"
+        if conjugation == .first {
+            switch (person, number) {
+            case (.first, .singular):
+                inflection.ending = verb.isSlender ? "im" : "aim"
+            case (.first, .plural):
+                inflection.ending = verb.isSlender ? "imid" : "aimid"
+            default:
+                inflection.ending = verb.isSlender ? "eann" : "ann"
+            }
+        } else {
+            switch (person, number) {
+            case (.first, .singular):
+                inflection.ending = "aím"
+            case (.first, .plural):
+                inflection.ending = "aímid"
+            default:
+                inflection.ending = "aíonn"
+            }
+        }
+
+        if person != .first {
             inflection.pronoun = pronoun(person, number)
         }
 

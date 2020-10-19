@@ -4,9 +4,9 @@ import Foundation
 
 public extension Verb {
 
-    enum Conjugation: String, Codable {
-        case first
-        case second
+    enum Conjugation: Int16, Codable {
+        case first = 1
+        case second = 2
     }
 
     enum Mood: String, Codable {
