@@ -1,3 +1,5 @@
-rith, nil,   rite,   rith, i, 1, false, run,   ran,    run
-ól,   nil,   ólta,   ól,   ó, 1, false, drink, drank,  drunk
-siúl, siúil, siúlta, siúl, ú, 1, false, walk,  walked, walked
+# dictionary form, root, simple past, past participle, verbal noun, conjugation, polysyllabic?, English present, English past, English past participle
+rith, rith, nil,   rite,   rith, i, 1, false, run,   ran,    run
+ól,   ól, nil,   ólta,   ól,   ó, 1, false, drink, drank,  drunk
+siúl, siúl, siúil, siúlta, siúl, ú, 1, false, walk,  walked, walked
+tosaigh, tos, tosaigh, tosaithe, tosú, o, 2, true, start, started, started

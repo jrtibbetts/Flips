@@ -22,6 +22,7 @@
     </entity>
     <entity name="Verb" representedClassName="Verb" parentEntity="Word" syncable="YES" codeGenerationType="class">
         <attribute name="conjugation" optional="YES" attributeType="Integer 16" minValueString="1" maxValueString="2" defaultValueString="1" usesScalarValueType="YES"/>
+        <attribute name="dictionaryForm" optional="YES" attributeType="String"/>
         <attribute name="englishPast" optional="YES" attributeType="String"/>
         <attribute name="englishPastParticiple" optional="YES" attributeType="String"/>
         <attribute name="englishPresent" optional="YES" attributeType="String"/>
@@ -45,7 +46,7 @@
         <element name="PartOfSpeech" positionX="101.140625" positionY="-166.3671875" width="128" height="58"/>
         <element name="Phrase" positionX="-215.5859375" positionY="153.03515625" width="128" height="58"/>
         <element name="Something" positionX="-36" positionY="-9" width="128" height="28"/>
-        <element name="Verb" positionX="-237.90234375" positionY="32.4453125" width="128" height="193"/>
+        <element name="Verb" positionX="-237.90234375" positionY="32.4453125" width="128" height="208"/>
         <element name="Word" positionX="-63" positionY="-18" width="128" height="88"/>
     </elements>
 </model>
