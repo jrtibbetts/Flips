@@ -57,7 +57,7 @@ struct VerbConjugationView: View {
         .toolbar {
             ToolbarItem(placement: .principal) {
                 VStack {
-                    Text(verb.root ?? "(no root)")
+                    Text(verb.dictionaryForm ?? "-")
                         .font(.headline)
 
                     if let translation = verb.englishPresent {
@@ -222,6 +222,7 @@ struct VerbConjugationView_Previews: PreviewProvider {
 
     static var olVerb: Verb = {
         var verb = Verb(context: PersistenceController.preview.container.viewContext)
+        verb.dictionaryForm = "ól"
         verb.root = "ól"
         verb.conjugation = 1
         verb.rootVowel = "ó"
@@ -237,6 +238,7 @@ struct VerbConjugationView_Previews: PreviewProvider {
 
     static var ceannaighVerb: Verb = {
         var verb = Verb(context: PersistenceController.preview.container.viewContext)
+        verb.dictionaryForm = "ceannaigh"
         verb.root = "ceann"
         verb.conjugation = 2
         verb.rootVowel = "a"

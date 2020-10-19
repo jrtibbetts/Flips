@@ -22,23 +22,24 @@ public struct VerbModel {
                     .forEach { (line) in
                         let trimmedLine = line.trimmingCharacters(in: .whitespaces)
                         print("Line: \"\(trimmedLine)\"")
-                        if trimmedLine.isEmpty {
+                        if trimmedLine.isEmpty || trimmedLine.starts(with: "#") {
                             return
                         }
 
                         let verbData = trimmedLine.split(separator: ",")
                             .map { String($0).trimmingCharacters(in: .whitespaces) }
                         let verb = Verb(context: persistenceController.container.viewContext)
-                        verb.root = stringOrNil(verbData[0])
-                        verb.simplePastRoot = stringOrNil(verbData[1])
-                        verb.pastParticiple = stringOrNil(verbData[2])
-                        verb.verbalNoun = stringOrNil(verbData[3])
-                        verb.rootVowel = stringOrNil(verbData[4])
-                        verb.conjugation = Int16(verbData[5]) ?? 1
-                        verb.polysyllabic = Bool(verbData[6]) ?? false
-                        verb.englishPresent = stringOrNil(verbData[7])
-                        verb.englishPast = stringOrNil(verbData[8])
-                        verb.englishPastParticiple = stringOrNil(verbData[9])
+                        verb.dictionaryForm = stringOrNil(verbData[0])
+                        verb.root = stringOrNil(verbData[1])
+                        verb.simplePastRoot = stringOrNil(verbData[2])
+                        verb.pastParticiple = stringOrNil(verbData[3])
+                        verb.verbalNoun = stringOrNil(verbData[4])
+                        verb.rootVowel = stringOrNil(verbData[5])
+                        verb.conjugation = Int16(verbData[6]) ?? 1
+                        verb.polysyllabic = Bool(verbData[7]) ?? false
+                        verb.englishPresent = stringOrNil(verbData[8])
+                        verb.englishPast = stringOrNil(verbData[9])
+                        verb.englishPastParticiple = stringOrNil(verbData[10])
                     }
             }
 

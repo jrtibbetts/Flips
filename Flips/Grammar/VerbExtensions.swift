@@ -1,9 +1,4 @@
-//
-//  VerbExtensions.swift
-//  Flips
-//
 //  Created by Jason R Tibbetts on 10/15/20.
-//
 
 import Foundation
 

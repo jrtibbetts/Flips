@@ -10,7 +10,7 @@ struct CardsView: View {
     @State private var sortAscending = true
 
     @FetchRequest(
-        sortDescriptors: [NSSortDescriptor(key: "root",
+        sortDescriptors: [NSSortDescriptor(key: "dictionaryForm",
                                            ascending: true,
                                            selector: #selector(NSString.localizedStandardCompare(_:)))],
         animation: .default)
@@ -23,10 +23,10 @@ struct CardsView: View {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))],
                           alignment: .center, spacing: 20) {
                     ForEach(verbs) { verb in
-                        if let root = verb.root {
+                        if let dictionaryForm = verb.dictionaryForm ?? verb.root {
                             NavigationLink(destination: VerbConjugationView(verb: verb)) {
                                 VStack {
-                                    Text(root)
+                                    Text(dictionaryForm)
                                         .font(.largeTitle)
 
                                     if let translation = verb.englishPresent {
