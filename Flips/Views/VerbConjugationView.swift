@@ -4,6 +4,8 @@ import SwiftUI
 
 struct VerbConjugationView: View {
 
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
+
     @State private var showTranslation: Bool = false
     @State private var mode = VerbMode.positive
 
@@ -56,13 +58,15 @@ struct VerbConjugationView: View {
         .padding([.leading, .trailing], 5)
         .toolbar {
             ToolbarItem(placement: .principal) {
-                VStack {
-                    Text(verb.dictionaryForm ?? "-")
-                        .font(.headline)
-
-                    if let translation = verb.englishPresent {
-                        Text(translation)
-                            .font(.subheadline)
+                if horizontalSizeClass == .regular {
+                    HStack {
+                        headlineView
+                        subheadlineView
+                    }
+                } else {
+                    VStack {
+                        headlineView
+                        subheadlineView
                     }
                 }
             }
@@ -73,6 +77,17 @@ struct VerbConjugationView: View {
                 }
             }
         }
+    }
+
+    var headlineView: some View {
+        Text(verb.dictionaryForm ?? "-")
+            .font(.headline)
+    }
+
+    var subheadlineView: some View {
+        Text(verb.englishPresent ?? "")
+            .font(.subheadline)
+            .italic()
     }
 
 }
