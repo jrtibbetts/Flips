@@ -4,7 +4,8 @@ import SwiftUI
 
 struct VerbConjugationView: View {
 
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass
+    @Environment(\.verticalSizeClass) var verticalSizeClass
 
     @State private var showTranslation: Bool = false
     @State private var mode = VerbMode.positive
@@ -58,7 +59,7 @@ struct VerbConjugationView: View {
         .padding([.leading, .trailing], 5)
         .toolbar {
             ToolbarItem(placement: .principal) {
-                if horizontalSizeClass == .regular {
+                if verticalSizeClass == .compact {
                     HStack {
                         headlineView
                         subheadlineView
@@ -72,9 +73,10 @@ struct VerbConjugationView: View {
             }
 
             ToolbarItem(placement: .primaryAction) {
-                Button("Show Translations") {
+                Button("Translate") {
                     showTranslation.toggle()
                 }
+                .font(.body)
             }
         }
     }
@@ -224,6 +226,7 @@ struct InflectionCell: View {
                     Text(translation)
                         .font(.footnote)
                         .frame(alignment: .leading)
+                        .transition(.asymmetric(insertion: .scale, removal: .opacity))
                 }
             }
             .frame(alignment: .leading)
