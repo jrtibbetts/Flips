@@ -652,6 +652,7 @@ public struct FirstConjugationPastSubjunctive: VerbInflector {
                                                                            tense: .pastHabitual,
                                                                            mood: .indicative)
         var inflection = pastHabitualInflector.inflect(person: person, number: number)
+        inflection.root = inflection.root.eclipsed
         inflection.translation = translationWithPronoun(person, number)
         inflection.particle = "dá"
 
