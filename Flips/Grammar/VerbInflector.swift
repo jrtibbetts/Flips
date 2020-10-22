@@ -315,33 +315,56 @@ public struct FirstConjugationPastHabitualIndicative: VerbInflector {
     }
 
     public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
-        var inflection = VerbInflection(root: verb.root?.lenited ?? "")
+        guard let root = verb.root,
+              let conjugation = Verb.Conjugation(rawValue: verb.conjugation) else {
+            return VerbInflection()
+        }
+
+        var inflection = VerbInflection(root: root.lenited)
         inflection.translation = translationWithPronoun(person, number)
 
         if verb.startsWithVowel {
             inflection.prefix = "d'"
         }
 
-        switch (person, number) {
-        case (.first, .singular):
-            inflection.ending = verb.isSlender ? "inn" : "ainn"
-        case (.second, .singular):
-            if let pastParticiple = verb.pastParticiple {
-                if pastParticiple.last == "h" {
-                    inflection.root = String(pastParticiple.dropLast())
-                }
+        if conjugation == .first {
+            switch (person, number) {
+            case (.first, .singular):
+                inflection.ending = verb.isSlender ? "inn" : "ainn"
+            case (.second, .singular):
+                if let pastParticiple = verb.pastParticiple {
+                    if pastParticiple.last == "h" {
+                        inflection.root = String(pastParticiple.dropLast())
+                    }
 
-                inflection.ending = verb.isSlender ? "eá" : "á"
+                    inflection.ending = verb.isSlender ? "eá" : "á"
+                }
+            case (.third, .singular),
+                 (.second, .plural):
+                inflection.ending = verb.isSlender ? "eadh" : "adh"
+                inflection.pronoun = pronoun(person, number)
+            case (.first, .plural):
+                inflection.ending = verb.isSlender ? "imid" : "aimid"
+            case (.third, .plural):
+                inflection.ending = verb.isSlender ? "idís" : "aidís"
+                inflection.pronoun = pronoun(person, number)
             }
-        case (.third, .singular),
-             (.second, .plural):
-            inflection.ending = verb.isSlender ? "eadh" : "adh"
-            inflection.pronoun = pronoun(person, number)
-        case (.first, .plural):
-            inflection.ending = verb.isSlender ? "imid" : "aimid"
-        case (.third, .plural):
-            inflection.ending = verb.isSlender ? "idís" : "aidís"
-            inflection.pronoun = pronoun(person, number)
+        } else {
+            switch (person, number) {
+            case (.first, .singular):
+                inflection.ending = verb.isSlender ? "ínn" : "aínn"
+            case (.second, .singular):
+                inflection.ending = verb.isSlender ? "ítéa" : "aítéa"
+            case (.third, .singular),
+                (.second, .plural):
+                inflection.ending = verb.isSlender ? "íodh" : "aíodh"
+                inflection.pronoun = pronoun(person, number)
+            case (.first, .plural):
+                inflection.ending = verb.isSlender ? "íomar" : "aíomar"
+            case (.third, .plural):
+                inflection.ending = verb.isSlender ? "íodar" : "aíodar"
+                inflection.pronoun = pronoun(person, number)
+            }
         }
 
         return inflection
@@ -388,16 +411,33 @@ public struct FirstConjugationFutureIndicative: VerbInflector {
     }
 
     public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
-        var inflection = VerbInflection(root: verb.root ?? "")
+        guard let root = verb.root,
+              let conjugation = Verb.Conjugation(rawValue: verb.conjugation) else {
+            return VerbInflection()
+        }
+
+        var inflection = VerbInflection(root: root)
         inflection.translation = translationWithPronoun(person, number)
 
-        switch (person, number) {
-        case (.first, .plural):
-            inflection.ending = verb.isSlender ? "fimid" : "faimid"
-        // no pronoun
-        default:
-            inflection.ending = verb.isSlender ? "fidh" : "faidh"
-            inflection.pronoun = pronoun(person, number)
+        if conjugation == .first {
+            switch (person, number) {
+            case (.first, .plural):
+                inflection.ending = verb.isSlender ? "fimid" : "faimid"
+            // no pronoun
+            default:
+                inflection.ending = verb.isSlender ? "fidh" : "faidh"
+                inflection.pronoun = pronoun(person, number)
+            }
+        } else {
+            switch (person, number) {
+            case (.first, .plural):
+                inflection.ending = verb.isSlender ? "eóimid" : "óimid"
+            // no pronoun
+            default:
+                inflection.ending = verb.isSlender ? "eóidh" : "óid"
+                inflection.pronoun = pronoun(person, number)
+            }
+
         }
 
         return inflection
@@ -444,26 +484,48 @@ public struct FirstConjugationConditional: VerbInflector {
     }
 
     public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
-        var inflection = VerbInflection(root: verb.root ?? "")
+        guard let root = verb.root,
+              let conjugation = Verb.Conjugation(rawValue: verb.conjugation) else {
+            return VerbInflection()
+        }
+
+        var inflection = VerbInflection(root: root)
         inflection.translation = translationWithPronoun(person, number)
 
         if verb.startsWithVowel {
             inflection.prefix = "d'"
         }
 
-        switch (person, number) {
-        case (.first, .singular):
-            inflection.ending = verb.isSlender ? "finn" : "fainn"
-        case (.second, .singular):
-            inflection.ending = verb.isSlender ? "feá" : "fá"
-        case (.third, .singular),
-             (.second, .plural):
-            inflection.ending = verb.isSlender ? "feadh" : "fadh"
-            inflection.pronoun = pronoun(person, number)
-        case (.first, .plural):
-            inflection.ending = verb.isSlender ? "fimid" : "faimid"
-        case (.third, .plural):
-            inflection.ending = verb.isSlender ? "fidís" : "faidís"
+        if conjugation == .first {
+            switch (person, number) {
+            case (.first, .singular):
+                inflection.ending = verb.isSlender ? "finn" : "fainn"
+            case (.second, .singular):
+                inflection.ending = verb.isSlender ? "feá" : "fá"
+            case (.third, .singular),
+                 (.second, .plural):
+                inflection.ending = verb.isSlender ? "feadh" : "fadh"
+                inflection.pronoun = pronoun(person, number)
+            case (.first, .plural):
+                inflection.ending = verb.isSlender ? "fimid" : "faimid"
+            case (.third, .plural):
+                inflection.ending = verb.isSlender ? "fidís" : "faidís"
+            }
+        } else {
+            switch (person, number) {
+            case (.first, .singular):
+                inflection.ending = verb.isSlender ? "eóinn" : "óinn"
+            case (.second, .singular):
+                inflection.ending = verb.isSlender ? "eófa" : "ófa"
+            case (.third, .singular),
+                 (.second, .plural):
+                inflection.ending = verb.isSlender ? "eódh" : "ódh"
+                inflection.pronoun = pronoun(person, number)
+            case (.first, .plural):
+                inflection.ending = verb.isSlender ? "eóimis" : "óimis"
+            case (.third, .plural):
+                inflection.ending = verb.isSlender ? "eóidís" : "óidís"
+            }
         }
 
         return inflection
@@ -510,7 +572,12 @@ public struct FirstConjugationPresentSubjunctive: VerbInflector {
     }
 
     public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
-        var inflection = VerbInflection(root: verb.root ?? "")
+        guard let root = verb.root,
+              let conjugation = Verb.Conjugation(rawValue: verb.conjugation) else {
+            return VerbInflection()
+        }
+
+        var inflection = VerbInflection(root: root)
         inflection.translation = translationWithPronoun(person, number)
         inflection.particle = "go"
 
@@ -518,12 +585,22 @@ public struct FirstConjugationPresentSubjunctive: VerbInflector {
             inflection.prefix = "n-"
         }
 
-        switch (person, number) {
-        case (.first, .plural):
-            inflection.ending = verb.isSlender ? "imid" : "aimid"
-        default:
-            inflection.ending = verb.isSlender ? "e" : "a"
-            inflection.pronoun = pronoun(person, number)
+        if conjugation == .first {
+            switch (person, number) {
+            case (.first, .plural):
+                inflection.ending = verb.isSlender ? "imid" : "aimid"
+            default:
+                inflection.ending = verb.isSlender ? "e" : "a"
+                inflection.pronoun = pronoun(person, number)
+            }
+        } else {
+            switch (person, number) {
+            case (.first, .plural):
+                inflection.ending = verb.isSlender ? "ímis" : "aímis"
+            default:
+                inflection.ending = verb.isSlender ? "í" : "aí"
+                inflection.pronoun = pronoun(person, number)
+            }
         }
 
         return inflection
