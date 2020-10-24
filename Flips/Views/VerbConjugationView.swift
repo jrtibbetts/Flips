@@ -9,8 +9,8 @@ struct VerbConjugationView: View {
 
     @State private var showTranslation: Bool = false
     @State private var mode = VerbMode.positive
-
-    var verb: Verb
+    @State private var showingVerbEditor = false
+    @State var verb: Verb
 
     var body: some View {
         VStack(alignment: .leading) {
