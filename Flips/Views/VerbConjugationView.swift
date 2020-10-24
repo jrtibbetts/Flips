@@ -78,7 +78,17 @@ struct VerbConjugationView: View {
                 }
                 .font(.body)
             }
+
+            ToolbarItem(placement: .navigationBarLeading) {
+                Button("Edit Verb") {
+                    showingVerbEditor = true
+                }
+            }
         }
+        .sheet(isPresented: $showingVerbEditor) {
+            VerbEditor(verb: $verb)
+        }
+
     }
 
     var headlineView: some View {
