@@ -21,18 +21,23 @@ struct VerbEditor: View {
         VStack(alignment: .center) {
             TextField(verb.dictionaryForm ?? dictionaryForm,
                       text: $dictionaryForm)
+                .disableAutocorrection(true)
             TextField(verb.root ?? root,
                       text: $root)
+                .disableAutocorrection(true)
 
             Text("English Translations")
             VStack {
                 TextField(verb.englishPresent ?? englishPresent,
                           text: $englishPresent)
+                    .disableAutocorrection(true)
                 TextField(verb.englishPast ?? englishPast,
                           text: $englishPast)
+                    .disableAutocorrection(true)
                 TextField(verb.englishPastParticiple ?? englishPastParticiple,
                           text: $englishPastParticiple)
-            }
+                    .disableAutocorrection(true)
+           }
             .padding(5.0)
 
             Button("Save Changes") {
