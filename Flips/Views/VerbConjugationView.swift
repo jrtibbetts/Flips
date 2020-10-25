@@ -86,7 +86,7 @@ struct VerbConjugationView: View {
             }
         }
         .sheet(isPresented: $showingVerbEditor) {
-            VerbEditor(verb: $verb)
+            VerbEditor(verb: verb)
         }
 
     }

@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -25,6 +25,7 @@
 		96A8227F253BE0DE0012D839 /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A8227A253BE0DE0012D839 /* CardsView.swift */; };
 		96A82280253BE0DE0012D839 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A8227B253BE0DE0012D839 /* ContentView.swift */; };
 		96DC38472542806F00A00805 /* VerbEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DC38462542806F00A00805 /* VerbEditor.swift */; };
+		96DC38502545324F00A00805 /* AQUI in Frameworks */ = {isa = PBXBuildFile; productRef = 96DC384F2545324F00A00805 /* AQUI */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				96DC38502545324F00A00805 /* AQUI in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -214,6 +216,9 @@
 			dependencies = (
 			);
 			name = Flips;
+			packageProductDependencies = (
+				96DC384F2545324F00A00805 /* AQUI */,
+			);
 			productName = Flips;
 			productReference = 9675F1DF252EA6F800CAF7EC /* Flips.app */;
 			productType = "com.apple.product-type.application";
@@ -285,6 +290,9 @@
 				Base,
 			);
 			mainGroup = 9675F1D6252EA6F800CAF7EC;
+			packageReferences = (
+				96DC384E2545324F00A00805 /* XCRemoteSwiftPackageReference "AQUI" */,
+			);
 			productRefGroup = 9675F1E0252EA6F800CAF7EC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -660,6 +668,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		96DC384E2545324F00A00805 /* XCRemoteSwiftPackageReference "AQUI" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AlanQuatermain/AQUI";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.1.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		96DC384F2545324F00A00805 /* AQUI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 96DC384E2545324F00A00805 /* XCRemoteSwiftPackageReference "AQUI" */;
+			productName = AQUI;
+		};
+/* End XCSwiftPackageProductDependency section */
 
 /* Begin XCVersionGroup section */
 		9675F1ED252EA6FA00CAF7EC /* Flips.xcdatamodeld */ = {
