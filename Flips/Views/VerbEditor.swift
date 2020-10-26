@@ -5,6 +5,23 @@ import SwiftUI
 
 struct VerbEditor: View {
 
+    struct TextFieldGroup: View {
+
+        @State var value: String
+
+        @State var name: String
+
+        var body: some View {
+            HStack {
+                Text(name)
+
+                TextField(name, text: Binding($value, ""))
+                    .disableAutocorrection(true)
+            }
+        }
+
+    }
+
     @ObservedObject var verb: Verb
 
     var body: some View {
