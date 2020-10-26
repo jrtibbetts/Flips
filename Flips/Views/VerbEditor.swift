@@ -7,17 +7,22 @@ struct VerbEditor: View {
 
     struct TextFieldGroup: View {
 
-        @State var value: String
-
         @State var name: String
 
-        var body: some View {
-            HStack {
-                Text(name)
+        @Binding var value: String
 
-                TextField(name, text: Binding($value, ""))
-                    .disableAutocorrection(true)
-            }
+        var body: some View {
+//            GeometryReader { (proxy) in
+                HStack(spacing: 10.0) {
+                    Text("\(name):")
+//                        .frame(width: proxy.size.width * 0.4)
+
+                    TextField(name, text: $value)
+                        .disableAutocorrection(true)
+                        .border(Color.secondary, width: 1.0)
+                }
+//                .frame(idealHeight: 20.0)
+//            }
         }
 
     }
@@ -26,24 +31,19 @@ struct VerbEditor: View {
 
     var body: some View {
         VStack(alignment: .center) {
-            TextField("Dictionary Form",
-                      text: Binding($verb.dictionaryForm, "no dictionary form"))
-                .disableAutocorrection(true)
-            TextField("Root",
-                      text: Binding($verb.root, "no root"))
-                .disableAutocorrection(true)
+            TextFieldGroup(name: "Dictionary Form",
+                           value: Binding($verb.dictionaryForm, ""))
+            TextFieldGroup(name: "Root",
+                           value: Binding($verb.root, ""))
 
             Text("English Translations")
             VStack {
-                TextField("English Present Tense",
-                          text: Binding($verb.englishPresent, "no present tense"))
-                    .disableAutocorrection(true)
-                TextField("English Past Tense",
-                          text: Binding($verb.englishPast, "no past tense"))
-                    .disableAutocorrection(true)
-                TextField("English Past Participle",
-                          text: Binding($verb.englishPastParticiple, "no past participle"))
-                    .disableAutocorrection(true)
+                TextFieldGroup(name: "English Present Tense",
+                               value: Binding($verb.englishPresent, ""))
+                TextFieldGroup(name: "English Past Tense",
+                               value: Binding($verb.englishPast, ""))
+                TextFieldGroup(name: "English Past Participle",
+                               value: Binding($verb.englishPastParticiple, ""))
            }
             .padding(5.0)
 
