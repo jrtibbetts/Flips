@@ -27,6 +27,8 @@ struct VerbEditor: View {
 
     }
 
+    @Environment(\.presentationMode) var presentationMode
+
     @ObservedObject var verb: Verb
 
     var body: some View {
@@ -50,6 +52,7 @@ struct VerbEditor: View {
 
             Button("Save Changes") {
                 try! PersistenceController.preview.container.viewContext.save()
+                presentationMode.wrappedValue.dismiss()
             }
         }
     }
