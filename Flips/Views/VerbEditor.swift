@@ -35,28 +35,22 @@ struct VerbEditor: View {
                            value: Binding($verb.dictionaryForm, ""))
             TextFieldGroup(name: "Root",
                            value: Binding($verb.root, ""))
-
-            Text("English Translations")
-            VStack {
-                TextFieldGroup(name: "English Present Tense",
-                               value: Binding($verb.englishPresent, ""))
-                TextFieldGroup(name: "English Past Tense",
-                               value: Binding($verb.englishPast, ""))
-                TextFieldGroup(name: "English Past Participle",
-                               value: Binding($verb.englishPastParticiple, ""))
-           }
-            .padding(5.0)
+            TextFieldGroup(name: "Simple Past Root",
+                           value: Binding($verb.simplePastRoot, ""))
+            TextFieldGroup(name: "Past Participle",
+                           value: Binding($verb.pastParticiple, ""))
+            TextFieldGroup(name: "Verbal Noun",
+                           value: Binding($verb.verbalNoun, ""))
+            TextFieldGroup(name: "English Present Tense",
+                           value: Binding($verb.englishPresent, ""))
+            TextFieldGroup(name: "English Past Tense",
+                           value: Binding($verb.englishPast, ""))
+            TextFieldGroup(name: "English Past Participle",
+                           value: Binding($verb.englishPastParticiple, ""))
 
             Button("Save Changes") {
                 try! PersistenceController.preview.container.viewContext.save()
             }
-
-            Text("Dictionary form: \(verb.dictionaryForm ?? "(none)")")
-            Text("Root: \(verb.root ?? "(none)")")
-            Text("English Present: \(verb.englishPresent ?? "(none)")")
-            Text("English Past: \(verb.englishPast ?? "(none)")")
-//            Text(verb.englishPastParticiple ?? "(none)")
-//            Text("English Past Participle: \(verb.englishPastParticiple ?? "(none)")")
         }
     }
 
