@@ -9,22 +9,21 @@ struct VerbEditor: View {
 
         @State var name: String
 
+        @State var geometryProxy: GeometryProxy
+
         @Binding var value: String
 
         var body: some View {
-//            GeometryReader { (proxy) in
-                HStack(spacing: 10.0) {
-                    Text(name)
-//                        .frame(width: proxy.size.width * 0.4)
+            HStack(spacing: 10.0) {
+                Text(name)
+                    .frame(width: geometryProxy.size.width * 0.4, alignment: .leading)
 
-                    TextField(name, text: $value)
-                        .disableAutocorrection(true)
-                        .padding(2.0)
-                        .border(Color.secondary, width: 1.0)
-                }
-                .padding([.top, .bottom], 5.0)
-//                .frame(idealHeight: 20.0)
-//            }
+                TextField(name, text: $value)
+                    .disableAutocorrection(true)
+                    .padding(2.0)
+                    .border(Color.secondary, width: 1.0)
+            }
+            .padding([.top, .bottom], 5.0)
         }
 
     }
@@ -34,53 +33,73 @@ struct VerbEditor: View {
     @ObservedObject var verb: Verb
 
     var body: some View {
-        VStack(alignment: .center) {
-            VStack {
-                TextFieldGroup(name: "Dictionary Form",
-                               value: Binding($verb.dictionaryForm, ""))
-                TextFieldGroup(name: "Root",
-                               value: Binding($verb.root, ""))
-                TextFieldGroup(name: "Root Vowel",
-                               value: Binding($verb.rootVowel, ""))
-                TextFieldGroup(name: "Simple Past Root",
-                               value: Binding($verb.simplePastRoot, ""))
-                TextFieldGroup(name: "Past Participle",
-                               value: Binding($verb.pastParticiple, ""))
-                TextFieldGroup(name: "Verbal Noun",
-                               value: Binding($verb.verbalNoun, ""))
+        GeometryReader { (proxy) in
+            VStack(alignment: .center) {
+                VStack {
+                    TextFieldGroup(name: "Dictionary Form",
+                                   geometryProxy: proxy,
+                                   value: Binding($verb.dictionaryForm, ""))
+                    TextFieldGroup(name: "Root",
+                                   geometryProxy: proxy,
+                                   value: Binding($verb.root, ""))
+                    TextFieldGroup(name: "Root Vowel",
+                                   geometryProxy: proxy,
+                                   value: Binding($verb.rootVowel, ""))
+                    TextFieldGroup(name: "Simple Past Root",
+                                   geometryProxy: proxy,
+                                   value: Binding($verb.simplePastRoot, ""))
+                    TextFieldGroup(name: "Past Participle",
+                                   geometryProxy: proxy,
+                                   value: Binding($verb.pastParticiple, ""))
+                    TextFieldGroup(name: "Verbal Noun",
+                                   geometryProxy: proxy,
+                                   value: Binding($verb.verbalNoun, ""))
 
-                HStack {
-                    Text("Conjugation")
-                    Picker("", selection: $verb.conjugation) {
-                        ForEach(Verb.Conjugation.allCases, id: \.self) { (mode) in
-                            Text("\(mode.rawValue)").tag(mode.rawValue)
+                    VStack {
+                        HStack {
+                            Text("Conjugation")
+                                .frame(width: proxy.size.width * 0.4,
+                                       alignment: .leading)
+                            Picker("", selection: $verb.conjugation) {
+                                ForEach(Verb.Conjugation.allCases, id: \.self) { (mode) in
+                                    Text("\(mode.rawValue)").tag(mode.rawValue)
+                                }
+                            }
+                            .pickerStyle(SegmentedPickerStyle())
                         }
+                        //                        .frame(height: 40.0)
+
+                        HStack {
+                            Text("Polysyllabic")
+                                .frame(width: proxy.size.width * 0.4, alignment: .leading)
+                            Picker("Polysyllabic", selection: $verb.polysyllabic) {
+                                Text("True").tag(true)
+                                Text("False").tag(false)
+                            }
+                            .pickerStyle(SegmentedPickerStyle())
+                        }
+                        //                        .frame(height: 40.0)
                     }
-                    .pickerStyle(SegmentedPickerStyle())
                 }
 
-                HStack {
-                    Text("Polysyllabic")
-                    Picker("Polysyllabic", selection: $verb.polysyllabic) {
-                        Text("True").tag(true)
-                        Text("False").tag(false)
-                    }
-                    .pickerStyle(SegmentedPickerStyle())
+                VStack {
+                    TextFieldGroup(name: "English Present Tense",
+                                   geometryProxy: proxy,
+                                   value: Binding($verb.englishPresent, ""))
+                    TextFieldGroup(name: "English Past Tense",
+                                   geometryProxy: proxy,
+                                   value: Binding($verb.englishPast, ""))
+                    TextFieldGroup(name: "English Past Participle",
+                                   geometryProxy: proxy,
+                                   value: Binding($verb.englishPastParticiple, ""))
                 }
-            }
 
-            VStack {
-                TextFieldGroup(name: "English Present Tense",
-                               value: Binding($verb.englishPresent, ""))
-                TextFieldGroup(name: "English Past Tense",
-                               value: Binding($verb.englishPast, ""))
-                TextFieldGroup(name: "English Past Participle",
-                               value: Binding($verb.englishPastParticiple, ""))
-            }
+                Button("Save Changes") {
+                    try! PersistenceController.preview.container.viewContext.save()
+                    presentationMode.wrappedValue.dismiss()
+                }
 
-            Button("Save Changes") {
-                try! PersistenceController.preview.container.viewContext.save()
-                presentationMode.wrappedValue.dismiss()
+                Spacer()
             }
         }
     }
@@ -92,10 +111,14 @@ struct VerbEditor_Previews: PreviewProvider {
     @State static var verb = Verb(context: PersistenceController.preview.container.viewContext)
 
     static var previews: some View {
-        VStack {
-            VerbEditor(verb: verb)
-            Spacer()
+        ScrollView {
+            VStack {
+                VerbEditor(verb: verb)
+                    .padding([.leading, .trailing], 10.0)
+            }
         }
+        .background(Color.orange)
+        .edgesIgnoringSafeArea(.all)
     }
 
 }
