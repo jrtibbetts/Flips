@@ -61,9 +61,8 @@ struct VerbEditor: View {
                                 .frame(width: proxy.size.width * 0.4,
                                        alignment: .leading)
                             Picker("", selection: $verb.conjugation) {
-                                ForEach(Verb.Conjugation.allCases, id: \.self) { (mode) in
-                                    Text("\(mode.rawValue)").tag(mode.rawValue)
-                                }
+                                Text("First").tag(Verb.Conjugation.first.rawValue)
+                                Text("Second").tag(Verb.Conjugation.second.rawValue)
                             }
                             .pickerStyle(SegmentedPickerStyle())
                         }
@@ -117,8 +116,6 @@ struct VerbEditor_Previews: PreviewProvider {
                     .padding([.leading, .trailing], 10.0)
             }
         }
-        .background(Color.orange)
-        .edgesIgnoringSafeArea(.all)
     }
 
 }
