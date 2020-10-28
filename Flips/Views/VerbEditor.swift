@@ -33,22 +33,42 @@ struct VerbEditor: View {
 
     var body: some View {
         VStack(alignment: .center) {
-            TextFieldGroup(name: "Dictionary Form",
-                           value: Binding($verb.dictionaryForm, ""))
-            TextFieldGroup(name: "Root",
-                           value: Binding($verb.root, ""))
-            TextFieldGroup(name: "Simple Past Root",
-                           value: Binding($verb.simplePastRoot, ""))
-            TextFieldGroup(name: "Past Participle",
-                           value: Binding($verb.pastParticiple, ""))
-            TextFieldGroup(name: "Verbal Noun",
-                           value: Binding($verb.verbalNoun, ""))
-            TextFieldGroup(name: "English Present Tense",
-                           value: Binding($verb.englishPresent, ""))
-            TextFieldGroup(name: "English Past Tense",
-                           value: Binding($verb.englishPast, ""))
-            TextFieldGroup(name: "English Past Participle",
-                           value: Binding($verb.englishPastParticiple, ""))
+            VStack {
+                TextFieldGroup(name: "Dictionary Form",
+                               value: Binding($verb.dictionaryForm, ""))
+                TextFieldGroup(name: "Root",
+                               value: Binding($verb.root, ""))
+                TextFieldGroup(name: "Simple Past Root",
+                               value: Binding($verb.simplePastRoot, ""))
+                TextFieldGroup(name: "Past Participle",
+                               value: Binding($verb.pastParticiple, ""))
+                TextFieldGroup(name: "Verbal Noun",
+                               value: Binding($verb.verbalNoun, ""))
+
+                HStack {
+                    Text("Conjugation")
+                    Picker("", selection: $verb.conjugation) {
+                        ForEach(Verb.Conjugation.allCases, id: \.self) { (mode) in
+                            Text("\(mode.rawValue)").tag(mode)
+                        }
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
+                    .padding()
+                }
+
+                Button("Polysyllabic?") {
+                    verb.polysyllabic.toggle()
+                }
+            }
+
+            VStack {
+                TextFieldGroup(name: "English Present Tense",
+                               value: Binding($verb.englishPresent, ""))
+                TextFieldGroup(name: "English Past Tense",
+                               value: Binding($verb.englishPast, ""))
+                TextFieldGroup(name: "English Past Participle",
+                               value: Binding($verb.englishPastParticiple, ""))
+            }
 
             Button("Save Changes") {
                 try! PersistenceController.preview.container.viewContext.save()

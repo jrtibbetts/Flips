@@ -4,7 +4,7 @@ import Foundation
 
 public extension Verb {
 
-    enum Conjugation: Int16, Codable {
+    enum Conjugation: Int16, Codable, CaseIterable {
         case first = 1
         case second = 2
     }
