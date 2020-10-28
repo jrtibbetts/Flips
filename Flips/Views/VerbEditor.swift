@@ -14,13 +14,15 @@ struct VerbEditor: View {
         var body: some View {
 //            GeometryReader { (proxy) in
                 HStack(spacing: 10.0) {
-                    Text("\(name):")
+                    Text(name)
 //                        .frame(width: proxy.size.width * 0.4)
 
                     TextField(name, text: $value)
                         .disableAutocorrection(true)
+                        .padding(2.0)
                         .border(Color.secondary, width: 1.0)
                 }
+                .padding([.top, .bottom], 5.0)
 //                .frame(idealHeight: 20.0)
 //            }
         }
@@ -38,6 +40,8 @@ struct VerbEditor: View {
                                value: Binding($verb.dictionaryForm, ""))
                 TextFieldGroup(name: "Root",
                                value: Binding($verb.root, ""))
+                TextFieldGroup(name: "Root Vowel",
+                               value: Binding($verb.rootVowel, ""))
                 TextFieldGroup(name: "Simple Past Root",
                                value: Binding($verb.simplePastRoot, ""))
                 TextFieldGroup(name: "Past Participle",
@@ -49,15 +53,19 @@ struct VerbEditor: View {
                     Text("Conjugation")
                     Picker("", selection: $verb.conjugation) {
                         ForEach(Verb.Conjugation.allCases, id: \.self) { (mode) in
-                            Text("\(mode.rawValue)").tag(mode)
+                            Text("\(mode.rawValue)").tag(mode.rawValue)
                         }
                     }
                     .pickerStyle(SegmentedPickerStyle())
-                    .padding()
                 }
 
-                Button("Polysyllabic?") {
-                    verb.polysyllabic.toggle()
+                HStack {
+                    Text("Polysyllabic")
+                    Picker("Polysyllabic", selection: $verb.polysyllabic) {
+                        Text("True").tag(true)
+                        Text("False").tag(false)
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
                 }
             }
 
