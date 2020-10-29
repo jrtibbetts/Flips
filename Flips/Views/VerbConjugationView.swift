@@ -14,44 +14,49 @@ struct VerbConjugationView: View {
 
     var body: some View {
         VStack(alignment: .leading) {
-            Picker("", selection: $mode) {
-                ForEach(VerbMode.allCases, id: \.self) { (mode) in
-                    Text(mode.rawValue).tag(mode)
+            if showingVerbEditor {
+                VerbEditor(verb: Verb(context: PersistenceController.preview.container.viewContext))
+                    .animation(.easeInOut)
+            } else {
+                Picker("", selection: $mode) {
+                    ForEach(VerbMode.allCases, id: \.self) { (mode) in
+                        Text(mode.rawValue).tag(mode)
+                    }
                 }
-            }
-            .pickerStyle(SegmentedPickerStyle())
-            .padding()
+                .pickerStyle(SegmentedPickerStyle())
+                .padding()
 
-            ScrollView {
-                VStack {
-                    MoodView(.indicative) {
-                        InflectionGroup(inflector: FirstConjugationPresentIndicative(verb: verb,
-                                                                                     mode: mode),
-                                        showTranslations: $showTranslation)
-                        InflectionGroup(inflector: FirstConjugationPastIndicative(verb: verb,
-                                                                                  mode: mode),
-                                        showTranslations: $showTranslation)
-                        InflectionGroup(inflector: FirstConjugationPastHabitualIndicative(verb: verb,
-                                                                                          mode: mode),
-                                        showTranslations: $showTranslation)
-                        InflectionGroup(inflector: FirstConjugationFutureIndicative(verb: verb,
-                                                                                    mode: mode),
-                                        showTranslations: $showTranslation)
-                    }
-
-                    MoodView(.conditional) {
-                        InflectionGroup(inflector: FirstConjugationConditional(verb: verb,
-                                                                               mode: mode),
-                                        showTranslations: $showTranslation)
-                    }
-
-                    MoodView(.subjunctive) {
-                        InflectionGroup(inflector: FirstConjugationPresentSubjunctive(verb: verb,
+                ScrollView {
+                    VStack {
+                        MoodView(.indicative) {
+                            InflectionGroup(inflector: FirstConjugationPresentIndicative(verb: verb,
+                                                                                         mode: mode),
+                                            showTranslations: $showTranslation)
+                            InflectionGroup(inflector: FirstConjugationPastIndicative(verb: verb,
                                                                                       mode: mode),
-                                        showTranslations: $showTranslation)
-                        InflectionGroup(inflector: FirstConjugationPastSubjunctive(verb: verb,
+                                            showTranslations: $showTranslation)
+                            InflectionGroup(inflector: FirstConjugationPastHabitualIndicative(verb: verb,
+                                                                                              mode: mode),
+                                            showTranslations: $showTranslation)
+                            InflectionGroup(inflector: FirstConjugationFutureIndicative(verb: verb,
+                                                                                        mode: mode),
+                                            showTranslations: $showTranslation)
+                        }
+
+                        MoodView(.conditional) {
+                            InflectionGroup(inflector: FirstConjugationConditional(verb: verb,
                                                                                    mode: mode),
-                                        showTranslations: $showTranslation)
+                                            showTranslations: $showTranslation)
+                        }
+
+                        MoodView(.subjunctive) {
+                            InflectionGroup(inflector: FirstConjugationPresentSubjunctive(verb: verb,
+                                                                                          mode: mode),
+                                            showTranslations: $showTranslation)
+                            InflectionGroup(inflector: FirstConjugationPastSubjunctive(verb: verb,
+                                                                                       mode: mode),
+                                            showTranslations: $showTranslation)
+                        }
                     }
                 }
             }
@@ -80,15 +85,11 @@ struct VerbConjugationView: View {
             }
 
             ToolbarItem(placement: .navigationBarLeading) {
-                Button("Edit Verb") {
-                    showingVerbEditor = true
+                Button(showingVerbEditor ? "Cancel" : "Add Verb") {
+                    showingVerbEditor.toggle()
                 }
             }
         }
-        .sheet(isPresented: $showingVerbEditor) {
-            VerbEditor(verb: verb)
-        }
-
     }
 
     var headlineView: some View {
