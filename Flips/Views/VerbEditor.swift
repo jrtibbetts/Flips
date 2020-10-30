@@ -28,9 +28,11 @@ struct VerbEditor: View {
 
     }
 
-    @Environment(\.presentationMode) var presentationMode
+//    @Environment(\.presentationMode) var presentationMode
 
     @ObservedObject var verb: Verb
+
+    @Binding var showingVerbEditor: Bool
 
     var body: some View {
         GeometryReader { (proxy) in
@@ -95,7 +97,7 @@ struct VerbEditor: View {
 
                 Button("Save Changes") {
                     try! PersistenceController.preview.container.viewContext.save()
-                    presentationMode.wrappedValue.dismiss()
+                    showingVerbEditor = false
                 }
 
                 Spacer()
@@ -108,11 +110,12 @@ struct VerbEditor: View {
 struct VerbEditor_Previews: PreviewProvider {
 
     @State static var verb = Verb(context: PersistenceController.preview.container.viewContext)
+    @State static var showingVerbEditor: Bool = true
 
     static var previews: some View {
         ScrollView {
             VStack {
-                VerbEditor(verb: verb)
+                VerbEditor(verb: verb, showingVerbEditor: $showingVerbEditor)
                     .padding([.leading, .trailing], 10.0)
             }
         }

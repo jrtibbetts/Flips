@@ -15,7 +15,8 @@ struct VerbConjugationView: View {
     var body: some View {
         VStack(alignment: .leading) {
             if showingVerbEditor {
-                VerbEditor(verb: Verb(context: PersistenceController.preview.container.viewContext))
+                VerbEditor(verb: Verb(context: PersistenceController.preview.container.viewContext),
+                           showingVerbEditor: $showingVerbEditor)
                     .animation(.easeInOut)
             } else {
                 Picker("", selection: $mode) {
