@@ -5,6 +5,22 @@ import SwiftUI
 
 struct VerbEditor: View {
 
+    struct EditPreferenceData: Equatable {
+        let frame: CGRect
+        let valueChanged: Bool
+    }
+
+    struct EditPreferenceKey: PreferenceKey {
+
+        static var defaultValue: [EditPreferenceData] = []
+
+        static func reduce(value: inout [EditPreferenceData],
+                           nextValue: () -> [EditPreferenceData]) {
+            value.append(contentsOf: nextValue())
+        }
+
+    }
+
     struct TextFieldGroup: View {
 
         @State var name: String
