@@ -25,6 +25,32 @@ public enum VerbMode: String, CaseIterable {
 
     static var allValues: [VerbMode] = [.positive, .negative, .interrogative, .negativeInterrogative]
 
+    func forTense(_ tense: Verb.Tense) -> String? {
+        switch tense {
+        case .present, .future:
+            switch self {
+            case .positive:
+                return nil
+            case .negative:
+                return "ní"
+            case .interrogative:
+                return "an"
+            case .negativeInterrogative:
+                return "nach"
+            }
+        case .past, .pastHabitual:
+            switch self {
+            case .positive:
+                return nil
+            case .negative:
+                return "níor"
+            case .interrogative:
+                return "ar"
+            case .negativeInterrogative:
+                return "nár"
+            }
+        }
+    }
 }
 
 /// Produces inflected forms of a verb in a particular tense and mood.
@@ -51,23 +77,6 @@ public extension VerbInflector {
         }
     }
 
-    func pronoun(_ person: Verb.Person, _ number: Verb.Number) -> String {
-        switch (person, number) {
-        case (.first, .singular):
-            return "mé"
-        case (.second, .singular):
-            return "tú"
-        case (.third, .singular):
-            return "sé/sí"
-        case (.first, .plural):
-            return "muid"
-        case (.second, .plural):
-            return "sibh"
-        case (.third, .plural):
-            return "siad"
-        }
-    }
-
     func englishPronoun(_ person: Verb.Person, _ number: Verb.Number) -> String {
         switch (person, number) {
         case (.first, .singular):
@@ -90,6 +99,23 @@ public extension VerbInflector {
             return "\(englishPronoun(person, number)) \(translation)"
         } else {
             return nil
+        }
+    }
+
+    func pronoun(_ person: Verb.Person, _ number: Verb.Number) -> String {
+        switch (person, number) {
+        case (.first, .singular):
+            return "mé"
+        case (.second, .singular):
+            return "tú"
+        case (.third, .singular):
+            return "sé/sí"
+        case (.first, .plural):
+            return "muid"
+        case (.second, .plural):
+            return "sibh"
+        case (.third, .plural):
+            return "siad"
         }
     }
 
@@ -155,15 +181,13 @@ public struct FirstConjugationPresentIndicative: VerbInflector {
         case .negative,
              .negativeInterrogative:
             inflection.root = root.lenited
-            inflection.particle = mode.rawValue
         case .interrogative:
             inflection.root = root.eclipsed
-            inflection.particle = mode.rawValue
         default:
             inflection.root = root
-            inflection.particle = nil
         }
 
+        inflection.particle = mode.forTense(.present)
         inflection.translation = translationWithPronoun(person, number)
 
         if conjugation == .first {
@@ -260,16 +284,7 @@ public struct FirstConjugationPastIndicative: VerbInflector {
             }
         }
 
-        switch mode {
-        case .positive:
-            inflection.particle = nil
-        case .negative:
-            inflection.particle = "níor"
-        case .interrogative:
-            inflection.particle = "ar"
-        case .negativeInterrogative:
-            inflection.particle = "nár"
-        }
+        inflection.particle = mode.forTense(.past)
 
         return inflection
     }
@@ -367,6 +382,8 @@ public struct FirstConjugationPastHabitualIndicative: VerbInflector {
             }
         }
 
+        inflection.particle = mode.forTense(.pastHabitual)
+
         return inflection
     }
 
@@ -439,6 +456,8 @@ public struct FirstConjugationFutureIndicative: VerbInflector {
             }
 
         }
+
+        inflection.particle = mode.forTense(.future)
 
         return inflection
     }
@@ -528,6 +547,8 @@ public struct FirstConjugationConditional: VerbInflector {
             }
         }
 
+        inflection.particle = mode.forTense(.present)
+
         return inflection
     }
 
@@ -603,6 +624,8 @@ public struct FirstConjugationPresentSubjunctive: VerbInflector {
             }
         }
 
+        inflection.particle = mode.forTense(.present)
+
         return inflection
     }
 
@@ -659,6 +682,8 @@ public struct FirstConjugationPastSubjunctive: VerbInflector {
         if verb.startsWithVowel {
             inflection.prefix = "n-"
         }
+
+        inflection.particle = mode.forTense(.past)
 
         return inflection
     }
