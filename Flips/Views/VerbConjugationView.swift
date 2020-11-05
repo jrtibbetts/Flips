@@ -4,7 +4,6 @@ import SwiftUI
 
 struct VerbConjugationView: View {
 
-    @Environment(\.horizontalSizeClass) var horizontalSizeClass
     @Environment(\.verticalSizeClass) var verticalSizeClass
 
     @State private var showTranslation: Bool = false
@@ -237,6 +236,7 @@ struct InflectionCell: View {
                    let translation = inflections.translation {
                     Text(translation)
                         .font(.footnote)
+                        .italic()
                         .frame(alignment: .leading)
                         .transition(.asymmetric(insertion: .scale, removal: .opacity))
                 }
