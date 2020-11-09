@@ -44,8 +44,6 @@ struct VerbEditor: View {
 
     }
 
-//    @Environment(\.presentationMode) var presentationMode
-
     @ObservedObject var verb: Verb
 
     @Binding var showingVerbEditor: Bool
