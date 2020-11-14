@@ -24,7 +24,7 @@ struct VerbConjugationView: View {
                     }
                 }
                 .pickerStyle(SegmentedPickerStyle())
-                .padding()
+                .padding([.top, .bottom])
 
                 ScrollView {
                     VStack {
@@ -62,6 +62,7 @@ struct VerbConjugationView: View {
             }
         }
         .padding([.leading, .trailing], 5)
+        .navigationBarTitle("", displayMode: .inline)
         .toolbar {
             ToolbarItem(placement: .principal) {
                 if verticalSizeClass == .compact {
