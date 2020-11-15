@@ -547,7 +547,14 @@ public struct FirstConjugationConditional: VerbInflector {
             }
         }
 
-        inflection.particle = mode.forTense(.present)
+        switch mode {
+        case .interrogative:
+            inflection.particle = "dá"
+        case .negative:
+            inflection.particle = "mura"
+        default:
+            inflection.particle = nil
+        }
 
         return inflection
     }
