@@ -359,7 +359,7 @@ public struct FirstConjugationPastHabitualIndicative: VerbInflector {
                 inflection.ending = verb.isSlender ? "eadh" : "adh"
                 inflection.pronoun = pronoun(person, number)
             case (.first, .plural):
-                inflection.ending = verb.isSlender ? "imid" : "aimid"
+                inflection.ending = verb.isSlender ? "imis" : "aimis"
             case (.third, .plural):
                 inflection.ending = verb.isSlender ? "idís" : "aidís"
                 inflection.pronoun = pronoun(person, number)

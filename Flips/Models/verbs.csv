@@ -4,3 +4,4 @@ rith, rith, nil,   rite,   rith, i, 1, false, run,   ran,    run
 siúl, siúl, siúil, siúlta, siúl, ú, 1, false, walk,  walked, walked
 tosaigh, tos, tosaigh, tosaithe, tosú, o, 2, true, start, started, started
 inis, ins, inis, inste, insint, i, 2, true, tell, told, told
+cuir,  cuir, nil, curtha, cur, i, 1, false, put, put, put
