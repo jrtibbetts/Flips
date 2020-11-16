@@ -254,7 +254,7 @@ public struct FirstConjugationPastIndicative: VerbInflector {
     }
 
     public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
-        guard var root = verb.simplePastRoot ?? verb.root,
+        guard var root = verb.irregularPastRoot ?? verb.root,
               let conjugation = Verb.Conjugation(rawValue: verb.conjugation) else {
             return VerbInflection()
         }

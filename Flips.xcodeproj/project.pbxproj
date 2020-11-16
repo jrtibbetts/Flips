@@ -69,6 +69,7 @@
 		96A82279253BE0DE0012D839 /* VerbConjugationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerbConjugationView.swift; sourceTree = "<group>"; };
 		96A8227A253BE0DE0012D839 /* CardsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
 		96A8227B253BE0DE0012D839 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		96C5D10F25625408008A3CC6 /* Irregulars.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Irregulars.xcdatamodel; sourceTree = "<group>"; };
 		96DC38462542806F00A00805 /* VerbEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbEditor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -692,9 +693,10 @@
 		9675F1ED252EA6FA00CAF7EC /* Flips.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				96C5D10F25625408008A3CC6 /* Irregulars.xcdatamodel */,
 				9675F1EE252EA6FA00CAF7EC /* Flips.xcdatamodel */,
 			);
-			currentVersion = 9675F1EE252EA6FA00CAF7EC /* Flips.xcdatamodel */;
+			currentVersion = 96C5D10F25625408008A3CC6 /* Irregulars.xcdatamodel */;
 			path = Flips.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

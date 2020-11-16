@@ -63,7 +63,7 @@ struct VerbEditor: View {
                                    value: Binding($verb.rootVowel, ""))
                     TextFieldGroup(name: "Simple Past Root",
                                    geometryProxy: proxy,
-                                   value: Binding($verb.simplePastRoot, ""))
+                                   value: Binding($verb.irregularPastRoot, ""))
                     TextFieldGroup(name: "Past Participle",
                                    geometryProxy: proxy,
                                    value: Binding($verb.pastParticiple, ""))

@@ -31,15 +31,16 @@ public struct VerbModel {
                         let verb = Verb(context: persistenceController.container.viewContext)
                         verb.dictionaryForm = stringOrNil(verbData[0])
                         verb.root = stringOrNil(verbData[1])
-                        verb.simplePastRoot = stringOrNil(verbData[2])
-                        verb.pastParticiple = stringOrNil(verbData[3])
-                        verb.verbalNoun = stringOrNil(verbData[4])
-                        verb.rootVowel = stringOrNil(verbData[5])
-                        verb.conjugation = Int16(verbData[6]) ?? 1
-                        verb.polysyllabic = Bool(verbData[7]) ?? false
-                        verb.englishPresent = stringOrNil(verbData[8])
-                        verb.englishPast = stringOrNil(verbData[9])
-                        verb.englishPastParticiple = stringOrNil(verbData[10])
+                        verb.irregularPastRoot = stringOrNil(verbData[2])
+                        verb.irregularFutureRoot = stringOrNil(verbData[3])
+                        verb.pastParticiple = stringOrNil(verbData[4])
+                        verb.verbalNoun = stringOrNil(verbData[5])
+                        verb.rootVowel = stringOrNil(verbData[6])
+                        verb.conjugation = Int16(verbData[7]) ?? 1
+                        verb.polysyllabic = Bool(verbData[8]) ?? false
+                        verb.englishPresent = stringOrNil(verbData[9])
+                        verb.englishPast = stringOrNil(verbData[10])
+                        verb.englishPastParticiple = stringOrNil(verbData[11])
                     }
             }
 

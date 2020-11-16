@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19H2" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithCloudKit="YES" userDefinedModelVersionIdentifier="">
+    <entity name="Definable" representedClassName="Definable" isAbstract="YES" syncable="YES" codeGenerationType="class">
+        <relationship name="definition" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Definition" inverseName="words" inverseEntity="Definition"/>
+    </entity>
+    <entity name="Definition" representedClassName="Definition" syncable="YES" codeGenerationType="class">
+        <attribute name="text" optional="YES" attributeType="String"/>
+        <relationship name="words" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Word" inverseName="definition" inverseEntity="Definable"/>
+    </entity>
+    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class">
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="Noun" representedClassName="Noun" parentEntity="Word" syncable="YES" codeGenerationType="class"/>
+    <entity name="PartOfSpeech" representedClassName="PartOfSpeech" syncable="YES" codeGenerationType="class">
+        <relationship name="words" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Word" inverseName="partOfSpeech" inverseEntity="Word"/>
+    </entity>
+    <entity name="Phrase" representedClassName="Phrase" parentEntity="Definable" syncable="YES" codeGenerationType="class">
+        <relationship name="words" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Word" inverseName="phrases" inverseEntity="Word"/>
+    </entity>
+    <entity name="Something" representedClassName="Something" syncable="YES" codeGenerationType="class">
+        <attribute name="timestamp" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+    </entity>
+    <entity name="Verb" representedClassName="Verb" parentEntity="Word" syncable="YES" codeGenerationType="class">
+        <attribute name="conjugation" optional="YES" attributeType="Integer 16" minValueString="1" maxValueString="2" defaultValueString="1" usesScalarValueType="YES"/>
+        <attribute name="dictionaryForm" optional="YES" attributeType="String"/>
+        <attribute name="englishPast" optional="YES" attributeType="String"/>
+        <attribute name="englishPastParticiple" optional="YES" attributeType="String"/>
+        <attribute name="englishPresent" optional="YES" attributeType="String"/>
+        <attribute name="irregularFutureRoot" optional="YES" attributeType="String"/>
+        <attribute name="irregularPastRoot" optional="YES" attributeType="String"/>
+        <attribute name="pastParticiple" optional="YES" attributeType="String" spotlightIndexingEnabled="YES"/>
+        <attribute name="pastRoot" optional="YES" attributeType="String"/>
+        <attribute name="polysyllabic" optional="YES" attributeType="Boolean" minValueString="1" defaultValueString="NO" usesScalarValueType="YES"/>
+        <attribute name="rootVowel" optional="YES" attributeType="String"/>
+        <attribute name="verbalNoun" optional="YES" attributeType="String" spotlightIndexingEnabled="YES"/>
+    </entity>
+    <entity name="Word" representedClassName="Word" isAbstract="YES" parentEntity="Definable" syncable="YES" codeGenerationType="class">
+        <attribute name="root" optional="YES" attributeType="String"/>
+        <relationship name="partOfSpeech" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PartOfSpeech" inverseName="words" inverseEntity="PartOfSpeech"/>
+        <relationship name="phrases" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Phrase" inverseName="words" inverseEntity="Phrase"/>
+    </entity>
+    <elements>
+        <element name="Definable" positionX="24.8359375" positionY="164.734375" width="128" height="58"/>
+        <element name="Definition" positionX="225.296875" positionY="46.52734375" width="128" height="73"/>
+        <element name="Item" positionX="-63" positionY="-18" width="128" height="28"/>
+        <element name="Noun" positionX="-134.34765625" positionY="-81.58203125" width="128" height="43"/>
+        <element name="PartOfSpeech" positionX="101.140625" positionY="-166.3671875" width="128" height="58"/>
+        <element name="Phrase" positionX="-215.5859375" positionY="153.03515625" width="128" height="58"/>
+        <element name="Something" positionX="-36" positionY="-9" width="128" height="28"/>
+        <element name="Verb" positionX="-237.90234375" positionY="32.4453125" width="128" height="223"/>
+        <element name="Word" positionX="-63" positionY="-18" width="128" height="88"/>
+    </elements>
+</model>
