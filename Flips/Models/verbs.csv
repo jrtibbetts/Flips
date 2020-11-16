@@ -1,7 +1,11 @@
-# dictionary form, root, simple past, past participle, verbal noun, conjugation, polysyllabic?, English present, English past, English past participle
-rith, rith, nil,   rite,   rith, i, 1, false, run,   ran,    run
-ól,   ól, nil,   ólta,   ól,   ó, 1, false, drink, drank,  drunk
-siúl, siúl, siúil, siúlta, siúl, ú, 1, false, walk,  walked, walked
-tosaigh, tos, tosaigh, tosaithe, tosú, o, 2, true, start, started, started
-inis, ins, inis, inste, insint, i, 2, true, tell, told, told
-cuir,  cuir, nil, curtha, cur, i, 1, false, put, put, put
+# dictionary form, root, simple past, past participle, verbal noun, stem vowel, conjugation, polysyllabic?, English present, English past, English past participle
+rith,    rith,  nil,     rite,    rith,     i, 1, false, run,   ran,    run
+ól,      ól,    nil,     ólta,    ól,       ó, 1, false, drink, drank,  drunk
+siúl,    siúl,  siúil,   siúlta,  siúl,     ú, 1, false, walk,  walked, walked
+tosaigh, tos,   tosaigh, tosaithe, tosú,    o, 2, true,  start, started, started
+inis,    ins,   inis,    inste,   insint,   i, 2, true,  tell, told, told
+cuir,    cuir,  nil,     curtha,  cur,      i, 1, false, put, put, put
+mol,     mol,   nil,     molta,   moladh,   a, 1, false, praise, praised, praised
+feic,    feic,  conaic,  feicthe, feiceáil, i, 1, false, see, saw, seen
+faigh,   faigh, fuair,   faigte,  fáil,     i, 1, false, get/find, got/found, got(ten)/found
+tar,     tag,   táinig,  tagtha,  teacht,   a, 1, false, come, came, come
