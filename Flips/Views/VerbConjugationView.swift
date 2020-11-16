@@ -35,8 +35,8 @@ struct VerbConjugationView: View {
                             InflectionGroup(inflector: FirstConjugationPastIndicative(verb: verb,
                                                                                       mode: mode),
                                             showTranslations: $showTranslation)
-                            InflectionGroup(inflector: FirstConjugationPastHabitualIndicative(verb: verb,
-                                                                                              mode: mode),
+                            InflectionGroup(inflector: FirstConjugationImperfect(verb: verb,
+                                                                                 mode: mode),
                                             showTranslations: $showTranslation)
                             InflectionGroup(inflector: FirstConjugationFutureIndicative(verb: verb,
                                                                                         mode: mode),

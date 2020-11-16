@@ -291,7 +291,7 @@ public struct FirstConjugationPastIndicative: VerbInflector {
 
 }
 
-public struct FirstConjugationPastHabitualIndicative: VerbInflector {
+public struct FirstConjugationImperfect: VerbInflector {
 
     public var verb: Verb
 
@@ -309,7 +309,8 @@ public struct FirstConjugationPastHabitualIndicative: VerbInflector {
         }
     }
 
-    public func translationWithPronoun(_ person: Verb.Person, _ number: Verb.Number) -> String? {
+    public func translationWithPronoun(_ person: Verb.Person,
+                                       _ number: Verb.Number) -> String? {
         guard let translation = translation,
               let englishPresent = verb.englishPresent else {
             return nil
@@ -677,7 +678,7 @@ public struct FirstConjugationPastSubjunctive: VerbInflector {
     }
 
     public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
-        let pastHabitualInflector = FirstConjugationPastHabitualIndicative(verb: verb,
+        let pastHabitualInflector = FirstConjugationImperfect(verb: verb,
                                                                            mode: mode,
                                                                            tense: .pastHabitual,
                                                                            mood: .indicative)
