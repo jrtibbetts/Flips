@@ -353,7 +353,7 @@ public struct FirstConjugationImperfect: VerbInflector {
                         inflection.root = String(pastParticiple.dropLast())
                     }
 
-                    inflection.ending = verb.isSlender ? "eá" : "á"
+                    inflection.ending = verb.isSlender ? "teá" : "tá"
                 }
             case (.third, .singular),
                  (.second, .plural):
@@ -440,7 +440,7 @@ public struct FirstConjugationFutureIndicative: VerbInflector {
         if conjugation == .first {
             switch (person, number) {
             case (.first, .plural):
-                inflection.ending = verb.isSlender ? "fimid" : "faimid"
+                inflection.ending = verb.isSlender ? "fimis" : "faimis"
             // no pronoun
             default:
                 inflection.ending = verb.isSlender ? "fidh" : "faidh"
@@ -527,7 +527,7 @@ public struct FirstConjugationConditional: VerbInflector {
                 inflection.ending = verb.isSlender ? "feadh" : "fadh"
                 inflection.pronoun = pronoun(person, number)
             case (.first, .plural):
-                inflection.ending = verb.isSlender ? "fimid" : "faimid"
+                inflection.ending = verb.isSlender ? "fimis" : "faimis"
             case (.third, .plural):
                 inflection.ending = verb.isSlender ? "fidís" : "faidís"
             }
