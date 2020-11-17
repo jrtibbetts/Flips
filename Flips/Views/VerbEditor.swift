@@ -82,7 +82,6 @@ struct VerbEditor: View {
                             }
                             .pickerStyle(SegmentedPickerStyle())
                         }
-                        //                        .frame(height: 40.0)
 
                         HStack {
                             Text("Polysyllabic")
@@ -93,7 +92,6 @@ struct VerbEditor: View {
                             }
                             .pickerStyle(SegmentedPickerStyle())
                         }
-                        //                        .frame(height: 40.0)
                     }
                 }
 

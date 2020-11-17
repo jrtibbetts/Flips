@@ -19,7 +19,7 @@ struct CardsView: View {
 
     var body: some View {
         NavigationView {
-            VStack {
+            ScrollView {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))],
                           alignment: .center, spacing: 20) {
                     ForEach(verbs) { verb in
