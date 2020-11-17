@@ -429,7 +429,7 @@ public struct FirstConjugationFutureIndicative: VerbInflector {
     }
 
     public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
-        guard let root = verb.root,
+        guard let root = verb.irregularFutureRoot ?? verb.root,
               let conjugation = Verb.Conjugation(rawValue: verb.conjugation) else {
             return VerbInflection()
         }
@@ -440,7 +440,7 @@ public struct FirstConjugationFutureIndicative: VerbInflector {
         if conjugation == .first {
             switch (person, number) {
             case (.first, .plural):
-                inflection.ending = verb.isSlender ? "fimis" : "faimis"
+                inflection.ending = verb.isSlender ? "fimid" : "faimid"
             // no pronoun
             default:
                 inflection.ending = verb.isSlender ? "fidh" : "faidh"

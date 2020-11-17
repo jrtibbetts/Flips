@@ -1,4 +1,5 @@
 # dictionary form, root, irregular past, irregular future, past participle, verbal noun, stem vowel, conjugation, polysyllabic?, English present, English past, English past participle
+ceannaigh, ceann, nil,   nil,    ceannaithe, ceannach, a, 2, true, buy, bought, bought
 cuir,    cuir,  nil,     nil,    curtha,   cur,      i, 1, false, put, put, put
 faigh,   faigh, fuair,   gheobh, faigte,   fáil,     i, 2, false, get/find, got/found, got(ten)/found
 feic,    feic,  conaic,  nil,    feicthe,  feiceáil, i, 1, false, see, saw, seen
@@ -7,5 +8,7 @@ mol,     mol,   nil,     nil,    molta,    moladh,   a, 1, false, praise, praise
 ól,      ól,    nil,     nil,    ólta,     ól,       ó, 1, false, drink, drank,  drunk
 rith,    rith,  nil,     nil,    rite,     rith,     i, 1, false, run,   ran,    run
 siúl,    siúl,  siúil,   nil,    siúlta,   siúl,     ú, 1, false, walk,  walked, walked
+tabhair, tug,   nil,     tabhar, tugtha,   tabhair,  u, 1, false, give, gave, given
 tar,     tag,   táinig,  tioc,   tagtha,   teacht,   a, 1, false, come, came, come
+téigh,   té,    cuaigh,  rach,   dulta,    dul,      é, 1, false, go, went, gone
 tosaigh, tos,   tosaigh, nil,    tosaithe, tosú,     o, 2, true,  start, started, started
