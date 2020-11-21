@@ -9,6 +9,8 @@ struct CardsView: View {
 
     @State private var sortAscending = true
 
+    @State private var displayAsGrid = true
+
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(key: "dictionaryForm",
                                            ascending: true,
@@ -20,32 +22,55 @@ struct CardsView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))],
-                          alignment: .center, spacing: 20) {
-                    ForEach(verbs) { verb in
-                        if let dictionaryForm = verb.dictionaryForm ?? verb.root {
-                            NavigationLink(destination: VerbConjugationView(verb: verb)) {
-                                VStack {
-                                    Text(dictionaryForm)
-                                        .font(.largeTitle)
+                if displayAsGrid {
+                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))],
+                              alignment: .center, spacing: 20) {
+                        ForEach(verbs) { (verb) in
+                            if let dictionaryForm = verb.dictionaryForm ?? verb.root {
+                                NavigationLink(destination: VerbConjugationView(verb: verb)) {
+                                    VStack {
+                                        Text(dictionaryForm)
+                                            .font(.title)
 
-                                    if let translation = verb.englishPresent {
-                                        Text(translation)
-                                            .font(.headline)
-                                            .italic()
+                                        if let translation = verb.englishPresent {
+                                            Text(translation)
+                                                .font(.headline)
+                                                .italic()
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        .frame(width: 100, height: 100, alignment: .center)
+                        .cornerRadius(10.0)
+                        .border(Color.blue, width: 2)
+                    }
+                } else {
+                    VStack {
+                        ForEach(verbs) { (verb) in
+                            if let dictionaryForm = verb.dictionaryForm ?? verb.root {
+                                NavigationLink(destination: VerbConjugationView(verb: verb)) {
+                                    HStack {
+                                        if let translation = verb.englishPresent {
+                                            Text(translation)
+                                                .font(.headline)
+                                                .italic()
+                                        }
                                     }
                                 }
                             }
                         }
                     }
-                    .frame(width: 100, height: 100, alignment: .center)
-                    .cornerRadius(10.0)
-                    .border(Color.blue, width: 2)
                 }
-
-                Spacer()
             }
             .navigationTitle("Irish Verbs")
+            .navigationBarItems(trailing:
+                                    Picker("List or Grid?", selection: $displayAsGrid) {
+                                        Text("List").tag(false)
+                                        Text("Grid").tag(true)
+                                    }
+                                    .pickerStyle(SegmentedPickerStyle())
+            )
         }
     }
 
