@@ -50,9 +50,9 @@ struct CardsView: View {
                         ForEach(verbs) { (verb) in
                             if let dictionaryForm = verb.dictionaryForm ?? verb.root {
                                 NavigationLink(destination: VerbConjugationView(verb: verb)) {
-                                    Text(dictionaryForm)
-                                        .font(.title)
-                                    HStack {
+                                    HStack(alignment: .firstTextBaseline) {
+                                        Text(dictionaryForm)
+                                            .font(.title)
                                         if let translation = verb.englishPresent {
                                             Text(translation)
                                                 .font(.headline)
