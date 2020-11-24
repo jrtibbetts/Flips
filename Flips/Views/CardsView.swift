@@ -7,9 +7,11 @@ struct CardsView: View {
 
     @Environment(\.managedObjectContext) private var viewContext
 
-    @State private var sortAscending = true
-
     @State private var displayAsGrid = true
+
+    @State private var showingVerbEditor = false
+
+    @State private var sortAscending = true
 
     @FetchRequest(
         sortDescriptors: [NSSortDescriptor(key: "dictionaryForm",
@@ -66,12 +68,17 @@ struct CardsView: View {
                 }
             }
             .navigationTitle("Irish Verbs")
-            .navigationBarItems(trailing:
-                                    Picker("List or Grid?", selection: $displayAsGrid) {
-                                        Text("List").tag(false)
-                                        Text("Grid").tag(true)
-                                    }
-                                    .pickerStyle(SegmentedPickerStyle())
+            .navigationBarItems(
+                leading:
+                    Button(showingVerbEditor ? "Cancel" : "Add Verb") {
+                        showingVerbEditor.toggle()
+                    },
+                trailing:
+                    Picker("List or Grid?", selection: $displayAsGrid) {
+                        Text("List").tag(false)
+                        Text("Grid").tag(true)
+                    }
+                    .pickerStyle(SegmentedPickerStyle())
             )
         }
     }
