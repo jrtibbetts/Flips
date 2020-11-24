@@ -122,12 +122,11 @@ struct VerbEditor: View {
 struct VerbEditor_Previews: PreviewProvider {
 
     @State static var verb = Verb(context: PersistenceController.preview.container.viewContext)
-    @State static var showingVerbEditor: Bool = true
 
     static var previews: some View {
         ScrollView {
             VStack {
-                VerbEditor(verb: verb, showingVerbEditor: $showingVerbEditor)
+                VerbEditor(verb: verb, showingVerbEditor: Binding.constant(true))
                     .padding([.leading, .trailing], 10.0)
             }
         }
