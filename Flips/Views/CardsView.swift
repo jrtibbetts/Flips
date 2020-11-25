@@ -7,7 +7,7 @@ struct CardsView: View {
 
     @Environment(\.managedObjectContext) private var viewContext
 
-    @State private var displayAsGrid = true
+    @AppStorage("displayAsGrid") private var displayAsGrid = true
 
     @State private var showingVerbEditor = false
 
