@@ -54,22 +54,32 @@ public enum VerbMode: String, CaseIterable {
 }
 
 /// Produces inflected forms of a verb in a particular tense and mood.
-public protocol VerbInflector {
+open class VerbInflector: ObservableObject {
 
-    var mode: VerbMode { get }
-    var mood: Verb.Mood { get }
-    var tense: Verb.Tense? { get }
-    var translation: String? { get }
-    var verb: Verb { get }
+    open var mode: VerbMode
+    open var mood: Verb.Mood
+    open var tense: Verb.Tense?
+    open var translation: String?
+    open var verb: Verb
 
-    func inflect(person: Verb.Person,
-                 number: Verb.Number) -> VerbInflection
+    public init(verb: Verb,
+                mode: VerbMode,
+                mood: Verb.Mood,
+                tense: Verb.Tense,
+                translation: String? = "") {
+        self.verb = verb
+        self.mode = mode
+        self.mood = mood
+        self.tense = tense
+        self.translation = translation
+    }
 
-}
+    open func inflect(person: Verb.Person,
+                 number: Verb.Number) -> VerbInflection? {
+        return nil
+    }
 
-public extension VerbInflector {
-
-    var displayName: String {
+    open var displayName: String {
         if let capitalizedTense = tense?.rawValue.capitalized {
             return "\(mood.rawValue.capitalized) \(capitalizedTense)"
         } else {
@@ -77,7 +87,7 @@ public extension VerbInflector {
         }
     }
 
-    func englishPronoun(_ person: Verb.Person, _ number: Verb.Number) -> String {
+    open func englishPronoun(_ person: Verb.Person, _ number: Verb.Number) -> String {
         switch (person, number) {
         case (.first, .singular):
             return "I"
@@ -94,7 +104,7 @@ public extension VerbInflector {
         }
     }
 
-    func translationWithPronoun(_ person: Verb.Person, _ number: Verb.Number) -> String? {
+    open func translationWithPronoun(_ person: Verb.Person, _ number: Verb.Number) -> String? {
         if let translation = translation {
             return "\(englishPronoun(person, number)) \(translation)"
         } else {
@@ -102,7 +112,7 @@ public extension VerbInflector {
         }
     }
 
-    func pronoun(_ person: Verb.Person, _ number: Verb.Number) -> String {
+    open func pronoun(_ person: Verb.Person, _ number: Verb.Number) -> String {
         switch (person, number) {
         case (.first, .singular):
             return "mé"
