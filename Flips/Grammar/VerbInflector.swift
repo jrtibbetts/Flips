@@ -65,7 +65,7 @@ open class VerbInflector: ObservableObject {
     public init(verb: Verb,
                 mode: VerbMode,
                 mood: Verb.Mood,
-                tense: Verb.Tense,
+                tense: Verb.Tense? = nil,
                 translation: String? = "") {
         self.verb = verb
         self.mode = mode
@@ -131,21 +131,13 @@ open class VerbInflector: ObservableObject {
 
 }
 
-public struct FirstConjugationPresentIndicative: VerbInflector {
+public class FirstConjugationPresentIndicative: VerbInflector {
 
-    public var verb: Verb
-
-    public var mode: VerbMode
-
-    public var tense: Verb.Tense? = .present
-
-    public var mood = Verb.Mood.indicative
-
-    public var translation: String? {
-        return verb.englishPresent
+    public init(verb: Verb, mode: VerbMode) {
+        super.init(verb: verb, mode: mode, mood: .indicative, tense: .present, translation: verb.englishPresent)
     }
 
-    public func translationWithPronoun(_ person: Verb.Person, _ number: Verb.Number) -> String? {
+    public override func translationWithPronoun(_ person: Verb.Person, _ number: Verb.Number) -> String? {
         guard let translation = translation else {
             return nil
         }
@@ -179,7 +171,7 @@ public struct FirstConjugationPresentIndicative: VerbInflector {
         }
     }
 
-    public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
+    public override func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
         guard let root = verb.root,
               let conjugation = Verb.Conjugation(rawValue: verb.conjugation) else {
             return VerbInflection()
@@ -229,21 +221,14 @@ public struct FirstConjugationPresentIndicative: VerbInflector {
 
 }
 
-public struct FirstConjugationPastIndicative: VerbInflector {
+public class FirstConjugationPastIndicative: VerbInflector {
 
-    public var verb: Verb
-
-    public var mode: VerbMode
-
-    public var tense: Verb.Tense? = .past
-
-    public var mood = Verb.Mood.indicative
-
-    public var translation: String? {
-        return verb.englishPast
+    public init(verb: Verb, mode: VerbMode) {
+        super.init(verb: verb, mode: mode, mood: .indicative, tense: .past, translation: verb.englishPast)
     }
 
-    public func translationWithPronoun(_ person: Verb.Person, _ number: Verb.Number) -> String? {
+    public override func translationWithPronoun(_ person: Verb.Person,
+                                                _ number: Verb.Number) -> String? {
         guard let translation = translation,
               let englishPresent = verb.englishPresent else {
             return nil
@@ -263,7 +248,7 @@ public struct FirstConjugationPastIndicative: VerbInflector {
         }
     }
 
-    public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
+    public override func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
         guard var root = verb.irregularPastRoot ?? verb.root,
               let conjugation = Verb.Conjugation(rawValue: verb.conjugation) else {
             return VerbInflection()
@@ -301,26 +286,18 @@ public struct FirstConjugationPastIndicative: VerbInflector {
 
 }
 
-public struct FirstConjugationImperfect: VerbInflector {
+public class FirstConjugationImperfect: VerbInflector {
 
-    public var verb: Verb
+    public init(verb: Verb, mode: VerbMode) {
+        super.init(verb: verb, mode: mode, mood: .indicative, tense: .pastHabitual)
 
-    public var mode: VerbMode
-
-    public var tense: Verb.Tense? = .pastHabitual
-
-    public var mood = Verb.Mood.indicative
-
-    public var translation: String? {
         if let translation = verb.englishPresent {
-            return "used to \(translation)"
-        } else {
-            return nil
+            self.translation = "used to \(translation)"
         }
     }
 
-    public func translationWithPronoun(_ person: Verb.Person,
-                                       _ number: Verb.Number) -> String? {
+    public override func translationWithPronoun(_ person: Verb.Person,
+                                                _ number: Verb.Number) -> String? {
         guard let translation = translation,
               let englishPresent = verb.englishPresent else {
             return nil
@@ -340,7 +317,7 @@ public struct FirstConjugationImperfect: VerbInflector {
         }
     }
 
-    public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
+    public override func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
         guard let root = verb.root,
               let conjugation = Verb.Conjugation(rawValue: verb.conjugation) else {
             return VerbInflection()
@@ -400,25 +377,18 @@ public struct FirstConjugationImperfect: VerbInflector {
 
 }
 
-public struct FirstConjugationFutureIndicative: VerbInflector {
+public class FirstConjugationFutureIndicative: VerbInflector {
 
-    public var verb: Verb
+    public init(verb: Verb, mode: VerbMode) {
+        super.init(verb: verb, mode: mode, mood: .indicative, tense: .future)
 
-    public var mode: VerbMode
-
-    public var tense: Verb.Tense? = .future
-
-    public var mood = Verb.Mood.indicative
-
-    public var translation: String? {
         if let translation = verb.englishPresent {
-            return "will \(translation)"
-        } else {
-            return nil
+            self.translation = "will \(translation)"
         }
     }
 
-    public func translationWithPronoun(_ person: Verb.Person, _ number: Verb.Number) -> String? {
+    public override func translationWithPronoun(_ person: Verb.Person,
+                                                _ number: Verb.Number) -> String? {
         guard let translation = translation,
               let englishPresent = verb.englishPresent else {
             return nil
@@ -438,7 +408,8 @@ public struct FirstConjugationFutureIndicative: VerbInflector {
         }
     }
 
-    public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
+    public override func inflect(person: Verb.Person,
+                                 number: Verb.Number) -> VerbInflection {
         guard let root = verb.irregularFutureRoot ?? verb.root,
               let conjugation = Verb.Conjugation(rawValue: verb.conjugation) else {
             return VerbInflection()
@@ -475,25 +446,18 @@ public struct FirstConjugationFutureIndicative: VerbInflector {
 
 }
 
-public struct FirstConjugationConditional: VerbInflector {
+public class FirstConjugationConditional: VerbInflector {
 
-    public var verb: Verb
+    public init(verb: Verb, mode: VerbMode) {
+        super.init(verb: verb, mode: mode, mood: .conditional)
 
-    public var mode: VerbMode
-
-    public var tense: Verb.Tense?
-
-    public var mood = Verb.Mood.conditional
-
-    public var translation: String? {
         if let translation = verb.englishPresent {
-            return "would \(translation)"
-        } else {
-            return nil
+            self.translation = "would \(translation)"
         }
     }
 
-    public func translationWithPronoun(_ person: Verb.Person, _ number: Verb.Number) -> String? {
+    public override func translationWithPronoun(_ person: Verb.Person,
+                                                _ number: Verb.Number) -> String? {
         guard let translation = translation,
               let englishPresent = verb.englishPresent else {
             return nil
@@ -513,7 +477,8 @@ public struct FirstConjugationConditional: VerbInflector {
         }
     }
 
-    public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
+    public override func inflect(person: Verb.Person,
+                                 number: Verb.Number) -> VerbInflection {
         guard let root = verb.root,
               let conjugation = Verb.Conjugation(rawValue: verb.conjugation) else {
             return VerbInflection()
@@ -572,25 +537,18 @@ public struct FirstConjugationConditional: VerbInflector {
 
 }
 
-public struct FirstConjugationPresentSubjunctive: VerbInflector {
+public class FirstConjugationPresentSubjunctive: VerbInflector {
 
-    public var verb: Verb
+    public init(verb: Verb, mode: VerbMode) {
+        super.init(verb: verb, mode: mode, mood: .subjunctive, tense: .present)
 
-    public var mode: VerbMode
-
-    public var tense: Verb.Tense? = .present
-
-    public var mood = Verb.Mood.subjunctive
-
-    public var translation: String? {
         if let translation = verb.englishPresent {
-            return "could \(translation)"
-        } else {
-            return nil
+            self.translation = "could \(translation)"
         }
     }
 
-    public func translationWithPronoun(_ person: Verb.Person, _ number: Verb.Number) -> String? {
+    public override func translationWithPronoun(_ person: Verb.Person,
+                                                _ number: Verb.Number) -> String? {
         guard let translation = translation,
               let englishPresent = verb.englishPresent else {
             return nil
@@ -610,7 +568,8 @@ public struct FirstConjugationPresentSubjunctive: VerbInflector {
         }
     }
 
-    public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
+    public override func inflect(person: Verb.Person,
+                                 number: Verb.Number) -> VerbInflection {
         guard let root = verb.root,
               let conjugation = Verb.Conjugation(rawValue: verb.conjugation) else {
             return VerbInflection()
@@ -649,25 +608,18 @@ public struct FirstConjugationPresentSubjunctive: VerbInflector {
 
 }
 
-public struct FirstConjugationPastSubjunctive: VerbInflector {
+public class FirstConjugationPastSubjunctive: VerbInflector {
 
-    public var verb: Verb
+    public init(verb: Verb, mode: VerbMode) {
+        super.init(verb: verb, mode: mode, mood: .subjunctive, tense: .past)
 
-    public var mode: VerbMode
-
-    public var tense: Verb.Tense? = .past
-
-    public var mood = Verb.Mood.subjunctive
-
-    public var translation: String? {
         if let translation = verb.englishPastParticiple {
-            return "could have \(translation)"
-        } else {
-            return nil
+            self.translation = "could have \(translation)"
         }
     }
 
-    public func translationWithPronoun(_ person: Verb.Person, _ number: Verb.Number) -> String? {
+    public override func translationWithPronoun(_ person: Verb.Person,
+                                                _ number: Verb.Number) -> String? {
         guard let translation = translation,
               let englishPastParticiple = verb.englishPastParticiple else {
             return nil
@@ -687,11 +639,10 @@ public struct FirstConjugationPastSubjunctive: VerbInflector {
         }
     }
 
-    public func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
+    public override func inflect(person: Verb.Person,
+                                 number: Verb.Number) -> VerbInflection {
         let pastHabitualInflector = FirstConjugationImperfect(verb: verb,
-                                                                           mode: mode,
-                                                                           tense: .pastHabitual,
-                                                                           mood: .indicative)
+                                                              mode: mode)
         var inflection = pastHabitualInflector.inflect(person: person, number: number)
         inflection.root = inflection.root.eclipsed
         inflection.translation = translationWithPronoun(person, number)
