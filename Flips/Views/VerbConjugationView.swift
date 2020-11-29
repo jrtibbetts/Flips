@@ -155,19 +155,21 @@ struct InflectionGroup: View {
                 }
             }
 
-            InflectionTableRow(person: .first, showTranslations: $showTranslations)
-            InflectionTableRow(person: .second, showTranslations: $showTranslations)
-            InflectionTableRow(person: .third, showTranslations: $showTranslations)
+            InflectionTableRow(inflector: inflector, person: .first,
+                               showTranslations: $showTranslations)
+            InflectionTableRow(inflector: inflector, person: .second,
+                               showTranslations: $showTranslations)
+            InflectionTableRow(inflector: inflector, person: .third,
+                               showTranslations: $showTranslations)
         }
         .padding([.top, .bottom], 10)
-        .environmentObject(inflector)
     }
 
 }
 
 struct InflectionTableRow: View {
 
-    @EnvironmentObject var inflector: VerbInflector
+    var inflector: VerbInflector
 
     var person: Verb.Person
 
