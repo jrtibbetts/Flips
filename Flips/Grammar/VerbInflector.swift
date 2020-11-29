@@ -56,11 +56,11 @@ public enum VerbMode: String, CaseIterable {
 /// Produces inflected forms of a verb in a particular tense and mood.
 open class VerbInflector: ObservableObject {
 
-    open var mode: VerbMode
-    open var mood: Verb.Mood
-    open var tense: Verb.Tense?
-    open var translation: String?
-    open var verb: Verb
+    @Published open var mode: VerbMode
+    @Published open var mood: Verb.Mood
+    @Published open var tense: Verb.Tense?
+    @Published open var translation: String?
+    @Published open var verb: Verb
 
     public init(verb: Verb,
                 mode: VerbMode,
