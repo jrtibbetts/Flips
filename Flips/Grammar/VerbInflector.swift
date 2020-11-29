@@ -54,7 +54,7 @@ public enum VerbMode: String, CaseIterable {
 }
 
 /// Produces inflected forms of a verb in a particular tense and mood.
-open class VerbInflector: ObservableObject {
+open class VerbInflector: NSObject, ObservableObject {
 
     @Published open var mode: VerbMode
     @Published open var mood: Verb.Mood
@@ -72,6 +72,7 @@ open class VerbInflector: ObservableObject {
         self.mood = mood
         self.tense = tense
         self.translation = translation
+        super.init()
     }
 
     open func inflect(person: Verb.Person,
