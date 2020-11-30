@@ -161,7 +161,6 @@ struct InflectionGroup: View {
             InflectionTableRow(person: .third, showTranslations: $showTranslations)
         }
         .padding([.top, .bottom], 10)
-        .environmentObject(inflector)
     }
 
 }
