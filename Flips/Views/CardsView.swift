@@ -48,22 +48,27 @@ struct CardsView: View {
                         .border(Color.blue, width: 2)
                     }
                 } else {
-                    VStack {
-                        ForEach(verbs) { (verb) in
-                            if let dictionaryForm = verb.dictionaryForm ?? verb.root {
-                                NavigationLink(destination: VerbConjugationView(verb: verb)) {
-                                    HStack(alignment: .firstTextBaseline) {
-                                        Text(dictionaryForm)
-                                            .font(.title)
-                                        if let translation = verb.englishPresent {
-                                            Text(translation)
-                                                .font(.headline)
-                                                .italic()
+                    HStack() {
+                        Spacer()
+                        VStack {
+                            ForEach(verbs) { (verb) in
+                                if let dictionaryForm = verb.dictionaryForm ?? verb.root {
+                                    NavigationLink(destination: VerbConjugationView(verb: verb)) {
+                                        HStack(alignment: .firstTextBaseline) {
+                                            Text(dictionaryForm)
+                                                .font(.title)
+                                            if let translation = verb.englishPresent {
+                                                Spacer()
+                                                Text(translation)
+                                                    .font(.headline)
+                                                    .italic()
+                                            }
                                         }
                                     }
                                 }
                             }
                         }
+                        Spacer()
                     }
                 }
             }
