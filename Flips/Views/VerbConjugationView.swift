@@ -148,6 +148,8 @@ struct InflectionGroup: View {
                 }
 
                 if let translation = inflector.translation {
+                    Spacer()
+
                     Text(translation)
                         .font(.body)
                         .italic()
