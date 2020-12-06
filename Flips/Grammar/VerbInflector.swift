@@ -364,9 +364,9 @@ public class FirstConjugationImperfect: VerbInflector {
                 inflection.ending = verb.isSlender ? "íodh" : "aíodh"
                 inflection.pronoun = pronoun(person, number)
             case (.first, .plural):
-                inflection.ending = verb.isSlender ? "íomar" : "aíomar"
+                inflection.ending = verb.isSlender ? "ímis" : "aímis"
             case (.third, .plural):
-                inflection.ending = verb.isSlender ? "íodar" : "aíodar"
+                inflection.ending = verb.isSlender ? "ídis" : "aídis"
                 inflection.pronoun = pronoun(person, number)
             }
         }
@@ -510,17 +510,17 @@ public class FirstConjugationConditional: VerbInflector {
         } else {
             switch (person, number) {
             case (.first, .singular):
-                inflection.ending = verb.isSlender ? "eóinn" : "óinn"
+                inflection.ending = verb.isSlender ? "eoinn" : "oinn"
             case (.second, .singular):
-                inflection.ending = verb.isSlender ? "eófa" : "ófa"
+                inflection.ending = verb.isSlender ? "eofá" : "ofá"
             case (.third, .singular),
                  (.second, .plural):
-                inflection.ending = verb.isSlender ? "eódh" : "ódh"
+                inflection.ending = verb.isSlender ? "eodh" : "odh"
                 inflection.pronoun = pronoun(person, number)
             case (.first, .plural):
-                inflection.ending = verb.isSlender ? "eóimis" : "óimis"
+                inflection.ending = verb.isSlender ? "eoimis" : "oimis"
             case (.third, .plural):
-                inflection.ending = verb.isSlender ? "eóidís" : "óidís"
+                inflection.ending = verb.isSlender ? "eoidís" : "oidís"
             }
         }
 
