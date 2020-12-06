@@ -431,10 +431,10 @@ public class FirstConjugationFutureIndicative: VerbInflector {
         } else {
             switch (person, number) {
             case (.first, .plural):
-                inflection.ending = verb.isSlender ? "eóimid" : "óimid"
+                inflection.ending = verb.isSlender ? "eoimid" : "oimid"
             // no pronoun
             default:
-                inflection.ending = verb.isSlender ? "eóidh" : "óid"
+                inflection.ending = verb.isSlender ? "eoidh" : "oid"
                 inflection.pronoun = pronoun(person, number)
             }
 
@@ -595,9 +595,9 @@ public class FirstConjugationPresentSubjunctive: VerbInflector {
         } else {
             switch (person, number) {
             case (.first, .plural):
-                inflection.ending = verb.isSlender ? "ímis" : "aímis"
+                inflection.ending = verb.isSlender ? "ímid" : "aímid"
             default:
-                inflection.ending = verb.isSlender ? "í" : "aí"
+                inflection.ending = verb.isSlender ? "i" : "aí"
                 inflection.pronoun = pronoun(person, number)
             }
         }
