@@ -52,6 +52,7 @@
 		963786F92537D42E00DF52EC /* VerbInflector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbInflector.swift; sourceTree = "<group>"; };
 		96378704253806D500DF52EC /* VerbExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbExtensions.swift; sourceTree = "<group>"; };
 		9637871125391C6500DF52EC /* verbs.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = verbs.csv; sourceTree = "<group>"; };
+		9658B1AF259C529C0006246B /* Unclouded.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Unclouded.xcdatamodel; sourceTree = "<group>"; };
 		9675F1DF252EA6F800CAF7EC /* Flips.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flips.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9675F1E6252EA6FA00CAF7EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9675F1E9252EA6FA00CAF7EC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -693,10 +694,11 @@
 		9675F1ED252EA6FA00CAF7EC /* Flips.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				9658B1AF259C529C0006246B /* Unclouded.xcdatamodel */,
 				96C5D10F25625408008A3CC6 /* Irregulars.xcdatamodel */,
 				9675F1EE252EA6FA00CAF7EC /* Flips.xcdatamodel */,
 			);
-			currentVersion = 96C5D10F25625408008A3CC6 /* Irregulars.xcdatamodel */;
+			currentVersion = 9658B1AF259C529C0006246B /* Unclouded.xcdatamodel */;
 			path = Flips.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
