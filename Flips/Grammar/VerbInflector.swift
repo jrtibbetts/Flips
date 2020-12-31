@@ -132,7 +132,7 @@ open class VerbInflector: NSObject, ObservableObject {
 
 }
 
-public class FirstConjugationPresentIndicative: VerbInflector {
+public class PresentIndicative: VerbInflector {
 
     public init(verb: Verb, mode: VerbMode) {
         super.init(verb: verb, mode: mode, mood: .indicative, tense: .present, translation: verb.englishPresent)
@@ -222,7 +222,7 @@ public class FirstConjugationPresentIndicative: VerbInflector {
 
 }
 
-public class FirstConjugationPastIndicative: VerbInflector {
+public class PastIndicative: VerbInflector {
 
     public init(verb: Verb, mode: VerbMode) {
         super.init(verb: verb, mode: mode, mood: .indicative, tense: .past, translation: verb.englishPast)
@@ -250,9 +250,13 @@ public class FirstConjugationPastIndicative: VerbInflector {
     }
 
     public override func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
-        guard var root = verb.pastRoot2 ?? verb.root,
+        guard var root = verb.pastRoot ?? verb.root,
               let conjugation = Verb.Conjugation(rawValue: verb.conjugation) else {
             return VerbInflection()
+        }
+
+        if person == .first && number == .plural {
+            root = verb.pastRoot2 ?? root
         }
 
         root = root.lenited
@@ -287,7 +291,7 @@ public class FirstConjugationPastIndicative: VerbInflector {
 
 }
 
-public class FirstConjugationImperfect: VerbInflector {
+public class Imperfect: VerbInflector {
 
     public init(verb: Verb, mode: VerbMode) {
         super.init(verb: verb, mode: mode, mood: .indicative, tense: .pastHabitual)
@@ -378,7 +382,7 @@ public class FirstConjugationImperfect: VerbInflector {
 
 }
 
-public class FirstConjugationFutureIndicative: VerbInflector {
+public class FutureIndicative: VerbInflector {
 
     public init(verb: Verb, mode: VerbMode) {
         super.init(verb: verb, mode: mode, mood: .indicative, tense: .future)
@@ -447,7 +451,7 @@ public class FirstConjugationFutureIndicative: VerbInflector {
 
 }
 
-public class FirstConjugationConditional: VerbInflector {
+public class Conditional: VerbInflector {
 
     public init(verb: Verb, mode: VerbMode) {
         super.init(verb: verb, mode: mode, mood: .conditional)
@@ -538,7 +542,7 @@ public class FirstConjugationConditional: VerbInflector {
 
 }
 
-public class FirstConjugationPresentSubjunctive: VerbInflector {
+public class PresentSubjunctive: VerbInflector {
 
     public init(verb: Verb, mode: VerbMode) {
         super.init(verb: verb, mode: mode, mood: .subjunctive, tense: .present)
@@ -609,7 +613,7 @@ public class FirstConjugationPresentSubjunctive: VerbInflector {
 
 }
 
-public class FirstConjugationPastSubjunctive: VerbInflector {
+public class PastSubjunctive: VerbInflector {
 
     public init(verb: Verb, mode: VerbMode) {
         super.init(verb: verb, mode: mode, mood: .subjunctive, tense: .past)
@@ -642,8 +646,7 @@ public class FirstConjugationPastSubjunctive: VerbInflector {
 
     public override func inflect(person: Verb.Person,
                                  number: Verb.Number) -> VerbInflection {
-        let pastHabitualInflector = FirstConjugationImperfect(verb: verb,
-                                                              mode: mode)
+        let pastHabitualInflector = Imperfect(verb: verb, mode: mode)
         var inflection = pastHabitualInflector.inflect(person: person, number: number)
         inflection.root = inflection.root.eclipsed
         inflection.translation = translationWithPronoun(person, number)

@@ -29,18 +29,19 @@ public struct VerbModel {
                         let verbData = trimmedLine.split(separator: ",")
                             .map { String($0).trimmingCharacters(in: .whitespaces) }
                         let verb = Verb(context: persistenceController.container.viewContext)
-                        verb.dictionaryForm = stringOrNil(verbData[0])
-                        verb.root = stringOrNil(verbData[1])
-                        verb.pastRoot2 = stringOrNil(verbData[2])
-                        verb.futureRoot = stringOrNil(verbData[3])
-                        verb.pastParticiple = stringOrNil(verbData[4])
-                        verb.verbalNoun = stringOrNil(verbData[5])
-                        verb.rootVowel = stringOrNil(verbData[6])
-                        verb.conjugation = Int16(verbData[7]) ?? 1
-                        verb.polysyllabic = Bool(verbData[8]) ?? false
-                        verb.englishPresent = stringOrNil(verbData[9])
-                        verb.englishPast = stringOrNil(verbData[10])
-                        verb.englishPastParticiple = stringOrNil(verbData[11])
+                        verb.dictionaryForm = verbData[0]
+                        verb.root = verbData[1]
+                        verb.pastRoot = stringOrNil(verbData[2]) ?? verb.root
+                        verb.pastRoot2 = stringOrNil(verbData[3]) ?? verb.pastRoot
+                        verb.futureRoot = stringOrNil(verbData[4]) ?? verb.root
+                        verb.pastParticiple = verbData[5]
+                        verb.verbalNoun = verbData[6]
+                        verb.rootVowel = verbData[7]
+                        verb.conjugation = Int16(verbData[8])!
+                        verb.polysyllabic = Bool(verbData[9])!
+                        verb.englishPresent = verbData[10]
+                        verb.englishPast = verbData[11]
+                        verb.englishPastParticiple = verbData[12]
                     }
             }
 
