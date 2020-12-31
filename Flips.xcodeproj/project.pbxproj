@@ -46,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9606046C259DA7F700DFA24B /* DisOptionaled.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DisOptionaled.xcdatamodel; sourceTree = "<group>"; };
 		96185CB2253AADCD00C71FBB /* VerbModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbModel.swift; sourceTree = "<group>"; };
 		96185CBD253BDFB900C71FBB /* String+InitialMutations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+InitialMutations.swift"; sourceTree = "<group>"; };
 		961B25E82534114D009F43F0 /* VerbEndings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbEndings.swift; sourceTree = "<group>"; };
@@ -693,10 +694,11 @@
 		9675F1ED252EA6FA00CAF7EC /* Flips.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				9606046C259DA7F700DFA24B /* DisOptionaled.xcdatamodel */,
 				96C5D10F25625408008A3CC6 /* Irregulars.xcdatamodel */,
 				9675F1EE252EA6FA00CAF7EC /* Flips.xcdatamodel */,
 			);
-			currentVersion = 96C5D10F25625408008A3CC6 /* Irregulars.xcdatamodel */;
+			currentVersion = 9606046C259DA7F700DFA24B /* DisOptionaled.xcdatamodel */;
 			path = Flips.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

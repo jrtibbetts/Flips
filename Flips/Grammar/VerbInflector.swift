@@ -250,7 +250,7 @@ public class FirstConjugationPastIndicative: VerbInflector {
     }
 
     public override func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
-        guard var root = verb.irregularPastRoot ?? verb.root,
+        guard var root = verb.pastRoot2 ?? verb.root,
               let conjugation = Verb.Conjugation(rawValue: verb.conjugation) else {
             return VerbInflection()
         }
@@ -411,7 +411,7 @@ public class FirstConjugationFutureIndicative: VerbInflector {
 
     public override func inflect(person: Verb.Person,
                                  number: Verb.Number) -> VerbInflection {
-        guard let root = verb.irregularFutureRoot ?? verb.root,
+        guard let root = verb.futureRoot ?? verb.root,
               let conjugation = Verb.Conjugation(rawValue: verb.conjugation) else {
             return VerbInflection()
         }
