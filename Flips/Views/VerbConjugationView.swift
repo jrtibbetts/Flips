@@ -80,7 +80,7 @@ struct VerbConjugationView: View {
             }
 
             ToolbarItem(placement: .primaryAction) {
-                Button("Translate") {
+                Button((showTranslation ? "Hide" : "Show") + " Translation") {
                     showTranslation.toggle()
                 }
                 .font(.body)
