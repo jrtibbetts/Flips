@@ -29,34 +29,34 @@ struct VerbConjugationView: View {
                 ScrollView {
                     VStack {
                         MoodView(.indicative) {
-                            InflectionGroup(showTranslations: $showTranslation)
-                                .environmentObject(PresentIndicative(verb: verb,
-                                                                     mode: mode) as VerbInflector)
-                            InflectionGroup(showTranslations: $showTranslation)
-                                .environmentObject(PastIndicative(verb: verb,
-                                                                  mode: mode) as VerbInflector)
-                            InflectionGroup(showTranslations: $showTranslation)
-                                .environmentObject(Imperfect(verb: verb,
-                                                             mode: mode) as VerbInflector)
-                            
-                            InflectionGroup(showTranslations: $showTranslation)
-                                .environmentObject(FutureIndicative(verb: verb,
-                                                                    mode: mode) as VerbInflector)
+                            InflectionGroup(inflector: PresentIndicative(verb: verb,
+                                                                         mode: mode),
+                                            showTranslations: $showTranslation)
+                            InflectionGroup(inflector: PastIndicative(verb: verb,
+                                                                      mode: mode),
+                                            showTranslations: $showTranslation)
+                            InflectionGroup(inflector: Imperfect(verb: verb,
+                                                                 mode: mode),
+                                            showTranslations: $showTranslation)
+
+                            InflectionGroup(inflector: FutureIndicative(verb: verb,
+                                                                        mode: mode),
+                                            showTranslations: $showTranslation)
                         }
                         
                         MoodView(.conditional) {
-                            InflectionGroup(showTranslations: $showTranslation)
-                                .environmentObject(Conditional(verb: verb,
-                                                               mode: mode) as VerbInflector)
+                            InflectionGroup(inflector: Conditional(verb: verb,
+                                                                   mode: mode),
+                                            showTranslations: $showTranslation)
                         }
                         
                         MoodView(.subjunctive) {
-                            InflectionGroup(showTranslations: $showTranslation)
-                                .environmentObject(PresentSubjunctive(verb: verb,
-                                                                      mode: mode) as VerbInflector)
-                            InflectionGroup(showTranslations: $showTranslation)
-                                .environmentObject(PastSubjunctive(verb: verb,
-                                                                   mode: mode) as VerbInflector)
+                            InflectionGroup(inflector: PresentSubjunctive(verb: verb,
+                                                                          mode: mode),
+                                            showTranslations: $showTranslation)
+                            InflectionGroup(inflector: PastSubjunctive(verb: verb,
+                                                                       mode: mode),
+                                            showTranslations: $showTranslation)
                         }
                     }
                 }
@@ -135,7 +135,7 @@ struct MoodView<Content>: View where Content: View {
 
 struct InflectionGroup: View {
 
-    @EnvironmentObject var inflector: VerbInflector
+    var inflector: VerbInflector
 
     @Binding var showTranslations: Bool
 
@@ -156,9 +156,9 @@ struct InflectionGroup: View {
                 }
             }
 
-            InflectionTableRow(person: .first, showTranslations: $showTranslations)
-            InflectionTableRow(person: .second, showTranslations: $showTranslations)
-            InflectionTableRow(person: .third, showTranslations: $showTranslations)
+            InflectionTableRow(inflector: inflector, person: .first, showTranslations: $showTranslations)
+            InflectionTableRow(inflector: inflector, person: .second, showTranslations: $showTranslations)
+            InflectionTableRow(inflector: inflector, person: .third, showTranslations: $showTranslations)
         }
         .padding([.top, .bottom], 10)
     }
@@ -167,7 +167,7 @@ struct InflectionGroup: View {
 
 struct InflectionTableRow: View {
 
-    @EnvironmentObject var inflector: VerbInflector
+    var inflector: VerbInflector
 
     var person: Verb.Person
 
