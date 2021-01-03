@@ -120,7 +120,7 @@ struct MoodView<Content>: View where Content: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack {
             Text(mood.rawValue.capitalized)
                 .font(.title)
                 .frame(alignment: .leading)
@@ -180,11 +180,13 @@ struct InflectionTableRow: View {
                                showTranslations: $showTranslations)
             }
 
+            Spacer()
+
             if let pluralInflections = inflector.inflect(person: person, number: .plural) {
                 InflectionCell(inflections: pluralInflections,
                                showTranslations: $showTranslations)
             }
-       }
+        }
     }
 
 }
@@ -196,53 +198,50 @@ struct InflectionCell: View {
     @Binding var showTranslations: Bool
 
     var body: some View {
-        GeometryReader { (proxy) in
-            VStack(alignment: .leading) {
-                HStack {
-                    if let particle = inflections.particle {
-                        Text(particle)
-                            .font(.body)
-                            .fontWeight(.bold)
-                    }
-
-                    if let prefix = inflections.prefix {
-                        Text(prefix)
-                            .font(.body)
-                            .fontWeight(.bold)
-                            .padding(.trailing, -8)
-                    }
-
-                    Text(inflections.root)
+        VStack(alignment: .leading) {
+            HStack {
+                if let particle = inflections.particle {
+                    Text(particle)
                         .font(.body)
-                        .frame(alignment: .leading)
-                        .padding(.trailing, 0)
-
-                    if let ending = inflections.ending {
-                        Text(ending)
-                            .font(.body)
-                            .fontWeight(.bold)
-                            .frame(alignment: .leading)
-                            .padding(.leading, -8)
-                    }
-
-                    if let pronoun = inflections.pronoun {
-                        Text(pronoun)
-                    }
+                        .fontWeight(.bold)
                 }
-                .frame(alignment: .leading)
-
-                if showTranslations,
-                   let translation = inflections.translation {
-                    Text(translation)
-                        .font(.footnote)
-                        .italic()
+                
+                if let prefix = inflections.prefix {
+                    Text(prefix)
+                        .font(.body)
+                        .fontWeight(.bold)
+                        .padding(.trailing, -8)
+                }
+                
+                Text(inflections.root)
+                    .font(.body)
+                    .frame(alignment: .leading)
+                    .padding(.trailing, 0)
+                
+                if let ending = inflections.ending {
+                    Text(ending)
+                        .font(.body)
+                        .fontWeight(.bold)
                         .frame(alignment: .leading)
-                        .transition(.asymmetric(insertion: .scale, removal: .opacity))
+                        .padding(.leading, -8)
+                }
+                
+                if let pronoun = inflections.pronoun {
+                    Text(pronoun)
                 }
             }
             .frame(alignment: .leading)
+            
+            if showTranslations,
+               let translation = inflections.translation {
+                Text(translation)
+                    .font(.footnote)
+                    .italic()
+                    .frame(alignment: .leading)
+                    .transition(.asymmetric(insertion: .scale, removal: .opacity))
+            }
         }
-        .frame(alignment: .top)
+        .frame(alignment: .leading)
     }
 
 }
@@ -282,15 +281,15 @@ struct VerbConjugationView_Previews: PreviewProvider {
     }()
 
     static var previews: some View {
-        Group {
-            NavigationView {
-                VerbConjugationView(verb: olVerb)
-            }
+//        Group {
+//            NavigationView {
+//                VerbConjugationView(verb: olVerb)
+//            }
 
             NavigationView {
                 VerbConjugationView(verb: ceannaighVerb)
             }
-        }
+//        }
     }
 
 }
