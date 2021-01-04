@@ -22,8 +22,7 @@ public enum VerbMode: String, CaseIterable {
     case negative = "Ní"
     case interrogative = "An"
     case negativeInterrogative = "Nach"
-
-    static var allValues: [VerbMode] = [.positive, .negative, .interrogative, .negativeInterrogative]
+    case relative = "Go"
 
     func forTense(_ tense: Verb.Tense) -> String? {
         switch tense {
@@ -37,6 +36,8 @@ public enum VerbMode: String, CaseIterable {
                 return "an"
             case .negativeInterrogative:
                 return "nach"
+            case .relative:
+                return "go"
             }
         case .past, .pastHabitual:
             switch self {
@@ -48,6 +49,8 @@ public enum VerbMode: String, CaseIterable {
                 return "ar"
             case .negativeInterrogative:
                 return "nár"
+            case .relative:
+                return "gur"
             }
         }
     }
@@ -169,6 +172,8 @@ public class PresentIndicative: VerbInflector {
             default:
                 return "don't \(pronoun) \(translation)?"
             }
+        case .relative:
+            return "that \(pronoun) \(translation)"
         }
     }
 
@@ -231,7 +236,8 @@ public class PastIndicative: VerbInflector {
     public override func translationWithPronoun(_ person: Verb.Person,
                                                 _ number: Verb.Number) -> String? {
         guard let translation = translation,
-              let englishPresent = verb.englishPresent else {
+              let englishPresent = verb.englishPresent,
+              let englishPast = verb.englishPast else {
             return nil
         }
 
@@ -246,6 +252,8 @@ public class PastIndicative: VerbInflector {
             return "\(pronoun) didn't \(englishPresent)"
         case .negativeInterrogative:
             return "didn't \(pronoun) \(englishPresent)?"
+        case .relative:
+            return "that \(pronoun) \(englishPast)"
         }
     }
 
@@ -319,6 +327,8 @@ public class Imperfect: VerbInflector {
             return "\(pronoun) didn't use to \(englishPresent)"
         case .negativeInterrogative:
             return "didn't \(pronoun) use to \(englishPresent)?"
+        case .relative:
+            return "that \(pronoun) used to \(englishPresent)"
         }
     }
 
@@ -410,6 +420,8 @@ public class FutureIndicative: VerbInflector {
             return "\(pronoun) won't \(englishPresent)"
         case .negativeInterrogative:
             return "won't \(pronoun) \(englishPresent)?"
+        case .relative:
+            return "that \(pronoun) will \(englishPresent)"
         }
     }
 
@@ -479,6 +491,8 @@ public class Conditional: VerbInflector {
             return "\(pronoun) wouldn't \(englishPresent)"
         case .negativeInterrogative:
             return "wouldn't \(pronoun) \(englishPresent)?"
+        case .relative:
+            return "that \(pronoun) would \(englishPresent)"
         }
     }
 
@@ -570,6 +584,8 @@ public class PresentSubjunctive: VerbInflector {
             return "\(pronoun) couldn't \(englishPresent)"
         case .negativeInterrogative:
             return "couldn't \(pronoun) \(englishPresent)?"
+        case .relative:
+            return "that \(pronoun) \(translation)"
         }
     }
 
@@ -641,6 +657,8 @@ public class PastSubjunctive: VerbInflector {
             return "\(pronoun) couldn't have \(englishPastParticiple)"
         case .negativeInterrogative:
             return "couldn't \(pronoun) have \(englishPastParticiple)?"
+        case .relative:
+            return "that \(pronoun) \(translation)"
         }
     }
 
