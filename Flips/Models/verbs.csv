@@ -2,6 +2,7 @@
 aithin,     aithn,      aithin,     nil,        aithn,      aitheanta,  aithint,    i, 2, true,     recognize,  recognized, recognized
 aithris,    aithris,    nil,        nil,        nil,        aithriste,  aithris,    i, 2, true,     imitate,    imitated,   imitated
 amharc,     amharc,     nil,        nil,        nil,        amharctha,  ?,          a, 1, false,    look,       looked,     looked
+at,         at,         nil,        nil,        nil,        ata,        ?,          a, 1, false,    swell,      swelled,    swollen
 ceannaigh,  ceann,      nil,        nil,        nil,        ceannaithe, ceannach,   a, 2, true,     buy,        bought,     bought
 cuir,       cuir,       nil,        nil,        nil,        curtha,     cur,        i, 1, false,    put,        put,        put
 faigh,      faigh,      fuair,      nil,        gheobh,     faigte,     fáil,       i, 2, false,    get/find,   got/found,  got(ten)/found
