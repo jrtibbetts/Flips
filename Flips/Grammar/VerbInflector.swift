@@ -264,7 +264,7 @@ public class PastIndicative: VerbInflector {
         var inflection = VerbInflection(root: root)
         inflection.translation = translationWithPronoun(person, number)
 
-        if verb.startsWithVowel && (mode == .positive || mode == .interrogative) {
+        if verb.startsWithVowel && (mode == .positive) {
             inflection.prefix = "d'"
         }
 
