@@ -272,7 +272,7 @@ public class PastIndicative: VerbInflector {
         var inflection = VerbInflection(root: root)
         inflection.translation = translationWithPronoun(person, number)
 
-        if verb.startsWithVowel && (mode == .positive) {
+        if root.startsWithSilentLetter && mode == .positive {
             inflection.prefix = "d'"
         }
 
@@ -341,7 +341,7 @@ public class Imperfect: VerbInflector {
         var inflection = VerbInflection(root: root.lenited)
         inflection.translation = translationWithPronoun(person, number)
 
-        if verb.startsWithVowel {
+        if root.startsWithVowel {
             inflection.prefix = "d'"
         }
 
@@ -506,7 +506,7 @@ public class Conditional: VerbInflector {
         var inflection = VerbInflection(root: root)
         inflection.translation = translationWithPronoun(person, number)
 
-        if verb.startsWithVowel {
+        if root.startsWithVowel {
             inflection.prefix = "d'"
         }
 
@@ -600,7 +600,7 @@ public class PresentSubjunctive: VerbInflector {
         inflection.translation = translationWithPronoun(person, number)
         inflection.particle = "go"
 
-        if verb.startsWithVowel {
+        if root.startsWithVowel {
             inflection.prefix = "n-"
         }
 
@@ -670,7 +670,7 @@ public class PastSubjunctive: VerbInflector {
         inflection.translation = translationWithPronoun(person, number)
         inflection.particle = "dá"
 
-        if verb.startsWithVowel {
+        if let root = verb.root, root.startsWithVowel {
             inflection.prefix = "n-"
         }
 

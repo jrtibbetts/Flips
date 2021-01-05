@@ -2,6 +2,27 @@
 
 import Foundation
 
+public extension String {
+
+    var startsWithVowel: Bool {
+        guard let firstLetter = self.lowercased().first else {
+            return false
+        }
+
+        switch firstLetter {
+        case "a", "á", "e", "é", "i", "í", "o", "ó", "u", "ú":
+            return true
+        default:
+            return false
+        }
+    }
+
+    var startsWithSilentLetter: Bool {
+        return self.lowercased().starts(with: "fh") || self.startsWithVowel
+    }
+
+}
+
 public extension Verb {
 
     var isSlender: Bool {
@@ -14,19 +35,6 @@ public extension Verb {
             return false
         default:
             return true
-        }
-    }
-
-    var startsWithVowel: Bool {
-        guard let firstLetter = self.root?.first?.lowercased() else {
-            return false
-        }
-
-        switch firstLetter {
-        case "a", "á", "e", "é", "i", "í", "o", "ó", "u", "ú":
-            return true
-        default:
-            return false
         }
     }
 
