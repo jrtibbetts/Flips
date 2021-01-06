@@ -341,7 +341,7 @@ public class Imperfect: VerbInflector {
         var inflection = VerbInflection(root: root.lenited)
         inflection.translation = translationWithPronoun(person, number)
 
-        if root.startsWithVowel {
+        if root.startsWithSilentLetter {
             inflection.prefix = "d'"
         }
 
@@ -506,7 +506,7 @@ public class Conditional: VerbInflector {
         var inflection = VerbInflection(root: root)
         inflection.translation = translationWithPronoun(person, number)
 
-        if root.startsWithVowel {
+        if root.startsWithSilentLetter {
             inflection.prefix = "d'"
         }
 
