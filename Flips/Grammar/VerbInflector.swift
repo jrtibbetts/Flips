@@ -105,6 +105,8 @@ open class VerbInflector: NSObject, ObservableObject {
             return "you (all)"
         case (.third, .plural):
             return "they"
+        case (.autonomous, _):
+            return "one"
         }
     }
 
@@ -130,6 +132,8 @@ open class VerbInflector: NSObject, ObservableObject {
             return "sibh"
         case (.third, .plural):
             return "siad"
+        case (.autonomous, _):
+            return "sé"
         }
     }
 
@@ -366,6 +370,9 @@ public class Imperfect: VerbInflector {
             case (.third, .plural):
                 inflection.ending = verb.isSlender ? "idís" : "aidís"
                 inflection.pronoun = pronoun(person, number)
+            case (.autonomous, _):
+                inflection.ending = verb.isSlender ? "tí" : "taí"
+                inflection.pronoun = pronoun(.third, .singular)
             }
         } else {
             switch (person, number) {
@@ -382,6 +389,9 @@ public class Imperfect: VerbInflector {
             case (.third, .plural):
                 inflection.ending = verb.isSlender ? "ídis" : "aídis"
                 inflection.pronoun = pronoun(person, number)
+            case (.autonomous, _):
+                inflection.ending = verb.isSlender ? "ítí" : "aítí"
+                inflection.pronoun = pronoun(.third, .singular)
             }
         }
 
@@ -524,6 +534,8 @@ public class Conditional: VerbInflector {
                 inflection.ending = verb.isSlender ? "fimis" : "faimis"
             case (.third, .plural):
                 inflection.ending = verb.isSlender ? "fidís" : "faidís"
+            case (.autonomous, _):
+                inflection.ending = verb.isSlender ? "fí" : "faí"
             }
         } else {
             switch (person, number) {
@@ -539,6 +551,8 @@ public class Conditional: VerbInflector {
                 inflection.ending = verb.isSlender ? "eoimis" : "oimis"
             case (.third, .plural):
                 inflection.ending = verb.isSlender ? "eoidís" : "oidís"
+            case (.autonomous, _):
+                inflection.ending = verb.isSlender ? "eófaí" : "ófaí"
             }
         }
 

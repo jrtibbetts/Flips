@@ -26,7 +26,7 @@ public extension Verb {
         case second
         case third
 //        case relative
-//        case autonomous
+        case autonomous
     }
 
     enum Tense: String, Codable {
