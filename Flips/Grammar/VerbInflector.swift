@@ -208,6 +208,8 @@ public class PresentIndicative: VerbInflector {
                 inflection.ending = verb.isSlender ? "im" : "aim"
             case (.first, .plural):
                 inflection.ending = verb.isSlender ? "imid" : "aimid"
+            case (.autonomous, _):
+                inflection.ending = verb.isSlender ? "tear" : "tar"
             default:
                 inflection.ending = verb.isSlender ? "eann" : "ann"
             }
@@ -217,6 +219,8 @@ public class PresentIndicative: VerbInflector {
                 inflection.ending = verb.isSlender ? "ím" : "aím"
             case (.first, .plural):
                 inflection.ending = verb.isSlender ? "ímid" : "aímid"
+            case (.autonomous, _):
+                inflection.ending = verb.isSlender ? "ítear" : "aítear"
             default:
                 inflection.ending = verb.isSlender ? "íonn" : "aíonn"
             }
@@ -284,6 +288,8 @@ public class PastIndicative: VerbInflector {
             switch (person, number) {
             case (.first, .plural):
                 inflection.ending = verb.isSlender ? "eamar" : "amar"
+            case (.autonomous, _):
+                inflection.ending = verb.isSlender ? "eadh" : "adh"
             default:
                 inflection.pronoun = pronoun(person, number)
             }
@@ -291,6 +297,8 @@ public class PastIndicative: VerbInflector {
             switch (person, number) {
             case (.first, .plural):
                 inflection.ending = verb.isSlender ? "íomar" : "aíomar"
+            case (.autonomous, _):
+                inflection.ending = verb.isSlender ? "íodh" : "aíodh"
             default:
                 inflection.pronoun = pronoun(person, number)
             }
@@ -450,6 +458,8 @@ public class FutureIndicative: VerbInflector {
             case (.first, .plural):
                 inflection.ending = verb.isSlender ? "fimid" : "faimid"
             // no pronoun
+            case (.autonomous, _):
+                inflection.ending = verb.isSlender ? "fear" : "far"
             default:
                 inflection.ending = verb.isSlender ? "fidh" : "faidh"
                 inflection.pronoun = pronoun(person, number)
@@ -459,6 +469,8 @@ public class FutureIndicative: VerbInflector {
             case (.first, .plural):
                 inflection.ending = verb.isSlender ? "eoimid" : "oimid"
             // no pronoun
+            case (.autonomous, _):
+                inflection.ending = verb.isSlender ? "eófar" : "ófar"
             default:
                 inflection.ending = verb.isSlender ? "eoidh" : "oid"
                 inflection.pronoun = pronoun(person, number)
@@ -622,6 +634,8 @@ public class PresentSubjunctive: VerbInflector {
             switch (person, number) {
             case (.first, .plural):
                 inflection.ending = verb.isSlender ? "imid" : "aimid"
+            case (.autonomous, _):
+                inflection.ending = verb.isSlender ? "tear" : "tar"
             default:
                 inflection.ending = verb.isSlender ? "e" : "a"
                 inflection.pronoun = pronoun(person, number)
@@ -630,6 +644,8 @@ public class PresentSubjunctive: VerbInflector {
             switch (person, number) {
             case (.first, .plural):
                 inflection.ending = verb.isSlender ? "ímid" : "aímid"
+            case (.autonomous, _):
+                inflection.ending = verb.isSlender ? "ítear" : "aítear"
             default:
                 inflection.ending = verb.isSlender ? "i" : "aí"
                 inflection.pronoun = pronoun(person, number)
