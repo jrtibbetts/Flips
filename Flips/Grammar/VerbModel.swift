@@ -39,9 +39,11 @@ public struct VerbModel {
                         verb.rootVowel = verbData[7]
                         verb.conjugation = Int16(verbData[8])!
                         verb.polysyllabic = Bool(verbData[9])!
-                        verb.englishPresent = verbData[10]
-                        verb.englishPast = verbData[11]
-                        verb.englishPastParticiple = verbData[12]
+                        verb.transitive = Bool(verbData[10])!
+                        verb.irregular = Bool(verbData[11])!
+                        verb.englishPresent = verbData[12]
+                        verb.englishPast = verbData[13]
+                        verb.englishPastParticiple = verbData[14]
                     }
             }
 

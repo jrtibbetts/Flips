@@ -72,6 +72,7 @@
 		96A8227B253BE0DE0012D839 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		96C5D10F25625408008A3CC6 /* Irregulars.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Irregulars.xcdatamodel; sourceTree = "<group>"; };
 		96DC38462542806F00A00805 /* VerbEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbEditor.swift; sourceTree = "<group>"; };
+		96EC281925A83277005D25EE /* Transitives.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Transitives.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -694,11 +695,12 @@
 		9675F1ED252EA6FA00CAF7EC /* Flips.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				96EC281925A83277005D25EE /* Transitives.xcdatamodel */,
 				9606046C259DA7F700DFA24B /* DisOptionaled.xcdatamodel */,
 				96C5D10F25625408008A3CC6 /* Irregulars.xcdatamodel */,
 				9675F1EE252EA6FA00CAF7EC /* Flips.xcdatamodel */,
 			);
-			currentVersion = 9606046C259DA7F700DFA24B /* DisOptionaled.xcdatamodel */;
+			currentVersion = 96EC281925A83277005D25EE /* Transitives.xcdatamodel */;
 			path = Flips.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
