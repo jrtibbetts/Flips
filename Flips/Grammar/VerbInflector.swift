@@ -111,10 +111,16 @@ open class VerbInflector: NSObject, ObservableObject {
     }
 
     open func translationWithPronoun(_ person: Verb.Person, _ number: Verb.Number) -> String? {
-        if let translation = translation {
-            return "\(englishPronoun(person, number)) \(translation)"
-        } else {
+        guard let translation = translation else {
             return nil
+        }
+
+        let pronoun = englishPronoun(person, number)
+
+        if person == .autonomous {
+            return "\(pronoun) is \(translation)"
+        } else {
+            return "\(pronoun) \(translation)"
         }
     }
 
@@ -154,11 +160,23 @@ public class PresentIndicative: VerbInflector {
 
         switch mode {
         case .positive:
-            return "\(pronoun) \(translation)"
+            if person == .autonomous {
+                if let englishPastParticiple = verb.englishPastParticiple {
+                    return "\(pronoun) is \(englishPastParticiple)"
+                }
+            } else {
+                return "\(pronoun) \(translation)"
+            }
         case .interrogative:
             switch (person, number) {
             case (.third, .singular):
                 return "does \(pronoun) \(translation)?"
+            case (.autonomous, _):
+                if let pastParticiple = verb.englishPastParticiple {
+                    return "is \(pronoun) \(pastParticiple)?"
+                } else {
+                    return ""
+                }
             default:
                 return "do \(pronoun) \(translation)?"
             }
@@ -275,8 +293,7 @@ public class PastIndicative: VerbInflector {
             root = verb.pastRoot2 ?? root
         }
 
-        root = root.lenited
-
+        root = (person == .autonomous ? root : root.lenited)
         var inflection = VerbInflection(root: root)
         inflection.translation = translationWithPronoun(person, number)
 

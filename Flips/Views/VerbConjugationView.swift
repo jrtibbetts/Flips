@@ -159,10 +159,33 @@ struct InflectionGroup: View {
             InflectionTableRow(inflector: inflector, person: .first, showTranslations: $showTranslations)
             InflectionTableRow(inflector: inflector, person: .second, showTranslations: $showTranslations)
             InflectionTableRow(inflector: inflector, person: .third, showTranslations: $showTranslations)
+
+            if inflector.verb.transitive {
+                AutonomousInflectionTableRow(inflector: inflector, showTranslations: $showTranslations)
+            }
         }
         .padding([.top, .bottom], 10)
     }
 
+}
+
+struct AutonomousInflectionTableRow: View {
+
+    var inflector: VerbInflector
+
+    @Binding var showTranslations: Bool
+
+    var body: some View {
+        HStack {
+            Spacer()
+
+            if let inflections = inflector.inflect(person: .autonomous, number: .singular) {
+                InflectionCell(inflections: inflections, showTranslations: $showTranslations)
+            }
+
+            Spacer()
+        }
+    }
 }
 
 struct InflectionTableRow: View {
