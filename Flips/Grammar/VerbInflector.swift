@@ -163,6 +163,8 @@ public class PresentIndicative: VerbInflector {
             if person == .autonomous {
                 if let englishPastParticiple = verb.englishPastParticiple {
                     return "\(pronoun) is \(englishPastParticiple)"
+                } else {
+                    return nil
                 }
             } else {
                 return "\(pronoun) \(translation)"
