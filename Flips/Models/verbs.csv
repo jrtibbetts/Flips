@@ -11,7 +11,7 @@ inis,       ins,        inis,       nil,        nil,        inste,      insint, 
 mol,        mol,        nil,        nil,        nil,        molta,      moladh,     a, 1, false,    true,       false,    praise,     praised,    praised
 ól,         ól,         nil,        nil,        nil,        ólta,       ól,         ó, 1, false,    true,       false,    drink,      drank,      drunk
 rith,       rith,       nil,        nil,        nil,        rite,       rith,       i, 1, false,    false,      false,    run,        ran,        run
-siúl,       siúl,       siúil,      nil,        nil,        siúlta,     siúl,       ú, 1, false,    false,      false,    walk,       walked,     walked
+siúil,      siúl,       siúil,      siúl,       nil,        siúlta,     siúl,       ú, 1, false,    false,      false,    walk,       walked,     walked
 tabhair,    tug,        tug,        nil,        tabhar,     tugtha,     tabhair,    u, 1, false,    true,       false,    give,       gave,       given
 tar,        tag,        táinig,     tang,       tioc,       tagtha,     teacht,     a, 1, false,    false,      false,    come,       came,       come
 téigh,      té,         cuaigh,     nil,        rach,       dulta,      dul,        é, 1, false,    false,      false,    go,         went,       gone
