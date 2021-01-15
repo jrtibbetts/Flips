@@ -211,10 +211,13 @@ public class PresentIndicative: VerbInflector {
 
         switch mode {
         case .negative,
-             .negativeInterrogative:
+             .negativeInterrogative,
+             .relative:
             inflection.root = root.lenited
         case .interrogative:
-            inflection.root = root.eclipsed
+            if !root.startsWithVowel {
+                inflection.root = root.eclipsed
+            }
         default:
             inflection.root = root
         }
