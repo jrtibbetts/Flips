@@ -128,7 +128,6 @@ struct MoodView<Content>: View where Content: View {
                 .frame(alignment: .leading)
         }
         .padding()
-        .scaledToFill()
     }
 
 }
@@ -156,16 +155,49 @@ struct InflectionGroup: View {
                 }
             }
 
-            InflectionTableRow(inflector: inflector, person: .first, showTranslations: $showTranslations)
-            InflectionTableRow(inflector: inflector, person: .second, showTranslations: $showTranslations)
-            InflectionTableRow(inflector: inflector, person: .third, showTranslations: $showTranslations)
+            HStack {
+                VStack {
+                    if let firstSingular = inflector.inflect(person: .first, number: .singular) {
+                        InflectionCell(inflections: firstSingular, showTranslations: $showTranslations)
+                    }
 
-            if inflector.verb.transitive {
-                AutonomousInflectionTableRow(inflector: inflector, showTranslations: $showTranslations)
+                    if let secondSingular = inflector.inflect(person: .second, number: .singular) {
+                        InflectionCell(inflections: secondSingular, showTranslations: $showTranslations)
+                    }
+
+                    if let thirdSingular = inflector.inflect(person: .third, number: .singular) {
+                        InflectionCell(inflections: thirdSingular, showTranslations: $showTranslations)
+                    }
+                }
+                .frame(alignment: .leading)
+                .border(Color.blue)
+
+                Spacer()
+
+                VStack {
+                    if let firstPlural = inflector.inflect(person: .first, number: .plural) {
+                        InflectionCell(inflections: firstPlural, showTranslations: $showTranslations)
+                    }
+
+                    if let secondPlural = inflector.inflect(person: .second, number: .plural) {
+                        InflectionCell(inflections: secondPlural, showTranslations: $showTranslations)
+                    }
+
+                    if let thirdPlural = inflector.inflect(person: .third, number: .plural) {
+                        InflectionCell(inflections: thirdPlural, showTranslations: $showTranslations)
+                    }
+
+                }
+                .frame(alignment: .leading)
+                .border(Color.red)
             }
         }
-        .padding([.top, .bottom], 10)
+
+        if inflector.verb.transitive {
+            AutonomousInflectionTableRow(inflector: inflector, showTranslations: $showTranslations)
+        }
     }
+//    .padding([.top, .bottom], 10)
 
 }
 
@@ -186,32 +218,6 @@ struct AutonomousInflectionTableRow: View {
             Spacer()
         }
     }
-}
-
-struct InflectionTableRow: View {
-
-    var inflector: VerbInflector
-
-    var person: Verb.Person
-
-    @Binding var showTranslations: Bool
-
-    var body: some View {
-        HStack {
-            if let singularInflections = inflector.inflect(person: person, number: .singular) {
-                InflectionCell(inflections: singularInflections,
-                               showTranslations: $showTranslations)
-            }
-
-            Spacer()
-
-            if let pluralInflections = inflector.inflect(person: person, number: .plural) {
-                InflectionCell(inflections: pluralInflections,
-                               showTranslations: $showTranslations)
-            }
-        }
-    }
-
 }
 
 struct InflectionCell: View {
