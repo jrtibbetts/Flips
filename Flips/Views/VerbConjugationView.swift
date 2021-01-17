@@ -156,9 +156,10 @@ struct InflectionGroup: View {
             }
 
             HStack {
-                VStack {
+                VStack(alignment: .leading) {
                     if let firstSingular = inflector.inflect(person: .first, number: .singular) {
                         InflectionCell(inflections: firstSingular, showTranslations: $showTranslations)
+//                            .alignmentGuide(.leading, computeValue: { d in d[.leading]})
                     }
 
                     if let secondSingular = inflector.inflect(person: .second, number: .singular) {
@@ -174,7 +175,7 @@ struct InflectionGroup: View {
 
                 Spacer()
 
-                VStack {
+                VStack(alignment: .leading) {
                     if let firstPlural = inflector.inflect(person: .first, number: .plural) {
                         InflectionCell(inflections: firstPlural, showTranslations: $showTranslations)
                     }
