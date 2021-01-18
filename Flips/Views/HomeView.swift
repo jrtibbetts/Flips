@@ -6,13 +6,21 @@ struct HomeView: View {
 
     let verbModel = VerbModel()
 
+    let gridItems = [GridItem(.adaptive(minimum: 100.0, maximum: 200.0))]
+
     var body: some View {
         NavigationView {
-            VStack {
-                NavigationLink(destination: CardsView()
-                                .environment(\.managedObjectContext, verbModel.viewContext)) {
-                    Text("Verbs")
+            VStack(alignment: .leading) {
+                LazyVGrid(columns: gridItems, alignment: .center, spacing: 20.0) {
+                    NavigationLink(destination: CardsView()
+                                    .environment(\.managedObjectContext, verbModel.viewContext)) {
+                        Text("Verbs")
+                    }
+                    .frame(width: 75.0, height: 75.0, alignment: .center)
+                    .border(Color.green)
                 }
+
+                Spacer()
             }
             .navigationTitle("Home")
         }
