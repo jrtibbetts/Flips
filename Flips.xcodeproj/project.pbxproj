@@ -23,7 +23,6 @@
 		96A8227D253BE0DE0012D839 /* EditVerbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A82278253BE0DE0012D839 /* EditVerbView.swift */; };
 		96A8227E253BE0DE0012D839 /* VerbConjugationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A82279253BE0DE0012D839 /* VerbConjugationView.swift */; };
 		96A8227F253BE0DE0012D839 /* CardsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A8227A253BE0DE0012D839 /* CardsView.swift */; };
-		96A82280253BE0DE0012D839 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A8227B253BE0DE0012D839 /* ContentView.swift */; };
 		96DC38472542806F00A00805 /* VerbEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DC38462542806F00A00805 /* VerbEditor.swift */; };
 		96DC38502545324F00A00805 /* AQUI in Frameworks */ = {isa = PBXBuildFile; productRef = 96DC384F2545324F00A00805 /* AQUI */; };
 /* End PBXBuildFile section */
@@ -69,7 +68,6 @@
 		96A82278253BE0DE0012D839 /* EditVerbView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditVerbView.swift; sourceTree = "<group>"; };
 		96A82279253BE0DE0012D839 /* VerbConjugationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerbConjugationView.swift; sourceTree = "<group>"; };
 		96A8227A253BE0DE0012D839 /* CardsView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardsView.swift; sourceTree = "<group>"; };
-		96A8227B253BE0DE0012D839 /* ContentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		96C5D10F25625408008A3CC6 /* Irregulars.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Irregulars.xcdatamodel; sourceTree = "<group>"; };
 		96DC38462542806F00A00805 /* VerbEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbEditor.swift; sourceTree = "<group>"; };
 		96EC281925A83277005D25EE /* Transitives.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Transitives.xcdatamodel; sourceTree = "<group>"; };
@@ -186,7 +184,6 @@
 			isa = PBXGroup;
 			children = (
 				96A8227A253BE0DE0012D839 /* CardsView.swift */,
-				96A8227B253BE0DE0012D839 /* ContentView.swift */,
 				96A82278253BE0DE0012D839 /* EditVerbView.swift */,
 				96A82277253BE0DE0012D839 /* FlipsApp.swift */,
 				96A82279253BE0DE0012D839 /* VerbConjugationView.swift */,
@@ -341,7 +338,6 @@
 			files = (
 				96A8227F253BE0DE0012D839 /* CardsView.swift in Sources */,
 				96A8227D253BE0DE0012D839 /* EditVerbView.swift in Sources */,
-				96A82280253BE0DE0012D839 /* ContentView.swift in Sources */,
 				96DC38472542806F00A00805 /* VerbEditor.swift in Sources */,
 				96A8227C253BE0DE0012D839 /* FlipsApp.swift in Sources */,
 				9675F1EF252EA6FA00CAF7EC /* Flips.xcdatamodeld in Sources */,
