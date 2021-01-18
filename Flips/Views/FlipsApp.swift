@@ -5,12 +5,9 @@ import SwiftUI
 @main
 struct FlipsApp: App {
 
-    let verbModel = VerbModel()
-
     var body: some Scene {
         WindowGroup {
-            CardsView()
-                .environment(\.managedObjectContext, verbModel.viewContext)
+            HomeView()
         }
     }
 

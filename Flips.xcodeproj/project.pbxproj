@@ -19,6 +19,7 @@
 		9675F1EF252EA6FA00CAF7EC /* Flips.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9675F1ED252EA6FA00CAF7EC /* Flips.xcdatamodeld */; };
 		9675F1FA252EA6FB00CAF7EC /* FlipsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9675F1F9252EA6FB00CAF7EC /* FlipsTests.swift */; };
 		9675F205252EA6FB00CAF7EC /* FlipsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9675F204252EA6FB00CAF7EC /* FlipsUITests.swift */; };
+		9678B24425B5448200331A16 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9678B24325B5448200331A16 /* HomeView.swift */; };
 		96A8227C253BE0DE0012D839 /* FlipsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A82277253BE0DE0012D839 /* FlipsApp.swift */; };
 		96A8227D253BE0DE0012D839 /* EditVerbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A82278253BE0DE0012D839 /* EditVerbView.swift */; };
 		96A8227E253BE0DE0012D839 /* VerbConjugationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A82279253BE0DE0012D839 /* VerbConjugationView.swift */; };
@@ -64,6 +65,7 @@
 		9675F200252EA6FB00CAF7EC /* FlipsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlipsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9675F204252EA6FB00CAF7EC /* FlipsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipsUITests.swift; sourceTree = "<group>"; };
 		9675F206252EA6FB00CAF7EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9678B24325B5448200331A16 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		96A82277253BE0DE0012D839 /* FlipsApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlipsApp.swift; sourceTree = "<group>"; };
 		96A82278253BE0DE0012D839 /* EditVerbView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditVerbView.swift; sourceTree = "<group>"; };
 		96A82279253BE0DE0012D839 /* VerbConjugationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerbConjugationView.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				96A8227A253BE0DE0012D839 /* CardsView.swift */,
 				96A82278253BE0DE0012D839 /* EditVerbView.swift */,
 				96A82277253BE0DE0012D839 /* FlipsApp.swift */,
+				9678B24325B5448200331A16 /* HomeView.swift */,
 				96A82279253BE0DE0012D839 /* VerbConjugationView.swift */,
 				96DC38462542806F00A00805 /* VerbEditor.swift */,
 			);
@@ -337,6 +340,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				96A8227F253BE0DE0012D839 /* CardsView.swift in Sources */,
+				9678B24425B5448200331A16 /* HomeView.swift in Sources */,
 				96A8227D253BE0DE0012D839 /* EditVerbView.swift in Sources */,
 				96DC38472542806F00A00805 /* VerbEditor.swift in Sources */,
 				96A8227C253BE0DE0012D839 /* FlipsApp.swift in Sources */,
