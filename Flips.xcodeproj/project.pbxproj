@@ -20,6 +20,8 @@
 		9675F1FA252EA6FB00CAF7EC /* FlipsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9675F1F9252EA6FB00CAF7EC /* FlipsTests.swift */; };
 		9675F205252EA6FB00CAF7EC /* FlipsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9675F204252EA6FB00CAF7EC /* FlipsUITests.swift */; };
 		9678B24425B5448200331A16 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9678B24325B5448200331A16 /* HomeView.swift */; };
+		9678B25625B55AE500331A16 /* nouns.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9678B25525B55AE500331A16 /* nouns.csv */; };
+		9678B25B25B55B1900331A16 /* NounModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9678B25A25B55B1900331A16 /* NounModel.swift */; };
 		96A8227C253BE0DE0012D839 /* FlipsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A82277253BE0DE0012D839 /* FlipsApp.swift */; };
 		96A8227D253BE0DE0012D839 /* EditVerbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A82278253BE0DE0012D839 /* EditVerbView.swift */; };
 		96A8227E253BE0DE0012D839 /* VerbConjugationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A82279253BE0DE0012D839 /* VerbConjugationView.swift */; };
@@ -66,6 +68,9 @@
 		9675F204252EA6FB00CAF7EC /* FlipsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlipsUITests.swift; sourceTree = "<group>"; };
 		9675F206252EA6FB00CAF7EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9678B24325B5448200331A16 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		9678B25425B558A000331A16 /* Nouns.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Nouns.xcdatamodel; sourceTree = "<group>"; };
+		9678B25525B55AE500331A16 /* nouns.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = nouns.csv; sourceTree = "<group>"; };
+		9678B25A25B55B1900331A16 /* NounModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NounModel.swift; sourceTree = "<group>"; };
 		96A82277253BE0DE0012D839 /* FlipsApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlipsApp.swift; sourceTree = "<group>"; };
 		96A82278253BE0DE0012D839 /* EditVerbView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditVerbView.swift; sourceTree = "<group>"; };
 		96A82279253BE0DE0012D839 /* VerbConjugationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerbConjugationView.swift; sourceTree = "<group>"; };
@@ -104,8 +109,11 @@
 		96185CC5253BE05900C71FBB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				9678B25525B55AE500331A16 /* nouns.csv */,
 				9637871125391C6500DF52EC /* verbs.csv */,
+				9678B25A25B55B1900331A16 /* NounModel.swift */,
 				9675F1EB252EA6FA00CAF7EC /* Persistence.swift */,
+				96185CB2253AADCD00C71FBB /* VerbModel.swift */,
 				9675F1ED252EA6FA00CAF7EC /* Flips.xcdatamodeld */,
 			);
 			path = Models;
@@ -118,7 +126,6 @@
 				961B25E82534114D009F43F0 /* VerbEndings.swift */,
 				96378704253806D500DF52EC /* VerbExtensions.swift */,
 				963786F92537D42E00DF52EC /* VerbInflector.swift */,
-				96185CB2253AADCD00C71FBB /* VerbModel.swift */,
 			);
 			path = Grammar;
 			sourceTree = "<group>";
@@ -314,6 +321,7 @@
 			files = (
 				9675F1EA252EA6FA00CAF7EC /* Preview Assets.xcassets in Resources */,
 				9637871225391C6500DF52EC /* verbs.csv in Resources */,
+				9678B25625B55AE500331A16 /* nouns.csv in Resources */,
 				9675F1E7252EA6FA00CAF7EC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -352,6 +360,7 @@
 				963786FA2537D42E00DF52EC /* VerbInflector.swift in Sources */,
 				96185CB3253AADCD00C71FBB /* VerbModel.swift in Sources */,
 				96378705253806D500DF52EC /* VerbExtensions.swift in Sources */,
+				9678B25B25B55B1900331A16 /* NounModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -695,12 +704,13 @@
 		9675F1ED252EA6FA00CAF7EC /* Flips.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
+				9678B25425B558A000331A16 /* Nouns.xcdatamodel */,
 				96EC281925A83277005D25EE /* Transitives.xcdatamodel */,
 				9606046C259DA7F700DFA24B /* DisOptionaled.xcdatamodel */,
 				96C5D10F25625408008A3CC6 /* Irregulars.xcdatamodel */,
 				9675F1EE252EA6FA00CAF7EC /* Flips.xcdatamodel */,
 			);
-			currentVersion = 96EC281925A83277005D25EE /* Transitives.xcdatamodel */;
+			currentVersion = 9678B25425B558A000331A16 /* Nouns.xcdatamodel */;
 			path = Flips.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

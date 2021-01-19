@@ -1,0 +1,14 @@
+# 0: Root
+# 1: Gender (m = masculine, f = feminine, n = neuter or irregular)
+# 2: Declension (1 through 5)
+# 3: Genitive singular
+# 4: Plural
+# 5: Translation
+
+abacas,     m, 1, abacais,      abacais,        abacus
+abar,       m, 1, abair,        abair,          morass
+abach,      m, 1, abaigh,       nil,            entrails
+abairt,     f, 2, abairte,      abairtí,        sentence
+abhach,     m, 1, abhaich,      abhaich,        dwarf
+abhacád,    m, 1, abhacáid,     abhacáid,       avocado
+cóisir,     f, 2, cóisire,      cóisirí,        party
