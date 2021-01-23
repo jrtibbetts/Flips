@@ -2,7 +2,11 @@
 
 import SwiftUI
 
-struct VerbConjugationView: View {
+protocol WordDetailView: View {
+
+}
+
+struct VerbConjugationView: WordDetailView {
 
     @Environment(\.verticalSizeClass) var verticalSizeClass
 
