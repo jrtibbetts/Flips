@@ -51,7 +51,7 @@ public struct VerbModel: PartOfSpeechModel {
     public init() {
         do {
             try lines(fromFilename: "verbs", ext: "csv").forEach { (line) in
-                let elements = line.split(separator: ",").map { String($0) }
+                let elements = line.split(separator: ",").map { String($0).trimmingCharacters(in: .whitespaces) }
 
                 let verb = Verb(context: persistenceController.container.viewContext)
                 verb.dictionaryForm = elements[0]
