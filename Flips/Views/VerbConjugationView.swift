@@ -4,6 +4,10 @@ import SwiftUI
 
 protocol WordDetailView: View {
 
+    associatedtype W: Word
+
+    var word: W { get }
+
 }
 
 struct VerbConjugationView: WordDetailView {
@@ -14,6 +18,10 @@ struct VerbConjugationView: WordDetailView {
     @State private var mode = VerbMode.positive
     @State private var showingVerbEditor = false
     @StateObject var verb: Verb
+
+    var word: Verb {
+        return verb
+    }
 
     var body: some View {
         VStack(alignment: .leading) {

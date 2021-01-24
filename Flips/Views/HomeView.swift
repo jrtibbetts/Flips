@@ -12,7 +12,7 @@ struct HomeView: View {
         NavigationView {
             VStack(alignment: .leading) {
                 LazyVGrid(columns: gridItems, alignment: .center, spacing: 20.0) {
-                    NavigationLink(destination: CardsView()
+                    NavigationLink(destination: WordListView()
                                     .environment(\.managedObjectContext, verbModel.viewContext)) {
                         Text("Verbs")
                     }

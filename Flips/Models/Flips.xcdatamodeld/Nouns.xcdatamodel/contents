@@ -27,7 +27,6 @@
     </entity>
     <entity name="Verb" representedClassName="Verb" parentEntity="Word" syncable="YES" codeGenerationType="class">
         <attribute name="conjugation" optional="YES" attributeType="Integer 16" minValueString="1" maxValueString="2" defaultValueString="1" usesScalarValueType="YES"/>
-        <attribute name="dictionaryForm" optional="YES" attributeType="String"/>
         <attribute name="englishPast" optional="YES" attributeType="String"/>
         <attribute name="englishPastParticiple" optional="YES" attributeType="String"/>
         <attribute name="englishPresent" optional="YES" attributeType="String"/>
@@ -42,6 +41,7 @@
         <attribute name="verbalNoun" optional="YES" attributeType="String" spotlightIndexingEnabled="YES"/>
     </entity>
     <entity name="Word" representedClassName="Word" isAbstract="YES" parentEntity="Definable" syncable="YES" codeGenerationType="class">
+        <attribute name="dictionaryForm" optional="YES" attributeType="String"/>
         <attribute name="englishTranslation" optional="YES" attributeType="String"/>
         <attribute name="root" attributeType="String" defaultValueString=""/>
         <relationship name="partOfSpeech" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="PartOfSpeech" inverseName="words" inverseEntity="PartOfSpeech"/>
@@ -55,7 +55,7 @@
         <element name="PartOfSpeech" positionX="101.140625" positionY="-166.3671875" width="128" height="58"/>
         <element name="Phrase" positionX="-215.5859375" positionY="153.03515625" width="128" height="58"/>
         <element name="Something" positionX="112.96875" positionY="-44.328125" width="128" height="28"/>
-        <element name="Verb" positionX="-461.93359375" positionY="-25.28515625" width="128" height="253"/>
-        <element name="Word" positionX="-164.0859375" positionY="-218.20703125" width="128" height="103"/>
+        <element name="Verb" positionX="-461.93359375" positionY="-25.28515625" width="128" height="238"/>
+        <element name="Word" positionX="-164.0859375" positionY="-218.20703125" width="128" height="118"/>
     </elements>
 </model>
