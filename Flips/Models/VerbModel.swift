@@ -67,6 +67,7 @@ public struct VerbModel: PartOfSpeechModel {
                 verb.transitive = Bool(elements[10])!
                 verb.irregular = Bool(elements[11])!
                 verb.englishPresent = elements[12]
+                verb.englishTranslation = verb.englishPresent
                 verb.englishPast = elements[13]
                 verb.englishPastParticiple = elements[14]
             }
