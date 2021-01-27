@@ -27,8 +27,9 @@ struct WordListView<T: Word>: View {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 100))],
                           alignment: .center, spacing: 20) {
                     ForEach(words) { (word) in
-                        if let dictionaryForm = word.dictionaryForm ?? word.root {
-                            NavigationLink(destination: VerbConjugationView(verb: word as! Verb)) {
+                        if let detailDisplayableWord = word as? DetailDisplayable,
+                           let dictionaryForm = word.dictionaryForm ?? word.root {
+                            NavigationLink(destination: detailDisplayableWord.detailView()) {
                                 VStack {
                                     Text(dictionaryForm)
                                         .font(.title)
@@ -51,8 +52,9 @@ struct WordListView<T: Word>: View {
                     Spacer()
                     VStack {
                         ForEach(words) { (word) in
-                            if let dictionaryForm = word.dictionaryForm ?? word.root {
-                                NavigationLink(destination: VerbConjugationView(verb: word as! Verb)) {
+                            if let detailDisplayableWord = word as? DetailDisplayable,
+                               let dictionaryForm = word.dictionaryForm ?? word.root {
+                                NavigationLink(destination: detailDisplayableWord.detailView()) {
                                     HStack(alignment: .firstTextBaseline) {
                                         Text(dictionaryForm)
                                             .font(.title)
@@ -73,10 +75,10 @@ struct WordListView<T: Word>: View {
         }
         .navigationTitle("Irish Verbs")
         .navigationBarItems(
-            leading:
-                Button(showingVerbEditor ? "Cancel" : "Add Verb") {
-                    showingVerbEditor.toggle()
-                },
+//            leading:
+//                Button(showingVerbEditor ? "Cancel" : "Add Verb") {
+//                    showingVerbEditor.toggle()
+//                },
             trailing:
                 Picker("List or Grid?", selection: $displayAsGrid) {
                     Text("List").tag(false)

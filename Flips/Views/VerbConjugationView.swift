@@ -10,6 +10,16 @@ protocol WordDetailView: View {
 
 }
 
+extension Verb: DetailDisplayable {
+
+    typealias WordType = Verb
+
+    func detailView() -> AnyView {
+        AnyView(VerbConjugationView(verb: self))
+    }
+
+}
+
 struct VerbConjugationView: WordDetailView {
 
     @Environment(\.verticalSizeClass) var verticalSizeClass
