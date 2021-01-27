@@ -4,6 +4,7 @@ import SwiftUI
 
 struct HomeView: View {
 
+    let nounModel = NounModel()
     let verbModel = VerbModel()
 
     let gridItems = [GridItem(.adaptive(minimum: 100.0, maximum: 200.0))]
@@ -12,7 +13,14 @@ struct HomeView: View {
         NavigationView {
             VStack(alignment: .leading) {
                 LazyVGrid(columns: gridItems, alignment: .center, spacing: 20.0) {
-                    NavigationLink(destination: WordListView()
+                    NavigationLink(destination: WordListView<Noun>()
+                                    .environment(\.managedObjectContext, nounModel.viewContext)) {
+                        Text("Nouns")
+                    }
+                    .frame(width: 75.0, height: 75.0, alignment: .center)
+                    .border(Color.blue)
+
+                    NavigationLink(destination: WordListView<Verb>()
                                     .environment(\.managedObjectContext, verbModel.viewContext)) {
                         Text("Verbs")
                     }

@@ -22,7 +22,7 @@ public extension String {
 }
 public struct VerbModel: PartOfSpeechModel {
 
-    public var persistenceController = PersistenceController(inMemory: true)
+    public var persistenceController = PersistenceController.preview
 
     public init() {
         do {
