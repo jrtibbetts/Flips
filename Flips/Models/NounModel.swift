@@ -10,7 +10,7 @@ public struct NounModel: PartOfSpeechModel {
     public init() {
         do {
             try lines(fromFilename: "nouns", ext: "csv").forEach { (line) in
-                let elements = line.split(separator: ",").map { String($0) }
+                let elements = line.split(separator: ",").map { String($0).trimmingCharacters(in: .whitespaces) }
                 let noun = Noun(context: persistenceController.container.viewContext)
                 noun.root = elements[0]
                 noun.gender = elements[1]
