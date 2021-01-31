@@ -13,6 +13,7 @@ public struct NounModel: PartOfSpeechModel {
                 let elements = line.split(separator: ",").map { String($0).trimmingCharacters(in: .whitespaces) }
                 let noun = Noun(context: persistenceController.container.viewContext)
                 noun.root = elements[0]
+                noun.dictionaryForm = noun.root
                 noun.gender = elements[1]
                 noun.declension = Int16(elements[2]) ?? 1
                 noun.genitive = elements[3]
