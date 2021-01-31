@@ -20,18 +20,33 @@ public class NounInflector: NSObject, ObservableObject {
         super.init()
     }
 
-    convenience init(noun: Noun,
-                     gender: String,
-                     declension: Int16,
-                     translation: String? = nil) {
+    public convenience init(noun: Noun) {
         self.init(noun: noun,
-        gender: Gender(abbreviation: gender),
-        declension: Declension(intValue: declension),
-        translation: translation)
+                  gender: Gender(abbreviation: noun.gender ?? Gender.masculine.rawValue),
+                  declension: Declension(intValue: noun.declension),
+                  translation: noun.englishTranslation)
     }
 
-    open func inflect(case: Case, number: Verb.Number) -> String? {
-        return nil
+    open func inflect(grammaticalCase: Case, number: Verb.Number) -> String? {
+        if number == .singular {
+            switch grammaticalCase {
+            case .nominative, .dative:
+                return noun.root
+            case .genitive:
+                return noun.genitive
+            default:
+                return nil
+            }
+        } else {
+            switch grammaticalCase {
+            case .nominative, .dative:
+                return noun.plural
+            case .genitive:
+                return noun.root
+            default:
+                return nil
+            }
+        }
     }
 
     open var displayName: String {
