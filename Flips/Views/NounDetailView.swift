@@ -5,18 +5,54 @@ import SwiftUI
 extension Noun: DetailDisplayable {
 
     func detailView() -> AnyView {
-        AnyView(NounDetailView(noun: self))
+        let inflector = NounInflector(noun: self)
+
+        return AnyView(NounDetailView(inflector: inflector, noun: self))
     }
 
 }
 
 struct NounDetailView: View {
 
+    @StateObject var inflector: NounInflector
+
     @StateObject var noun: Noun
 
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack(alignment: .leading) {
+            ScrollView {
+                HStack {
+                    VStack(alignment: .leading) {
+                        Text(Verb.Number.singular.rawValue.uppercased())
+                        CaseNumberInflectionView(inflector: inflector, grammaticalCase: .nominative, number: .singular)
+                        CaseNumberInflectionView(inflector: inflector, grammaticalCase: .genitive, number: .singular)
+                        CaseNumberInflectionView(inflector: inflector, grammaticalCase: .accusative, number: .singular)
+                        CaseNumberInflectionView(inflector: inflector, grammaticalCase: .dative, number: .singular)
+                    }
+                }
+            }
+        }
+        .navigationTitle(noun.dictionaryForm ?? "")
     }
+
+}
+
+struct CaseNumberInflectionView: View {
+
+    @StateObject var inflector: NounInflector
+
+    @State var grammaticalCase: Case
+    @State var number: Verb.Number
+
+    var body: some View {
+        HStack {
+            Text(grammaticalCase.rawValue.capitalized)
+            Text(inflector.inflect(grammaticalCase: grammaticalCase, number: number) ?? "-")
+                .bold()
+
+        }
+    }
+
 }
 
 struct NounDetailView_Previews: PreviewProvider {
@@ -33,6 +69,7 @@ struct NounDetailView_Previews: PreviewProvider {
     }()
 
     static var previews: some View {
-        NounDetailView(noun: moon)
+        NounDetailView(inflector: NounInflector(noun: moon), noun: moon)
     }
+
 }
