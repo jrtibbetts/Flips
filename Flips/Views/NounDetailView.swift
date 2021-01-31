@@ -22,17 +22,30 @@ struct NounDetailView: View {
         VStack(alignment: .leading) {
             ScrollView {
                 HStack {
-                    VStack(alignment: .leading) {
-                        Text(Verb.Number.singular.rawValue.uppercased())
-                        CaseNumberInflectionView(inflector: inflector, grammaticalCase: .nominative, number: .singular)
-                        CaseNumberInflectionView(inflector: inflector, grammaticalCase: .vocative, number: .singular)
-                        CaseNumberInflectionView(inflector: inflector, grammaticalCase: .genitive, number: .singular)
-                        CaseNumberInflectionView(inflector: inflector, grammaticalCase: .dative, number: .singular)
-                    }
+                    NumberInflectionView(inflector: inflector, number: .singular)
+                    NumberInflectionView(inflector: inflector, number: .plural)
                 }
             }
         }
         .navigationTitle(noun.dictionaryForm ?? "")
+    }
+
+}
+
+struct NumberInflectionView: View {
+
+    @StateObject var inflector: NounInflector
+
+    @State var number: Verb.Number
+
+    var body: some View {
+        VStack(alignment: .leading) {
+            Text(number.rawValue.uppercased())
+            CaseNumberInflectionView(inflector: inflector, grammaticalCase: .nominative, number: number)
+            CaseNumberInflectionView(inflector: inflector, grammaticalCase: .vocative, number: number)
+            CaseNumberInflectionView(inflector: inflector, grammaticalCase: .genitive, number: number)
+            CaseNumberInflectionView(inflector: inflector, grammaticalCase: .dative, number: number)
+        }
     }
 
 }
