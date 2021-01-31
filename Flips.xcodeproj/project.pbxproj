@@ -15,6 +15,7 @@
 		9637871225391C6500DF52EC /* verbs.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9637871125391C6500DF52EC /* verbs.csv */; };
 		9641FE6125C517F800708FFE /* NounDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641FE6025C517F800708FFE /* NounDetailView.swift */; };
 		9641FE6625C5182200708FFE /* WordDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641FE6525C5182200708FFE /* WordDetailView.swift */; };
+		9641FE7425C6831100708FFE /* NounInflector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641FE7325C6831100708FFE /* NounInflector.swift */; };
 		9675F1E7252EA6FA00CAF7EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9675F1E6252EA6FA00CAF7EC /* Assets.xcassets */; };
 		9675F1EA252EA6FA00CAF7EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9675F1E9252EA6FA00CAF7EC /* Preview Assets.xcassets */; };
 		9675F1EC252EA6FA00CAF7EC /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9675F1EB252EA6FA00CAF7EC /* Persistence.swift */; };
@@ -61,6 +62,7 @@
 		9637871125391C6500DF52EC /* verbs.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = verbs.csv; sourceTree = "<group>"; };
 		9641FE6025C517F800708FFE /* NounDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NounDetailView.swift; sourceTree = "<group>"; };
 		9641FE6525C5182200708FFE /* WordDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDetailView.swift; sourceTree = "<group>"; };
+		9641FE7325C6831100708FFE /* NounInflector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NounInflector.swift; sourceTree = "<group>"; };
 		9675F1DF252EA6F800CAF7EC /* Flips.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flips.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9675F1E6252EA6FA00CAF7EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9675F1E9252EA6FA00CAF7EC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 		961B25E7253410C1009F43F0 /* Grammar */ = {
 			isa = PBXGroup;
 			children = (
+				9641FE7325C6831100708FFE /* NounInflector.swift */,
 				96185CBD253BDFB900C71FBB /* String+InitialMutations.swift */,
 				961B25E82534114D009F43F0 /* VerbEndings.swift */,
 				96378704253806D500DF52EC /* VerbExtensions.swift */,
@@ -359,6 +362,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9641FE7425C6831100708FFE /* NounInflector.swift in Sources */,
 				96A8227F253BE0DE0012D839 /* WordListView.swift in Sources */,
 				9678B24425B5448200331A16 /* HomeView.swift in Sources */,
 				96A8227D253BE0DE0012D839 /* EditVerbView.swift in Sources */,
