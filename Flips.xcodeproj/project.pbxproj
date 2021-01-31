@@ -13,6 +13,7 @@
 		963786FA2537D42E00DF52EC /* VerbInflector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963786F92537D42E00DF52EC /* VerbInflector.swift */; };
 		96378705253806D500DF52EC /* VerbExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96378704253806D500DF52EC /* VerbExtensions.swift */; };
 		9637871225391C6500DF52EC /* verbs.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9637871125391C6500DF52EC /* verbs.csv */; };
+		9641FE6625C5182200708FFE /* WordDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641FE6525C5182200708FFE /* WordDetailView.swift */; };
 		9675F1E7252EA6FA00CAF7EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9675F1E6252EA6FA00CAF7EC /* Assets.xcassets */; };
 		9675F1EA252EA6FA00CAF7EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9675F1E9252EA6FA00CAF7EC /* Preview Assets.xcassets */; };
 		9675F1EC252EA6FA00CAF7EC /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9675F1EB252EA6FA00CAF7EC /* Persistence.swift */; };
@@ -57,6 +58,7 @@
 		963786F92537D42E00DF52EC /* VerbInflector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbInflector.swift; sourceTree = "<group>"; };
 		96378704253806D500DF52EC /* VerbExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbExtensions.swift; sourceTree = "<group>"; };
 		9637871125391C6500DF52EC /* verbs.csv */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = verbs.csv; sourceTree = "<group>"; };
+		9641FE6525C5182200708FFE /* WordDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WordDetailView.swift; sourceTree = "<group>"; };
 		9675F1DF252EA6F800CAF7EC /* Flips.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flips.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9675F1E6252EA6FA00CAF7EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9675F1E9252EA6FA00CAF7EC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -203,6 +205,7 @@
 				9678B24325B5448200331A16 /* HomeView.swift */,
 				96A82279253BE0DE0012D839 /* VerbConjugationView.swift */,
 				96DC38462542806F00A00805 /* VerbEditor.swift */,
+				9641FE6525C5182200708FFE /* WordDetailView.swift */,
 				96A8227A253BE0DE0012D839 /* WordListView.swift */,
 			);
 			path = Views;
@@ -367,6 +370,7 @@
 				96185CBE253BDFB900C71FBB /* String+InitialMutations.swift in Sources */,
 				963786FA2537D42E00DF52EC /* VerbInflector.swift in Sources */,
 				96185CB3253AADCD00C71FBB /* VerbModel.swift in Sources */,
+				9641FE6625C5182200708FFE /* WordDetailView.swift in Sources */,
 				96378705253806D500DF52EC /* VerbExtensions.swift in Sources */,
 				9678B25B25B55B1900331A16 /* NounModel.swift in Sources */,
 			);

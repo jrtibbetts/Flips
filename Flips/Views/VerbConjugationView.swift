@@ -2,17 +2,7 @@
 
 import SwiftUI
 
-protocol WordDetailView: View {
-
-    associatedtype W: Word
-
-    var word: W { get }
-
-}
-
 extension Verb: DetailDisplayable {
-
-    typealias WordType = Verb
 
     func detailView() -> AnyView {
         AnyView(VerbConjugationView(verb: self))
