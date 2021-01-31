@@ -4,10 +4,10 @@ import Foundation
 
 public enum Case: String {
 
-    case accusative
     case dative
     case genitive
     case nominative
+    case vocative
 
 }
 

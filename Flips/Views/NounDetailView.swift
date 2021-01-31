@@ -25,8 +25,8 @@ struct NounDetailView: View {
                     VStack(alignment: .leading) {
                         Text(Verb.Number.singular.rawValue.uppercased())
                         CaseNumberInflectionView(inflector: inflector, grammaticalCase: .nominative, number: .singular)
+                        CaseNumberInflectionView(inflector: inflector, grammaticalCase: .vocative, number: .singular)
                         CaseNumberInflectionView(inflector: inflector, grammaticalCase: .genitive, number: .singular)
-                        CaseNumberInflectionView(inflector: inflector, grammaticalCase: .accusative, number: .singular)
                         CaseNumberInflectionView(inflector: inflector, grammaticalCase: .dative, number: .singular)
                     }
                 }

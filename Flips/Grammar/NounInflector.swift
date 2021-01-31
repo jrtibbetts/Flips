@@ -32,10 +32,10 @@ public class NounInflector: NSObject, ObservableObject {
             switch grammaticalCase {
             case .nominative, .dative:
                 return noun.root
+            case .vocative:
+                return noun.root?.lenited
             case .genitive:
                 return noun.genitive
-            default:
-                return nil
             }
         } else {
             switch grammaticalCase {
@@ -43,7 +43,7 @@ public class NounInflector: NSObject, ObservableObject {
                 return noun.plural
             case .genitive:
                 return noun.root
-            default:
+            case .vocative:
                 return nil
             }
         }
