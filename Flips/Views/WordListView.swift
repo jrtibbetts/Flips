@@ -73,7 +73,7 @@ struct WordListView<T: Word>: View {
                 }
             }
         }
-        .navigationTitle("Irish Verbs")
+        .navigationTitle(T.self.description() + "s") // obviously, localize this better
         .navigationBarItems(
 //            leading:
 //                Button(showingVerbEditor ? "Cancel" : "Add Verb") {
