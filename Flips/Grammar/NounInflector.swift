@@ -58,16 +58,20 @@ public class FirstDeclensionMasculineNounInflector: NounInflector {
                 return noun.genitive
             }
         } else {
-            switch grammaticalCase {
-            case .nominative, .dative:
+            if noun.strongPlural {
                 return noun.plural
-            case .genitive:
-                return noun.root
-            case .vocative:
-                if let root = noun.root {
-                    return root.lenited + "a"
-                } else {
-                    return nil
+            } else {
+                switch grammaticalCase {
+                case .nominative, .dative:
+                    return noun.plural
+                case .genitive:
+                    return noun.root
+                case .vocative:
+                    if let root = noun.root {
+                        return root.lenited + "a"
+                    } else {
+                        return nil
+                    }
                 }
             }
         }
@@ -79,6 +83,28 @@ public class SecondDeclensionFeminineNounInflector: NounInflector {
 
     public init(noun: Noun) {
         super.init(noun: noun, gender: .feminine, declension: .second, translation: noun.englishTranslation)
+    }
+
+    open override func inflect(grammaticalCase: Case, number: Verb.Number) -> String? {
+        if number == .singular {
+            switch grammaticalCase {
+            case .nominative, .dative:
+                return noun.root
+            case .vocative:
+                return noun.root?.lenited
+            case .genitive:
+                return noun.genitive
+            }
+        } else {
+            switch grammaticalCase {
+            case .nominative, .dative:
+                return noun.plural
+            case .genitive:
+                return noun.root
+            case .vocative:
+                return noun.plural?.lenited
+            }
+        }
     }
 
 }
