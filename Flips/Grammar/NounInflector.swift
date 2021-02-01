@@ -9,10 +9,25 @@ public class NounInflector: NSObject, ObservableObject {
     @Published open var noun: Noun
     @Published open var translation: String?
 
-    public init(noun: Noun,
-                gender: Gender,
-                declension: Declension,
-                translation: String? = nil) {
+    open var displayName: String {
+        return declension.rawValue.uppercased() + " " + gender.rawValue.uppercased()
+    }
+
+    public static func inflector(for noun: Noun) -> NounInflector? {
+        switch (noun.declension, noun.gender) {
+        case (1, "m"):
+            return FirstDeclensionMasculineNounInflector(noun: noun)
+        case (2, "f"):
+            return SecondDeclensionFeminineNounInflector(noun: noun)
+        default:
+            return nil
+        }
+    }
+
+    fileprivate init(noun: Noun,
+                     gender: Gender,
+                     declension: Declension,
+                     translation: String? = nil) {
         self.noun = noun
         self.gender = gender
         self.declension = declension
@@ -20,14 +35,19 @@ public class NounInflector: NSObject, ObservableObject {
         super.init()
     }
 
-    public convenience init(noun: Noun) {
-        self.init(noun: noun,
-                  gender: Gender(abbreviation: noun.gender ?? Gender.masculine.rawValue),
-                  declension: Declension(intValue: noun.declension),
-                  translation: noun.englishTranslation)
+    open func inflect(grammaticalCase: Case, number: Verb.Number) -> String? {
+        return nil
     }
 
-    open func inflect(grammaticalCase: Case, number: Verb.Number) -> String? {
+}
+
+public class FirstDeclensionMasculineNounInflector: NounInflector {
+
+    public init(noun: Noun) {
+        super.init(noun: noun, gender: .masculine, declension: .first, translation: noun.englishTranslation)
+    }
+
+    open override func inflect(grammaticalCase: Case, number: Verb.Number) -> String? {
         if number == .singular {
             switch grammaticalCase {
             case .nominative, .dative:
@@ -53,9 +73,12 @@ public class NounInflector: NSObject, ObservableObject {
         }
     }
 
-    open var displayName: String {
-        return declension.rawValue.uppercased() + " " + gender.rawValue.uppercased()
+}
+
+public class SecondDeclensionFeminineNounInflector: NounInflector {
+
+    public init(noun: Noun) {
+        super.init(noun: noun, gender: .feminine, declension: .second, translation: noun.englishTranslation)
     }
 
 }
-

@@ -5,9 +5,11 @@ import SwiftUI
 extension Noun: DetailDisplayable {
 
     func detailView() -> AnyView {
-        let inflector = NounInflector(noun: self)
-
-        return AnyView(NounDetailView(inflector: inflector, noun: self))
+        if let inflector = NounInflector.inflector(for: self) {
+            return AnyView(NounDetailView(inflector: inflector, noun: self))
+        } else {
+            return AnyView(Text("No inflector found for \(self.root ?? "(no root)")"))
+        }
     }
 
 }
@@ -82,7 +84,7 @@ struct NounDetailView_Previews: PreviewProvider {
     }()
 
     static var previews: some View {
-        NounDetailView(inflector: NounInflector(noun: moon), noun: moon)
+        NounDetailView(inflector: SecondDeclensionFeminineNounInflector(noun: moon), noun: moon)
     }
 
 }
