@@ -18,7 +18,9 @@ public struct NounModel: PartOfSpeechModel {
                 noun.declension = Int16(elements[2]) ?? 1
                 noun.genitive = elements[3]
                 noun.plural = elements[4]
-                noun.englishTranslation = elements[5]
+                noun.strongPlural = Bool(elements[5]) ?? false
+                noun.englishTranslation = elements[6]
+                noun.englishTranslationPlural = elements[7]
             }
 
             try persistenceController.container.viewContext.save()

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17192" systemVersion="19H114" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Definable" representedClassName="Definable" isAbstract="YES" syncable="YES" codeGenerationType="class">
         <relationship name="definition" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Definition" inverseName="words" inverseEntity="Definition"/>
     </entity>
@@ -12,9 +12,11 @@
     </entity>
     <entity name="Noun" representedClassName="Noun" parentEntity="Word" syncable="YES" codeGenerationType="class">
         <attribute name="declension" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="englishTranslationPlural" optional="YES" attributeType="String"/>
         <attribute name="gender" attributeType="String"/>
         <attribute name="genitive" optional="YES" attributeType="String"/>
         <attribute name="plural" optional="YES" attributeType="String"/>
+        <attribute name="strongPlural" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
     </entity>
     <entity name="PartOfSpeech" representedClassName="PartOfSpeech" syncable="YES" codeGenerationType="class">
         <relationship name="words" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Word" inverseName="partOfSpeech" inverseEntity="Word"/>
@@ -51,7 +53,7 @@
         <element name="Definable" positionX="59.5" positionY="107.27734375" width="128" height="58"/>
         <element name="Definition" positionX="225.296875" positionY="46.52734375" width="128" height="73"/>
         <element name="Item" positionX="-348.8046875" positionY="-136.08984375" width="128" height="28"/>
-        <element name="Noun" positionX="100.4375" positionY="-302.55078125" width="128" height="103"/>
+        <element name="Noun" positionX="100.4375" positionY="-302.55078125" width="128" height="119"/>
         <element name="PartOfSpeech" positionX="101.140625" positionY="-166.3671875" width="128" height="58"/>
         <element name="Phrase" positionX="-215.5859375" positionY="153.03515625" width="128" height="58"/>
         <element name="Something" positionX="112.96875" positionY="-44.328125" width="128" height="28"/>

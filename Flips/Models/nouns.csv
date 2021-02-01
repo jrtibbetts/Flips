@@ -3,14 +3,21 @@
 # 2: Declension (1 through 5)
 # 3: Genitive singular
 # 4: Plural
-# 5: Translation
+# 5: Strong plural?
+# 7: Translation (singular)
+# 8: Translation (plural)
 
-abacas,     m, 1, abacais,      abacais,        abacus
-abar,       m, 1, abair,        abair,          morass
-abach,      m, 1, abaigh,       nil,            entrails
-abairt,     f, 2, abairte,      abairtí,        sentence
-abhach,     m, 1, abhaich,      abhaich,        dwarf
-abhacád,    m, 1, abhacáid,     abhacáid,       avocado
-adhmad,     m, 1, adhmaid,      admhaid,        wood
-cóisir,     f, 2, cóisire,      cóisirí,        party
-gealach,    f, 2, gealacha,     gealaí,         moon
+abacas,     m, 1, abacais,      abacais,        false,  abacus,         abacuses
+abar,       m, 1, abair,        abair,          false,  morass,         morasses
+abach,      m, 1, abaigh,       nil,            false,  entrails,       entrails
+abairt,     f, 2, abairte,      abairtí,        false,  sentence,       sentences
+abhach,     m, 1, abhaich,      abhaich,        false,  dwarf,          dwarves
+abhacád,    m, 1, abhacáid,     abhacáid,       false,  avocado,        avocados
+adhmad,     m, 1, adhmaid,      admhaid,        false,  wood,           wood
+bád,        m, 1, báid,         báid,           false,  boat,           boats
+ball,       m, 1, baill,        baill,          false,  internal organ, internal organs
+bonn,       m, 1, boinn,        boinn,          false,  coin,           coins
+ceann,      m, 1, cinn,         cinn,           false,  head,           heads
+cóisir,     f, 2, cóisire,      cóisirí,        false,  party,          parties
+gealach,    f, 2, gealacha,     gealaí,         false,  moon,           moons
+marcach,    m, 1, marcaigh,     marcaigh,       false,  horseman,       horsemen
