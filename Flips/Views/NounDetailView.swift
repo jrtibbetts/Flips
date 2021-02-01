@@ -84,7 +84,7 @@ struct NounDetailView_Previews: PreviewProvider {
     }()
 
     static var previews: some View {
-        NounDetailView(inflector: SecondDeclensionFeminineNounInflector(noun: moon), noun: moon)
+        NounDetailView(inflector: SecondDeclensionNounInflector(noun: moon), noun: moon)
     }
 
 }

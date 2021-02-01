@@ -14,11 +14,11 @@ public class NounInflector: NSObject, ObservableObject {
     }
 
     public static func inflector(for noun: Noun) -> NounInflector? {
-        switch (noun.declension, noun.gender) {
-        case (1, "m"):
-            return FirstDeclensionMasculineNounInflector(noun: noun)
-        case (2, "f"):
-            return SecondDeclensionFeminineNounInflector(noun: noun)
+        switch noun.declension {
+        case 1:
+            return FirstDeclensionNounInflector(noun: noun)
+        case 2:
+            return SecondDeclensionNounInflector(noun: noun)
         default:
             return nil
         }
@@ -41,7 +41,7 @@ public class NounInflector: NSObject, ObservableObject {
 
 }
 
-public class FirstDeclensionMasculineNounInflector: NounInflector {
+public class FirstDeclensionNounInflector: NounInflector {
 
     public init(noun: Noun) {
         super.init(noun: noun, gender: .masculine, declension: .first, translation: noun.englishTranslation)
@@ -79,7 +79,7 @@ public class FirstDeclensionMasculineNounInflector: NounInflector {
 
 }
 
-public class SecondDeclensionFeminineNounInflector: NounInflector {
+public class SecondDeclensionNounInflector: NounInflector {
 
     public init(noun: Noun) {
         super.init(noun: noun, gender: .feminine, declension: .second, translation: noun.englishTranslation)
