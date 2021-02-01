@@ -96,13 +96,17 @@ public class SecondDeclensionNounInflector: NounInflector {
                 return noun.genitive
             }
         } else {
-            switch grammaticalCase {
-            case .nominative, .dative:
+            if noun.strongPlural {
                 return noun.plural
-            case .genitive:
-                return noun.root
-            case .vocative:
-                return noun.plural?.lenited
+            } else {
+                switch grammaticalCase {
+                case .nominative, .dative:
+                    return noun.plural
+                case .genitive:
+                    return noun.root
+                case .vocative:
+                    return noun.plural?.lenited
+                }
             }
         }
     }
