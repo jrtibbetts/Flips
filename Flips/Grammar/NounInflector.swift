@@ -33,7 +33,7 @@ public class NounInflector: NSObject, ObservableObject {
             case .nominative, .dative:
                 return noun.root
             case .vocative:
-                return noun.root?.lenited
+                return noun.genitive?.lenited
             case .genitive:
                 return noun.genitive
             }
@@ -44,7 +44,11 @@ public class NounInflector: NSObject, ObservableObject {
             case .genitive:
                 return noun.root
             case .vocative:
-                return nil
+                if let root = noun.root {
+                    return root.lenited + "a"
+                } else {
+                    return nil
+                }
             }
         }
     }
