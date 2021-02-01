@@ -14,10 +14,40 @@ abairt,     f, 2, abairte,      abairtí,        false,  sentence,       sentenc
 abhach,     m, 1, abhaich,      abhaich,        false,  dwarf,          dwarves
 abhacád,    m, 1, abhacáid,     abhacáid,       false,  avocado,        avocados
 adhmad,     m, 1, adhmaid,      admhaid,        false,  wood,           wood
+áit,        f, 2, áite,         áiteanna,       true,   place,          places
+aonach,     m, 1, aontaigh,     aontaí,         true,   fair,           fairs
 bád,        m, 1, báid,         báid,           false,  boat,           boats
 ball,       m, 1, baill,        baill,          false,  internal organ, internal organs
+bealach,    m, 1, bealaigh,     bealaí,         true,   way,            ways
 bonn,       m, 1, boinn,        boinn,          false,  coin,           coins
+bóthar,     m, 1, bóthair,      bóithre,        true,   road,           roads
+bróg,       f, 2, bróige,       bróga,          false,  shoe,           shoes
+carr,       m, 1, cairr,        carranna,       true,   cars,           cars
 ceann,      m, 1, cinn,         cinn,           false,  head,           heads
+ceart,      m, 1, cirt,         cearta,         false,  right,          rights
+cleas,      m, 1, clis,         cleasa,         false,  trick,          tricks
+coill,      f, 2, coille,       coillte,        true,   forest,         forests
 cóisir,     f, 2, cóisire,      cóisirí,        false,  party,          parties
+deoir,      f, 2, deoire,       deora,          false,  tear,           tears
+fiacail,    f, 2, fiacaile,     fiacla,         true,   tooth,          teeth
 gealach,    f, 2, gealacha,     gealaí,         false,  moon,           moons
+girseach,   f, 2, girsí,        girseacha,      false,  little girl,    little girls
+glór,       m, 1, glóir,        glórtha,        true,   voice,          voices
+gualainn,   f, 2, gualainne,    guaillí,        true,   shoulder,       shoulders
+iníon,      f, 2, iníne,        iníonacha,      true,   daughter,       daughters
+leanbh,     m, 1, linbh,        leanaí,         true,   child,          children
 marcach,    m, 1, marcaigh,     marcaigh,       false,  horseman,       horsemen
+néal,       m, 1, néil,         néalta,         true,   cloud,          clouds
+obair,      f, 2, oibre,        oibreacha,      true,   work,           works
+rós,        m, 1, róis,         rósanna,        true,   rose,           roses
+samhradh,   m, 1, samhraidh,    samhraí,        true,   summer,         summers
+scéal,      m, 1, scéil,        scéalta,        true,   story,          stories
+scian,      f, 2, scine,        sceana,         true,   knife,          knives
+sliabh,     m, 2, sléibhe,      sléibte,        true,   mountain,       mountains
+spéir,      f, 2, spéire,       spéartha,       true,   sky,            skies
+tír,        f, 2, tíre,         tíortha,        true,   country,        country
+tonn,       f, 2, toinne,       tonnta,         true,   wave,           waves
+toradh,     m, 1, toraidh,      torthaí,        true,   fruit,          fruits
+ubh,        f, 2, uibhe,        uibheacha,      true,   egg,            eggs
+úll,        m, 1, úill,         úlla,           false,  apple,          apple,
+
