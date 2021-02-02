@@ -25,13 +25,11 @@ public class NounInflector: NSObject, ObservableObject {
     }
 
     fileprivate init(noun: Noun,
-                     gender: Gender,
-                     declension: Declension,
-                     translation: String? = nil) {
+                     declension: Declension) {
         self.noun = noun
-        self.gender = gender
+        self.gender = Gender(abbreviation: noun.gender ?? "m")
         self.declension = declension
-        self.translation = translation
+        self.translation = noun.englishTranslation
         super.init()
     }
 
@@ -44,7 +42,7 @@ public class NounInflector: NSObject, ObservableObject {
 public class FirstDeclensionNounInflector: NounInflector {
 
     public init(noun: Noun) {
-        super.init(noun: noun, gender: .masculine, declension: .first, translation: noun.englishTranslation)
+        super.init(noun: noun, declension: .first)
     }
 
     open override func inflect(grammaticalCase: Case, number: Verb.Number) -> String? {
@@ -82,7 +80,7 @@ public class FirstDeclensionNounInflector: NounInflector {
 public class SecondDeclensionNounInflector: NounInflector {
 
     public init(noun: Noun) {
-        super.init(noun: noun, gender: .feminine, declension: .second, translation: noun.englishTranslation)
+        super.init(noun: noun, declension: .second)
     }
 
     open override func inflect(grammaticalCase: Case, number: Verb.Number) -> String? {
