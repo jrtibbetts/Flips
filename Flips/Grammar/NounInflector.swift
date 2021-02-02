@@ -19,6 +19,8 @@ public class NounInflector: NSObject, ObservableObject {
             return FirstDeclensionNounInflector(noun: noun)
         case 2:
             return SecondDeclensionNounInflector(noun: noun)
+        case 3:
+            return ThirdDeclensionNounInflector(noun: noun)
         default:
             return nil
         }
@@ -102,6 +104,38 @@ public class SecondDeclensionNounInflector: NounInflector {
                     return noun.plural
                 case .genitive:
                     return noun.root
+                case .vocative:
+                    return noun.plural?.lenited
+                }
+            }
+        }
+    }
+
+}
+
+public class ThirdDeclensionNounInflector: NounInflector {
+
+    public init(noun: Noun) {
+        super.init(noun: noun, declension: .third)
+    }
+
+    open override func inflect(grammaticalCase: Case, number: Verb.Number) -> String? {
+        if number == .singular {
+            switch grammaticalCase {
+            case .nominative, .dative:
+                return noun.root
+            case .vocative:
+                return noun.root?.lenited
+            case .genitive:
+                return noun.genitive
+            }
+        } else {
+            if noun.strongPlural {
+                return noun.plural
+            } else {
+                switch grammaticalCase {
+                case .nominative, .genitive, .dative:
+                    return noun.plural
                 case .vocative:
                     return noun.plural?.lenited
                 }
