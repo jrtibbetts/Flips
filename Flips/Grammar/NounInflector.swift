@@ -21,6 +21,10 @@ public class NounInflector: NSObject, ObservableObject {
             return SecondDeclensionNounInflector(noun: noun)
         case 3:
             return ThirdDeclensionNounInflector(noun: noun)
+        case 4:
+            return FourthDeclensionNounInflector(noun: noun)
+        case 5:
+            return FifthDeclensionNounInflector(noun: noun)
         default:
             return nil
         }
@@ -117,6 +121,68 @@ public class ThirdDeclensionNounInflector: NounInflector {
 
     public init(noun: Noun) {
         super.init(noun: noun, declension: .third)
+    }
+
+    open override func inflect(grammaticalCase: Case, number: Verb.Number) -> String? {
+        if number == .singular {
+            switch grammaticalCase {
+            case .nominative, .dative:
+                return noun.root
+            case .vocative:
+                return noun.root?.lenited
+            case .genitive:
+                return noun.genitive
+            }
+        } else {
+            if noun.strongPlural {
+                return noun.plural
+            } else {
+                switch grammaticalCase {
+                case .nominative, .genitive, .dative:
+                    return noun.plural
+                case .vocative:
+                    return noun.plural?.lenited
+                }
+            }
+        }
+    }
+
+}
+
+public class FourthDeclensionNounInflector: NounInflector {
+
+    public init(noun: Noun) {
+        super.init(noun: noun, declension: .fourth)
+    }
+
+    open override func inflect(grammaticalCase: Case, number: Verb.Number) -> String? {
+        if number == .singular {
+            switch grammaticalCase {
+            case .nominative, .genitive, .dative:
+                return noun.root
+            case .vocative:
+                return noun.root?.lenited
+            }
+        } else {
+            if noun.strongPlural {
+                return noun.plural
+            } else {
+                switch grammaticalCase {
+                case .nominative, .genitive, .dative:
+                    return noun.plural
+                case .vocative:
+                    return noun.plural?.lenited
+                }
+            }
+        }
+    }
+
+}
+
+public class FifthDeclensionNounInflector: NounInflector {
+
+    public init(noun: Noun) {
+        super.init(noun: noun, declension: .fifth)
     }
 
     open override func inflect(grammaticalCase: Case, number: Verb.Number) -> String? {
