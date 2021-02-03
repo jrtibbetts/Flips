@@ -13,12 +13,17 @@ abach,      m, 1, abaigh,       nil,            false,  entrails,       entrails
 abairt,     f, 2, abairte,      abairtí,        false,  sentence,       sentences
 abhach,     m, 1, abhaich,      abhaich,        false,  dwarf,          dwarves
 abhacád,    m, 1, abhacáid,     abhacáid,       false,  avocado,        avocados
+abhainn,    f, 5, abhann,       aibhneacha,     false,  river,          rivers
 adhmad,     m, 1, adhmaid,      admhaid,        false,  wood,           wood
+ainm,       m, 4, ainm,         ainmneacha,     false,  name,           names
 ainmhí,     m, 4, ainmhí,       ainmhithe,      false,  animal,         animals
+airí,       m, 4, airí,         airíona,        false,  characteristic, characteristics
 áit,        f, 2, áite,         áiteanna,       true,   place,          places
+aithne,     f, 4, aithne,       aitheanta,      false,  commandment,    commandments
 am,         m, 3, ama,          amanna,         false,  time,           times
 anam,       m, 3, anama,        anamacha,       false,  soul,           souls
 aonach,     m, 1, aontaigh,     aontaí,         true,   fair,           fairs
+athair,     m, 5, athar,        aithreacha,     false,  father,         fathers
 atur,       m, 4, aturnae,      aturnaetha,     false,  attorney,       attorneys
 bád,        m, 1, báid,         báid,           false,  boat,           boats
 bádoir,     m, 3, bádóra,       bádóirí,        false,  boatman,        boatmen
@@ -29,13 +34,18 @@ balla,      m, 4, balla,        ballaí,         false,  wall,           walls
 bealach,    m, 1, bealaigh,     bealaí,         true,   way,            ways
 bonn,       m, 1, boinn,        boinn,          false,  coin,           coins
 bóthar,     m, 1, bóthair,      bóithre,        true,   road,           roads
+bráthair,   m, 5, bráthar,      bráithre,       false,  friar,          friars
 bróg,       f, 2, bróige,       bróga,          false,  shoe,           shoes
+bruach,     m, 4, bruach,       bruacha,        false,  riverbank,      riverbanks
 bus,        m, 4, bus,          busanna,        false,  bus,            buses
 cailín,     m, 4, cailín,       cailíní,        false,  girl,           girls
 canúint,    f, 3, canúna,       canúintí,       false,  dialect,        dialects
+caora,      f, 5, caorach,      caoirigh,       false,  sheep,          sheep
+cara,       m, 5, carad,        cairdem,        false,  friend,         friends
 carr,       m, 1, cairr,        carranna,       true,   cars,           cars
 ceann,      m, 1, cinn,         cinn,           false,  head,           heads
 ceart,      m, 1, cirt,         cearta,         false,  right,          rights
+cine,       m, 4, cine,         ciníocha,       false,  race\, tribe,   races\, tribes
 cleas,      m, 1, clis,         cleasa,         false,  trick,          tricks
 cliamhain,  m, 4, cliamhain,    cliamhaineacha, false,  son-in-law,     sons-in-law
 cneá,       f, 4, cneá,         cneácha,        false,  wound,          wounds
@@ -44,24 +54,33 @@ coill,      f, 2, coille,       coillte,        true,   forest,         forests
 cóisir,     f, 2, cóisire,      cóisirí,        false,  party,          parties
 comhairle,  f, 4, comhairle,    comhairlí,      false,  advice,         pieces of advice
 cró,        m, 4, cró,          cróite,         false,  outhouse,       outhouses
+deartháir,  m, 5, dearthár,     deartháireacha, false,  brother,        brothers
 deoir,      f, 2, deoire,       deora,          false,  tear,           tears
 dlí,        m, 4, dlí,          dlíthe,         false,  law,            laws
 dlíodoir,   m, 3, dlíodóra,     dlíodóirí,      false,  lawyer,         lawyers
 dosaen,     m, 4, dosaen,       dosaenacha,     false,  dozen,          dozens
 droim,      m, 3, droma,        dromanna,       false,  back,           backs
+duine,      m, 4, duine,        daoine,         false,  person,         people
 fiacail,    f, 2, fiacaile,     fiacla,         true,   tooth,          teeth
 ga,         m, 4, ga,           gathanna,       false,  ray,            rays
+gabha,      m, 4, gabha,        gaibhne,        false,  blacksmith,     blacksmiths
 gé,         f, 4, gé,           géanna,         false,  goose,          geese
 gealach,    f, 2, gealacha,     gealaí,         false,  moon,           moons
 girseach,   f, 2, girsí,        girseacha,      false,  little girl,    little girls
 glór,       m, 1, glóir,        glórtha,        true,   voice,          voices
+gnó,        m, 4, gnó,          gnóthaí,        false,  business,       businesss
 gualainn,   f, 2, gualainne,    guaillí,        true,   shoulder,       shoulders
 iníon,      f, 2, iníne,        iníonacha,      true,   daughter,       daughters
+lacha,      f, 5, lachan,       lachain,        false,  duck,           duck
 leanbh,     m, 1, linbh,        leanaí,         true,   child,          children
 léine,      f, 4, léine,        léinte,         false,  shirt,          shirts
 loch,       m, 3, locha,        lochanna,       false,  lake,           lake
 marcach,    m, 1, marcaigh,     marcaigh,       false,  horseman,       horsemen
+máthair,    f, 5, máthar,       máithreacha,    false,  mother,         mothers
+namhaid,    m, 5, namhad,       naimhde,        false,  enemy,          enemies
 néal,       m, 1, néil,         néalta,         true,   cloud,          clouds
+Nollaig,    f, 5, Nollag,       Nollaigí,       false,  Christmas,      Christmases
+oíche,      f, 4, oíche,        oícheanta,      false,  night,          nights
 obair,      f, 2, oibre,        oibreacha,      true,   work,           works
 rá,         m, 4, rá,           ráite,          false,  saying,         sayings
 rás,        m, 3, rása,         rásaí,          false,  race,           races
@@ -81,24 +100,3 @@ toradh,     m, 1, toraidh,      torthaí,        true,   fruit,          fruits
 troid,      f, 3, troda,        troideanna,     false,  fight,          fights
 ubh,        f, 2, uibhe,        uibheacha,      true,   egg,            eggs
 úll,        m, 1, úill,         úlla,           false,  apple,          apple
-
-ainm,       m, 4, ainm,         ainmneacha,     false,  name,           names
-airí,       m, 4, airí,         airíona,        false,  characteristic, characteristics
-aithne,     f, 4, aithne,       aitheanta,      false,  commandment,    commandments
-bruach,     m, 4, bruach,       bruacha,        false,  riverbank,      riverbanks
-cine,       m, 4, cine,         ciníocha,       false,  race\, tribe,   races\, tribes
-duine,      m, 4, duine,        daoine,         false,  person,         people
-gabha,      m, 4, gabha,        gaibhne,        false,  blacksmith,     blacksmiths
-gnó,        m, 4, gnó,          gnóthaí,        false,  business,       businesss
-oíche,      f, 4, oíche,        oícheanta,      false,  night,          nights
-
-abhainn,    f, 5, abhann,       aibhneacha,     false,  river,          rivers
-athair,     m, 5, athar,        aithreacha,     false,  father,         fathers
-deartháir,  m, 5, dearthár,     deartháireacha, false,  brother,        brothers
-máthair,    f, 5, máthar,       máithreacha,    false,  mother,         mothers
-bráthair,   m, 5, bráthar,      bráithre,       false,  friar,          friars
-cara,       m, 5, carad,        cairdem,        false,  friend,         friends
-namhaid,    m, 5, namhad,       naimhde,        false,  enemy,          enemies
-Nollaig,    f, 5, Nollag,       Nollaigí,       false,  Christmas,      Christmases
-caora,      f, 5, caorach,      caoirigh,       false,  sheep,          sheep
-lacha,      f, 5, lachan,       lachain,        false,  duck,           duck
