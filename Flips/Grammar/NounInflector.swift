@@ -4,6 +4,13 @@ import Foundation
 
 public class NounInflector: NSObject, ObservableObject {
 
+    public struct Inflection {
+        public var preposition: String?
+        public var prefix: String?
+        public var root: String
+        public var ending: String
+    }
+
     @Published open var declension: Declension
     @Published open var gender: Gender
     @Published open var noun: Noun
