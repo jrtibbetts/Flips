@@ -14,6 +14,14 @@ public protocol Preposition {
 
 }
 
+public protocol InflectedPreposition: Preposition {
+
+    func inflect(number: Verb.Number, person: Verb.Person, gender: Gender) -> String?
+
+    func inflectEmphatic(number: Verb.Number, person: Verb.Person, gender: Gender) -> String?
+
+}
+
 public struct Ag: Preposition {
 
     public var governsCase = Case.dative
@@ -64,12 +72,56 @@ public struct I: Preposition {
 
 }
 
-public struct Le: Preposition {
+public struct Le: InflectedPreposition {
 
     public var governsCase = Case.dative
 
     public func decline(declinedNoun: String) -> String? {
         return "le " + declinedNoun
+    }
+
+    // MARK: - InflectedPreposition
+
+    public func inflect(number: Verb.Number, person: Verb.Person, gender: Gender) -> String? {
+        switch (number, person, gender) {
+        case (.singular, .first, _):
+            return "liom"
+        case (.singular, .second, _):
+            return "leat"
+        case (.singular, .third, .masculine):
+            return "leis"
+        case (.singular, .third, .feminine):
+            return "leí"
+        case (.plural, .first, _):
+            return "linn"
+        case (.plural, .second, _):
+            return "libh"
+        case (.plural, .third, _):
+            return "leo"
+        default:
+            return nil
+        }
+    }
+
+    public func inflectEmphatic(number: Verb.Number, person: Verb.Person, gender: Gender) -> String? {
+        switch (number, person, gender) {
+        case (.singular, .first, _):
+            return "liomsa"
+        case (.singular, .second, _):
+            return "leatsa"
+        case (.singular, .third, .masculine):
+            return "leis-sean"
+        case (.singular, .third, .feminine):
+            return "leíse"
+        case (.plural, .first, _):
+            return "linne"
+        case (.plural, .second, _):
+            return "libhse"
+        case (.plural, .third, _):
+            return "leosan"
+        default:
+            return nil
+        }
     }
 
 }
