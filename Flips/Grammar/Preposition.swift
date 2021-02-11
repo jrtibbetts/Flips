@@ -8,17 +8,17 @@ public protocol Preposition {
 
     func decline(declinedNoun: String) -> String?
 
-//    func declineWithDefiniteArticle(noun: Noun, number: Verb.Number) -> String?
+//    func declineWithDefiniteArticle(noun: Noun, number: Grammar.Number) -> String?
 //
-//    func declineWithPossessive(noun: Noun, possessive: String, person: Verb.Person, number: Verb.Number) -> String?
+//    func declineWithPossessive(noun: Noun, possessive: String, person: Grammar.Person, number: Grammar.Number) -> String?
 
 }
 
 public protocol InflectedPreposition: Preposition {
 
-    func inflect(number: Verb.Number, person: Verb.Person, gender: Gender) -> String?
+    func inflect(number: Grammar.Number, person: Grammar.Person, gender: Gender) -> String?
 
-    func inflectEmphatic(number: Verb.Number, person: Verb.Person, gender: Gender) -> String?
+    func inflectEmphatic(number: Grammar.Number, person: Grammar.Person, gender: Gender) -> String?
 
 }
 
@@ -32,7 +32,7 @@ public struct Ag: InflectedPreposition {
 
     // MARK: - InflectedPreposition
 
-    public func inflect(number: Verb.Number, person: Verb.Person, gender: Gender) -> String? {
+    public func inflect(number: Grammar.Number, person: Grammar.Person, gender: Gender) -> String? {
         switch (number, person, gender) {
         case (.singular, .first, _):
             return "agam"
@@ -53,7 +53,7 @@ public struct Ag: InflectedPreposition {
         }
     }
 
-    public func inflectEmphatic(number: Verb.Number, person: Verb.Person, gender: Gender) -> String? {
+    public func inflectEmphatic(number: Grammar.Number, person: Grammar.Person, gender: Gender) -> String? {
         switch (number, person, gender) {
         case (.singular, .first, _):
             return "agamsa"
@@ -86,7 +86,7 @@ public struct Ar: InflectedPreposition {
 
     // MARK: - InflectedPreposition
 
-    public func inflect(number: Verb.Number, person: Verb.Person, gender: Gender) -> String? {
+    public func inflect(number: Grammar.Number, person: Grammar.Person, gender: Gender) -> String? {
         switch (number, person, gender) {
         case (.singular, .first, _):
             return "orm"
@@ -107,7 +107,7 @@ public struct Ar: InflectedPreposition {
         }
     }
 
-    public func inflectEmphatic(number: Verb.Number, person: Verb.Person, gender: Gender) -> String? {
+    public func inflectEmphatic(number: Grammar.Number, person: Grammar.Person, gender: Gender) -> String? {
         switch (number, person, gender) {
         case (.singular, .first, _):
             return "ormsa"
@@ -140,7 +140,7 @@ public struct As: InflectedPreposition {
 
     // MARK: - InflectedPreposition
 
-    public func inflect(number: Verb.Number, person: Verb.Person, gender: Gender) -> String? {
+    public func inflect(number: Grammar.Number, person: Grammar.Person, gender: Gender) -> String? {
         switch (number, person, gender) {
         case (.singular, .first, _):
             return "asam"
@@ -161,7 +161,7 @@ public struct As: InflectedPreposition {
         }
     }
 
-    public func inflectEmphatic(number: Verb.Number, person: Verb.Person, gender: Gender) -> String? {
+    public func inflectEmphatic(number: Grammar.Number, person: Grammar.Person, gender: Gender) -> String? {
         switch (number, person, gender) {
         case (.singular, .first, _):
             return "asamsa"
@@ -194,7 +194,7 @@ public struct Chuig: InflectedPreposition {
 
     // MARK: - InflectedPreposition
 
-    public func inflect(number: Verb.Number, person: Verb.Person, gender: Gender) -> String? {
+    public func inflect(number: Grammar.Number, person: Grammar.Person, gender: Gender) -> String? {
         switch (number, person, gender) {
         case (.singular, .first, _):
             return "chugam"
@@ -215,7 +215,7 @@ public struct Chuig: InflectedPreposition {
         }
     }
 
-    public func inflectEmphatic(number: Verb.Number, person: Verb.Person, gender: Gender) -> String? {
+    public func inflectEmphatic(number: Grammar.Number, person: Grammar.Person, gender: Gender) -> String? {
         switch (number, person, gender) {
         case (.singular, .first, _):
             return "chugamsa"
@@ -268,7 +268,7 @@ public struct Le: InflectedPreposition {
 
     // MARK: - InflectedPreposition
 
-    public func inflect(number: Verb.Number, person: Verb.Person, gender: Gender) -> String? {
+    public func inflect(number: Grammar.Number, person: Grammar.Person, gender: Gender) -> String? {
         switch (number, person, gender) {
         case (.singular, .first, _):
             return "liom"
@@ -289,7 +289,7 @@ public struct Le: InflectedPreposition {
         }
     }
 
-    public func inflectEmphatic(number: Verb.Number, person: Verb.Person, gender: Gender) -> String? {
+    public func inflectEmphatic(number: Grammar.Number, person: Grammar.Person, gender: Gender) -> String? {
         switch (number, person, gender) {
         case (.singular, .first, _):
             return "liomsa"

@@ -46,7 +46,7 @@ public class NounInflector: NSObject, ObservableObject {
         super.init()
     }
 
-    open func inflect(grammaticalCase: Case, number: Verb.Number) -> String? {
+    open func inflect(grammaticalCase: Case, number: Grammar.Number) -> String? {
         return nil
     }
 
@@ -58,7 +58,7 @@ public class FirstDeclensionNounInflector: NounInflector {
         super.init(noun: noun, declension: .first)
     }
 
-    open override func inflect(grammaticalCase: Case, number: Verb.Number) -> String? {
+    open override func inflect(grammaticalCase: Case, number: Grammar.Number) -> String? {
         if number == .singular {
             switch grammaticalCase {
             case .nominative, .dative:
@@ -96,7 +96,7 @@ public class SecondDeclensionNounInflector: NounInflector {
         super.init(noun: noun, declension: .second)
     }
 
-    open override func inflect(grammaticalCase: Case, number: Verb.Number) -> String? {
+    open override func inflect(grammaticalCase: Case, number: Grammar.Number) -> String? {
         if number == .singular {
             switch grammaticalCase {
             case .nominative, .dative:
@@ -130,7 +130,7 @@ public class ThirdDeclensionNounInflector: NounInflector {
         super.init(noun: noun, declension: .third)
     }
 
-    open override func inflect(grammaticalCase: Case, number: Verb.Number) -> String? {
+    open override func inflect(grammaticalCase: Case, number: Grammar.Number) -> String? {
         if number == .singular {
             switch grammaticalCase {
             case .nominative, .dative:
@@ -162,7 +162,7 @@ public class FourthDeclensionNounInflector: NounInflector {
         super.init(noun: noun, declension: .fourth)
     }
 
-    open override func inflect(grammaticalCase: Case, number: Verb.Number) -> String? {
+    open override func inflect(grammaticalCase: Case, number: Grammar.Number) -> String? {
         if number == .singular {
             switch grammaticalCase {
             case .nominative, .genitive, .dative:
@@ -192,7 +192,7 @@ public class FifthDeclensionNounInflector: NounInflector {
         super.init(noun: noun, declension: .fifth)
     }
 
-    open override func inflect(grammaticalCase: Case, number: Verb.Number) -> String? {
+    open override func inflect(grammaticalCase: Case, number: Grammar.Number) -> String? {
         if number == .singular {
             switch grammaticalCase {
             case .nominative, .dative:

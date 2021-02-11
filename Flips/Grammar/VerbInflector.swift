@@ -78,8 +78,8 @@ open class VerbInflector: NSObject, ObservableObject {
         super.init()
     }
 
-    open func inflect(person: Verb.Person,
-                 number: Verb.Number) -> VerbInflection? {
+    open func inflect(person: Grammar.Person,
+                 number: Grammar.Number) -> VerbInflection? {
         return nil
     }
 
@@ -91,7 +91,7 @@ open class VerbInflector: NSObject, ObservableObject {
         }
     }
 
-    open func englishPronoun(_ person: Verb.Person, _ number: Verb.Number) -> String {
+    open func englishPronoun(_ person: Grammar.Person, _ number: Grammar.Number) -> String {
         switch (person, number) {
         case (.first, .singular):
             return "I"
@@ -110,7 +110,7 @@ open class VerbInflector: NSObject, ObservableObject {
         }
     }
 
-    open func translationWithPronoun(_ person: Verb.Person, _ number: Verb.Number) -> String? {
+    open func translationWithPronoun(_ person: Grammar.Person, _ number: Grammar.Number) -> String? {
         guard let translation = translation else {
             return nil
         }
@@ -124,7 +124,7 @@ open class VerbInflector: NSObject, ObservableObject {
         }
     }
 
-    open func pronoun(_ person: Verb.Person, _ number: Verb.Number) -> String {
+    open func pronoun(_ person: Grammar.Person, _ number: Grammar.Number) -> String {
         switch (person, number) {
         case (.first, .singular):
             return "mé"
@@ -151,7 +151,7 @@ public class PresentIndicative: VerbInflector {
         super.init(verb: verb, mode: mode, mood: .indicative, tense: .present, translation: verb.englishPresent)
     }
 
-    public override func translationWithPronoun(_ person: Verb.Person, _ number: Verb.Number) -> String? {
+    public override func translationWithPronoun(_ person: Grammar.Person, _ number: Grammar.Number) -> String? {
         guard let translation = translation else {
             return nil
         }
@@ -201,7 +201,7 @@ public class PresentIndicative: VerbInflector {
         }
     }
 
-    public override func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
+    public override func inflect(person: Grammar.Person, number: Grammar.Number) -> VerbInflection {
         guard let root = verb.root,
               let conjugation = Verb.Conjugation(rawValue: verb.conjugation) else {
             return VerbInflection()
@@ -264,8 +264,8 @@ public class PastIndicative: VerbInflector {
         super.init(verb: verb, mode: mode, mood: .indicative, tense: .past, translation: verb.englishPast)
     }
 
-    public override func translationWithPronoun(_ person: Verb.Person,
-                                                _ number: Verb.Number) -> String? {
+    public override func translationWithPronoun(_ person: Grammar.Person,
+                                                _ number: Grammar.Number) -> String? {
         guard let translation = translation,
               let englishPresent = verb.englishPresent,
               let englishPast = verb.englishPast else {
@@ -288,7 +288,7 @@ public class PastIndicative: VerbInflector {
         }
     }
 
-    public override func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
+    public override func inflect(person: Grammar.Person, number: Grammar.Number) -> VerbInflection {
         guard var root = verb.pastRoot ?? verb.root,
               let conjugation = Verb.Conjugation(rawValue: verb.conjugation) else {
             return VerbInflection()
@@ -343,8 +343,8 @@ public class Imperfect: VerbInflector {
         }
     }
 
-    public override func translationWithPronoun(_ person: Verb.Person,
-                                                _ number: Verb.Number) -> String? {
+    public override func translationWithPronoun(_ person: Grammar.Person,
+                                                _ number: Grammar.Number) -> String? {
         guard let translation = translation,
               let englishPresent = verb.englishPresent else {
             return nil
@@ -366,7 +366,7 @@ public class Imperfect: VerbInflector {
         }
     }
 
-    public override func inflect(person: Verb.Person, number: Verb.Number) -> VerbInflection {
+    public override func inflect(person: Grammar.Person, number: Grammar.Number) -> VerbInflection {
         guard let root = verb.root,
               let conjugation = Verb.Conjugation(rawValue: verb.conjugation) else {
             return VerbInflection()
@@ -442,8 +442,8 @@ public class FutureIndicative: VerbInflector {
         }
     }
 
-    public override func translationWithPronoun(_ person: Verb.Person,
-                                                _ number: Verb.Number) -> String? {
+    public override func translationWithPronoun(_ person: Grammar.Person,
+                                                _ number: Grammar.Number) -> String? {
         guard let translation = translation,
               let englishPresent = verb.englishPresent else {
             return nil
@@ -465,8 +465,8 @@ public class FutureIndicative: VerbInflector {
         }
     }
 
-    public override func inflect(person: Verb.Person,
-                                 number: Verb.Number) -> VerbInflection {
+    public override func inflect(person: Grammar.Person,
+                                 number: Grammar.Number) -> VerbInflection {
         guard let root = verb.futureRoot ?? verb.root,
               let conjugation = Verb.Conjugation(rawValue: verb.conjugation) else {
             return VerbInflection()
@@ -517,8 +517,8 @@ public class Conditional: VerbInflector {
         }
     }
 
-    public override func translationWithPronoun(_ person: Verb.Person,
-                                                _ number: Verb.Number) -> String? {
+    public override func translationWithPronoun(_ person: Grammar.Person,
+                                                _ number: Grammar.Number) -> String? {
         guard let translation = translation,
               let englishPresent = verb.englishPresent else {
             return nil
@@ -540,8 +540,8 @@ public class Conditional: VerbInflector {
         }
     }
 
-    public override func inflect(person: Verb.Person,
-                                 number: Verb.Number) -> VerbInflection {
+    public override func inflect(person: Grammar.Person,
+                                 number: Grammar.Number) -> VerbInflection {
         guard let root = verb.root,
               let conjugation = Verb.Conjugation(rawValue: verb.conjugation) else {
             return VerbInflection()
@@ -614,8 +614,8 @@ public class PresentSubjunctive: VerbInflector {
         }
     }
 
-    public override func translationWithPronoun(_ person: Verb.Person,
-                                                _ number: Verb.Number) -> String? {
+    public override func translationWithPronoun(_ person: Grammar.Person,
+                                                _ number: Grammar.Number) -> String? {
         guard let translation = translation,
               let englishPresent = verb.englishPresent else {
             return nil
@@ -637,8 +637,8 @@ public class PresentSubjunctive: VerbInflector {
         }
     }
 
-    public override func inflect(person: Verb.Person,
-                                 number: Verb.Number) -> VerbInflection {
+    public override func inflect(person: Grammar.Person,
+                                 number: Grammar.Number) -> VerbInflection {
         guard let root = verb.root,
               let conjugation = Verb.Conjugation(rawValue: verb.conjugation) else {
             return VerbInflection()
@@ -691,8 +691,8 @@ public class PastSubjunctive: VerbInflector {
         }
     }
 
-    public override func translationWithPronoun(_ person: Verb.Person,
-                                                _ number: Verb.Number) -> String? {
+    public override func translationWithPronoun(_ person: Grammar.Person,
+                                                _ number: Grammar.Number) -> String? {
         guard let translation = translation,
               let englishPastParticiple = verb.englishPastParticiple else {
             return nil
@@ -714,8 +714,8 @@ public class PastSubjunctive: VerbInflector {
         }
     }
 
-    public override func inflect(person: Verb.Person,
-                                 number: Verb.Number) -> VerbInflection {
+    public override func inflect(person: Grammar.Person,
+                                 number: Grammar.Number) -> VerbInflection {
         let pastHabitualInflector = Imperfect(verb: verb, mode: mode)
         var inflection = pastHabitualInflector.inflect(person: person, number: number)
         inflection.root = inflection.root.eclipsed

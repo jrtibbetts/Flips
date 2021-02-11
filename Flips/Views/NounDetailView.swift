@@ -38,7 +38,7 @@ struct NumberInflectionView: View {
 
     @StateObject var inflector: NounInflector
 
-    @State var number: Verb.Number
+    @State var number: Grammar.Number
 
     var body: some View {
         VStack(alignment: .leading) {
@@ -57,7 +57,7 @@ struct CaseNumberInflectionView: View {
     @StateObject var inflector: NounInflector
 
     @State var grammaticalCase: Case
-    @State var number: Verb.Number
+    @State var number: Grammar.Number
 
     var body: some View {
         HStack {

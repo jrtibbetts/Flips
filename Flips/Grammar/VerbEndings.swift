@@ -2,6 +2,23 @@
 
 import Foundation
 
+public class Grammar {
+
+    public enum Number: String, Codable {
+        case singular
+        case plural
+    }
+
+    public enum Person: String, Codable {
+        case first
+        case second
+        case third
+//        case relative
+        case autonomous
+    }
+
+}
+
 public extension Verb {
 
     enum Conjugation: Int16, Codable, CaseIterable {
@@ -14,19 +31,6 @@ public extension Verb {
         case imperative
         case indicative
         case subjunctive
-    }
-
-    enum Number: String, Codable {
-        case singular
-        case plural
-    }
-
-    enum Person: String, Codable {
-        case first
-        case second
-        case third
-//        case relative
-        case autonomous
     }
 
     enum Tense: String, Codable {
