@@ -140,11 +140,11 @@
 			children = (
 				9641FE7B25C6886300708FFE /* Declinable.swift */,
 				9641FE7325C6831100708FFE /* NounInflector.swift */,
+				9641FE8C25CFA98700708FFE /* Preposition.swift */,
 				96185CBD253BDFB900C71FBB /* String+InitialMutations.swift */,
 				961B25E82534114D009F43F0 /* VerbEndings.swift */,
 				96378704253806D500DF52EC /* VerbExtensions.swift */,
 				963786F92537D42E00DF52EC /* VerbInflector.swift */,
-				9641FE8C25CFA98700708FFE /* Preposition.swift */,
 			);
 			path = Grammar;
 			sourceTree = "<group>";
