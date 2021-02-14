@@ -2,7 +2,7 @@
 
 import Foundation
 
-public protocol Preposition {
+public protocol Preposition: Identifiable {
 
     var governsCase: Case { get }
 
@@ -23,6 +23,8 @@ public protocol InflectedPreposition: Preposition {
 }
 
 public struct Ag: InflectedPreposition {
+
+    public var id = "ag"
 
     public var governsCase = Case.dative
 
@@ -78,6 +80,8 @@ public struct Ag: InflectedPreposition {
 
 public struct Ar: InflectedPreposition {
 
+    public var id = "ar"
+
     public var governsCase = Case.dative
 
     public func decline(declinedNoun: String) -> String? {
@@ -131,6 +135,8 @@ public struct Ar: InflectedPreposition {
 }
 
 public struct As: InflectedPreposition {
+
+    public var id = "as"
 
     public var governsCase = Case.dative
 
@@ -186,6 +192,8 @@ public struct As: InflectedPreposition {
 
 public struct Chuig: InflectedPreposition {
 
+    public var id = "chuig"
+
     public var governsCase = Case.dative
 
     public func decline(declinedNoun: String) -> String? {
@@ -240,6 +248,8 @@ public struct Chuig: InflectedPreposition {
 
 public struct De: InflectedPreposition {
 
+    public var id = "de"
+
     public var governsCase = Case.dative
 
     public func decline(declinedNoun: String) -> String? {
@@ -291,6 +301,8 @@ public struct De: InflectedPreposition {
 }
 
 public struct Do: InflectedPreposition {
+
+    public var id = "do"
 
     public var governsCase = Case.dative
 
@@ -344,6 +356,8 @@ public struct Do: InflectedPreposition {
 
 public struct Faoi: InflectedPreposition {
 
+    public var id = "faoi"
+
     public var governsCase = Case.dative
 
     public func decline(declinedNoun: String) -> String? {
@@ -396,6 +410,8 @@ public struct Faoi: InflectedPreposition {
 
 public struct I: Preposition {
 
+    public var id = "i"
+
     public var governsCase = Case.dative
 
     public func decline(declinedNoun: String) -> String? {
@@ -405,6 +421,8 @@ public struct I: Preposition {
 }
 
 public struct Le: InflectedPreposition {
+
+    public var id = "le"
 
     public var governsCase = Case.dative
 
