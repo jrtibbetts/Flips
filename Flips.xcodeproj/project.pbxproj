@@ -32,6 +32,7 @@
 		96A8227D253BE0DE0012D839 /* EditVerbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A82278253BE0DE0012D839 /* EditVerbView.swift */; };
 		96A8227E253BE0DE0012D839 /* VerbConjugationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A82279253BE0DE0012D839 /* VerbConjugationView.swift */; };
 		96A8227F253BE0DE0012D839 /* WordListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A8227A253BE0DE0012D839 /* WordListView.swift */; };
+		96D5142625D8B10700C04BB1 /* PrepositionsOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D5142525D8B10700C04BB1 /* PrepositionsOverview.swift */; };
 		96DC38472542806F00A00805 /* VerbEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DC38462542806F00A00805 /* VerbEditor.swift */; };
 		96DC38502545324F00A00805 /* AQUI in Frameworks */ = {isa = PBXBuildFile; productRef = 96DC384F2545324F00A00805 /* AQUI */; };
 		96FE2C0225C13CEE00D8CE14 /* PartOfSpeechModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE2C0125C13CEE00D8CE14 /* PartOfSpeechModel.swift */; };
@@ -89,6 +90,7 @@
 		96A82279253BE0DE0012D839 /* VerbConjugationView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VerbConjugationView.swift; sourceTree = "<group>"; };
 		96A8227A253BE0DE0012D839 /* WordListView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordListView.swift; sourceTree = "<group>"; };
 		96C5D10F25625408008A3CC6 /* Irregulars.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Irregulars.xcdatamodel; sourceTree = "<group>"; };
+		96D5142525D8B10700C04BB1 /* PrepositionsOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionsOverview.swift; sourceTree = "<group>"; };
 		96DC38462542806F00A00805 /* VerbEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbEditor.swift; sourceTree = "<group>"; };
 		96EC281925A83277005D25EE /* Transitives.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Transitives.xcdatamodel; sourceTree = "<group>"; };
 		96FE2C0125C13CEE00D8CE14 /* PartOfSpeechModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartOfSpeechModel.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				96A82277253BE0DE0012D839 /* FlipsApp.swift */,
 				9678B24325B5448200331A16 /* HomeView.swift */,
 				9641FE6025C517F800708FFE /* NounDetailView.swift */,
+				96D5142525D8B10700C04BB1 /* PrepositionsOverview.swift */,
 				96A82279253BE0DE0012D839 /* VerbConjugationView.swift */,
 				96DC38462542806F00A00805 /* VerbEditor.swift */,
 				9641FE6525C5182200708FFE /* WordDetailView.swift */,
@@ -389,6 +392,7 @@
 				9641FE6625C5182200708FFE /* WordDetailView.swift in Sources */,
 				96378705253806D500DF52EC /* VerbExtensions.swift in Sources */,
 				9678B25B25B55B1900331A16 /* NounModel.swift in Sources */,
+				96D5142625D8B10700C04BB1 /* PrepositionsOverview.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
