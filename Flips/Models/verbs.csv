@@ -6,6 +6,7 @@ at,         at,         nil,        nil,        nil,        ata,        ?,      
 athraigh,   athr,       athraigh,   athra,      athr,       athraithe,  athrú,      a, 2, false,    true,   false,      change,     changed,     changed
 ceannaigh,  ceann,      nil,        nil,        nil,        ceannaithe, ceannach,   a, 2, true,     true,   false,      buy,        bought,     bought
 cuir,       cuir,       nil,        nil,        nil,        curtha,     cur,        i, 1, false,    true,   false,      put,        put,        put
+éist,       éist,       nil,        nil,        nil,        éiste,      éisteacht,  i, 1, false,    true,   false,      listen,     listened,   listened
 faigh,      faigh,      fuair,      nil,        gheobh,     faigte,     fáil,       i, 2, false,    true,   false,      get/find,   got/found,  got(ten)/found
 feic,       feic,       conaic,     nil,        nil,        feicthe,    feiceáil,   i, 1, false,    true,   false,      see,        saw,        seen
 inis,       ins,        inis,       nil,        nil,        inste,      insint,     i, 2, true,     true,   false,      tell,       told,       told
