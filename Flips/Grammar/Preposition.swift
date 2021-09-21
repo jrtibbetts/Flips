@@ -2,7 +2,7 @@
 
 import Foundation
 
-public protocol Preposition: Identifiable {
+public protocol Preposition {
 
     var governsCase: Case { get }
 
@@ -15,6 +15,8 @@ public protocol Preposition: Identifiable {
 }
 
 public protocol InflectedPreposition: Preposition {
+
+    var id: String { get }
 
     func inflect(number: Grammar.Number, person: Grammar.Person, gender: Gender) -> String?
 

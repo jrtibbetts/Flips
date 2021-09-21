@@ -9,8 +9,10 @@ struct PrepositionsOverview: View {
     var body: some View {
         ScrollView {
             VStack {
-                ForEach(prepositions) { (preposition) in
-                    Text(preposition.inflect(number: .singular, person: .first, gender: .masculine))
+                ForEach(prepositions, id: \.id) { (preposition) in
+                    if let inflectedForm = preposition.inflect(number: .singular, person: .first, gender: .masculine) {
+                        Text(inflectedForm)
+                    }
                 }
             }
         }
