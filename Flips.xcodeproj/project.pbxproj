@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		96185CB3253AADCD00C71FBB /* VerbModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96185CB2253AADCD00C71FBB /* VerbModel.swift */; };
 		96185CBE253BDFB900C71FBB /* String+InitialMutations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96185CBD253BDFB900C71FBB /* String+InitialMutations.swift */; };
 		961B25E92534114D009F43F0 /* VerbEndings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961B25E82534114D009F43F0 /* VerbEndings.swift */; };
 		963786FA2537D42E00DF52EC /* VerbInflector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 963786F92537D42E00DF52EC /* VerbInflector.swift */; };
@@ -26,7 +25,6 @@
 		9675F205252EA6FB00CAF7EC /* FlipsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9675F204252EA6FB00CAF7EC /* FlipsUITests.swift */; };
 		9678B24425B5448200331A16 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9678B24325B5448200331A16 /* HomeView.swift */; };
 		9678B25625B55AE500331A16 /* nouns.csv in Resources */ = {isa = PBXBuildFile; fileRef = 9678B25525B55AE500331A16 /* nouns.csv */; };
-		9678B25B25B55B1900331A16 /* NounModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9678B25A25B55B1900331A16 /* NounModel.swift */; };
 		9678B27725BE839800331A16 /* WordExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9678B27625BE839800331A16 /* WordExtensions.swift */; };
 		96A8227C253BE0DE0012D839 /* FlipsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A82277253BE0DE0012D839 /* FlipsApp.swift */; };
 		96A8227D253BE0DE0012D839 /* EditVerbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96A82278253BE0DE0012D839 /* EditVerbView.swift */; };
@@ -35,7 +33,6 @@
 		96D5142625D8B10700C04BB1 /* PrepositionsOverview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D5142525D8B10700C04BB1 /* PrepositionsOverview.swift */; };
 		96DC38472542806F00A00805 /* VerbEditor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96DC38462542806F00A00805 /* VerbEditor.swift */; };
 		96DC38502545324F00A00805 /* AQUI in Frameworks */ = {isa = PBXBuildFile; productRef = 96DC384F2545324F00A00805 /* AQUI */; };
-		96FE2C0225C13CEE00D8CE14 /* PartOfSpeechModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96FE2C0125C13CEE00D8CE14 /* PartOfSpeechModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,7 +54,6 @@
 
 /* Begin PBXFileReference section */
 		9606046C259DA7F700DFA24B /* DisOptionaled.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DisOptionaled.xcdatamodel; sourceTree = "<group>"; };
-		96185CB2253AADCD00C71FBB /* VerbModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbModel.swift; sourceTree = "<group>"; };
 		96185CBD253BDFB900C71FBB /* String+InitialMutations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+InitialMutations.swift"; sourceTree = "<group>"; };
 		961B25E82534114D009F43F0 /* VerbEndings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbEndings.swift; sourceTree = "<group>"; };
 		963786F92537D42E00DF52EC /* VerbInflector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbInflector.swift; sourceTree = "<group>"; };
@@ -83,7 +79,6 @@
 		9678B24325B5448200331A16 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		9678B25425B558A000331A16 /* Nouns.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Nouns.xcdatamodel; sourceTree = "<group>"; };
 		9678B25525B55AE500331A16 /* nouns.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = nouns.csv; sourceTree = "<group>"; };
-		9678B25A25B55B1900331A16 /* NounModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NounModel.swift; sourceTree = "<group>"; };
 		9678B27625BE839800331A16 /* WordExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordExtensions.swift; sourceTree = "<group>"; };
 		96A82277253BE0DE0012D839 /* FlipsApp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlipsApp.swift; sourceTree = "<group>"; };
 		96A82278253BE0DE0012D839 /* EditVerbView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditVerbView.swift; sourceTree = "<group>"; };
@@ -93,7 +88,6 @@
 		96D5142525D8B10700C04BB1 /* PrepositionsOverview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PrepositionsOverview.swift; sourceTree = "<group>"; };
 		96DC38462542806F00A00805 /* VerbEditor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerbEditor.swift; sourceTree = "<group>"; };
 		96EC281925A83277005D25EE /* Transitives.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Transitives.xcdatamodel; sourceTree = "<group>"; };
-		96FE2C0125C13CEE00D8CE14 /* PartOfSpeechModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PartOfSpeechModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,10 +121,7 @@
 			children = (
 				9678B25525B55AE500331A16 /* nouns.csv */,
 				9637871125391C6500DF52EC /* verbs.csv */,
-				9678B25A25B55B1900331A16 /* NounModel.swift */,
-				96FE2C0125C13CEE00D8CE14 /* PartOfSpeechModel.swift */,
 				9675F1EB252EA6FA00CAF7EC /* Persistence.swift */,
-				96185CB2253AADCD00C71FBB /* VerbModel.swift */,
 				9678B27625BE839800331A16 /* WordExtensions.swift */,
 				9675F1ED252EA6FA00CAF7EC /* Flips.xcdatamodeld */,
 			);
@@ -381,17 +372,14 @@
 				9675F1EF252EA6FA00CAF7EC /* Flips.xcdatamodeld in Sources */,
 				9641FE8D25CFA98700708FFE /* Preposition.swift in Sources */,
 				9675F1EC252EA6FA00CAF7EC /* Persistence.swift in Sources */,
-				96FE2C0225C13CEE00D8CE14 /* PartOfSpeechModel.swift in Sources */,
 				961B25E92534114D009F43F0 /* VerbEndings.swift in Sources */,
 				96A8227E253BE0DE0012D839 /* VerbConjugationView.swift in Sources */,
 				9678B27725BE839800331A16 /* WordExtensions.swift in Sources */,
 				96185CBE253BDFB900C71FBB /* String+InitialMutations.swift in Sources */,
 				963786FA2537D42E00DF52EC /* VerbInflector.swift in Sources */,
-				96185CB3253AADCD00C71FBB /* VerbModel.swift in Sources */,
 				9641FE6125C517F800708FFE /* NounDetailView.swift in Sources */,
 				9641FE6625C5182200708FFE /* WordDetailView.swift in Sources */,
 				96378705253806D500DF52EC /* VerbExtensions.swift in Sources */,
-				9678B25B25B55B1900331A16 /* NounModel.swift in Sources */,
 				96D5142625D8B10700C04BB1 /* PrepositionsOverview.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

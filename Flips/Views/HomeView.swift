@@ -4,33 +4,28 @@ import SwiftUI
 
 struct HomeView: View {
 
-    let nounModel = NounModel()
-    let verbModel = VerbModel()
-
     let gridItems = [GridItem(.adaptive(minimum: 100.0, maximum: 200.0))]
 
     var body: some View {
         NavigationView {
             VStack(alignment: .leading) {
                 LazyVGrid(columns: gridItems, alignment: .center, spacing: 20.0) {
-                    NavigationLink(destination: WordListView<Noun>()
-                                    .environment(\.managedObjectContext, nounModel.viewContext)) {
+                    NavigationLink(destination: WordListView<Noun>()) {
                         Text("Nouns")
                     }
-                    .frame(width: 75.0, height: 75.0, alignment: .center)
-                    .border(Color.blue)
 
-                    NavigationLink(destination: WordListView<Verb>()
-                                    .environment(\.managedObjectContext, verbModel.viewContext)) {
+                    NavigationLink(destination: WordListView<Verb>()) {
                         Text("Verbs")
                     }
-                    .frame(width: 75.0, height: 75.0, alignment: .center)
-                    .border(Color.green)
+
+                    NavigationLink(destination: PrepositionsOverview()) {
+                        Text("Prepositions")
+                    }
                 }
 
                 Spacer()
             }
-            .navigationTitle("Home")
+            .navigationTitle("Gaeilge")
         }
     }
 

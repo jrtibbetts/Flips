@@ -46,5 +46,89 @@ public struct PersistenceController {
                 fatalError("Unresolved error \(error), \(error.userInfo)")
             }
         })
+
+        initializeNouns()
+        initializeVerbs()
     }
+
+    func initializeVerbs() {
+        do {
+            try lines(fromFilename: "verbs", ext: "csv").forEach { (line) in
+                let elements = line.split(separator: ",").map { String($0).trimmingCharacters(in: .whitespaces) }
+
+                let verb = Verb(context: container.viewContext)
+                verb.dictionaryForm = elements[0]
+                verb.root = elements[1]
+                verb.pastRoot = elements[2].stringOrNil ?? verb.root
+                verb.pastRoot2 = elements[3].stringOrNil ?? verb.pastRoot
+                verb.futureRoot = elements[4].stringOrNil ?? verb.root
+                verb.pastParticiple = elements[5]
+                verb.verbalNoun = elements[6]
+                verb.rootVowel = elements[7]
+                verb.conjugation = Int16(elements[8])!
+                verb.polysyllabic = Bool(elements[9])!
+                verb.transitive = Bool(elements[10])!
+                verb.irregular = Bool(elements[11])!
+                verb.englishPresent = elements[12]
+                verb.englishTranslation = verb.englishPresent
+                verb.englishPast = elements[13]
+                verb.englishPastParticiple = elements[14]
+            }
+
+            try container.viewContext.save()
+        } catch {
+            print("Error importing verbs: \(error.localizedDescription)")
+        }
+    }
+
+    func initializeNouns() {
+        do {
+            try lines(fromFilename: "nouns", ext: "csv").forEach { (line) in
+                let elements = line.split(separator: ",").map { String($0).trimmingCharacters(in: .whitespaces) }
+                let noun = Noun(context: container.viewContext)
+                noun.root = elements[0]
+                noun.dictionaryForm = noun.root
+                noun.gender = elements[1]
+                noun.declension = Int16(elements[2]) ?? 1
+                noun.genitive = elements[3]
+                noun.plural = elements[4]
+                noun.strongPlural = Bool(elements[5]) ?? false
+                noun.englishTranslation = elements[6]
+                noun.englishTranslationPlural = elements[7]
+            }
+
+            try container.viewContext.save()
+        } catch {
+            print("Error importing nouns: \(error.localizedDescription)")
+        }
+    }
+
+    func lines(fromFilename filename: String, ext: String?) throws -> [String] {
+        if let csvUrl = Bundle.main.url(forResource: filename, withExtension: ext) {
+            return try String(contentsOf: csvUrl, encoding: .utf8)  // full file
+                .components(separatedBy: CharacterSet.newlines)     // lines
+                .compactMap { $0.trimmed }
+        } else {
+            return []
+        }
+    }
+
+}
+
+public extension String {
+
+    var stringOrNil: String? {
+        return (self.lowercased() == "nil" || self.isEmpty) ? nil : self
+    }
+
+    var trimmed: String? {
+        let trimmedLine = self.trimmingCharacters(in: .whitespaces)
+
+        if trimmedLine.isEmpty || trimmedLine.starts(with: "#") {
+            return nil
+        } else {
+            return trimmedLine
+        }
+    }
+
 }

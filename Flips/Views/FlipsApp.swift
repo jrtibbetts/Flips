@@ -5,9 +5,12 @@ import SwiftUI
 @main
 struct FlipsApp: App {
 
+    var persistenceController = PersistenceController(inMemory: true)
+
     var body: some Scene {
         WindowGroup {
             HomeView()
+                .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
 
