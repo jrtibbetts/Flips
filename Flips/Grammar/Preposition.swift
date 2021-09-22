@@ -260,7 +260,7 @@ public struct Chuig: InflectedPreposition {
 
 public struct De: InflectedPreposition {
 
-    public var englishTranslation = "to"
+    public var englishTranslation = "from"
 
     public var id = "de"
 
@@ -316,7 +316,7 @@ public struct De: InflectedPreposition {
 
 public struct Do: InflectedPreposition {
 
-    public var englishTranslation = "from"
+    public var englishTranslation = "to, for"
 
     public var id = "do"
 
@@ -426,6 +426,62 @@ public struct Faoi: InflectedPreposition {
 
 }
 
+public struct Fara: InflectedPreposition {
+
+    public var englishTranslation = "alongside"
+
+    public var id = "fara"
+
+    public var governsCase = Case.dative
+
+    public func decline(declinedNoun: String) -> String? {
+        return "fara " + declinedNoun
+    }
+
+    public func inflect(number: Grammar.Number, person: Grammar.Person, gender: Gender) -> String? {
+        switch (number, person, gender) {
+        case (.singular, .first, _):
+            return "faram"
+        case (.singular, .second, _):
+            return "farat"
+        case (.singular, .third, .masculine):
+            return "fairis"
+        case (.singular, .third, .feminine):
+            return "farae"
+        case (.plural, .first, _):
+            return "farainn"
+        case (.plural, .second, _):
+            return "faraibh"
+        case (.plural, .third, _):
+            return "faru"
+        default:
+            return nil
+        }
+    }
+
+    public func inflectEmphatic(number: Grammar.Number, person: Grammar.Person, gender: Gender) -> String? {
+        switch (number, person, gender) {
+        case (.singular, .first, _):
+            return "faramsa"
+        case (.singular, .second, _):
+            return "faratsa"
+        case (.singular, .third, .masculine):
+            return "fairis-sean"
+        case (.singular, .third, .feminine):
+            return "faraese"
+        case (.plural, .first, _):
+            return "farainne"
+        case (.plural, .second, _):
+            return "faraibse"
+        case (.plural, .third, _):
+            return "farusan"
+        default:
+            return nil
+        }
+    }
+
+}
+
 public struct I: Preposition {
 
     public var englishTranslation = "in"
@@ -491,6 +547,122 @@ public struct Le: InflectedPreposition {
             return "libhse"
         case (.plural, .third, _):
             return "leosan"
+        default:
+            return nil
+        }
+    }
+
+}
+
+public struct Ó: InflectedPreposition {
+
+    public var englishTranslation = "from, since"
+
+    public var id = "ó"
+
+    public var governsCase = Case.dative
+
+    public func decline(declinedNoun: String) -> String? {
+        return "ó " + declinedNoun.lenited
+    }
+
+    // MARK: - InflectedPreposition
+
+    public func inflect(number: Grammar.Number, person: Grammar.Person, gender: Gender) -> String? {
+        switch (number, person, gender) {
+        case (.singular, .first, _):
+            return "uaim"
+        case (.singular, .second, _):
+            return "uait"
+        case (.singular, .third, .masculine):
+            return "uaidh"
+        case (.singular, .third, .feminine):
+            return "uaithi"
+        case (.plural, .first, _):
+            return "uainn"
+        case (.plural, .second, _):
+            return "uaibh"
+        case (.plural, .third, _):
+            return "uathu"
+        default:
+            return nil
+        }
+    }
+
+    public func inflectEmphatic(number: Grammar.Number, person: Grammar.Person, gender: Gender) -> String? {
+        switch (number, person, gender) {
+        case (.singular, .first, _):
+            return "uaimsa"
+        case (.singular, .second, _):
+            return "uaitsa"
+        case (.singular, .third, .masculine):
+            return "uaidhsean"
+        case (.singular, .third, .feminine):
+            return "uaithise"
+        case (.plural, .first, _):
+            return "uainne"
+        case (.plural, .second, _):
+            return "uaibhse"
+        case (.plural, .third, _):
+            return "uathusan"
+        default:
+            return nil
+        }
+    }
+
+}
+
+public struct Trí: InflectedPreposition {
+
+    public var englishTranslation = "through"
+
+    public var id = "trí"
+
+    public var governsCase = Case.dative
+
+    public func decline(declinedNoun: String) -> String? {
+        return "trí " + declinedNoun.lenited
+    }
+
+    // MARK: - InflectedPreposition
+
+    public func inflect(number: Grammar.Number, person: Grammar.Person, gender: Gender) -> String? {
+        switch (number, person, gender) {
+        case (.singular, .first, _):
+            return "tríom"
+        case (.singular, .second, _):
+            return "tríot"
+        case (.singular, .third, .masculine):
+            return "tríd"
+        case (.singular, .third, .feminine):
+            return "tríthi"
+        case (.plural, .first, _):
+            return "trínn"
+        case (.plural, .second, _):
+            return "tríbh"
+        case (.plural, .third, _):
+            return "tríothu"
+        default:
+            return nil
+        }
+    }
+
+    public func inflectEmphatic(number: Grammar.Number, person: Grammar.Person, gender: Gender) -> String? {
+        switch (number, person, gender) {
+        case (.singular, .first, _):
+            return "tríomsa"
+        case (.singular, .second, _):
+            return "tríotsa"
+        case (.singular, .third, .masculine):
+            return "trídsean"
+        case (.singular, .third, .feminine):
+            return "trínne"
+        case (.plural, .first, _):
+            return "tríbhse"
+        case (.plural, .second, _):
+            return "tríothusan"
+        case (.plural, .third, _):
+            return "uathusan"
         default:
             return nil
         }
