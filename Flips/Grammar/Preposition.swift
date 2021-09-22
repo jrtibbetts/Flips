@@ -4,6 +4,8 @@ import Foundation
 
 public protocol Preposition {
 
+    var englishTranslation: String { get }
+
     var governsCase: Case { get }
 
     func decline(declinedNoun: String) -> String?
@@ -25,6 +27,8 @@ public protocol InflectedPreposition: Preposition {
 }
 
 public struct Ag: InflectedPreposition {
+
+    public var englishTranslation = "at"
 
     public var id = "ag"
 
@@ -82,6 +86,8 @@ public struct Ag: InflectedPreposition {
 
 public struct Ar: InflectedPreposition {
 
+    public var englishTranslation = "on"
+
     public var id = "ar"
 
     public var governsCase = Case.dative
@@ -137,6 +143,8 @@ public struct Ar: InflectedPreposition {
 }
 
 public struct As: InflectedPreposition {
+
+    public var englishTranslation = "out of"
 
     public var id = "as"
 
@@ -194,6 +202,8 @@ public struct As: InflectedPreposition {
 
 public struct Chuig: InflectedPreposition {
 
+    public var englishTranslation = "toward"
+
     public var id = "chuig"
 
     public var governsCase = Case.dative
@@ -250,6 +260,8 @@ public struct Chuig: InflectedPreposition {
 
 public struct De: InflectedPreposition {
 
+    public var englishTranslation = "to"
+
     public var id = "de"
 
     public var governsCase = Case.dative
@@ -303,6 +315,8 @@ public struct De: InflectedPreposition {
 }
 
 public struct Do: InflectedPreposition {
+
+    public var englishTranslation = "from"
 
     public var id = "do"
 
@@ -358,6 +372,8 @@ public struct Do: InflectedPreposition {
 
 public struct Faoi: InflectedPreposition {
 
+    public var englishTranslation = "about"
+
     public var id = "faoi"
 
     public var governsCase = Case.dative
@@ -412,6 +428,8 @@ public struct Faoi: InflectedPreposition {
 
 public struct I: Preposition {
 
+    public var englishTranslation = "in"
+
     public var id = "i"
 
     public var governsCase = Case.dative
@@ -423,6 +441,8 @@ public struct I: Preposition {
 }
 
 public struct Le: InflectedPreposition {
+
+    public var englishTranslation = "with"
 
     public var id = "le"
 

@@ -4,16 +4,33 @@ import SwiftUI
 
 struct PrepositionsOverview: View {
 
-    var prepositions: [InflectedPreposition] = [Ag(), Ar(), As()]
+    var prepositions: [InflectedPreposition] = [Ag(), Ar(), As(), Chuig(), De(), Do(), Faoi()]
 
     var body: some View {
-        ScrollView {
-            VStack {
-                ForEach(prepositions, id: \.id) { (preposition) in
-                    if let inflectedForm = preposition.inflect(number: .singular, person: .first, gender: .masculine) {
-                        Text(inflectedForm)
-                    }
+        List {
+            ForEach(prepositions, id: \.id) { (preposition) in
+                NavigationLink(destination: InflectedPrepositionDetailView(preposition: preposition)) {
+                HStack(spacing: 8.0) {
+                    Text(preposition.id)
+                    Spacer()
+                    Text(preposition.englishTranslation)
                 }
+                }
+            }
+        }
+        .listRowSeparator(.hidden)
+    }
+
+}
+
+struct InflectedPrepositionDetailView: View {
+
+    var preposition: InflectedPreposition
+
+    var body: some View {
+        GroupBox {
+            if let inflectedForm = preposition.inflect(number: .singular, person: .first, gender: .masculine) {
+                Text(inflectedForm)
             }
         }
     }
