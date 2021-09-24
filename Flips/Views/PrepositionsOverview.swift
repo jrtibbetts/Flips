@@ -26,8 +26,15 @@ struct PrepositionsOverview: View {
 struct InflectedPrepositionDetailView: View {
 
     var preposition: InflectedPreposition
+    var displayEmphatic: Bool
 
     var body: some View {
+        VStack {
+            Picker("List or Grid?", selection: $displayEmphatic) {
+                Text("List").tag(false)
+                Text("Grid").tag(true)
+            }
+            .pickerStyle(SegmentedPickerStyle())
         GroupBox {
             VStack(spacing: 8.0) {
                 HStack(spacing: 8.0) {
@@ -57,6 +64,7 @@ struct InflectedPrepositionDetailView: View {
                     Text(preposition.inflect(number: .plural, person: .third, gender: .none)!)
                 }
             }
+        }
         }
     }
 
