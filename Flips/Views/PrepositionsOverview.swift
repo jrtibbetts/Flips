@@ -26,45 +26,67 @@ struct PrepositionsOverview: View {
 struct InflectedPrepositionDetailView: View {
 
     var preposition: InflectedPreposition
-    var displayEmphatic: Bool
+    @State var displayEmphatic: Bool = false
 
     var body: some View {
         VStack {
             Picker("List or Grid?", selection: $displayEmphatic) {
-                Text("List").tag(false)
-                Text("Grid").tag(true)
+                Text("Normal").tag(false)
+                Text("Emphatic").tag(true)
             }
             .pickerStyle(SegmentedPickerStyle())
-        GroupBox {
-            VStack(spacing: 8.0) {
-                HStack(spacing: 8.0) {
-                    Text("Singular")
-                    Spacer()
-                    Text("Plural")
-                }
 
-                HStack(alignment: .top, spacing: 8.0) {
-                    Text(preposition.inflect(number: .singular, person: .first, gender: .none)!)
-                    Spacer()
-                    Text(preposition.inflect(number: .plural, person: .first, gender: .none)!)
-                }
-
-                HStack(alignment: .top, spacing: 8.0) {
-                    Text(preposition.inflect(number: .singular, person: .second, gender: .none)!)
-                    Spacer()
-                    Text(preposition.inflect(number: .plural, person: .second, gender: .none)!)
-                }
-
-                HStack(alignment: .top, spacing: 8.0) {
-                    VStack(alignment: .leading) {
-                        Text(preposition.inflect(number: .singular, person: .third, gender: .masculine)!)
-                        Text(preposition.inflect(number: .singular, person: .third, gender: .feminine)!)
+            GroupBox {
+                VStack(spacing: 8.0) {
+                    HStack(spacing: 8.0) {
+                        Text("Singular")
+                        Spacer()
+                        Text("Plural")
                     }
-                    Spacer()
-                    Text(preposition.inflect(number: .plural, person: .third, gender: .none)!)
+
+                    HStack(alignment: .top, spacing: 8.0) {
+                        if displayEmphatic {
+                            Text(preposition.inflectEmphatic(number: .singular, person: .first, gender: .none)!)
+                            Spacer()
+                            Text(preposition.inflectEmphatic(number: .plural, person: .first, gender: .none)!)
+                        } else {
+                            Text(preposition.inflect(number: .singular, person: .first, gender: .none)!)
+                            Spacer()
+                            Text(preposition.inflect(number: .plural, person: .first, gender: .none)!)                        }
+                    }
+
+                    HStack(alignment: .top, spacing: 8.0) {
+                        if displayEmphatic {
+                            Text(preposition.inflectEmphatic(number: .singular, person: .second, gender: .none)!)
+                            Spacer()
+                            Text(preposition.inflectEmphatic(number: .plural, person: .second, gender: .none)!)
+                        } else {
+                            Text(preposition.inflect(number: .singular, person: .second, gender: .none)!)
+                            Spacer()
+                            Text(preposition.inflect(number: .plural, person: .second, gender: .none)!)
+
+                        }
+                    }
+
+                    HStack(alignment: .top, spacing: 8.0) {
+                        if displayEmphatic {
+                            VStack(alignment: .leading) {
+                                Text(preposition.inflectEmphatic(number: .singular, person: .third, gender: .masculine)!)
+                                Text(preposition.inflectEmphatic(number: .singular, person: .third, gender: .feminine)!)
+                            }
+                            Spacer()
+                            Text(preposition.inflectEmphatic(number: .plural, person: .third, gender: .none)!)
+                        } else {
+                            VStack(alignment: .leading) {
+                                Text(preposition.inflect(number: .singular, person: .third, gender: .masculine)!)
+                                Text(preposition.inflect(number: .singular, person: .third, gender: .feminine)!)
+                            }
+                            Spacer()
+                            Text(preposition.inflect(number: .plural, person: .third, gender: .none)!)
+                        }
+                    }
                 }
             }
-        }
         }
     }
 
