@@ -8,10 +8,10 @@ struct PrepositionsOverview: View {
 
     var body: some View {
         List {
-            ForEach(prepositions, id: \.id) { (preposition) in
+            ForEach(prepositions, id: \.string) { (preposition) in
                 NavigationLink(destination: InflectedPrepositionDetailView(preposition: preposition)) {
                     HStack(spacing: 8.0) {
-                        Text(preposition.id)
+                        Text(preposition.string)
                         Spacer()
                         Text(preposition.englishTranslation)
                     }

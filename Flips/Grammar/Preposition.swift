@@ -8,7 +8,9 @@ public protocol Preposition {
 
     var governsCase: Case { get }
 
-    func decline(declinedNoun: String) -> String?
+    var string: String { get }
+
+    func decline(_ noun: String) -> String?
 
 //    func declineWithDefiniteArticle(noun: Noun, number: Grammar.Number) -> String?
 //
@@ -17,8 +19,6 @@ public protocol Preposition {
 }
 
 public protocol InflectedPreposition: Preposition {
-
-    var id: String { get }
 
     func inflect(number: Grammar.Number, person: Grammar.Person, gender: Gender) -> String?
 
@@ -30,12 +30,12 @@ public struct Ag: InflectedPreposition {
 
     public var englishTranslation = "at"
 
-    public var id = "ag"
-
     public var governsCase = Case.dative
 
-    public func decline(declinedNoun: String) -> String? {
-        return "ag " + declinedNoun
+    public var string = "ag"
+
+    public func decline(_ noun: String) -> String? {
+        return "ag " + noun
     }
 
     // MARK: - InflectedPreposition
@@ -88,12 +88,12 @@ public struct Ar: InflectedPreposition {
 
     public var englishTranslation = "on"
 
-    public var id = "ar"
+    public var string = "ar"
 
     public var governsCase = Case.dative
 
-    public func decline(declinedNoun: String) -> String? {
-        return "ar " + declinedNoun
+    public func decline(_ noun: String) -> String? {
+        return "ar " + noun
     }
 
     // MARK: - InflectedPreposition
@@ -146,12 +146,12 @@ public struct As: InflectedPreposition {
 
     public var englishTranslation = "out of"
 
-    public var id = "as"
+    public var string = "as"
 
     public var governsCase = Case.dative
 
-    public func decline(declinedNoun: String) -> String? {
-        return "as " + declinedNoun
+    public func decline(_ noun: String) -> String? {
+        return "as " + noun
     }
 
     // MARK: - InflectedPreposition
@@ -204,12 +204,12 @@ public struct Chuig: InflectedPreposition {
 
     public var englishTranslation = "toward"
 
-    public var id = "chuig"
+    public var string = "chuig"
 
     public var governsCase = Case.dative
 
-    public func decline(declinedNoun: String) -> String? {
-        return "chuig " + declinedNoun
+    public func decline(_ noun: String) -> String? {
+        return "chuig " + noun
     }
 
     // MARK: - InflectedPreposition
@@ -262,12 +262,12 @@ public struct De: InflectedPreposition {
 
     public var englishTranslation = "from"
 
-    public var id = "de"
+    public var string = "de"
 
     public var governsCase = Case.dative
 
-    public func decline(declinedNoun: String) -> String? {
-        return "de " + declinedNoun
+    public func decline(_ noun: String) -> String? {
+        return "de " + noun
     }
 
     public func inflect(number: Grammar.Number, person: Grammar.Person, gender: Gender) -> String? {
@@ -318,12 +318,12 @@ public struct Do: InflectedPreposition {
 
     public var englishTranslation = "to, for"
 
-    public var id = "do"
+    public var string = "do"
 
     public var governsCase = Case.dative
 
-    public func decline(declinedNoun: String) -> String? {
-        return "do " + declinedNoun
+    public func decline(_ noun: String) -> String? {
+        return "do " + noun
     }
 
     public func inflect(number: Grammar.Number, person: Grammar.Person, gender: Gender) -> String? {
@@ -374,12 +374,12 @@ public struct Faoi: InflectedPreposition {
 
     public var englishTranslation = "about"
 
-    public var id = "faoi"
+    public var string = "faoi"
 
     public var governsCase = Case.dative
 
-    public func decline(declinedNoun: String) -> String? {
-        return "faoi " + declinedNoun
+    public func decline(_ noun: String) -> String? {
+        return "faoi " + noun
     }
 
     public func inflect(number: Grammar.Number, person: Grammar.Person, gender: Gender) -> String? {
@@ -430,12 +430,12 @@ public struct Fara: InflectedPreposition {
 
     public var englishTranslation = "alongside"
 
-    public var id = "fara"
+    public var string = "fara"
 
     public var governsCase = Case.dative
 
-    public func decline(declinedNoun: String) -> String? {
-        return "fara " + declinedNoun
+    public func decline(_ noun: String) -> String? {
+        return "fara " + noun
     }
 
     public func inflect(number: Grammar.Number, person: Grammar.Person, gender: Gender) -> String? {
@@ -486,12 +486,12 @@ public struct I: Preposition {
 
     public var englishTranslation = "in"
 
-    public var id = "i"
+    public var string = "i"
 
     public var governsCase = Case.dative
 
-    public func decline(declinedNoun: String) -> String? {
-        return "i " + declinedNoun
+    public func decline(_ noun: String) -> String? {
+        return "i " + noun
     }
 
 }
@@ -500,12 +500,12 @@ public struct Le: InflectedPreposition {
 
     public var englishTranslation = "with"
 
-    public var id = "le"
+    public var string = "le"
 
     public var governsCase = Case.dative
 
-    public func decline(declinedNoun: String) -> String? {
-        return "le " + declinedNoun
+    public func decline(_ noun: String) -> String? {
+        return "le " + noun
     }
 
     // MARK: - InflectedPreposition
@@ -558,12 +558,12 @@ public struct Ó: InflectedPreposition {
 
     public var englishTranslation = "from, since"
 
-    public var id = "ó"
+    public var string = "ó"
 
     public var governsCase = Case.dative
 
-    public func decline(declinedNoun: String) -> String? {
-        return "ó " + declinedNoun.lenited
+    public func decline(_ noun: String) -> String? {
+        return "ó " + noun.lenited
     }
 
     // MARK: - InflectedPreposition
@@ -616,12 +616,12 @@ public struct Trí: InflectedPreposition {
 
     public var englishTranslation = "through"
 
-    public var id = "trí"
+    public var string = "trí"
 
     public var governsCase = Case.dative
 
-    public func decline(declinedNoun: String) -> String? {
-        return "trí " + declinedNoun.lenited
+    public func decline(_ noun: String) -> String? {
+        return "trí " + noun.lenited
     }
 
     // MARK: - InflectedPreposition
