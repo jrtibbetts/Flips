@@ -2,6 +2,14 @@
 
 import Foundation
 
+public enum DemonstrativePronoun: String {
+
+    case singular = "an"
+
+    case plural = "na"
+
+}
+
 public enum PossessivePronoun {
 
     case firstSingular
