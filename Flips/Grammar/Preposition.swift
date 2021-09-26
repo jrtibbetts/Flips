@@ -26,6 +26,14 @@ public protocol InflectedPreposition: Preposition {
 
 }
 
+public protocol ContractingPreposition: Preposition {
+
+    func contractedWith(_ definiteArticle: DefiniteArticle) -> String
+
+    func contractedWith(_ possessive: PossessivePronoun) -> String
+
+}
+
 public struct Ag: InflectedPreposition {
 
     public var englishTranslation = "at"
@@ -258,7 +266,7 @@ public struct Chuig: InflectedPreposition {
 
 }
 
-public struct De: InflectedPreposition {
+public struct De: ContractingPreposition, InflectedPreposition {
 
     public var englishTranslation = "from"
 
@@ -266,8 +274,25 @@ public struct De: InflectedPreposition {
 
     public var governsCase = Case.dative
 
+    public func contractedWith(_ definiteArticle: DefiniteArticle) -> String {
+        return (definiteArticle == .singular ? "don" : "\(self.string) \(definiteArticle.rawValue)")
+    }
+
+    public func contractedWith(_ possessive: PossessivePronoun) -> String {
+        switch possessive {
+        case .thirdSingularMasculine,
+                .thirdSingularFeminine,
+                .thirdPlural:
+            return "dá"
+        case .firstPlural:
+            return "dár"
+        default:
+            return "\(self.string) \(possessive.string)"
+        }
+    }
+
     public func decline(_ noun: String) -> String? {
-        return "de " + noun
+        return "de " + noun.lenited
     }
 
     public func inflect(number: Grammar.Number, person: Grammar.Person, gender: Gender) -> String? {
@@ -314,7 +339,7 @@ public struct De: InflectedPreposition {
 
 }
 
-public struct Do: InflectedPreposition {
+public struct Do: InflectedPreposition, ContractingPreposition {
 
     public var englishTranslation = "to, for"
 
@@ -322,8 +347,25 @@ public struct Do: InflectedPreposition {
 
     public var governsCase = Case.dative
 
+    public func contractedWith(_ definiteArticle: DefiniteArticle) -> String {
+        return (definiteArticle == .singular ? "don" : "\(self.string) \(definiteArticle.rawValue)")
+    }
+
+    public func contractedWith(_ possessive: PossessivePronoun) -> String {
+        switch possessive {
+        case .thirdSingularMasculine,
+                .thirdSingularFeminine,
+                .thirdPlural:
+            return "dá"
+        case .firstPlural:
+            return "dár"
+        default:
+            return "\(self.string) \(possessive.string)"
+        }
+    }
+
     public func decline(_ noun: String) -> String? {
-        return "do " + noun
+        return "do " + noun.lenited
     }
 
     public func inflect(number: Grammar.Number, person: Grammar.Person, gender: Gender) -> String? {
@@ -370,13 +412,30 @@ public struct Do: InflectedPreposition {
 
 }
 
-public struct Faoi: InflectedPreposition {
+public struct Faoi: InflectedPreposition, ContractingPreposition {
 
     public var englishTranslation = "about"
 
     public var string = "faoi"
 
     public var governsCase = Case.dative
+
+    public func contractedWith(_ definiteArticle: DefiniteArticle) -> String {
+        return (definiteArticle == .singular ? "faoin" : "\(self.string) \(definiteArticle.rawValue)")
+    }
+
+    public func contractedWith(_ possessive: PossessivePronoun) -> String {
+        switch possessive {
+        case .thirdSingularMasculine,
+                .thirdSingularFeminine,
+                .thirdPlural:
+            return "faoina"
+        case .firstPlural:
+            return "faoinár"
+        default:
+            return "\(self.string) \(possessive.string)"
+        }
+    }
 
     public func decline(_ noun: String) -> String? {
         return "faoi " + noun
@@ -426,13 +485,30 @@ public struct Faoi: InflectedPreposition {
 
 }
 
-public struct Fara: InflectedPreposition {
+public struct Fara: InflectedPreposition, ContractingPreposition {
 
     public var englishTranslation = "alongside"
 
     public var string = "fara"
 
     public var governsCase = Case.dative
+
+    public func contractedWith(_ definiteArticle: DefiniteArticle) -> String {
+        return "fairis \(definiteArticle.rawValue)"
+    }
+
+    public func contractedWith(_ possessive: PossessivePronoun) -> String {
+        switch possessive {
+        case .thirdSingularMasculine,
+                .thirdSingularFeminine,
+                .thirdPlural:
+            return "farana"
+        case .firstPlural:
+            return "faranár"
+        default:
+            return "\(self.string) \(possessive.string)"
+        }
+    }
 
     public func decline(_ noun: String) -> String? {
         return "fara " + noun
@@ -482,7 +558,7 @@ public struct Fara: InflectedPreposition {
 
 }
 
-public struct I: Preposition {
+public struct I: Preposition, ContractingPreposition {
 
     public var englishTranslation = "in"
 
@@ -490,19 +566,53 @@ public struct I: Preposition {
 
     public var governsCase = Case.dative
 
+    public func contractedWith(_ definiteArticle: DefiniteArticle) -> String {
+        return (definiteArticle == .singular ? "sa(n)" : "sna")
+    }
+
+    public func contractedWith(_ possessive: PossessivePronoun) -> String {
+        switch possessive {
+        case .thirdSingularMasculine,
+                .thirdSingularFeminine,
+                .thirdPlural:
+            return "ina"
+        case .firstPlural:
+            return "inár"
+        default:
+            return "\(self.string) \(possessive.string)"
+        }
+    }
+
     public func decline(_ noun: String) -> String? {
         return "i " + noun
     }
 
 }
 
-public struct Le: InflectedPreposition {
+public struct Le: InflectedPreposition, ContractingPreposition {
 
     public var englishTranslation = "with"
 
     public var string = "le"
 
     public var governsCase = Case.dative
+
+    public func contractedWith(_ definiteArticle: DefiniteArticle) -> String {
+        return "leis \(definiteArticle.rawValue)"
+    }
+
+    public func contractedWith(_ possessive: PossessivePronoun) -> String {
+        switch possessive {
+        case .thirdSingularMasculine,
+                .thirdSingularFeminine,
+                .thirdPlural:
+            return "lena"
+        case .firstPlural:
+            return "lenár"
+        default:
+            return "\(self.string) \(possessive.string)"
+        }
+    }
 
     public func decline(_ noun: String) -> String? {
         return "le " + noun
@@ -554,13 +664,30 @@ public struct Le: InflectedPreposition {
 
 }
 
-public struct Ó: InflectedPreposition {
+public struct Ó: InflectedPreposition, ContractingPreposition {
 
     public var englishTranslation = "from, since"
 
     public var string = "ó"
 
     public var governsCase = Case.dative
+
+    public func contractedWith(_ definiteArticle: DefiniteArticle) -> String {
+        return (definiteArticle == .singular ? "ón" : "\(self.string) \(definiteArticle.rawValue)")
+    }
+
+    public func contractedWith(_ possessive: PossessivePronoun) -> String {
+        switch possessive {
+        case .thirdSingularMasculine,
+                .thirdSingularFeminine,
+                .thirdPlural:
+            return "óna"
+        case .firstPlural:
+            return "ónár"
+        default:
+            return "\(self.string) \(possessive.string)"
+        }
+    }
 
     public func decline(_ noun: String) -> String? {
         return "ó " + noun.lenited
@@ -612,13 +739,30 @@ public struct Ó: InflectedPreposition {
 
 }
 
-public struct Trí: InflectedPreposition {
+public struct Trí: InflectedPreposition, ContractingPreposition {
 
     public var englishTranslation = "through"
 
     public var string = "trí"
 
     public var governsCase = Case.dative
+
+    public func contractedWith(_ definiteArticle: DefiniteArticle) -> String {
+        return (definiteArticle == .singular ? "trid an": "\(self.string) \(definiteArticle.rawValue)")
+    }
+
+    public func contractedWith(_ possessive: PossessivePronoun) -> String {
+        switch possessive {
+        case .thirdSingularMasculine,
+                .thirdSingularFeminine,
+                .thirdPlural:
+            return "tríná"
+        case .firstPlural:
+            return "trínár"
+        default:
+            return "\(self.string) \(possessive.string)"
+        }
+    }
 
     public func decline(_ noun: String) -> String? {
         return "trí " + noun.lenited

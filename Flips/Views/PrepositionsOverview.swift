@@ -87,12 +87,39 @@ struct InflectedPrepositionDetailView: View {
                     }
                 }
             }
+
+            if let contractingPreposition = preposition as? ContractingPreposition {
+                ContractingPrepositionDetailView(preposition: contractingPreposition)
+            }
         }
     }
 
 }
 
-struct PrepositionsOverview_Previews: PreviewProvider {
+struct ContractingPrepositionDetailView: View {
+
+    @State var preposition: ContractingPreposition
+
+    var body: some View {
+        VStack {
+            GroupBox {
+                Text("With a definite article")
+                HStack {
+                    Text(DefiniteArticle.singular.rawValue)
+                    Spacer()
+                    Text(preposition.contractedWith(.singular))
+                }
+                HStack {
+                    Text(DefiniteArticle.plural.rawValue)
+                    Spacer()
+                    Text(preposition.contractedWith(.plural))
+                }
+            }
+        }
+    }
+
+}
+struct PrepositionsOverviewPreviews: PreviewProvider {
 
     static var previews: some View {
         PrepositionsOverview()
