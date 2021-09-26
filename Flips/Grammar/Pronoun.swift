@@ -2,7 +2,7 @@
 
 import Foundation
 
-public enum DemonstrativePronoun: String {
+public enum DefiniteArticle: String {
 
     case singular = "an"
 
