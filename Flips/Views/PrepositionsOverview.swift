@@ -4,7 +4,7 @@ import SwiftUI
 
 struct PrepositionsOverview: View {
 
-    var prepositions: [InflectedPreposition] = [Ag(), Ar(), As(), Chuig(), De(), Do(), Faoi(), Le(), Ó(), Trí()]
+    var prepositions: [InflectedPreposition] = [Ag(), Ar(), As(), Chuig(), De(), Do(), Faoi(), I(), Le(), Ó(), Trí()]
 
     var body: some View {
         List {

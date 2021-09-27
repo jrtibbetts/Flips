@@ -558,7 +558,7 @@ public struct Fara: InflectedPreposition, ContractingPreposition {
 
 }
 
-public struct I: Preposition, ContractingPreposition {
+public struct I: InflectedPreposition, ContractingPreposition {
 
     public var englishTranslation = "in"
 
@@ -586,6 +586,49 @@ public struct I: Preposition, ContractingPreposition {
     public func decline(_ noun: String) -> String? {
         return "i " + noun
     }
+
+    public func inflect(number: Grammar.Number, person: Grammar.Person, gender: Gender) -> String? {
+        switch (number, person, gender) {
+        case (.singular, .first, _):
+            return "ionam"
+        case (.singular, .second, _):
+            return "ionat"
+        case (.singular, .third, .masculine):
+            return "ann"
+        case (.singular, .third, .feminine):
+            return "inti"
+        case (.plural, .first, _):
+            return "ionainn"
+        case (.plural, .second, _):
+            return "ionaibh"
+        case (.plural, .third, _):
+            return "iontu"
+        default:
+            return nil
+        }
+    }
+
+    public func inflectEmphatic(number: Grammar.Number, person: Grammar.Person, gender: Gender) -> String? {
+        switch (number, person, gender) {
+        case (.singular, .first, _):
+            return "ionamsa"
+        case (.singular, .second, _):
+            return "ionatsa"
+        case (.singular, .third, .masculine):
+            return "annsan"
+        case (.singular, .third, .feminine):
+            return "intise"
+        case (.plural, .first, _):
+            return "ionainne"
+        case (.plural, .second, _):
+            return "ionaibhse"
+        case (.plural, .third, _):
+            return "iontusan"
+        default:
+            return nil
+        }
+    }
+
 
 }
 
