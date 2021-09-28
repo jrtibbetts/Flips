@@ -115,6 +115,25 @@ struct ContractingPrepositionDetailView: View {
                     Text(preposition.contractedWith(.plural))
                 }
             }
+
+            GroupBox {
+                Text("With possessives")
+                HStack {
+                    Text(PossessivePronoun.firstSingular.string)
+                    Spacer()
+                    Text(preposition.contractedWith(.firstSingular))
+                }
+                HStack {
+                    Text(PossessivePronoun.secondSingular.string)
+                    Spacer()
+                    Text(preposition.contractedWith(.secondSingular))
+                }
+                HStack {
+                    Text(PossessivePronoun.firstPlural.string)
+                    Spacer()
+                    Text(preposition.contractedWith(.firstPlural))
+                }
+            }
         }
     }
 
