@@ -8,18 +8,18 @@ struct PrepositionsOverview: View {
 
     var body: some View {
         VStack {
-        List {
-            ForEach(prepositions, id: \.string) { (preposition) in
-                NavigationLink(destination: InflectedPrepositionDetailView(preposition: preposition)) {
-                    HStack(spacing: 8.0) {
-                        Text(preposition.string)
-                        Spacer()
-                        Text(preposition.englishTranslation)
+            List {
+                ForEach(prepositions, id: \.string) { (preposition) in
+                    NavigationLink(destination: InflectedPrepositionDetailView(preposition: preposition)) {
+                        HStack(spacing: 8.0) {
+                            Text(preposition.string)
+                            Spacer()
+                            Text(preposition.englishTranslation)
+                        }
                     }
                 }
             }
-        }
-        .listRowSeparator(.hidden)
+            .listRowSeparator(.hidden)
 
             Spacer()
         }
@@ -56,7 +56,8 @@ struct InflectedPrepositionDetailView: View {
                         } else {
                             Text(preposition.inflect(number: .singular, person: .first, gender: .none)!)
                             Spacer()
-                            Text(preposition.inflect(number: .plural, person: .first, gender: .none)!)                        }
+                            Text(preposition.inflect(number: .plural, person: .first, gender: .none)!)
+                        }
                     }
 
                     HStack(alignment: .top, spacing: 8.0) {
@@ -100,6 +101,50 @@ struct InflectedPrepositionDetailView: View {
 
 }
 
+private struct DefiniteArticleContractionView: View {
+
+    @State var definiteArticle: DefiniteArticle
+
+    @State var preposition: ContractingPreposition
+
+    var body: some View {
+        ContractingPrepositionEntryView(contractingElement: definiteArticle.rawValue,
+                                        contraction: preposition.contractedWith(definiteArticle))
+    }
+
+}
+
+private struct PossessiveContractionView: View {
+
+    @State var possessivePronoun: PossessivePronoun
+
+    @State var preposition: ContractingPreposition
+
+    var body: some View {
+        ContractingPrepositionEntryView(contractingElement: possessivePronoun.string,
+                                        contraction: preposition.contractedWith(possessivePronoun))
+    }
+
+}
+
+private struct ContractingPrepositionEntryView: View {
+
+    @State var contractingElement: String
+
+    @State var contraction: String
+
+    var body: some View {
+        HStack {
+            Text(contractingElement)
+                .bold()
+            Spacer()
+            Text(contraction)
+                .italic()
+        }
+    }
+
+}
+
 struct ContractingPrepositionDetailView: View {
 
     @State var preposition: ContractingPreposition
@@ -108,50 +153,24 @@ struct ContractingPrepositionDetailView: View {
         VStack {
             GroupBox {
                 Text("With a definite article")
-                HStack {
-                    Text(DefiniteArticle.singular.rawValue)
-                    Spacer()
-                    Text(preposition.contractedWith(.singular))
-                }
-                HStack {
-                    Text(DefiniteArticle.plural.rawValue)
-                    Spacer()
-                    Text(preposition.contractedWith(.plural))
-                }
-            }
+                DefiniteArticleContractionView(definiteArticle: .singular, preposition: preposition)
+                DefiniteArticleContractionView(definiteArticle: .plural, preposition: preposition)
+           }
 
             GroupBox {
                 Text("With possessives")
-                HStack {
-                    Text(PossessivePronoun.firstSingular.string)
-                    Spacer()
-                    Text(preposition.contractedWith(.firstSingular))
-                }
-                HStack {
-                    Text(PossessivePronoun.secondSingular.string)
-                    Spacer()
-                    Text(preposition.contractedWith(.secondSingular))
-                }
-                HStack {
-                    Text(PossessivePronoun.thirdSingularMasculine.string)
-                    Spacer()
-                    Text(preposition.contractedWith(.thirdSingularMasculine))
-                }
-                HStack {
-                    Text(PossessivePronoun.thirdSingularFeminine.string)
-                    Spacer()
-                    Text(preposition.contractedWith(.thirdSingularFeminine))
-                }
-                HStack {
-                    Text(PossessivePronoun.firstPlural.string)
-                    Spacer()
-                    Text(preposition.contractedWith(.firstPlural))
-                }
-                HStack {
-                    Text(PossessivePronoun.thirdPlural.string)
-                    Spacer()
-                    Text(preposition.contractedWith(.thirdPlural))
-                }
+                PossessiveContractionView(possessivePronoun: .firstSingular,
+                                          preposition: preposition)
+                PossessiveContractionView(possessivePronoun: .secondSingular,
+                                          preposition: preposition)
+                PossessiveContractionView(possessivePronoun: .thirdSingularMasculine,
+                                          preposition: preposition)
+                PossessiveContractionView(possessivePronoun: .thirdSingularFeminine,
+                                          preposition: preposition)
+                PossessiveContractionView(possessivePronoun: .firstPlural,
+                                          preposition: preposition)
+                PossessiveContractionView(possessivePronoun: .thirdPlural,
+                                          preposition: preposition)
             }
         }
     }
