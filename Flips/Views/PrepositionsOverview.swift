@@ -7,6 +7,7 @@ struct PrepositionsOverview: View {
     var prepositions: [InflectedPreposition] = [Ag(), Ar(), As(), Chuig(), De(), Do(), Faoi(), I(), Le(), Ó(), Trí()]
 
     var body: some View {
+        VStack {
         List {
             ForEach(prepositions, id: \.string) { (preposition) in
                 NavigationLink(destination: InflectedPrepositionDetailView(preposition: preposition)) {
@@ -19,6 +20,9 @@ struct PrepositionsOverview: View {
             }
         }
         .listRowSeparator(.hidden)
+
+            Spacer()
+        }
     }
 
 }
@@ -129,9 +133,24 @@ struct ContractingPrepositionDetailView: View {
                     Text(preposition.contractedWith(.secondSingular))
                 }
                 HStack {
+                    Text(PossessivePronoun.thirdSingularMasculine.string)
+                    Spacer()
+                    Text(preposition.contractedWith(.thirdSingularMasculine))
+                }
+                HStack {
+                    Text(PossessivePronoun.thirdSingularFeminine.string)
+                    Spacer()
+                    Text(preposition.contractedWith(.thirdSingularFeminine))
+                }
+                HStack {
                     Text(PossessivePronoun.firstPlural.string)
                     Spacer()
                     Text(preposition.contractedWith(.firstPlural))
+                }
+                HStack {
+                    Text(PossessivePronoun.thirdPlural.string)
+                    Spacer()
+                    Text(preposition.contractedWith(.thirdPlural))
                 }
             }
         }

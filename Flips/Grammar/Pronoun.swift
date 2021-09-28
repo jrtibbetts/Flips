@@ -10,7 +10,7 @@ public enum DefiniteArticle: String {
 
 }
 
-public enum PossessivePronoun {
+public enum PossessivePronoun: String {
 
     case firstSingular
 
@@ -37,7 +37,7 @@ public enum PossessivePronoun {
         case .secondPlural:
             return "bhur"
         default:
-            return "a:"
+            return "a"
         }
     }
 
