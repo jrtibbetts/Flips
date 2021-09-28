@@ -34,6 +34,12 @@ struct InflectedPrepositionDetailView: View {
 
     var body: some View {
         VStack {
+            Text(preposition.string)
+                .font(.headline)
+            Text(preposition.englishTranslation)
+                .font(.subheadline)
+                .italic()
+
             Picker("List or Grid?", selection: $displayEmphatic) {
                 Text("Normal").tag(false)
                 Text("Emphatic").tag(true)
@@ -96,6 +102,8 @@ struct InflectedPrepositionDetailView: View {
             if let contractingPreposition = preposition as? ContractingPreposition {
                 ContractingPrepositionDetailView(preposition: contractingPreposition)
             }
+
+            Spacer()
         }
     }
 
