@@ -33,7 +33,7 @@ struct InflectedPrepositionDetailView: View {
     @State var displayEmphatic: Bool = false
 
     var body: some View {
-        VStack {
+        VStack(alignment: .leading, spacing: 8.0) {
             Text(preposition.string)
                 .font(.headline)
             Text(preposition.englishTranslation)
