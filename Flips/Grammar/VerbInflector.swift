@@ -721,12 +721,7 @@ public class PastSubjunctive: VerbInflector {
         inflection.root = inflection.root.eclipsed
         inflection.translation = translationWithPronoun(person, number)
         inflection.particle = "dá"
-
-        if let root = verb.root, root.startsWithVowel {
-            inflection.prefix = "n-"
-        }
-
-        inflection.particle = mode.forTense(.past)
+//        inflection.particle = mode.forTense(.past)
 
         return inflection
     }
