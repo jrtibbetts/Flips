@@ -7,6 +7,7 @@
 # 7: Translation (singular)
 # 8: Translation (plural)
 
+# root      # g # decl # gen sing. # plural     # strong plural # trans (s.) # trans (pl.)
 abacas,     m, 1, abacais,      abacais,        false,  abacus,         abacuses
 abar,       m, 1, abair,        abair,          false,  morass,         morasses
 abach,      m, 1, abaigh,       nil,            false,  entrails,       entrails
@@ -47,6 +48,8 @@ ceann,      m, 1, cinn,         cinn,           false,  head,           heads
 ceart,      m, 1, cirt,         cearta,         false,  right,          rights
 cine,       m, 4, cine,         ciníocha,       false,  race\, tribe,   races\, tribes
 cleas,      m, 1, clis,         cleasa,         false,  trick,          tricks
+
+# root      # g # decl # gen sing. # plural     # strong plural # trans (s.) # trans (pl.)
 cliamhain,  m, 4, cliamhain,    cliamhaineacha, false,  son-in-law,     sons-in-law
 cneá,       f, 4, cneá,         cneácha,        false,  wound,          wounds
 cnó,        m, 4, cnó,          cnónna,         false,  nut,            nuts
@@ -69,6 +72,7 @@ gealach,    f, 2, gealacha,     gealaí,         false,  moon,           moons
 girseach,   f, 2, girsí,        girseacha,      false,  little girl,    little girls
 glór,       m, 1, glóir,        glórtha,        true,   voice,          voices
 gnó,        m, 4, gnó,          gnóthaí,        false,  business,       businesss
+grian,      f, 4, gréine,       grianta,        false,  sun,            suns
 gualainn,   f, 2, gualainne,    guaillí,        true,   shoulder,       shoulders
 iníon,      f, 2, iníne,        iníonacha,      true,   daughter,       daughters
 lacha,      f, 5, lachan,       lachain,        false,  duck,           duck
@@ -86,6 +90,8 @@ rá,         m, 4, rá,           ráite,          false,  saying,         sayin
 rás,        m, 3, rása,         rásaí,          false,  race,           races
 rí,         m, 4, rí,           ríthe,          false,  king,           kings
 rós,        m, 1, róis,         rósanna,        true,   rose,           roses
+
+# root      # g # decl # gen sing. # plural     # strong plural # trans (s.) # trans (pl.)
 samhradh,   m, 1, samhraidh,    samhraí,        true,   summer,         summers
 scéal,      m, 1, scéil,        scéalta,        true,   story,          stories
 scian,      f, 2, scine,        sceana,         true,   knife,          knives
