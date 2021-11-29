@@ -17,6 +17,7 @@
 		9641FE7425C6831100708FFE /* NounInflector.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641FE7325C6831100708FFE /* NounInflector.swift */; };
 		9641FE7C25C6886300708FFE /* Declinable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641FE7B25C6886300708FFE /* Declinable.swift */; };
 		9641FE8D25CFA98700708FFE /* Preposition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9641FE8C25CFA98700708FFE /* Preposition.swift */; };
+		966E46452754885600D89876 /* duolingo.csv in Resources */ = {isa = PBXBuildFile; fileRef = 966E46442754885600D89876 /* duolingo.csv */; };
 		9675F1E7252EA6FA00CAF7EC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9675F1E6252EA6FA00CAF7EC /* Assets.xcassets */; };
 		9675F1EA252EA6FA00CAF7EC /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9675F1E9252EA6FA00CAF7EC /* Preview Assets.xcassets */; };
 		9675F1EC252EA6FA00CAF7EC /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9675F1EB252EA6FA00CAF7EC /* Persistence.swift */; };
@@ -65,6 +66,7 @@
 		9641FE7325C6831100708FFE /* NounInflector.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NounInflector.swift; sourceTree = "<group>"; };
 		9641FE7B25C6886300708FFE /* Declinable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Declinable.swift; sourceTree = "<group>"; };
 		9641FE8C25CFA98700708FFE /* Preposition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Preposition.swift; sourceTree = "<group>"; };
+		966E46442754885600D89876 /* duolingo.csv */ = {isa = PBXFileReference; lastKnownFileType = text; path = duolingo.csv; sourceTree = "<group>"; };
 		9675F1DF252EA6F800CAF7EC /* Flips.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flips.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9675F1E6252EA6FA00CAF7EC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9675F1E9252EA6FA00CAF7EC /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -121,6 +123,7 @@
 		96185CC5253BE05900C71FBB /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				966E46442754885600D89876 /* duolingo.csv */,
 				9678B25525B55AE500331A16 /* nouns.csv */,
 				9637871125391C6500DF52EC /* verbs.csv */,
 				9675F1EB252EA6FA00CAF7EC /* Persistence.swift */,
@@ -340,6 +343,7 @@
 				9675F1EA252EA6FA00CAF7EC /* Preview Assets.xcassets in Resources */,
 				9637871225391C6500DF52EC /* verbs.csv in Resources */,
 				9678B25625B55AE500331A16 /* nouns.csv in Resources */,
+				966E46452754885600D89876 /* duolingo.csv in Resources */,
 				9675F1E7252EA6FA00CAF7EC /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
