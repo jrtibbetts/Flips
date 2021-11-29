@@ -90,9 +90,9 @@ struct WordListView<T: Word>: View {
 
 }
 
-struct CardsView_Previews: PreviewProvider {
+struct WordListViewPreviews: PreviewProvider {
     static var previews: some View {
         WordListView().environment(\.managedObjectContext,
-                                PersistenceController.preview.container.viewContext)
+                                    PersistenceController.preview.container.viewContext)
     }
 }
