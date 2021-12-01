@@ -28,7 +28,7 @@ struct VerbConjugationView: WordDetailView {
             if showingVerbEditor {
                 VerbEditor(verb: Verb(context: PersistenceController.preview.container.viewContext),
                            showingVerbEditor: $showingVerbEditor)
-                    .animation(.easeInOut)
+                    .animation(.easeInOut, value: showingVerbEditor)
             } else {
                 Picker("", selection: $mode) {
                     ForEach(VerbMode.allCases, id: \.self) { (mode) in
