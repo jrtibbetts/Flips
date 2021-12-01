@@ -2,6 +2,7 @@
 
 import Foundation
 
+// swiftlint:disable type_name
 public protocol Preposition {
 
     var englishTranslation: String { get }

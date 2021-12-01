@@ -108,7 +108,12 @@ struct VerbEditor: View {
                 }
 
                 Button("Save Changes") {
-                    try! PersistenceController.preview.container.viewContext.save()
+                    do {
+                        try PersistenceController.preview.container.viewContext.save()
+                    } catch {
+                        // Do nothing
+                    }
+
                     showingVerbEditor = false
                 }
 

@@ -55,13 +55,13 @@ struct VerbConjugationView: WordDetailView {
                                                                         mode: mode),
                                             showTranslations: $showTranslation)
                         }
-                        
+
                         MoodView(.conditional) {
                             InflectionGroup(inflector: Conditional(verb: verb,
                                                                    mode: mode),
                                             showTranslations: $showTranslation)
                         }
-                        
+
                         MoodView(.subjunctive) {
                             InflectionGroup(inflector: PresentSubjunctive(verb: verb,
                                                                           mode: mode),
@@ -247,19 +247,19 @@ struct InflectionCell: View {
                         .font(.body)
                         .fontWeight(.bold)
                 }
-                
+
                 if let prefix = inflections.prefix {
                     Text(prefix)
                         .font(.body)
                         .fontWeight(.bold)
                         .padding(.trailing, -8)
                 }
-                
+
                 Text(inflections.root)
                     .font(.body)
                     .frame(alignment: .leading)
                     .padding(.trailing, 0)
-                
+
                 if let ending = inflections.ending {
                     Text(ending)
                         .font(.body)
@@ -267,13 +267,13 @@ struct InflectionCell: View {
                         .frame(alignment: .leading)
                         .padding(.leading, -8)
                 }
-                
+
                 if let pronoun = inflections.pronoun {
                     Text(pronoun)
                 }
             }
             .frame(alignment: .leading)
-            
+
             if showTranslations,
                let translation = inflections.translation {
                 Text(translation)

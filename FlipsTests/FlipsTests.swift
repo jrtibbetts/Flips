@@ -1,9 +1,4 @@
-//
-//  FlipsTests.swift
-//  FlipsTests
-//
 //  Created by Jason R Tibbetts on 10/7/20.
-//
 
 import XCTest
 @testable import Flips
