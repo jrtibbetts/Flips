@@ -132,7 +132,7 @@ struct MoodView<Content>: View where Content: View {
     }
 
     var body: some View {
-        VStack {
+        VStack(alignment: .leading) {
             Text(mood.rawValue.capitalized)
                 .font(.title)
                 .frame(alignment: .leading)
@@ -183,7 +183,6 @@ struct InflectionGroup: View {
                     }
                 }
                 .frame(alignment: .leading)
-                .border(Color.blue)
 
                 Spacer()
 
@@ -202,7 +201,6 @@ struct InflectionGroup: View {
 
                 }
                 .frame(alignment: .leading)
-                .border(Color.red)
             }
         }
 
