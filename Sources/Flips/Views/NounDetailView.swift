@@ -21,7 +21,13 @@ struct NounDetailView: View {
     @StateObject var noun: Noun
 
     var body: some View {
-        VStack(alignment: .leading) {
+        VStack(alignment: .leading, spacing: 8.0) {
+            if noun.englishTranslation != nil {
+                Text(noun.englishTranslation!)
+                    .font(.subheadline)
+                    .italic()
+            }
+
             ScrollView {
                 HStack {
                     NumberInflectionView(inflector: inflector, number: .singular)
