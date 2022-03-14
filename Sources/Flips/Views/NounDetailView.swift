@@ -23,9 +23,12 @@ struct NounDetailView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 8.0) {
             if noun.englishTranslation != nil {
-                Text(noun.englishTranslation!)
-                    .font(.subheadline)
-                    .italic()
+                HStack(spacing: 8.0) {
+                    Text(noun.englishTranslation!)
+                        .italic()
+                    Text(noun.gender ?? "m") + Text(".")
+                }
+                .font(.subheadline)
             }
 
             ScrollView {
@@ -49,6 +52,8 @@ struct NumberInflectionView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(number.rawValue.uppercased())
+                .font(.subheadline)
+
             CaseNumberInflectionView(inflector: inflector, grammaticalCase: .nominative, number: number)
             CaseNumberInflectionView(inflector: inflector, grammaticalCase: .vocative, number: number)
             CaseNumberInflectionView(inflector: inflector, grammaticalCase: .genitive, number: number)
