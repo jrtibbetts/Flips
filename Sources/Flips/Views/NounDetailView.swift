@@ -32,9 +32,13 @@ struct NounDetailView: View {
             }
 
             ScrollView {
-                HStack {
-                    NumberInflectionView(inflector: inflector, number: .singular)
-                    NumberInflectionView(inflector: inflector, number: .plural)
+                GeometryReader { (proxy) in
+                    HStack {
+                        NumberInflectionView(inflector: inflector, number: .singular)
+                            .frame(width: proxy.size.width / 2)
+                        NumberInflectionView(inflector: inflector, number: .plural)
+                            .frame(width: proxy.size.width / 2)
+                    }
                 }
             }
         }
